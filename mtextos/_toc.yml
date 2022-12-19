@@ -44,7 +44,7 @@ parts:
 #    - file: bloque3_p6_SA-AutoGOAL
 #    - file: bloque3_ev
 - caption: Extras
-chapters:
+  chapters:
   - file: content
   - file: markdown
   - file: notebooks
