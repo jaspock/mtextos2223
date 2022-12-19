@@ -1,6 +1,6 @@
 # Minería de Textos, curso 2022-2023
 
-Este repositorio contiene el código fuente para Jupyter Book de los materiales de la asignatura _Minería de Textos_ de la Universidad de Alicante. Los materiales resultantes pueden consultarse [aquí](https://jaspock.github.io/mtextos2122).
+Este repositorio contiene el código fuente para Jupyter Book de los materiales de la asignatura _Minería de Textos_ de la Universidad de Alicante. Los materiales resultantes pueden consultarse [aquí](https://jaspock.github.io/mtextos2223).
 
 ## Usage
 
