@@ -1,0 +1,40 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+- file: intro
+- file: bloque1
+  sections:
+    - file: bloque1_1Introduccion
+    - file: bloque1_2CategorialSintactico
+    - file: bloque1_3AnalisisSemantico
+    - file: bloque1_Practica1
+    - file: bloque1_4AnalisisSemanticoVectorial
+    - file: bloque1_Practica2
+- file: bloque2
+  sections:
+    - file: bloque2_historia
+    - file: bloque2_embeddings
+#    - file: bloque2_recurrent
+#    - file: bloque2_transformer
+#    - file: bloque2_pretrained
+#    - file: bloque2_otros
+    - file: bloque2_practica
+- file: bloque3
+#  sections:
+#    - file: bloque3_t1_aplicaciones
+#    - file: bloque3_t2_subaplicaciones-benchmarks
+#    - file: bloque3_t2.1_analisis_sentimientos.md
+#    - file: bloque3_t3.1_metricas.md
+#    - file: bloque3_t4_huggingface
+#    - file: bloque3_t5_automl
+#    - file: bloque3_t5.1_autogoal.md
+#    - file: bloque3_p1_SA-Pipeline-Reviews
+#    - file: bloque3_p2_SA-Transformers-Basic
+#    - file: bloque3_p3_SA-Transformers-Training-FineTuning
+#    - file: bloque3_p4_SA-Transformers-Training-Custom
+#    - file: bloque3_p5-SA-Ensemble
+#    - file: bloque3_p6_SA-AutoGOAL
+#    - file: bloque3_ev
+- file: content
+  sections:
+    - file: markdown
+    - file: notebooks
