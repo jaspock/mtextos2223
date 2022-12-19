@@ -1,0 +1,1567 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>T5.1. AutoGOAL &#8212; Minería de Textos</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Materiales de Minería de Textos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1.html">
+   1. Introducción a la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_1Introduccion.html">
+   2. Minería de textos y procesamiento del lenguaje natural.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+   3. Análisis categorial y sintáctico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+   4. Análisis semántico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica1.html">
+   5. Práctica 1.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+   6. Análisis semántico vectorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica2.html">
+   7. Práctica 1b :
+   <em>
+    Topic modeling
+   </em>
+   .
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2.html">
+   8. Técnicas para la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_historia.html">
+   9. Revisión histórica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_embeddings.html">
+   10. Representaciones de palabras y oraciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_practica.html">
+   11. Práctica. Lectura y documentación del código de un extractor de entidades
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3.html">
+   12. Aplicaciones de la minería de textos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content.html">
+   13. Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   14. Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   15. Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/bloque3_t5.1_autogoal.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-tipo-de-automl-es-autogoal">
+   ¿Qué tipo de AutoML es AutoGOAL?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#por-que-utilizarlo">
+     ¿Por qué utilizarlo?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-diferencia-a-autogoal-del-resto-de-bibliotecas">
+     ¿Qué diferencia a AutoGOAL del resto de bibliotecas?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-autogoal">
+     ¿Qué es AutoGOAL?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#funciones">
+       Funciones
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temas-que-podemos-tratar-con-autogoal">
+   Temas que podemos tratar con AutoGOAL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">
+     Tema 1. AutoGOAL para la resolución de problemas de alto nivel
+     <em>
+      (uso de la clase AutoML)
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tipos-de-datos-semanticos-en-autogoal">
+       Tipos de datos semánticos en AutoGOAL
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definicion-de-pipeline-segun-autogoal">
+       Definición de pipeline según AutoGOAL
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#como-saber-cuando-dos-algoritmos-son-conectables">
+         ¿Cómo saber cuando dos algoritmos son conectables?
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proceso-de-construccion-del-grafo-de-algoritmos">
+       Proceso de construcción del grafo de algoritmos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tema-2-beneficios-de-la-arquitectura-de-autogoal">
+     Tema 2. Beneficios de la arquitectura de AutoGOAL
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modulos-de-autogoal">
+       Módulos de AutoGOAL
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#modulo-de-gramatica">
+         Módulo de Gramática
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#que-es-una-gramatica-en-autogoal">
+           ¿Qué es una gramática en AutoGOAL?
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#modulo-de-optimizacion">
+         Módulo de Optimización
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#modulo-de-flujos-pipelines">
+         Módulo de Flujos (Pipelines)
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#como-anadir-un-algoritmo-nuevo-a-autogoal-y-utilizarlo">
+       ¿Cómo añadir un algoritmo nuevo a AutoGOAL y utilizarlo?
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#parte-1">
+         <strong>
+          Parte 1
+         </strong>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#parte-2">
+         <strong>
+          Parte 2
+         </strong>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#como-integrar-otras-librerias-ejemplo-sklearn">
+       ¿Cómo integrar otras librerías?: Ejemplo Sklearn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tema-3-uso-de-componentes">
+     Tema 3. Uso de componentes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definicion-de-espacio-de-busqueda-en-autogoal">
+       Definición de espacio de búsqueda en AutoGOAL
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#definicion-de-espacio-de-busqueda">
+         Definición de espacio de búsqueda
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#espacio-de-busqueda-construyendo-pipelines">
+           Espacio de búsqueda construyendo Pipelines
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#funcion-de-evaluacion">
+         Función de evaluación
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#generar-gramatica">
+         Generar gramática
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#instanciacion-de-searchalgorithm">
+         Instanciación de SearchAlgorithm
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejecutar-funciones">
+         Ejecutar Funciones
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl">
+     Ejemplo extendido de optimización con AutoGOAL
+     <em>
+      (SIN uso de la clase AutoML)
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliogarfia">
+   Bibliogarfía
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>T5.1. AutoGOAL</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-tipo-de-automl-es-autogoal">
+   ¿Qué tipo de AutoML es AutoGOAL?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#por-que-utilizarlo">
+     ¿Por qué utilizarlo?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-diferencia-a-autogoal-del-resto-de-bibliotecas">
+     ¿Qué diferencia a AutoGOAL del resto de bibliotecas?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-autogoal">
+     ¿Qué es AutoGOAL?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#funciones">
+       Funciones
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temas-que-podemos-tratar-con-autogoal">
+   Temas que podemos tratar con AutoGOAL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">
+     Tema 1. AutoGOAL para la resolución de problemas de alto nivel
+     <em>
+      (uso de la clase AutoML)
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tipos-de-datos-semanticos-en-autogoal">
+       Tipos de datos semánticos en AutoGOAL
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definicion-de-pipeline-segun-autogoal">
+       Definición de pipeline según AutoGOAL
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#como-saber-cuando-dos-algoritmos-son-conectables">
+         ¿Cómo saber cuando dos algoritmos son conectables?
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proceso-de-construccion-del-grafo-de-algoritmos">
+       Proceso de construcción del grafo de algoritmos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tema-2-beneficios-de-la-arquitectura-de-autogoal">
+     Tema 2. Beneficios de la arquitectura de AutoGOAL
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modulos-de-autogoal">
+       Módulos de AutoGOAL
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#modulo-de-gramatica">
+         Módulo de Gramática
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#que-es-una-gramatica-en-autogoal">
+           ¿Qué es una gramática en AutoGOAL?
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#modulo-de-optimizacion">
+         Módulo de Optimización
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#modulo-de-flujos-pipelines">
+         Módulo de Flujos (Pipelines)
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#como-anadir-un-algoritmo-nuevo-a-autogoal-y-utilizarlo">
+       ¿Cómo añadir un algoritmo nuevo a AutoGOAL y utilizarlo?
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#parte-1">
+         <strong>
+          Parte 1
+         </strong>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#parte-2">
+         <strong>
+          Parte 2
+         </strong>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#como-integrar-otras-librerias-ejemplo-sklearn">
+       ¿Cómo integrar otras librerías?: Ejemplo Sklearn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tema-3-uso-de-componentes">
+     Tema 3. Uso de componentes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definicion-de-espacio-de-busqueda-en-autogoal">
+       Definición de espacio de búsqueda en AutoGOAL
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#definicion-de-espacio-de-busqueda">
+         Definición de espacio de búsqueda
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#espacio-de-busqueda-construyendo-pipelines">
+           Espacio de búsqueda construyendo Pipelines
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#funcion-de-evaluacion">
+         Función de evaluación
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#generar-gramatica">
+         Generar gramática
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#instanciacion-de-searchalgorithm">
+         Instanciación de SearchAlgorithm
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejecutar-funciones">
+         Ejecutar Funciones
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl">
+     Ejemplo extendido de optimización con AutoGOAL
+     <em>
+      (SIN uso de la clase AutoML)
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliogarfia">
+   Bibliogarfía
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="t5-1-autogoal">
+<h1>T5.1. AutoGOAL<a class="headerlink" href="#t5-1-autogoal" title="Permalink to this headline">#</a></h1>
+<p>Contenidos:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#introduccion">Introducción</a></p></li>
+<li><p><a class="reference external" href="#que-tipo-de-automl-es-autogoal">¿Qué tipo de AutoML es AutoGOAL?</a></p></li>
+<li><p><a class="reference external" href="#temas-que-podemos-tratar-con-autogoal">Temas que podemos tratar con AutoGOAL</a></p></li>
+</ul>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">#</a></h2>
+<p>Las <strong>propuestas de Auto-ML actuales</strong> requieren de una <strong>previa definición de los algoritmos</strong> que serán considerados durante el <strong>proceso de búsqueda</strong>. <strong>Sistemas</strong> con un <strong>diseño extensible</strong> logran <strong>separar</strong> la <strong>lógica</strong> y el conjunto de <strong>técnicas</strong>, haciendo al segundo fácilmente modificable. Sin embargo, <strong>no muchos logran cumplir este objetivo</strong>, requiriendo cambios computacionales pertinentes a la hora de añadir enfoques de machine learning a ser considerados.</p>
+<p><strong>Gran parte de los sistemas</strong> que forman el estado del arte, <strong>interpretan</strong> el problema del <strong>Auto-ML</strong> como un problema de <strong>selección combinada de modelos</strong> y <strong>optimización de hiperparámetros</strong>. Este enfoque captura naturalmente el área del aprendizaje supervisado y, a la vez, <strong>impide resolver</strong> directamente <strong>tareas de otros campos</strong> del ML como el aprendizaje no supervisado.</p>
+<p>El <strong>Auto-ML heterogéneo</strong> es una nueva variante del Auto-ML general que <strong>consiste</strong> en la <strong>creación de flujos de machine learning más complejos</strong> y con <strong>estructuras dependientes de la tarea</strong>. Abarcando áreas como el aprendizaje supervisado y no supervisado de manera natural, el problema heterogéneo requiere la creación de <strong>sistemas más flexibles y generales</strong>.</p>
+</section>
+<section id="que-tipo-de-automl-es-autogoal">
+<h2>¿Qué tipo de AutoML es AutoGOAL?<a class="headerlink" href="#que-tipo-de-automl-es-autogoal" title="Permalink to this headline">#</a></h2>
+<p><strong>AutoGOAL</strong> es un sistema diseñado específicamente para <strong>Problemas de AutoML heterogéneo</strong>.</p>
+<section id="por-que-utilizarlo">
+<h3>¿Por qué utilizarlo?<a class="headerlink" href="#por-que-utilizarlo" title="Permalink to this headline">#</a></h3>
+<p><strong>Permite</strong> a los investigadores y profesionales <strong>desarrollar rápidamente algoritmos de referencia optimizados</strong> en diversos problemas de aprendizaje automático.</p>
+<p>Instalación de la librería AutoGOAL, versión 0.4.4</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install autogoal[contrib]==0.4.4
+</pre></div>
+</div>
+<p>Uso de AutoGOAL desde la clase AutoML:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.datasets</span> <span class="kn">import</span> <span class="n">cars</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.ml</span> <span class="kn">import</span> <span class="n">AutoML</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">cars</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span> <span class="o">=</span> <span class="n">AutoML</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="go"># Report the best pipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_pipeline_</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;score: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_score_</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Figura 1. Ejemplo simple de uso de AutoGOAL</p>
+<p>Para <strong>ver demostrador</strong> hacer click en el <a class="reference external" href="https://autogoal.github.io/"><strong>enlace.</strong></a></p>
+<p>Sin embargo, los sistemas <strong>AutoML no deben intentar reemplazar a los expertos humanos</strong>, sino <strong>servir como herramientas complementarias</strong> que permitan a los investigadores <strong>obtener rápidamente mejores prototipos</strong> y conocimientos sobre las estrategias más prometedoras en un problema concreto. Las técnicas de AutoML abren las puertas a revolucionar la forma en que se realiza la investigación y el desarrollo del aprendizaje automático en la academia y la industria.</p>
+</section>
+<section id="que-diferencia-a-autogoal-del-resto-de-bibliotecas">
+<h3>¿Qué diferencia a AutoGOAL del resto de bibliotecas?<a class="headerlink" href="#que-diferencia-a-autogoal-del-resto-de-bibliotecas" title="Permalink to this headline">#</a></h3>
+<p>A diferencia de los enfoques de AutoML existentes, <strong>AutoGOAL</strong> puede <strong>combinar técnicas y algoritmos de diferentes bibliotecas y tecnologı́as</strong>, incluidos algoritmos de aprendizaje de <strong>máquina clásicos</strong>, <strong>extracción de caracterı́sticas</strong>, <strong>herramientas de procesamiento de lenguaje natural</strong> y diversas arquitecturas de <strong>redes neuronales</strong>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_challenge.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_challenge.jpg" style="width: 600px;" /></a>
+<p>Figura 2. Donde se centra generalmente el autoML</p>
+</section>
+<section id="que-es-autogoal">
+<h3>¿Qué es AutoGOAL?<a class="headerlink" href="#que-es-autogoal" title="Permalink to this headline">#</a></h3>
+<p>AutoGOAL es un <strong>marco de Python</strong> para la <strong>optimización automática</strong>, <strong>generación</strong> y <strong>aprendizaje de pipelines(flujos o tuberías)</strong> de software.</p>
+<p>Una <strong>pipeline</strong> se <strong>define</strong>, a los efectos de AutoGOAL, como <strong>cualquier componente de software</strong>, ya sea una <strong>jerarquía de clases</strong>, un conjunto de <strong>funciones</strong> o cualquier <strong>combinación</strong> de los mismos, que trabajan juntos para resolver un problema específico.</p>
+<p>Con AutoGOAL puede <strong>definir un pipeline</strong> de muchas <strong>formas diferentes</strong>, de modo que ciertas <strong>partes</strong> de ella sean <strong>configurables</strong> o sintonizables, y luego usar <strong>algoritmos de búsqueda</strong> para encontrar la mejor manera de <strong>ajustarla</strong> o configurarla para un <strong>problema</strong> dado.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_flow.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_flow.jpg" style="width: 600px;" /></a>
+<p>Figura 3. Visión general de Autogoal</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_example.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_example.jpg" style="width: 500px;" /></a>
+<p>Figura 4. Gramática probabilística</p>
+<section id="funciones">
+<h4>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://autogoal.github.io/guide/"><strong>Optimización de caja negra:</strong></a> un optimizador de caja negra que se puede aplicar a cualquier función.</p></li>
+<li><p><a class="reference external" href="https://autogoal.github.io/guide/"><strong>Pipelines predefinidos:</strong></a> pre-empaquetados con pipelines <strong>basados en marcos de aprendizaje automático populares</strong>, que puede usar en <strong>pocas líneas de código</strong> para crear canales de aprendizaje automático altamente optimizados para una amplia gama de problemas.</p></li>
+<li><p><a class="reference external" href="https://autogoal.github.io/guide/"><strong>Flujos basados en clases:</strong></a> la API basada en clases le permite convertir cualquier jerarquía de clases en un <strong>espacio optimizable</strong>. Usted <strong>define clases</strong> y <strong>anota los parámetros del constructor</strong> con atributos, y <strong>AutoGOAL construye</strong> automáticamente una <strong>gramática</strong> que genera todas las instancias posibles de su jerarquía.</p></li>
+<li><p><a class="reference external" href="https://autogoal.github.io/guide/"><strong>Canalizaciones basadas en grafos:</strong></a> la API basada en grafos le <strong>permite explorar espacios</strong> definidos como grafos. La gramática de un grafo se define como un <strong>conjunto de reglas</strong> de reescritura de grafos, que <strong>toman nodos existentes</strong> y los <strong>reemplazan por patrones más complejos</strong>. AutoGOAL luego <strong>se transforma</strong> en un <strong>objeto evaluable</strong>, por ejemplo, una red neuronal.</p></li>
+<li><p><a class="reference external" href="https://autogoal.github.io/guide/"><strong>Pipelines funcionales:</strong></a> la API funcional le permite <strong>gemerar código de Python</strong> que resuelva alguna tarea en un pipeline optimizable. Escribe un método regular e introduce los parámetros de AutoGOAL en el flujo de código, que luego se <strong>optimizarán automáticamente</strong> para producir la salida óptima.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="temas-que-podemos-tratar-con-autogoal">
+<h2>Temas que podemos tratar con AutoGOAL<a class="headerlink" href="#temas-que-podemos-tratar-con-autogoal" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">Tema 1. AutoGOAL para la resolución de problemas de alto nivel</a></p></li>
+<li><p><a class="reference external" href="#tema-2-beneficios-de-la-arquitectura-de-autogoal">Tema 2. Beneficios de la arquitectura de AutoGOAL</a></p></li>
+<li><p><a class="reference external" href="#tema-3-uso-de-componentes">Tema 3. Uso de componentes</a></p></li>
+</ul>
+<section id="tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">
+<h3>Tema 1. AutoGOAL para la resolución de problemas de alto nivel <em>(uso de la clase AutoML)</em><a class="headerlink" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl" title="Permalink to this headline">#</a></h3>
+<p>¿Como definimos un problema con AutoGOAL?</p>
+<p>Es necesario definir:</p>
+<ul class="simple">
+<li><p><strong>Entrada</strong>,</p></li>
+<li><p><strong>Salida</strong>, y</p></li>
+<li><p><strong>Métrica a optimizar</strong> (Función objetivo)</p></li>
+</ul>
+<p>Véase el siguiente ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.ml</span> <span class="kn">import</span> <span class="n">AutoML</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.</span> <span class="n">datasets</span> <span class="kn">import</span> <span class="nn">haha</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">Seq</span> <span class="p">,</span> <span class="n">Sentence</span> <span class="p">,</span> <span class="n">VectorCategorical</span><span class="p">,</span> <span class="n">Supervised</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">balanced_accuracy_score</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span> <span class="o">=</span> <span class="n">AutoML</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="nb">input</span><span class="o">=</span><span class="p">(</span><span class="n">Seq</span><span class="p">[</span><span class="n">Sentence</span><span class="p">],</span> <span class="n">Supervised</span><span class="p">[</span><span class="n">VectorCategorical</span><span class="p">]),</span> <span class="c1"># tipos de entrada: seleccionar el tipo de dato semántico</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">output</span><span class="o">=</span><span class="n">VectorCategorical</span><span class="p">,</span> <span class="c1"># tipo de salida: seleccionar el tipo de dato semántico</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="n">score_metric</span><span class="o">=</span><span class="n">balanced_accuracy_score</span> <span class="c1"># métrica a optimizar (Función objetivo): Seleccionar la métrica objetivo</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">haha</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># ejecutar optimizacion</span>
+
+<span class="go"># Report the best pipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_pipeline_</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Figura 5. Ejemplo de código fuente para ejecutar AutoGOAL en un conjunto de datos específico, en este caso, un problema de PLN.</p>
+<p>Podemos considerando <strong>más parámetros</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.ml</span> <span class="kn">import</span> <span class="n">AutoML</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.datasets</span> <span class="kn">import</span> <span class="n">haha</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.search</span> <span class="kn">import</span> <span class="n">PESearch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">balanced_accuracy_score</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--iterations&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--timeout&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1800</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--memory&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--popsize&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--selection&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--global-timeout&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--examples&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--token&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--channel&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span> <span class="o">=</span> <span class="n">AutoML</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="nb">input</span> <span class="o">=</span> <span class="p">(</span><span class="n">Seq</span><span class="p">[</span><span class="n">Sentence</span><span class="p">],</span> <span class="n">Supervised</span><span class="p">[</span><span class="n">VectorCategorical</span><span class="p">]),</span> 
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">output</span> <span class="o">=</span> <span class="n">VectorCategorical</span><span class="p">,</span> 
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">score_metric</span><span class="o">=</span><span class="n">balanced_accuracy_score</span><span class="p">,</span> <span class="c1">#función objetivo</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">registry</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">search_algorithm</span><span class="o">=</span><span class="n">PESearch</span><span class="p">,</span>  
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">search_iterations</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">iterations</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">pop_size</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">popsize</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">search_timeout</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">global_timeout</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">evaluation_timeout</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">memory_limit</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">memory</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">include_filter</span><span class="o">=</span><span class="s2">&quot;.*&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">exclude_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">cross_validation</span><span class="o">=</span><span class="s2">&quot;median&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">cross_validation_steps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">metalearning_log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;warn&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">automl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="go"># Report the best pipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_pipeline_</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Figura 6. Ejemplo de código fuente con más parámetros.</p>
+<section id="tipos-de-datos-semanticos-en-autogoal">
+<h4>Tipos de datos semánticos en AutoGOAL<a class="headerlink" href="#tipos-de-datos-semanticos-en-autogoal" title="Permalink to this headline">#</a></h4>
+<p>Los <strong>tipos de datos semánticos</strong> permiten identificar la <strong>compatibilidad</strong> entre la <strong>entrada</strong> y <strong>salida</strong> de los <strong>distintos algoritmos</strong> pertenecientes a los Pipelines. De este modo es posible, a <strong>través</strong> de los <strong>algoritmos transformar</strong> un <strong>dato en otro</strong> y conseguir que el flujo del Pipeline no se interrumpa.
+Se aplican además <strong>jerarquías de conceptos</strong> los cuales <strong>proporcionan interfaces comunes</strong> para los distintos <strong>tipos de datos</strong>.</p>
+<!-- En el siguiente enlace podemos encontrar las especificaciones : <https://autogoal.github.io/api/autogoal.kb/#classes> -->
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_datatypes.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_datatypes.jpg" style="width: 600px;" /></a>
+<p>Figura 7. Datos semánticos</p>
+<p>Problema de ejemplo clásicos con distintos tipos de datos (texto, imágenes, clasificación básica)</p>
+<ul class="simple">
+<li><p>Ejemplo <a class="reference external" href="https://autogoal.github.io/examples/tests.examples.solving_uci_datasets">UCI</a></p></li>
+<li><p>Ejemplo <a class="reference external" href="https://autogoal.github.io/examples/tests.examples.solving_haha_2019">HAHA</a></p></li>
+<li><p>Ejemplo <a class="reference external" href="https://autogoal.github.io/examples/tests.examples.solving_meddocan_2019">MEDDOCAN</a></p></li>
+</ul>
+</section>
+<section id="definicion-de-pipeline-segun-autogoal">
+<h4>Definición de pipeline según AutoGOAL<a class="headerlink" href="#definicion-de-pipeline-segun-autogoal" title="Permalink to this headline">#</a></h4>
+<section id="como-saber-cuando-dos-algoritmos-son-conectables">
+<h5>¿Cómo saber cuando dos algoritmos son conectables?<a class="headerlink" href="#como-saber-cuando-dos-algoritmos-son-conectables" title="Permalink to this headline">#</a></h5>
+<p>Se considera que dos algoritmos son conectables cuando el <strong>tipo</strong> de la <strong>salida del primero</strong> y la <strong>entrada del segundo</strong> son el <strong>mismo</strong> <strong>o</strong> el <strong>primero es subtipo del segundo</strong>.</p>
+<!-- [Ver tabla de algoritmos](https://autogoal.github.io/guide/algorithms/)  -->
+<p>Realmente es un <strong>poco más amplio</strong> dado que los <strong>algortimos</strong> pueden recibir <strong>más de un tipo</strong>, además <strong>pueden</strong> irse <strong>acumulando varios tipos distintos</strong> para un punto determinado en un Pipeline. En este caso se puede conectar al pipeline que estamos construyendo un algoritmo si este recibe un subconjunto de los tipos que ha acumulado el pipeline.</p>
+</section>
+</section>
+<section id="proceso-de-construccion-del-grafo-de-algoritmos">
+<h4>Proceso de construcción del grafo de algoritmos<a class="headerlink" href="#proceso-de-construccion-del-grafo-de-algoritmos" title="Permalink to this headline">#</a></h4>
+<p>La siguiente imagen muestra una <strong>explicación de alto nivel</strong> del proceso de <strong>construcción del grafo de algoritmos</strong> y cómo se generan las muestras de algoritmos.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_process.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_process.jpg" style="width: 600px;" /></a>
+<p>Figura 8. Proceso de muestreo y optimización de Pipelines.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_grafoPipeline.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_grafoPipeline.jpg" style="width: 600px;" /></a>
+<p>Figura 8.1. Grafo de muestreo y optimización de Pipelines.</p>
+</section>
+</section>
+<section id="tema-2-beneficios-de-la-arquitectura-de-autogoal">
+<h3>Tema 2. Beneficios de la arquitectura de AutoGOAL<a class="headerlink" href="#tema-2-beneficios-de-la-arquitectura-de-autogoal" title="Permalink to this headline">#</a></h3>
+<p>AutoGOAL defiende una <strong>arquitectura dividida por capas y módulos</strong>. Cada <strong>capa se encarga</strong> de la <strong>agrupación</strong> de distintos tipos de <strong>módulos</strong> responsables de los siguentes aspectos:</p>
+<ul class="simple">
+<li><p><strong>registro</strong> de recursos y bibliotecas</p></li>
+<li><p><strong>adaptación de algortimos</strong> a la plataforma AutoGOAL</p></li>
+<li><p><strong>gestión de flujos</strong> de procesos pipelines, <strong>gestión de gramáticas</strong> y la <strong>optimización de pipelines</strong></p></li>
+<li><p><strong>definición conceptual</strong> de <strong>clases</strong> y <strong>tipos semánticos</strong> que se utilizan en los procesos de automatización</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/t5_autogoal_arq.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/t5_autogoal_arq.jpg" style="width: 600px;" /></a>
+<p>Figura 9. Arquitectura de AutoGOAL.</p>
+<section id="modulos-de-autogoal">
+<h4>Módulos de AutoGOAL<a class="headerlink" href="#modulos-de-autogoal" title="Permalink to this headline">#</a></h4>
+<section id="modulo-de-gramatica">
+<h5>Módulo de Gramática<a class="headerlink" href="#modulo-de-gramatica" title="Permalink to this headline">#</a></h5>
+<p>Proporciona un <strong>conjunto de anotaciones</strong> de tipo que se utilizan para definir el <strong>espacio de hiperparámetros</strong> de una técnica o algoritmo arbitrario.
+<strong>Cada técnica</strong> se <strong>representa</strong> como una <strong>clase de Python</strong>, y los <strong>hiperparámetros</strong> correspondientes se representan como <strong>argumentos</strong> anotados del método <strong><code class="docutils literal notranslate"><span class="pre">__init__</span></code></strong>, ya sea valores primitivos (por ejemplo, numéricos, texto, etc.) o instancias de otras clases, anotadas recursivamente.
+<strong>Dada una colección de clases anotadas</strong>, este módulo <strong>infiere automáticamente una gramática</strong> libre de contexto que describe el espacio de todas las instancias posibles de esas clases.</p>
+<section id="que-es-una-gramatica-en-autogoal">
+<h6>¿Qué es una gramática en AutoGOAL?<a class="headerlink" href="#que-es-una-gramatica-en-autogoal" title="Permalink to this headline">#</a></h6>
+<p>Una gramatica (Gramática libre de contexto(GLC)) en general <strong>es un mecanismo formal para describir una estructura jerárquica a partir de reglas</strong> que definen como se generan subestructuras. Esto sería una gramática libre del contexto. La estructura se <strong>define recursivamente partiendo de un concepto raíz</strong> (en este caso Pipeline) que se compone recursivamente de la <strong>concatenación de otros conceptos</strong>, que a su vez  pueden estar compuestos por más conceptos. Cuando un <strong>concepto no se define en función de otros</strong> se considera un <strong>Terminal</strong> de la gramática y <strong>de lo contrario</strong> un concepto <strong>No Terminal</strong>.</p>
+<p>!Lo más interesante de las gramáticas es que nos permiten representar espacios infinitos de forma finita! Se representan de la siguiente forma:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                    Oración:  Sujeto Predicado | Predicado
+                    Sujeto:  Articulo Sustantivo | Sustantivo | Sustantivo Adjetivo
+                    Predicado:  Verbo Complementos 
+                    artículos: el | la | los | las …
+                     ……. 
+</pre></div>
+</div>
+<p>Figura 10. Ejemplo de gramática de una oración</p>
+<p>normalmente los <strong>No Terminales</strong> se representan con <strong>mayúsculas</strong> y los <strong>Terminales</strong> con <strong>minúsculas</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span>  <span class="n">generate_cfg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">DiscreteValue</span><span class="p">,</span> <span class="n">ContinuousValue</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<span class="go">         def __init__(self, x: DiscreteValue(1,3), y: ContinuousValue(0,1)):</span>
+<span class="go">             pass</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grammar</span> <span class="o">=</span> <span class="n">generate_cfg</span><span class="p">(</span><span class="n">MyClass</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+
+<span class="go">&lt;MyClass&gt;   := MyClass (x=&lt;MyClass_x&gt;, y=&lt;MyClass_y&gt;)</span>
+<span class="go">&lt;MyClass_x&gt; := discrete (min=1, max=3)</span>
+<span class="go">&lt;MyClass_y&gt; := continuous (min=0, max=1)</span>
+</pre></div>
+</div>
+<p>Figura 11. Ejemplo de gramática a partir de una clase. Tomado de <a class="reference external" href="https://autogoal.github.io/api/autogoal.grammar.__init__/">AutoGOAL</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Pipeline</span><span class="p">(</span><span class="n">SkPipeline</span><span class="p">):</span>
+<span class="o">&gt;&gt;&gt;</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="bp">self</span><span class="p">,</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="n">vectorizer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Vectorizer&quot;</span><span class="p">,</span> <span class="n">Count</span><span class="p">,</span> <span class="n">TfIdf</span><span class="p">),</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="n">decomposer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Decomposer&quot;</span><span class="p">,</span> <span class="n">NoDec</span><span class="p">,</span> <span class="n">SVD</span><span class="p">),</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="n">classifier</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Classifier&quot;</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">SVM</span><span class="p">,</span> <span class="n">DT</span><span class="p">),</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="p">):</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">vectorizer</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="bp">self</span><span class="o">.</span><span class="n">decomposer</span> <span class="o">=</span> <span class="n">decomposer</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+
+<span class="o">&gt;&gt;&gt;</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+<span class="o">&gt;&gt;&gt;</span>            <span class="p">[(</span><span class="s2">&quot;vect&quot;</span><span class="p">,</span> <span class="n">vectorizer</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;decomp&quot;</span><span class="p">,</span> <span class="n">decomposer</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">classifier</span><span class="p">),]</span>
+<span class="o">&gt;&gt;&gt;</span>        <span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">grammar</span> <span class="o">=</span>  <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Pipeline</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">Pipeline</span><span class="o">&gt;</span>      <span class="o">:=</span> <span class="n">Pipeline</span> <span class="p">(</span><span class="n">vectorizer</span><span class="o">=&lt;</span><span class="n">Vectorizer</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">decomposer</span><span class="o">=&lt;</span><span class="n">Decomposer</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=&lt;</span><span class="n">Classifier</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Vectorizer</span><span class="o">&gt;</span>    <span class="o">:=</span> <span class="o">&lt;</span><span class="n">Count</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">TfIdf</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Count</span><span class="o">&gt;</span>         <span class="o">:=</span> <span class="n">Count</span> <span class="p">(</span><span class="n">ngram</span><span class="o">=&lt;</span><span class="n">Count_ngram</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Count_ngram</span><span class="o">&gt;</span>   <span class="o">:=</span> <span class="n">discrete</span> <span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">TfIdf</span><span class="o">&gt;</span>         <span class="o">:=</span> <span class="n">TfIdf</span> <span class="p">(</span><span class="n">ngram</span><span class="o">=&lt;</span><span class="n">TfIdf_ngram</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">use_idf</span><span class="o">=&lt;</span><span class="n">TfIdf_use_idf</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">TfIdf_ngram</span><span class="o">&gt;</span>   <span class="o">:=</span> <span class="n">discrete</span> <span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">TfIdf_use_idf</span><span class="o">&gt;</span> <span class="o">:=</span> <span class="n">boolean</span> <span class="p">()</span>
+<span class="o">&lt;</span><span class="n">Decomposer</span><span class="o">&gt;</span>    <span class="o">:=</span> <span class="o">&lt;</span><span class="n">NoDec</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">SVD</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">NoDec</span><span class="o">&gt;</span>         <span class="o">:=</span> <span class="n">NoDec</span> <span class="p">()</span>
+<span class="o">&lt;</span><span class="n">SVD</span><span class="o">&gt;</span>           <span class="o">:=</span> <span class="n">SVD</span> <span class="p">(</span><span class="n">n</span><span class="o">=&lt;</span><span class="n">SVD_n</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">SVD_n</span><span class="o">&gt;</span>         <span class="o">:=</span> <span class="n">discrete</span> <span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Classifier</span><span class="o">&gt;</span>    <span class="o">:=</span> <span class="o">&lt;</span><span class="n">LR</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">SVM</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">DT</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">LR</span><span class="o">&gt;</span>            <span class="o">:=</span> <span class="n">LR</span> <span class="p">(</span><span class="n">penalty</span><span class="o">=&lt;</span><span class="n">LR_penalty</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">reg</span><span class="o">=&lt;</span><span class="n">LR_reg</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">LR_penalty</span><span class="o">&gt;</span>    <span class="o">:=</span> <span class="n">categorical</span> <span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">])</span>
+<span class="o">&lt;</span><span class="n">LR_reg</span><span class="o">&gt;</span>        <span class="o">:=</span> <span class="n">continuous</span> <span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">SVM</span><span class="o">&gt;</span>           <span class="o">:=</span> <span class="n">SVM</span> <span class="p">(</span><span class="n">kernel</span><span class="o">=&lt;</span><span class="n">SVM_kernel</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">reg</span><span class="o">=&lt;</span><span class="n">SVM_reg</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">SVM_kernel</span><span class="o">&gt;</span>    <span class="o">:=</span> <span class="n">categorical</span> <span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">])</span>
+<span class="o">&lt;</span><span class="n">SVM_reg</span><span class="o">&gt;</span>       <span class="o">:=</span> <span class="n">continuous</span> <span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">DT</span><span class="o">&gt;</span>            <span class="o">:=</span> <span class="n">DT</span> <span class="p">(</span><span class="n">criterion</span><span class="o">=&lt;</span><span class="n">DT_criterion</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">DT_criterion</span><span class="o">&gt;</span>  <span class="o">:=</span> <span class="n">categorical</span> <span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Figura 12. Ejemplo de gramática a partir de un pipeline de clasificación</p>
+</section>
+</section>
+<section id="modulo-de-optimizacion">
+<h5>Módulo de Optimización<a class="headerlink" href="#modulo-de-optimizacion" title="Permalink to this headline">#</a></h5>
+<p>Proporciona <strong>estrategias de muestreo</strong> sobre una <strong>gramática</strong> libre del contexto que <strong>construye recursivamente una instancia</strong> especı́fica basada en las anotaciones. Se implementan dos estrategias de optimización:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://autogoal.github.io/api/autogoal.search._random/">búsqueda aleatoria</a> y</p></li>
+<li><p><a class="reference external" href="https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/">evolución gramatical probabilı́stica</a></p></li>
+</ul>
+<p>Esta última, <strong>PESearch</strong>, realiza un ciclo de <strong>muestreo</strong>/actualización que <strong>selecciona las instancias</strong> de <strong>mejor rendimiento</strong> de acuerdo con alguna <strong>métrica predefinida</strong> (p.e., precisión) y <strong>actualiza</strong> iterativamente el <strong>modelo probabilístico</strong> interno del algoritmo de muestreo. Ver ejemplo de las <strong>figuras 3 y 4</strong>.</p>
+<p>En el siguiente enlace encontraremos la documentación correspondiente: <a class="reference external" href="https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/">Ver más…</a></p>
+</section>
+<section id="modulo-de-flujos-pipelines">
+<h5>Módulo de Flujos (Pipelines)<a class="headerlink" href="#modulo-de-flujos-pipelines" title="Permalink to this headline">#</a></h5>
+<p>Proporciona una abstracción para que los <strong>algoritmos se comuniquen entre sı́</strong> a través de un <strong>patrón Facade</strong>, es decir, la implementación de un <strong>método <code class="docutils literal notranslate"><span class="pre">run</span></code></strong> con <strong>anotaciones</strong> para los <strong>tipos de entrada y salida</strong>. Las <strong>clases</strong>(que representan algiritmos) que implementan este <strong>patrón</strong> se <strong>conectan automáticamente en un grafo</strong> de algoritmos, donde <strong>cada ruta</strong> representa un <strong>posible Pipeline</strong> para resolver un problema, especificado por los tipos de datos de entrada y salida. La <strong>Figura 1</strong> ejemplifica <strong>distintas alternativas</strong> (Pipelines) probables para enfrentar un <strong>problema determinado</strong>.</p>
+</section>
+</section>
+<section id="como-anadir-un-algoritmo-nuevo-a-autogoal-y-utilizarlo">
+<h4>¿Cómo añadir un algoritmo nuevo a AutoGOAL y utilizarlo?<a class="headerlink" href="#como-anadir-un-algoritmo-nuevo-a-autogoal-y-utilizarlo" title="Permalink to this headline">#</a></h4>
+<p><strong>Parte 1</strong>:</p>
+<ul class="simple">
+<li><p><strong>Definir una clase</strong></p></li>
+<li><p><strong>Anotar los hiperparámetros</strong> en el constructor</p></li>
+<li><p>Implementar el <strong>método <code class="docutils literal notranslate"><span class="pre">run</span></code></strong></p></li>
+</ul>
+<p><strong>Parte 2</strong>:</p>
+<ul class="simple">
+<li><p>Pasar a la <strong>clase AutoML</strong> una <strong>lista</strong> personalizada de <strong>algoritmos</strong>. Ver Figura 14 variable <strong><code class="docutils literal notranslate"><span class="pre">registry</span></code></strong>.</p></li>
+</ul>
+<section id="parte-1">
+<h5><strong>Parte 1</strong><a class="headerlink" href="#parte-1" title="Permalink to this headline">#</a></h5>
+<p>Un <strong>algoritmo</strong> en AutoGOAL es una <strong>clase</strong> que se <strong>define con un tipo de entrada y salida</strong>, y <strong>contiene un método <code class="docutils literal notranslate"><span class="pre">run</span></code></strong>. Veamos el siguiente ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">Word</span><span class="p">,</span> <span class="n">AlgorithmBase</span>
+<span class="nd">@nice_repr</span>
+<span class="k">class</span> <span class="nc">WikipediaSummaryExample</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class find a word in Wikipedia and return a summary in english.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Word</span><span class="p">)</span><span class="o">-&gt;</span> <span class="n">Document</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This method use wikipedia.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">wikipedia</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Figura 13. Ejemplo de definición de un nuevo algoritmo para extraer el resumen
+de un ariculo de Wikipedia.</p>
+</section>
+<section id="parte-2">
+<h5><strong>Parte 2</strong><a class="headerlink" href="#parte-2" title="Permalink to this headline">#</a></h5>
+<p>Utilizar la clase AutoML para integrar los nuevos algoritmos</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">autogoal.ml</span> <span class="kn">import</span> <span class="n">AutoML</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">balanced_accuracy_score</span>
+<span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Sentence</span><span class="p">,</span> <span class="n">VectorCategorical</span><span class="p">,</span> <span class="n">Discrete</span><span class="p">,</span> <span class="n">Supervised</span>
+<span class="kn">from</span> <span class="nn">autogoal.contrib</span> <span class="kn">import</span> <span class="n">find_classes</span>
+<span class="kn">from</span> <span class="nn">autogoal.datasets</span> <span class="kn">import</span> <span class="n">haha</span>
+
+<span class="n">clases</span> <span class="o">=</span> <span class="n">find_classes</span><span class="p">()</span>
+<span class="n">clases</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">WikipediaSummaryExample</span><span class="p">])</span> <span class="c1">#añadir algoritmo al registro de algoritmos</span>
+
+<span class="n">automl</span> <span class="o">=</span> <span class="n">AutoML</span> <span class="p">(</span>
+   <span class="nb">input</span><span class="o">=</span> <span class="p">(</span><span class="n">Seq</span><span class="p">[</span><span class="n">Sentence</span><span class="p">],</span> <span class="n">Supervised</span><span class="p">[</span><span class="n">VectorCategorical</span><span class="p">]),</span> <span class="c1">#entrada</span>
+   <span class="n">output</span> <span class="o">=</span> <span class="n">VectorCategorical</span><span class="p">,</span> <span class="c1">#salida</span>
+   <span class="n">score_metric</span><span class="o">=</span><span class="n">balanced_accuracy_score</span><span class="p">,</span> <span class="c1">#métrica a optimizar (Función objetivo)</span>
+   <span class="n">registry</span><span class="o">=</span><span class="n">clases</span><span class="c1"># añadimos a todas los algoritmos registrados. No es necesario añadir el nuevo si este se crea dentro del módulo ````contrib```` el nuevo algoritmo siempre y cuando este no.</span>
+   <span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">haha</span><span class="o">.</span><span class="n">load</span><span class="p">()</span> <span class="c1">#cargar datos del dominio especifico</span>
+<span class="n">automl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># ejecutar optimizacion</span>
+
+<span class="c1"># Report the best pipeline</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_pipeline_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">automl</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Figura 14. Incorporación del nuevo algoritmo en el proceso de AutoML</p>
+<p>En cada implementación de un algoritmo (ahora una clase) se define un contructor con argumentos semánticamente anotados que describen los posibles rangos de valores de sus hiperparámetros.
+Los <strong>argumentos</strong> pueden ser valores:</p>
+<ul class="simple">
+<li><p><strong>discretos</strong>,</p></li>
+<li><p><strong>continuos</strong>,</p></li>
+<li><p><strong>categóricos</strong>,</p></li>
+<li><p><strong>booleanos</strong>,</p></li>
+<li><p><strong>instancias</strong> de alguna otra clase.</p></li>
+</ul>
+<p>Cada <strong>argumento</strong> provee los rangos válidos para el <strong>hiperparámetro</strong> correspondiente.
+Por ejemplo, anotaciones discretas y continuas definen valores máximos y mı́nimos, mientras que las categóricas presentan una lista de posibles valores. En el caso de los <strong>hiperparámetros que son instancias de otros algoritmos</strong>, AutoGOAL es capaz de <strong>encontrar el conjunto de clases válidas</strong> por los que pueden <strong>ser reemplazados</strong>.</p>
+</section>
+</section>
+<section id="como-integrar-otras-librerias-ejemplo-sklearn">
+<h4>¿Cómo integrar otras librerías?: Ejemplo Sklearn<a class="headerlink" href="#como-integrar-otras-librerias-ejemplo-sklearn" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LR</span><span class="p">(</span><span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">penalty</span><span class="p">:</span><span class="n">Categorical</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">),</span> <span class="n">C</span><span class="p">:</span><span class="n">Continuous</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">penalty</span> <span class="o">=</span> <span class="n">penalty</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">MatrixContinuous</span><span class="p">,</span> <span class="n">VectorCategorical</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VectorCategorical</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">input</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Figura 15. Ejemplo de definición de <strong>adaptador</strong> para el <strong>algoritmo LogisticRegression de scikitlearn</strong>.</p>
+<p>En el siguiente enlace encontraremos documentación de ejemplo donde se <strong>integra la librería Sklearn</strong> en <strong>AutoGOAL</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://autogoal.github.io/api/autogoal.contrib.sklearn.__init__/">https://autogoal.github.io/api/autogoal.contrib.sklearn.__init__/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="tema-3-uso-de-componentes">
+<h3>Tema 3. Uso de componentes<a class="headerlink" href="#tema-3-uso-de-componentes" title="Permalink to this headline">#</a></h3>
+<section id="definicion-de-espacio-de-busqueda-en-autogoal">
+<h4>Definición de espacio de búsqueda en AutoGOAL<a class="headerlink" href="#definicion-de-espacio-de-busqueda-en-autogoal" title="Permalink to this headline">#</a></h4>
+<p>Un espacio de búsqueda es el <strong>conjunto de todos los posibles Pipelines</strong> para resolver un <strong>problema</strong>. Son <strong>todas las posibilidades</strong> entre las que se quiere elegir y sus <strong>combinaciones</strong>. Se representa utilizando una gramática, donde el <strong>nodo inicial es Pipeline</strong>. En implementación esta <strong>gramática</strong> se puede <strong>inferir de la jerarquía de clases</strong> que se diseñe, pasando la clase que represente el concepto raíz de la gramática y se cumpla que los tipos de datos estén anotados.</p>
+<p><strong>Pasos</strong> para utilizar AutoGOAL:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="#definicion-de-espacio-de-busqueda">Definición de espacio</a></p></li>
+<li><p><a class="reference external" href="#funcion-de-evaluacion">Función de evaluación</a></p></li>
+<li><p><a class="reference external" href="#generar-gramatica">Generar gramática</a></p></li>
+<li><p><a class="reference external" href="#instanciacion-de-searchalgorithm">Instanciación de clase hija de SearchAlgorithm</a></p></li>
+<li><p><a class="reference external" href="#ejecutar-funciones">Ejecutar Funciones</a></p></li>
+</ol>
+<section id="definicion-de-espacio-de-busqueda">
+<h5>Definición de espacio de búsqueda<a class="headerlink" href="#definicion-de-espacio-de-busqueda" title="Permalink to this headline">#</a></h5>
+<p>Para definir un espacio de búsqueda propio hay que <strong>definir clases con sus parámetros</strong> del <strong>constructor</strong> anotados, <strong>similar</strong> a lo que se hace en la <strong>sección anterior</strong>. Lo que <strong>NO es necesario</strong> es el método <strong><code class="docutils literal notranslate"><span class="pre">run</span></code></strong> porque al ser definido por el usuario <strong>NO necesita</strong> que cumplir con la <strong>interfaz</strong> de <em><strong>AutoML</strong></em>.</p>
+<p>En el ejemplo de la <strong>Figura 13</strong> se puede ver un <strong>ejemplo</strong> donde se <strong>define una clase</strong> y el <strong>espacio que la búsqueda</strong> de algortimos esta representa.</p>
+<p>En resumen, <strong>si requerimos</strong> el uso de la <strong>clase AutoML</strong>, ver descripción en <a class="reference external" href="#modulo-de-flujos-pipelines">esta Sección</a>,  para que se realice el <strong>muestreo y optimización</strong> de modo transparente necesitamos que las clases que representan <strong>algoritmos</strong> tengan <strong>implentado</strong> el método <code class="docutils literal notranslate"><span class="pre">run</span></code>. En el caso de que <strong>NO se desee</strong> utilizar la <strong>clase AutoML</strong>, ver descripción en <a class="reference external" href="#ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl">Figura 18</a>, para este fin, <strong>NO es necesario</strong> que estas clases tengan implementado en <strong>método <code class="docutils literal notranslate"><span class="pre">run</span></code></strong>.</p>
+<section id="espacio-de-busqueda-construyendo-pipelines">
+<h6>Espacio de búsqueda construyendo Pipelines<a class="headerlink" href="#espacio-de-busqueda-construyendo-pipelines" title="Permalink to this headline">#</a></h6>
+<p>En la siguiente imagen podemos ver cómo podemos <strong>muestrear</strong> estos <strong>espacios de búsqueda de Pipelines</strong> con <code class="docutils literal notranslate"><span class="pre">autogoal.grammar</span></code> desde un input <code class="docutils literal notranslate"><span class="pre">Vectorizer</span></code> hasta un output <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> pasando por todos aquellos <strong>algortimos registrados</strong> en el pipeline.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">generate_cfg</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span> <span class="k">as</span> <span class="n">_Pipeline</span>
+
+<span class="k">class</span> <span class="nc">Pipeline</span><span class="p">(</span><span class="n">_Pipeline</span><span class="p">):</span> <span class="c1"># creación de un Pipeline</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+       <span class="bp">self</span><span class="p">,</span>
+       <span class="n">vectorizer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Vectorizer&quot;</span><span class="p">,</span> <span class="n">Count</span><span class="p">,</span> <span class="n">TfIdf</span><span class="p">),</span>
+       <span class="n">decomposer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Decomposer&quot;</span><span class="p">,</span> <span class="n">Noop</span><span class="p">,</span> <span class="n">SVD</span><span class="p">),</span>
+       <span class="n">classifier</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Classifier&quot;</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">SVM</span><span class="p">,</span> <span class="n">DT</span><span class="p">,</span> <span class="n">NB</span><span class="p">),</span>
+   <span class="p">):</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">vectorizer</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">decomposer</span> <span class="o">=</span> <span class="n">decomposer</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+ 
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+           <span class="p">[</span>
+               <span class="p">(</span><span class="s2">&quot;vec&quot;</span><span class="p">,</span> <span class="n">vectorizer</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&quot;dec&quot;</span><span class="p">,</span> <span class="n">decomposer</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&quot;cls&quot;</span><span class="p">,</span> <span class="n">classifier</span><span class="p">),</span>
+           <span class="p">]</span>
+       <span class="p">)</span>
+<span class="n">grammar</span> <span class="o">=</span>  <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Pipeline</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span> <span class="c1">#imprime la gramatica general del algoritmo</span>
+
+<span class="c1">## generar pipelines</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span> <span class="c1">#imprime cada posible pipeline generado en 10 iteraciones</span>
+
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">DT</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">171</span><span class="p">),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">NB</span><span class="p">(</span><span class="n">var_smoothing</span><span class="o">=</span><span class="mf">0.040787398985797634</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">Noop</span><span class="p">(),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">TfIdf</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_idf</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">DT</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">Noop</span><span class="p">(),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">TfIdf</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">use_idf</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">NB</span><span class="p">(</span><span class="n">var_smoothing</span><span class="o">=</span><span class="mf">0.04191083544753372</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">85</span><span class="p">),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">LR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">4.0925502319539</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">195</span><span class="p">),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">TfIdf</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_idf</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">LR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">8.152718968487418</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">Noop</span><span class="p">(),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">LR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">6.571248367039737</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">67</span><span class="p">),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">TfIdf</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">use_idf</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">DT</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">),</span> <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">112</span><span class="p">),</span>
+         <span class="n">vectorizer</span><span class="o">=</span><span class="n">TfIdf</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">use_idf</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">LR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">4.475181588819262</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">),</span>
+         <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">176</span><span class="p">),</span> <span class="n">vectorizer</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">Pipeline</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">SVM</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">3.555271538951682</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">),</span>
+         <span class="n">decomposer</span><span class="o">=</span><span class="n">SVD</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">148</span><span class="p">),</span> <span class="n">vectorizer</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="n">ngram</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Figura 16. Definición de espacio de búsqueda al generar muestreos de Pipelines.</p>
+</section>
+</section>
+<section id="funcion-de-evaluacion">
+<h5>Función de evaluación<a class="headerlink" href="#funcion-de-evaluacion" title="Permalink to this headline">#</a></h5>
+<p>Otro <strong>requisito</strong> es contar con una <strong>función que evalúe cada Pipeline</strong>. Esta sería la <strong>función objetivo</strong> que se <strong>desea optimizar</strong>. Lo importante es esta función <strong>reciba un Pipeline</strong> y le <strong>asigna un número</strong> que sirve para <strong>comparar</strong> diferentes <strong>pipelines</strong>.</p>
+<p>¡!!Lo que hace <strong>AutoML</strong> es <strong>ejecutar</strong> el <strong>Pipeline</strong> en un <strong>dataset</strong> y <strong>medir error de predicción</strong>)!!! <a class="reference external" href="#tema-1-autogoal-para-la-resolucion-de-problemas-de-alto-nivel-uso-de-la-clase-automl">Ver ejemplo</a></p>
+</section>
+<section id="generar-gramatica">
+<h5>Generar gramática<a class="headerlink" href="#generar-gramatica" title="Permalink to this headline">#</a></h5>
+<p>Una vez que se tiene el <strong>Espacio de Búsqueda</strong> y la <strong>Función Objetivo</strong> se <strong>genera la gramática</strong> utilizando el <code class="docutils literal notranslate"><span class="pre">método</span> <span class="pre">generate_cfg</span></code>, que está en <code class="docutils literal notranslate"><span class="pre">autogoal.grammar</span></code>.</p>
+<!-- [Ver ejemplo](#una-gramatica-en-autogoal) -->
+</section>
+<section id="instanciacion-de-searchalgorithm">
+<h5>Instanciación de SearchAlgorithm<a class="headerlink" href="#instanciacion-de-searchalgorithm" title="Permalink to this headline">#</a></h5>
+<p>Luego se <strong>instancia</strong> alguna <strong>clase que herede</strong> de la clase <a class="reference external" href="https://autogoal.github.io/api/autogoal.search._base/"><strong>SearchAlgorithm</strong></a> y se le <strong>envía</strong> a la <strong>Gramática</strong>, la <strong>Función Objetivo</strong> y <strong>restricciones</strong> de tiempo y memorias.
+La documentación al respecto la podéis encontrar en el siguiente enlace: <a class="reference external" href="https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/">https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/</a></p>
+</section>
+<section id="ejecutar-funciones">
+<h5>Ejecutar Funciones<a class="headerlink" href="#ejecutar-funciones" title="Permalink to this headline">#</a></h5>
+<p>De esta forma se puede <strong>utilizar</strong> AutoGOAL para <strong>resolver problemas</strong> que <strong>no sean propios de ML</strong>. Una aplicación de esta forma uso es <strong>seleccionar el mejor ensemble</strong> dado un <strong>conjunto de algoritmos</strong>, donde el concepto de mejor se define en la función Objetivo.
+La documentación al respecto la podéis encontrar en el siguiente enlace: <a class="reference external" href="https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/">https://autogoal.github.io/examples/tests.examples.comparing_search_strategies/</a></p>
+</section>
+</section>
+</section>
+<section id="ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl">
+<h3>Ejemplo extendido de optimización con AutoGOAL <em>(SIN uso de la clase AutoML)</em><a class="headerlink" href="#ejemplo-extendido-de-optimizacion-con-autogoal-sin-uso-de-la-clase-automl" title="Permalink to this headline">#</a></h3>
+<p>En esta sección veremos <strong>ejemplos</strong> que <strong>evolucionan</strong>, desde <strong>resolver</strong> una problema con un <strong>único algoritmo</strong>, luego pasar a componer <strong>varios algoritmos</strong> hasta muestrear <strong>diferentes Pipelines</strong>.</p>
+<p>👇👇👇👇👇👇👇👇👇👇👇👇👇👇</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+ 
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Fixed seed for reproducibility</span>
+ 
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+ 
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">iters</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span> <span class="c1"># función de evaluación</span>
+   <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+ 
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
+       <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+       <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+       <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> 
+   <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> 
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>  
+<span class="n">score</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span> <span class="c1"># prueba de evaluación de LR</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score: &#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+
+<span class="c1">##```bash</span>
+<span class="c1">#LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,</span>
+<span class="c1">#                   intercept_scaling=1, l1_ratio=None, max_iter=100,</span>
+<span class="c1">#                   multi_class=&#39;auto&#39;, n_jobs=None, penalty=&#39;l2&#39;,</span>
+<span class="c1">#                   random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,</span>
+<span class="c1">#                   warm_start=False)</span>
+<span class="c1">#Score: 0.8506666666666668</span>
+</pre></div>
+</div>
+<p>Figura 17. Evaluación de un algoritmo.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">ContinuousValue</span><span class="p">,</span> <span class="n">CategoricalValue</span>
+
+<span class="k">class</span> <span class="nc">LR</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">penalty</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">),</span> <span class="n">C</span><span class="p">:</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="n">penalty</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span>  <span class="n">generate_cfg</span>
+
+<span class="n">grammar</span> <span class="o">=</span>  <span class="n">generate_cfg</span><span class="p">(</span><span class="n">LR</span><span class="p">)</span> <span class="c1"># gramatica del clasificador LR</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+ 
+<span class="c1"># ```bash</span>
+<span class="c1"># &lt;LR&gt;         := LR (penalty=&lt;LR_penalty&gt;, C=&lt;LR_C&gt;)</span>
+<span class="c1"># &lt;LR_penalty&gt; := categorical (options=[&#39;l1&#39;, &#39;l2&#39;])</span>
+<span class="c1"># &lt;LR_C&gt;       := continuous (min=0.1, max=10)</span>
+<span class="c1"># ```</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span> <span class="c1"># muestreo de LR con distintos hiperpárametros</span>
+
+<span class="c1"># ```bash</span>
+<span class="c1"># LR(C=4.015231900472649, penalty=&#39;l2&#39;)</span>
+<span class="c1"># LR(C=9.556786605505499, penalty=&#39;l2&#39;)</span>
+<span class="c1"># LR(C=4.05716261883461, penalty=&#39;l1&#39;)</span>
+<span class="c1"># LR(C=3.2786487445120858, penalty=&#39;l1&#39;)</span>
+<span class="c1"># LR(C=4.655510386502897, penalty=&#39;l2&#39;)</span>
+<span class="c1"># ```</span>
+</pre></div>
+</div>
+<p>Figura 18. Muestreo de una gramática</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> 
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+ 
+<span class="k">class</span> <span class="nc">SVM</span><span class="p">(</span><span class="n">SVC</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+       <span class="bp">self</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;poly&quot;</span><span class="p">),</span> <span class="n">C</span><span class="p">:</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">)</span> 
+ 
+<span class="k">class</span> <span class="nc">DT</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion</span><span class="p">:</span> <span class="n">CategoricalValue</span><span class="p">(</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="s2">&quot;entropy&quot;</span><span class="p">)):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="n">criterion</span><span class="p">)</span> 
+ 
+<span class="k">class</span> <span class="nc">NB</span><span class="p">(</span><span class="n">GaussianNB</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_smoothing</span><span class="p">:</span> <span class="n">ContinuousValue</span><span class="p">(</span><span class="mf">1e-10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">var_smoothing</span><span class="o">=</span><span class="n">var_smoothing</span><span class="p">)</span>
+ 
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">generate_cfg</span>
+ 
+<span class="n">grammar</span> <span class="o">=</span>  <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Classifier&quot;</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">SVM</span><span class="p">,</span> <span class="n">NB</span><span class="p">,</span> <span class="n">DT</span><span class="p">))</span> <span class="c1"># listado de clasificadores</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+ 
+<span class="c1"># ```bash</span>
+<span class="c1"># &lt;Classifier&gt;       := &lt;LR&gt; | &lt;SVM&gt; | &lt;NB&gt; | &lt;DT&gt;</span>
+<span class="c1"># &lt;LR&gt;               := LR (penalty=&lt;LR_penalty&gt;, C=&lt;LR_C&gt;)</span>
+<span class="c1"># &lt;LR_penalty&gt;       := categorical (options=[&#39;l1&#39;, &#39;l2&#39;])</span>
+<span class="c1"># &lt;LR_C&gt;             := continuous (min=0.1, max=10)</span>
+<span class="c1"># &lt;SVM&gt;              := SVM (kernel=&lt;SVM_kernel&gt;, C=&lt;SVM_C&gt;)</span>
+<span class="c1"># &lt;SVM_kernel&gt;       := categorical (options=[&#39;rbf&#39;, &#39;linear&#39;, &#39;poly&#39;])</span>
+<span class="c1"># &lt;SVM_C&gt;            := continuous (min=0.1, max=10)</span>
+<span class="c1"># &lt;NB&gt;               := NB (var_smoothing=&lt;NB_var_smoothing&gt;)</span>
+<span class="c1"># &lt;NB_var_smoothing&gt; := continuous (min=1e-10, max=0.1)</span>
+<span class="c1"># &lt;DT&gt;               := DT (criterion=&lt;DT_criterion&gt;)</span>
+<span class="c1"># &lt;DT_criterion&gt;     := categorical (options=[&#39;gini&#39;, &#39;entropy&#39;])</span>
+<span class="c1"># ```</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span> <span class="c1"># muestreo del listado de clasificadores y distintos hiperpárametros</span>
+
+<span class="c1"># ```bash</span>
+<span class="c1"># NB(var_smoothing=0.04620465447733762)</span>
+<span class="c1"># DT(criterion=&#39;gini&#39;)</span>
+<span class="c1"># SVM(C=3.2914771222720116, kernel=&#39;rbf&#39;)</span>
+<span class="c1"># LR(C=7.809744923904822, penalty=&#39;l1&#39;)</span>
+<span class="c1"># DT(criterion=&#39;gini&#39;)</span>
+<span class="c1"># ```</span>
+</pre></div>
+</div>
+<p>Figura 19. Unión de clasificadores en una gramática</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">DiscreteValue</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span>
+
+<span class="k">class</span> <span class="nc">Count</span><span class="p">(</span><span class="n">CountVectorizer</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ngram</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ngram</span><span class="p">))</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">ngram</span> <span class="o">=</span> <span class="n">ngram</span>
+ 
+<span class="kn">from</span> <span class="nn">autogoal.grammar</span> <span class="kn">import</span> <span class="n">BooleanValue</span>
+ 
+<span class="k">class</span> <span class="nc">TfIdf</span><span class="p">(</span><span class="n">TfidfVectorizer</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ngram</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">use_idf</span><span class="p">:</span> <span class="n">BooleanValue</span><span class="p">()):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ngram</span><span class="p">),</span> <span class="n">use_idf</span><span class="o">=</span><span class="n">use_idf</span><span class="p">)</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">ngram</span> <span class="o">=</span> <span class="n">ngram</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+ 
+<span class="k">class</span> <span class="nc">SVD</span><span class="p">(</span><span class="n">TruncatedSVD</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">DiscreteValue</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">)):</span>
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+ 
+<span class="k">class</span> <span class="nc">Noop</span><span class="p">:</span>
+   <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+       <span class="k">return</span> <span class="n">X</span>
+ 
+   <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+       <span class="k">return</span> <span class="n">X</span>
+ 
+   <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="k">return</span> <span class="s2">&quot;Noop()&quot;</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span> <span class="k">as</span> <span class="n">_Pipeline</span>
+
+<span class="k">class</span> <span class="nc">Pipeline</span><span class="p">(</span><span class="n">_Pipeline</span><span class="p">):</span> <span class="c1"># creación de un Pipeline</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+       <span class="bp">self</span><span class="p">,</span>
+       <span class="n">vectorizer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Vectorizer&quot;</span><span class="p">,</span> <span class="n">Count</span><span class="p">,</span> <span class="n">TfIdf</span><span class="p">),</span>
+       <span class="n">decomposer</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Decomposer&quot;</span><span class="p">,</span> <span class="n">Noop</span><span class="p">,</span> <span class="n">SVD</span><span class="p">),</span>
+       <span class="n">classifier</span><span class="p">:</span> <span class="n">Union</span><span class="p">(</span><span class="s2">&quot;Classifier&quot;</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">SVM</span><span class="p">,</span> <span class="n">DT</span><span class="p">,</span> <span class="n">NB</span><span class="p">),</span>
+   <span class="p">):</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">vectorizer</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">decomposer</span> <span class="o">=</span> <span class="n">decomposer</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+ 
+       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+           <span class="p">[</span>
+               <span class="p">(</span><span class="s2">&quot;vec&quot;</span><span class="p">,</span> <span class="n">vectorizer</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&quot;dec&quot;</span><span class="p">,</span> <span class="n">decomposer</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&quot;cls&quot;</span><span class="p">,</span> <span class="n">classifier</span><span class="p">),</span>
+           <span class="p">]</span>
+       <span class="p">)</span>
+ 
+ 
+<span class="n">grammar</span> <span class="o">=</span>  <span class="n">generate_cfg</span><span class="p">(</span><span class="n">Pipeline</span><span class="p">)</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="p">)</span>
+ 
+<span class="c1"># ```bash</span>
+<span class="c1"># &lt;Pipeline&gt;         := Pipeline (vectorizer=&lt;Vectorizer&gt;, decomposer=&lt;Decomposer&gt;, classifier=&lt;Classifier&gt;)</span>
+<span class="c1"># &lt;Vectorizer&gt;       := &lt;Count&gt; | &lt;TfIdf&gt;</span>
+<span class="c1"># &lt;Count&gt;            := Count (ngram=&lt;Count_ngram&gt;)</span>
+<span class="c1"># &lt;Count_ngram&gt;      := discrete (min=1, max=3)</span>
+<span class="c1"># &lt;TfIdf&gt;            := TfIdf (ngram=&lt;TfIdf_ngram&gt;, use_idf=&lt;TfIdf_use_idf&gt;)</span>
+<span class="c1"># &lt;TfIdf_ngram&gt;      := discrete (min=1, max=3)</span>
+<span class="c1"># &lt;TfIdf_use_idf&gt;    := boolean ()</span>
+<span class="c1"># &lt;Decomposer&gt;       := &lt;Noop&gt; | &lt;SVD&gt;</span>
+<span class="c1"># &lt;Noop&gt;             := Noop ()</span>
+<span class="c1"># &lt;SVD&gt;              := SVD (n=&lt;SVD_n&gt;)</span>
+<span class="c1"># &lt;SVD_n&gt;            := discrete (min=50, max=200)</span>
+<span class="c1"># &lt;Classifier&gt;       := &lt;LR&gt; | &lt;SVM&gt; | &lt;DT&gt; | &lt;NB&gt;</span>
+<span class="c1"># &lt;LR&gt;               := LR (penalty=&lt;LR_penalty&gt;, C=&lt;LR_C&gt;)</span>
+<span class="c1"># &lt;LR_penalty&gt;       := categorical (options=[&#39;l1&#39;, &#39;l2&#39;])</span>
+<span class="c1"># &lt;LR_C&gt;             := continuous (min=0.1, max=10)</span>
+<span class="c1"># &lt;SVM&gt;              := SVM (kernel=&lt;SVM_kernel&gt;, C=&lt;SVM_C&gt;)</span>
+<span class="c1"># &lt;SVM_kernel&gt;       := categorical (options=[&#39;rbf&#39;, &#39;linear&#39;, &#39;poly&#39;])</span>
+<span class="c1"># &lt;SVM_C&gt;            := continuous (min=0.1, max=10)</span>
+<span class="c1"># &lt;DT&gt;               := DT (criterion=&lt;DT_criterion&gt;)</span>
+<span class="c1"># &lt;DT_criterion&gt;     := categorical (options=[&#39;gini&#39;, &#39;entropy&#39;])</span>
+<span class="c1"># &lt;NB&gt;               := NB (var_smoothing=&lt;NB_var_smoothing&gt;)</span>
+<span class="c1"># &lt;NB_var_smoothing&gt; := continuous (min=1e-10, max=0.1)</span>
+<span class="c1"># ```</span>
+ 
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">grammar</span><span class="o">.</span><span class="n">sample</span><span class="p">())</span> <span class="c1"># muestreo del pipeline con distintos hiperpárametros y clasificadores</span>
+
+<span class="c1"># ```bash</span>
+<span class="c1"># Pipeline(classifier=SVM(C=4.09762837283166, kernel=&#39;rbf&#39;), decomposer=Noop(),</span>
+<span class="c1">#          vectorizer=Count(ngram=1))</span>
+<span class="c1"># Pipeline(classifier=DT(criterion=&#39;entropy&#39;), decomposer=Noop(),</span>
+<span class="c1">#          vectorizer=Count(ngram=2))</span>
+<span class="c1"># Pipeline(classifier=LR(C=5.309978916527087, penalty=&#39;l2&#39;), decomposer=Noop(),</span>
+<span class="c1">#          vectorizer=Count(ngram=3))</span>
+<span class="c1"># Pipeline(classifier=LR(C=9.776994352626533, penalty=&#39;l1&#39;), decomposer=Noop(),</span>
+<span class="c1">#          vectorizer=TfIdf(ngram=2, use_idf=True))</span>
+<span class="c1"># Pipeline(classifier=SVM(C=5.973033047496386, kernel=&#39;rbf&#39;),</span>
+<span class="c1">#          decomposer=SVD(n=197), vectorizer=Count(ngram=3))</span>
+<span class="c1"># Pipeline(classifier=NB(var_smoothing=0.07941925220053651),</span>
+<span class="c1">#          decomposer=SVD(n=183), vectorizer=TfIdf(ngram=3, use_idf=False))</span>
+<span class="c1"># Pipeline(classifier=DT(criterion=&#39;entropy&#39;), decomposer=SVD(n=144),</span>
+<span class="c1">#          vectorizer=TfIdf(ngram=1, use_idf=True))</span>
+<span class="c1"># Pipeline(classifier=SVM(C=6.052775609636756, kernel=&#39;poly&#39;),</span>
+<span class="c1">#          decomposer=SVD(n=160), vectorizer=TfIdf(ngram=1, use_idf=True))</span>
+<span class="c1"># Pipeline(classifier=DT(criterion=&#39;entropy&#39;), decomposer=Noop(),</span>
+<span class="c1">#          vectorizer=Count(ngram=1))</span>
+<span class="c1"># Pipeline(classifier=DT(criterion=&#39;entropy&#39;), decomposer=Noop(),</span>
+<span class="c1">#          vectorizer=TfIdf(ngram=3, use_idf=True))</span>
+<span class="c1"># ```</span>
+
+</pre></div>
+</div>
+<p>Figura 20. Creación de un pipeline utilizando la composición gramatica</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">autogoal.datasets</span> <span class="kn">import</span> <span class="n">movie_reviews</span>
+<span class="kn">from</span> <span class="nn">autogoal.search</span> <span class="kn">import</span> <span class="n">RandomSearch</span>
+<span class="n">fitness_fn</span> <span class="o">=</span> <span class="n">movie_reviews</span><span class="o">.</span><span class="n">make_fn</span><span class="p">(</span><span class="n">examples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">random_search</span> <span class="o">=</span> <span class="n">RandomSearch</span><span class="p">(</span><span class="n">grammar</span><span class="p">,</span> <span class="n">fitness_fn</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">best</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># selección del mejor pipeline en una muestra de 1000</span>
+</pre></div>
+</div>
+<p>Figura 21. Búsqueda del Pipeline óptimo</p>
+</section>
+</section>
+<section id="bibliogarfia">
+<h2>Bibliogarfía<a class="headerlink" href="#bibliogarfia" title="Permalink to this headline">#</a></h2>
+<p>[1] Estévez-Velarde, S., Gutiérrez, Y., Almeida-Cruz, Y., &amp; Montoyo, A. (2021). General-purpose hierarchical optimisation of machine learning pipelines with grammatical evolution. Information Sciences, 543, 58-71.</p>
+<p>[2] Estevez-Velarde, S., Piad-Morffis, A., Gutiérrez, Y., Montoyo, A., Muñoz, R., &amp; Almeida-Cruz, Y. (2020). Demo Application for the AutoGOAL Framework. Association for Computational Linguistics.</p>
+<p>[3] Estevanell-Valladares, E. L., Estevez-Velarde, S., Piad-Morffis, A., Gutiérrez, Y., Montoyo, A., &amp; Almeida-Cruz, Y. (2021). Hacia la democratización del aprendizaje de máquinas. Revista Cubana de Transformación Digital, 2(1), 130-143.</p>
+<p>[4] Estevez-Velarde, S., Gutiérrez, Y., Montoyo, A., &amp; Cruz, Y. A. (2020, December). Automatic Discovery of Heterogeneous Machine Learning Pipelines: An Application to Natural Language Processing. In Proceedings of the 28th International Conference on Computational Linguistics (pp. 3558-3568).</p>
+<p>[5] Estevez-Velarde, S., Gutiérrez, Y., Montoyo, A., &amp; Almeida-Cruz, Y. (2019, July). AutoML strategy based on grammatical evolution: A case study about knowledge discovery from text. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (pp. 4356-4365).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Universitat d'Alacant<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

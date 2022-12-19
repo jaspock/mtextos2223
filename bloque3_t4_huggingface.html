@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>T4. Centralización de datasets y modelos: Huggingface &#8212; Minería de Textos</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Materiales de Minería de Textos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1.html">
+   1. Introducción a la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_1Introduccion.html">
+   2. Minería de textos y procesamiento del lenguaje natural.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+   3. Análisis categorial y sintáctico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+   4. Análisis semántico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica1.html">
+   5. Práctica 1.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+   6. Análisis semántico vectorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica2.html">
+   7. Práctica 1b :
+   <em>
+    Topic modeling
+   </em>
+   .
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2.html">
+   8. Técnicas para la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_historia.html">
+   9. Revisión histórica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_embeddings.html">
+   10. Representaciones de palabras y oraciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_practica.html">
+   11. Práctica. Lectura y documentación del código de un extractor de entidades
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3.html">
+   12. Aplicaciones de la minería de textos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content.html">
+   13. Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   14. Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   15. Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/bloque3_t4_huggingface.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repositorio-de-datasets">
+   Repositorio de Datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listar-datasets-disponibles-en-el-repositorio">
+     Listar datasets disponibles en el repositorio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-cargar-datasets">
+     ¿Cómo cargar datasets?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorias-tareas-e-idiomas-de-datasets">
+     Categorías, tareas e idiomas de datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repositorio-de-modelos-pre-entrenados">
+   Repositorio de Modelos pre-entrenados
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listado-de-pipelines">
+     Listado de Pipelines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma">
+     ¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuraciones-de-modelos-trasnformers">
+     Configuraciones de modelos trasnformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>T4. Centralización de datasets y modelos: Huggingface</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repositorio-de-datasets">
+   Repositorio de Datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listar-datasets-disponibles-en-el-repositorio">
+     Listar datasets disponibles en el repositorio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-cargar-datasets">
+     ¿Cómo cargar datasets?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorias-tareas-e-idiomas-de-datasets">
+     Categorías, tareas e idiomas de datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repositorio-de-modelos-pre-entrenados">
+   Repositorio de Modelos pre-entrenados
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listado-de-pipelines">
+     Listado de Pipelines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma">
+     ¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuraciones-de-modelos-trasnformers">
+     Configuraciones de modelos trasnformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="t4-centralizacion-de-datasets-y-modelos-huggingface">
+<h1>T4. Centralización de datasets y modelos: Huggingface<a class="headerlink" href="#t4-centralizacion-de-datasets-y-modelos-huggingface" title="Permalink to this headline">#</a></h1>
+<p>Contenidos:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#introduccion">Introducción</a></p></li>
+<li><p><a class="reference external" href="#repositorio-de-datasets">Repositorio de Datasets</a></p></li>
+<li><p><a class="reference external" href="#repositorio-de-modelos-pre-entrenados">Repositorio de Modelos pre-entrenados</a></p></li>
+</ul>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="http://Huggingface.co">Huggingface.co</a> una compañía centrada en el PLN la cual ha desarrollado las <a class="reference external" href="https://huggingface.co/transformers/"><strong>librerías Transformers</strong></a>, <strong>centralizado datasets</strong> y ha <strong>creado modelos de aprendizaje pre-entrenados</strong> disponibles a través de sus librerías de programación.
+Las librerías de Huggingface actualmente dan soporte a empresas muy importantes del mercado tecnológico. Ver <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a>.</p>
+</section>
+<section id="repositorio-de-datasets">
+<h2>Repositorio de Datasets<a class="headerlink" href="#repositorio-de-datasets" title="Permalink to this headline">#</a></h2>
+<p>Proporciona conjuntos de datos para muchas tareas de PLN como clasificación de texto, respuesta a preguntas, modelado de lenguaje, etc.<br />
+Instalación de librería de manipulación de datasets
+Para la <strong>instalación</strong> de la librería de manipulación de datasets se debe ejecutar la siguiente instrucción pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">datasets</span>
+</pre></div>
+</div>
+<p>Para asegurarnos de que Transformers dataset se ha instalado correctamente es necesario ejecutar la siguiente instrucción:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;from datasets import load_dataset; print(load_dataset(&#39;squad&#39;, split=&#39;train&#39;)[0])&quot;</span>
+
+</pre></div>
+</div>
+<p>Esta instrucción debe descargar la versión 1 del conjunto de datos de respuesta a preguntas de Stanford, cargar su división de entrenamiento e imprimir el primer ejemplo de entrenamiento de la siguiente manera:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;5733be284776f41900661182&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;University_of_Notre_Dame&#39;</span><span class="p">,</span> <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="s1">&#39;Architecturally, the school has a Catholic character. Atop the Main Building</span><span class="se">\&#39;</span><span class="s1">s gold dome is a golden statue of the Virgin Mary. Immediately in front of the Main Building and facing it, is a copper statue of Christ with arms upraised with the legend &quot;Venite Ad Me Omnes&quot;...&#39;</span><span class="p">,</span> <span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="s1">&#39;To whom did the Virgin Mary allegedly appear in 1858 in Lourdes France?&#39;</span><span class="p">,</span> <span class="s1">&#39;answers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="s1">&#39;Saint Bernadette Soubirous&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span> <span class="s1">&#39;answer_start&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">515</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">)}}</span>
+</pre></div>
+</div>
+<section id="listar-datasets-disponibles-en-el-repositorio">
+<h3>Listar datasets disponibles en el repositorio<a class="headerlink" href="#listar-datasets-disponibles-en-el-repositorio" title="Permalink to this headline">#</a></h3>
+<p>Para listar los conjuntos de datos disponibles es necesario ejecutar la siguiente función <code class="docutils literal notranslate"><span class="pre">datasets.list_datasets</span> <span class="pre">()</span></code> que pertenece a la clase <code class="docutils literal notranslate"><span class="pre">datasets</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">list_datasets</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datasets_list</span> <span class="o">=</span> <span class="n">list_datasets</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">datasets_list</span><span class="p">)</span>
+<span class="go">656</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset</span> <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets_list</span><span class="p">))</span>
+<span class="go">aeslc, ag_news, ai2_arc, allocine, anli, arcd, art, billsum, blended_skill_talk, blimp, blog_authorship_corpus, bookcorpus, boolq, break_data,</span>
+<span class="go">c4, cfq, civil_comments, cmrc2018, cnn_dailymail, coarse_discourse, com_qa, commonsense_qa, compguesswhat, coqa, cornell_movie_dialog, cos_e,</span>
+<span class="go">cosmos_qa, crime_and_punish, csv, definite_pronoun_resolution, discofuse, docred, drop, eli5, empathetic_dialogues, eraser_multi_rc, esnli,</span>
+<span class="go">event2Mind, fever, flores, fquad, gap, germeval_14, ghomasHudson/cqc, gigaword, glue, …</span>
+</pre></div>
+</div>
+<p>Otra alternativa es:</p>
+<ol class="simple">
+<li><p>Ir a la web <a class="reference external" href="https://huggingface.co">https://huggingface.co</a></p></li>
+<li><p>Seleccionar el menú Datasets: <a class="reference external" href="https://huggingface.co/datasets">https://huggingface.co/datasets</a></p></li>
+<li><p>Filtrar por categoría, idioma, tarea y/o licencia</p></li>
+</ol>
+</section>
+<section id="como-cargar-datasets">
+<h3>¿Cómo cargar datasets?<a class="headerlink" href="#como-cargar-datasets" title="Permalink to this headline">#</a></h3>
+<p>Haciendo uso de la función <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> se nos permite recuperar cualquier dataset registrado en el repositorio. Por ejemplo, el dataset <strong>MRPC</strong> que ha sido proporcionado en el índice de referencia GLUE (<a class="reference external" href="https://gluebenchmark.com/leaderboard">https://gluebenchmark.com/leaderboard</a>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;glue&#39;</span><span class="p">,</span> <span class="s1">&#39;mrpc&#39;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>O podemos ver otro ejemplo como el de <a class="reference external" href="https://knowledge-learning.github.io/ehealthkd-2020/"><strong>eHealth-KD</strong></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;ehealth_kd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>No obstante, la librería <code class="docutils literal notranslate"><span class="pre">datasets</span></code> permite además <strong>cargar conjuntos de datos propios</strong> que no formen parte del repositorio. Por ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">data_files</span><span class="o">=</span><span class="s1">&#39;my_file.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para más detalles sobre las distintas funciones y parámetros permitidos para manipular datasets ver la siguiente documentación:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/docs/datasets/quicktour.html">https://huggingface.co/docs/datasets/quicktour.html</a></p></li>
+</ul>
+</section>
+<section id="categorias-tareas-e-idiomas-de-datasets">
+<h3>Categorías, tareas e idiomas de datasets<a class="headerlink" href="#categorias-tareas-e-idiomas-de-datasets" title="Permalink to this headline">#</a></h3>
+<p><strong>9 Categorías:</strong></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_dataset_categoria.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_dataset_categoria.jpg" style="width: 300px;" /></a>
+<p>Figura 1. Categorías filtro de datasets</p>
+<p><strong>Más de 134 tareas y más de 194 idiomas:</strong></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_dataset_tareas_idiomas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_dataset_tareas_idiomas.jpg" style="width: 300px;" /></a>
+<p>Figura 2. Tareas e idiomas filtro datasets</p>
+</section>
+</section>
+<section id="repositorio-de-modelos-pre-entrenados">
+<h2>Repositorio de Modelos pre-entrenados<a class="headerlink" href="#repositorio-de-modelos-pre-entrenados" title="Permalink to this headline">#</a></h2>
+<p>La biblioteca de Transformers permite el <strong>uso de modelos previamente entrenados</strong> para tareas de Comprensión del lenguaje natural (NLU), i.e. como analizar el sentimiento de un texto, y Generación del lenguaje natural (NLG), i.e. como completar un mensaje con texto nuevo o traducir a otro idioma.
+A groso modo listamos los modelos que nos podemos encontrar</p>
+<ul class="simple">
+<li><p><strong>Análisis de sentimiento</strong>: Conocer si un texto es positivo o negativo</p></li>
+<li><p><strong>Generación de texto</strong> (en inglés): proporcionar un mensaje para el cual el modelo generará un texto.</p></li>
+<li><p><strong>Reconocimiento de entidades nombradas</strong> (NER): Dado en una oración de entrada se etiqueta cada palabra con la entidad que esta representa (persona, lugar, organización, etc.)</p></li>
+<li><p><strong>Respuesta a preguntas</strong>: Teniendo en cuenta un modelo de un contexto determinado, dado un pregunta se obtiene una respuesta.</p></li>
+<li><p><strong>Relleno de texto con máscara</strong>: Dado un texto con palabras enmascaradas (p. Ej., Reemplazado por [MÁSCARA]), completar los espacios en blanco.</p></li>
+<li><p><strong>Resumen</strong>: Generación de un resumen a partir de texto extenso.</p></li>
+<li><p><strong>Traducción</strong>: Traducción de un texto a otro idioma.</p></li>
+<li><p><strong>Extracción de características</strong>: Obtener una representación tensorial del texto.
+Tomado de <a class="reference external" href="https://huggingface.co/transformers/quicktour.html">https://huggingface.co/transformers/quicktour.html</a></p></li>
+</ul>
+<p><strong>Listado de tareas tal y como las podemos encontrar en el repositorio:</strong></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_modelos_tareas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_modelos_tareas.jpg" style="width: 300px;" /></a>
+<p>Figura 3. Tareas filtro modelos</p>
+<p><strong>Idiomas para los que se han entrenado los modelos:</strong></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_modelos_idiomas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_modelos_idiomas.jpg" style="width: 300px;" /></a>
+<p>Figura 4. Idiomas filtro modelos</p>
+<p>Una explicación detallada sobre cada una de estas tareas y ejemplos de uso con Huggingface Transformer la podemos encontrar en el siguiente enlace:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/transformers/task_summary.html">https://huggingface.co/transformers/task_summary.html</a></p></li>
+</ul>
+<p>Ejemplo de Análisis de Sentimientos con Huggingface Transformer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;sentiment-analysis&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span><span class="p">(</span><span class="s1">&#39;We are very happy to show you the 🤗 Transformers library.&#39;</span><span class="p">)</span>
+<span class="go">[{&#39;label&#39;: &#39;POSITIVE&#39;, &#39;score&#39;: 0.9997795224189758}]</span>
+</pre></div>
+</div>
+<p>Si os fijáis hemos cargado un modelo pre-entrenado a través del pipeline  <code class="docutils literal notranslate"><span class="pre">sentiment-analysis</span></code> para utilizarlo como clasificador. Este <strong>modelo</strong> se puede <strong>reentrenar</strong> a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para más detalles ver la clase práctica <a class="reference external" href="https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html"><code class="docutils literal notranslate"><span class="pre">bloque3_p3_SA-Transformers-Training-FineTuning</span></code></a></p>
+<p>Si queremos que el pipeline sea multilingue, podemos indicar el modelo exacto que contemple un diccionario de este tipo y el pipeline lo ensamblará internamente. Mirad el siguiente ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;sentiment-analysis&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;nlptown/bert-base-multilingual-uncased-sentiment&#39;</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span><span class="p">(</span><span class="s1">&#39;Estoy muy triste&#39;</span><span class="p">)</span>
+<span class="go">[{&#39;label&#39;: &#39;1 star&#39;, &#39;score&#39;: 0.7241697907447815}]</span>
+</pre></div>
+</div>
+<p>Para otras tareas como Rellenado de Máscaras podemos ver como podemos simplemente indicar el tipo de tarea para que el pipeline seleccione el tipo de configuración más adecuada a esta y el modelo que queremos aplicarle. Con solo cambiar el modelo base podemos hacer esta tarea unilingue a multilingue o cambiar de idioma. Ver el ejemplo a continuación:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelWithLMHead</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelWithLMHead</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;mrm8488/RuPERTa-base&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;mrm8488/RuPERTa-base&quot;</span><span class="p">,</span> <span class="n">do_lower_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline_fill_mask</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;fill-mask&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline_fill_mask</span><span class="p">(</span><span class="s2">&quot;España es un país muy &lt;mask&gt; en la UE&quot;</span><span class="p">)</span>
+
+<span class="go">[{&#39;score&#39;: 0.19951821863651276,</span>
+<span class="go">  &#39;sequence&#39;: &#39;España es un país muy importante en la UE&#39;,</span>
+<span class="go">  &#39;token&#39;: 1560,</span>
+<span class="go">  &#39;token_str&#39;: &#39; importante&#39;},</span>
+<span class="go"> {&#39;score&#39;: 0.04137842729687691,</span>
+<span class="go">  &#39;sequence&#39;: &#39;España es un país muy grande en la UE&#39;,</span>
+<span class="go">  &#39;token&#39;: 2741,</span>
+<span class="go">  &#39;token_str&#39;: &#39; grande&#39;},</span>
+<span class="go"> {&#39;score&#39;: 0.029216745868325233,</span>
+<span class="go">  &#39;sequence&#39;: &#39;España es un país muy pequeño en la UE&#39;,</span>
+<span class="go">  &#39;token&#39;: 2948,</span>
+<span class="go">  &#39;token_str&#39;: &#39; pequeño&#39;},</span>
+<span class="go"> {&#39;score&#39;: 0.02563760057091713,</span>
+<span class="go">  &#39;sequence&#39;: &#39;España es un país muy popular en la UE&#39;,</span>
+<span class="go">  &#39;token&#39;: 5782,</span>
+<span class="go">  &#39;token_str&#39;: &#39; popular&#39;},</span>
+<span class="go"> {&#39;score&#39;: 0.022264542058110237,</span>
+<span class="go">  &#39;sequence&#39;: &#39;España es un país muy antiguo en la UE&#39;,</span>
+<span class="go">  &#39;token&#39;: 5240,</span>
+<span class="go">  &#39;token_str&#39;: &#39; antiguo&#39;}]</span>
+</pre></div>
+</div>
+<section id="listado-de-pipelines">
+<h3>Listado de Pipelines<a class="headerlink" href="#listado-de-pipelines" title="Permalink to this headline">#</a></h3>
+<p>En Huggingface podemos encontrar una serie de Pipelines ya preparados para enfrentar tareas concretas a los cuales les podemos suministrar distintos modelos y tokenizadores transformes. Ver ejemplos: <a class="reference external" href="https://huggingface.co/transformers/main_classes/pipelines.html">https://huggingface.co/transformers/main_classes/pipelines.html</a></p>
+</section>
+<section id="como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma">
+<h3>¿Cómo buscar y reutilizar modelos pre-entrenados en la plataforma?<a class="headerlink" href="#como-buscar-y-reutilizar-modelos-pre-entrenados-en-la-plataforma" title="Permalink to this headline">#</a></h3>
+<p>A continuación, se listan los pasos a seguir:</p>
+<ol class="simple">
+<li><p>Dirigirse al repositorio <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a></p></li>
+<li><p>Seleccionar el menú <code class="docutils literal notranslate"><span class="pre">models</span></code> que nos llevará a <a class="reference external" href="https://huggingface.co/models">https://huggingface.co/models</a></p></li>
+<li><p>Filtrar el listado de modelos según la tarea, idioma, librería (Pytorch o TensorFlow), dataset sobre el que fue entrenado, o licencia. Por ejemplo:  tarea <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">Classification</span></code>; idioma <code class="docutils literal notranslate"><span class="pre">es</span></code>.</p></li>
+<li><p>Elegir un modelo de la lista. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">bert-base-multilingual-uncased-sentiment</span></code></p></li>
+<li><p>Obtendremos la documentación necesaria para utilizar el modelo.</p></li>
+</ol>
+<p><strong>Conociendo el nombre del modelo</strong> a utilizar entonces podemos <strong>hacer uso</strong> de este a través de la librería <strong>Transformer</strong>.
+En la propia documentación se aporta el <strong>código de ejemplo</strong> para hacer uso del modelo y en algunos casos una <a class="reference external" href="https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment"><strong>interfaz para probarlo</strong></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForSequenceClassification</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;nlptown/bert-base-multilingual-uncased-sentiment&quot;</span><span class="p">)</span>  <span class="c1"># cargando el toquenizador basado en el modelo preentrenado</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;nlptown/bert-base-multilingual-uncased-sentiment&quot;</span><span class="p">)</span> <span class="c1"># cargando del modelo preentrenado</span>
+</pre></div>
+</div>
+</section>
+<section id="configuraciones-de-modelos-trasnformers">
+<h3>Configuraciones de modelos trasnformers<a class="headerlink" href="#configuraciones-de-modelos-trasnformers" title="Permalink to this headline">#</a></h3>
+<p>Los <strong>modelos pre-entrenados</strong> que se brindan en el repositorio se <strong>basan</strong> en alguna de las <strong>arquitecturas Transformers</strong> descrita en la documentación del repositorio (<a class="reference external" href="https://huggingface.co/docs">https://huggingface.co/docs</a>).
+Si tomamos como referencia la arquitectura de modelo Transformer <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#overview">DistilBERT</a> podemos conocer cómo <strong>gestionar</strong> los distintos <strong>parámetros</strong>, <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig"><strong>configuraciones de red neuronal</strong></a>, <a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer"><strong>tokenizador</strong></a> y <strong>ejemplos</strong> para cada tipo de tarea.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># !pip install transformers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">DistilBertTokenizer</span><span class="p">,</span> <span class="n">DistilBertModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">DistilBertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span> <span class="c1"># cargando de toquenizador basado en el modelo preentrenado</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">DistilBertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span> <span class="c1"># cargando el modelo preentrenado</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="s2">&quot;Hello, my dog is cute&quot;</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">last_hidden_states</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">last_hidden_state</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">last_hidden_states</span><span class="p">)</span>
+
+<span class="go">tensor([[[-1.8296e-01, -7.4054e-02,  5.0267e-02,  ..., -1.1261e-01,</span>
+<span class="go">           4.4493e-01,  4.0941e-01],</span>
+<span class="go">         [ 7.0631e-04,  1.4825e-01,  3.4328e-01,  ..., -8.6039e-02,</span>
+<span class="go">           6.9475e-01,  4.3353e-02],</span>
+<span class="go">         [-5.0721e-01,  5.3086e-01,  3.7163e-01,  ..., -5.6287e-01,</span>
+<span class="go">           1.3756e-01,  2.8475e-01],</span>
+<span class="go">         ...,</span>
+<span class="go">         [-4.2251e-01,  5.7314e-02,  2.4338e-01,  ..., -1.5223e-01,</span>
+<span class="go">           2.4462e-01,  6.4155e-01],</span>
+<span class="go">         [-4.9384e-01, -1.8895e-01,  1.2641e-01,  ...,  6.3241e-02,</span>
+<span class="go">           3.6913e-01, -5.8252e-02],</span>
+<span class="go">         [ 8.3269e-01,  2.4948e-01, -4.5440e-01,  ...,  1.1998e-01,</span>
+<span class="go">          -3.9257e-01, -2.7785e-01]]], grad_fn=&lt;NativeLayerNormBackward&gt;)</span>
+
+</pre></div>
+</div>
+<p>Es importante conocer que las <strong>configuraciones</strong> de modelos Transformer ya <strong>cuentan</strong> con <strong>modelos base pre-entrenados</strong>. En el caso de <code class="docutils literal notranslate"><span class="pre">DistilBERT</span></code> podemos encontrar <code class="docutils literal notranslate"><span class="pre">distilbert-base-uncased</span></code>.</p>
+</section>
+</section>
+<section id="bibliografia">
+<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
+<p>[1] <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Universitat d'Alacant<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

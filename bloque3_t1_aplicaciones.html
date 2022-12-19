@@ -1,0 +1,1903 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>T1. Aplicaciones generales &#8212; Minería de Textos</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Materiales de Minería de Textos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1.html">
+   1. Introducción a la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_1Introduccion.html">
+   2. Minería de textos y procesamiento del lenguaje natural.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+   3. Análisis categorial y sintáctico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+   4. Análisis semántico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica1.html">
+   5. Práctica 1.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+   6. Análisis semántico vectorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica2.html">
+   7. Práctica 1b :
+   <em>
+    Topic modeling
+   </em>
+   .
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2.html">
+   8. Técnicas para la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_historia.html">
+   9. Revisión histórica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_embeddings.html">
+   10. Representaciones de palabras y oraciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_practica.html">
+   11. Práctica. Lectura y documentación del código de un extractor de entidades
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3.html">
+   12. Aplicaciones de la minería de textos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content.html">
+   13. Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   14. Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   15. Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/bloque3_t1_aplicaciones.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#areas-centrales">
+   Áreas centrales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conferencias-mas-relevantes">
+     Conferencias más relevantes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplicaciones">
+   Aplicaciones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-retrieval-recuperacion-de-informacion">
+     Information Retrieval (Recuperación de Información)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#descripcion">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metricas-mas-comunes-de-evaluacion">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#que-otras-aplicaciones-especificas-pensais-que-pueden-formar-parte-esta">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#benchmarcks">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#repositorios-de-codigo">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conjuntos-de-datos">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#articulos">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-extraction-extraccion-de-informacion">
+     Information Extraction (Extracción de Información)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-clasification-clasificacion-textual">
+     Text Clasification (Clasificación textual)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Ejemplo:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#natural-language-generation-nlg-generacion-de-lenguaje-natural">
+     Natural Language Generation (NLG, Generación de lenguaje natural)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id17">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplos-de-texto-a-texto">
+       Ejemplos de texto a texto
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-1">
+         Ejemplo 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-2">
+         Ejemplo 2
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generacion-de-datos-a-texto-d2t-gln">
+       Generación de Datos a Texto (D2T GLN)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id19">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id20">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id23">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-sumarisation-generacion-de-resumenes">
+     Text Sumarisation (Generación de resúmenes)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id24">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#abstractiva">
+       Abstractiva
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extractiva">
+       Extractiva
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id25">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id26">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id27">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id28">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id29">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id30">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id31">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-answering-qa-respuestas-a-preguntas">
+     Question Answering (QA, Respuestas a preguntas)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id32">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id33">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id34">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id35">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id36">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id37">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id38">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id39">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-translation">
+     Machine Translation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id40">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traduccion-automatica-basada-en-reglas">
+       Traducción automática basada en reglas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traduccion-automatica-basada-en-corpus">
+       Traducción automática basada en corpus
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traduccion-automatica-basada-en-el-contexto">
+       Traducción automática basada en el contexto
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#redes-neuronales-codificador-decodificador">
+       Redes neuronales. Codificador-Decodificador
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-espanol-ingles">
+       Ejemplo (Español- Ingles)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id41">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id42">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id43">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id44">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id45">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id46">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>T1. Aplicaciones generales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#areas-centrales">
+   Áreas centrales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conferencias-mas-relevantes">
+     Conferencias más relevantes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplicaciones">
+   Aplicaciones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-retrieval-recuperacion-de-informacion">
+     Information Retrieval (Recuperación de Información)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#descripcion">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metricas-mas-comunes-de-evaluacion">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#que-otras-aplicaciones-especificas-pensais-que-pueden-formar-parte-esta">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#benchmarcks">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#repositorios-de-codigo">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conjuntos-de-datos">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#articulos">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-extraction-extraccion-de-informacion">
+     Information Extraction (Extracción de Información)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-clasification-clasificacion-textual">
+     Text Clasification (Clasificación textual)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Ejemplo:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#natural-language-generation-nlg-generacion-de-lenguaje-natural">
+     Natural Language Generation (NLG, Generación de lenguaje natural)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id17">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplos-de-texto-a-texto">
+       Ejemplos de texto a texto
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-1">
+         Ejemplo 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-2">
+         Ejemplo 2
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generacion-de-datos-a-texto-d2t-gln">
+       Generación de Datos a Texto (D2T GLN)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id19">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id20">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id23">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-sumarisation-generacion-de-resumenes">
+     Text Sumarisation (Generación de resúmenes)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id24">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#abstractiva">
+       Abstractiva
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extractiva">
+       Extractiva
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id25">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id26">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id27">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id28">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id29">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id30">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id31">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-answering-qa-respuestas-a-preguntas">
+     Question Answering (QA, Respuestas a preguntas)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id32">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id33">
+       Ejemplo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id34">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id35">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id36">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id37">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id38">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id39">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-translation">
+     Machine Translation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id40">
+       Descripción
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traduccion-automatica-basada-en-reglas">
+       Traducción automática basada en reglas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traduccion-automatica-basada-en-corpus">
+       Traducción automática basada en corpus
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traduccion-automatica-basada-en-el-contexto">
+       Traducción automática basada en el contexto
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#redes-neuronales-codificador-decodificador">
+       Redes neuronales. Codificador-Decodificador
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-espanol-ingles">
+       Ejemplo (Español- Ingles)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id41">
+       Métricas más comunes de evaluación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id42">
+       ¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id43">
+       Benchmarcks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id44">
+       Repositorios de Código
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id45">
+       Conjuntos de datos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id46">
+       Artículos
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="t1-aplicaciones-generales">
+<h1>T1. Aplicaciones generales<a class="headerlink" href="#t1-aplicaciones-generales" title="Permalink to this headline">#</a></h1>
+<p>Contenidos:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#introduccion">Introducción</a></p></li>
+<li><p><a class="reference external" href="#areas-centrales">Áreas centrales</a></p></li>
+<li><p><a class="reference external" href="#aplicaciones">Aplicaciones</a></p></li>
+</ul>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">#</a></h2>
+<p><strong>Existen tres grandes áreas:</strong></p>
+<ul class="simple">
+<li><p>NLP: <strong>Procesamiento</strong> del Lenguaje Natural</p></li>
+<li><p>NLU: <strong>Entendimiento</strong> del Lenguaje Natural</p></li>
+<li><p>NLG: <strong>Generación</strong> de Lenguaje Natural</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/areasNLP.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/areasNLP.jpg" style="width: 400px;" /></a>
+<p>Figura 1. Areas. Tomado de <a class="reference external" href="https://www.xenonstack.com/blog/difference-between-nlp-nlu-nlg/">What are the Differences Between NLP, NLU, and NLG? por Jagreet Kaur Gill</a></p>
+<p><strong>Procesamiento del Lenguaje Natural</strong> (PLN), también conocido como <strong>Lingüística Computacional</strong> (LC), involucra la <strong>ingeniería de modelos</strong> y <strong>procesos computacionales</strong> para <strong>resolver problemas</strong> prácticos en la <strong>comprensión</strong> de los <strong>lenguajes humanos</strong>.</p>
+<p>El PLN se puede <strong>dividir</strong> en dos amplias <strong>subáreas</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#areas-centrales">áreas centrales</a> y</p></li>
+<li><p><a class="reference external" href="#aplicaciones">aplicaciones</a>,</p></li>
+</ul>
+<p>aunque a veces es <strong>difícil distinguir</strong> claramente a qué <strong>áreas</strong> pertenecen los problemas.</p>
+</section>
+<section id="areas-centrales">
+<h2>Áreas centrales<a class="headerlink" href="#areas-centrales" title="Permalink to this headline">#</a></h2>
+<p><strong>Abordan problemas</strong> fundamentales como:</p>
+<ul class="simple">
+<li><p>el <strong>modelado del lenguaje</strong>, que subraya las <strong>asociaciones</strong> de cuantificación <strong>entre palabras</strong> que <strong>ocurren naturalmente</strong>;</p></li>
+<li><p><strong>procesamiento morfológico</strong>, que se ocupa de la <strong>segmentación de los componentes</strong> significativos de las <strong>palabras</strong> e identifica las verdaderas <strong>partes del habla</strong> de las palabras tal como se usan;</p></li>
+<li><p><strong>procesamiento sintáctico</strong>, o análisis sintáctico, que <strong>construye diagramas de oraciones</strong> como posibles precursores del procesamiento semántico;</p></li>
+<li><p>y <strong>procesamiento semántico</strong>, que intenta <strong>destilar</strong> el <strong>significado</strong> de palabras, frases y componentes de nivel superior en el texto.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/volumen-apps.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/volumen-apps.jpg" style="width: 800px;" /></a>
+<p>Figura 2. <strong>Volumen de publicaciones</strong> sobre <strong>áreas centrales</strong> en los últimos años. Tomado de [1]</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/areas-apps.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/areas-apps.jpg" style="width: 800px;" /></a>
+<p>Figura 3. <strong>Volumen de publicaciones</strong> sobre <strong>aplicaciones</strong> generales</p>
+<p>Estas áreas <strong>involucran</strong> temas tales como:</p>
+<ul class="simple">
+<li><p><strong>Information Retrieval</strong> (Recuperación de Información)</p></li>
+<li><p><strong>Information Extraction</strong> (Extracción de Información)</p></li>
+<li><p><strong>Text Clasification</strong> (Clasificación de textos)</p></li>
+<li><p><strong>Text Generation</strong> (Generación de Textos)</p></li>
+<li><p><strong>Text Sumarization</strong> (Resúmenes de Textos)</p></li>
+<li><p><strong>Question Answering</strong> (Preguntas y Respuestas)</p></li>
+<li><p><strong>Machine Translation</strong> (Máquinas de traducción)</p></li>
+</ul>
+<p>A menudo, es <strong>necesario uno o más de los problemas</strong> centrales con éxito y <strong>aplicar</strong> esas <strong>ideas y procedimientos</strong> para resolver <strong>problemas prácticos</strong>. Actualmente, la <strong>PLN</strong> es principalmente un campo <strong>basado en datos</strong> que utiliza cálculos <strong>estadísticos y probabilísticos</strong> junto con el <strong>aprendizaje automático</strong>.</p>
+<p><strong>Métodos clásicos</strong>:</p>
+<ul class="simple">
+<li><p>Naive Bayes;</p></li>
+<li><p>K Near Neibours (K vecinos cercanos);</p></li>
+<li><p>Modelos Ocultos de Markov;</p></li>
+<li><p>Conditional Ramdom Fields (campos aleatorios condicionales);</p></li>
+<li><p>Áboles de decisión;</p></li>
+<li><p>Ramdom Forest (bosques aleatorios) ;</p></li>
+<li><p>y Suport Vector Machine (máquinas soporte vectorial).</p></li>
+</ul>
+<p><strong>DeepLearning:</strong>
+En los <strong>últimos años</strong>, ha habido una <strong>transformación</strong> total, y estos <strong>enfoques</strong> han sido <strong>reemplazados</strong> por completo, o al menos mejorados, por <strong>modelos neuronales</strong> y <strong>aprendizaje profundo</strong>.</p>
+<section id="conferencias-mas-relevantes">
+<h3>Conferencias más relevantes<a class="headerlink" href="#conferencias-mas-relevantes" title="Permalink to this headline">#</a></h3>
+<p><strong>Global:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aclweb.org/portal/">ACL</a></p></li>
+<li><p><a class="reference external" href="https://naacl.org/">NAACL</a></p></li>
+<li><p><a class="reference external" href="https://eacl.org/">EACL</a></p></li>
+<li><p><a class="reference external" href="https://www.aclweb.org/anthology/venues/emnlp/">EMNLP</a></p></li>
+<li><p><a class="reference external" href="https://www.aclweb.org/anthology/venues/coling/">COLING</a></p></li>
+<li><p><a class="reference external" href="https://www.aclweb.org/anthology/venues/ijcnlp/">IJCNLP</a></p></li>
+<li><p><a class="reference external" href="https://www.aclweb.org/anthology/venues/conll/">CoNLL</a></p></li>
+<li><p>otras…</p></li>
+</ul>
+<p><strong>España:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.sepln.org/sepln">SEPLN</a></p></li>
+</ul>
+</section>
+</section>
+<section id="aplicaciones">
+<h2>Aplicaciones<a class="headerlink" href="#aplicaciones" title="Permalink to this headline">#</a></h2>
+<p>Podríamos enmarcar las aplicaciones del <strong>PLN</strong> en <strong>seis grandes áreas</strong> que a continuación se detallan.</p>
+<section id="information-retrieval-recuperacion-de-informacion">
+<h3>Information Retrieval (Recuperación de Información)<a class="headerlink" href="#information-retrieval-recuperacion-de-informacion" title="Permalink to this headline">#</a></h3>
+<section id="descripcion">
+<h4>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">#</a></h4>
+<p>El <strong>propósito</strong> de los sistemas de recuperación de información (<strong>IR</strong>) es <strong>ayudar</strong> a las personas a <strong>encontrar la información</strong> correcta (<strong>la más útil</strong>) en el <strong>formato</strong> correcto (<strong>más conveniente</strong>) en el <strong>momento adecuado</strong> (cuando la necesitan).</p>
+<p>Entre muchos problemas de IR, un <strong>problema principal</strong> que debe abordarse es el de <strong>clasificar los documentos</strong> con <strong>respecto</strong> a una cadena de <strong>consulta</strong>, en términos de relevancia para tareas de recuperación ad-hoc(hecha a medida), <strong>similar</strong> a lo que sucede en un <strong>motor de búsqueda</strong>.</p>
+<p>Las <strong>búsquedas</strong> se pueden <strong>basar</strong> en el <strong>texto completo</strong> o en otra <strong>indexación</strong> basada en <strong>contenido</strong>. La <em><strong>recuperación de información es la ciencia de buscar información en un documento</strong></em>, buscar los <strong>propios documentos</strong> y también <strong>buscar los metadatos</strong> que describen los datos y las <strong>bases de datos</strong> de textos, imágenes o sonidos.</p>
+<p>Un <strong>sistema de IR</strong> es un sistema de software que proporciona <strong>acceso a libros</strong>, <strong>revistas</strong> y <strong>otros documentos</strong>; <strong>almacena y gestiona</strong> esos documentos.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/ir.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/ir.jpg" style="width: 600px;" /></a>
+<p>Figura 4. Arquitectura genérica de un sistema IR.</p>
+</section>
+<section id="ejemplo">
+<h4>Ejemplo<a class="headerlink" href="#ejemplo" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="http://www.trec-cds.org/2020.html">“TREC Precision Medicine / Clinical Decision Support Track”</a></p>
+<p>Se nos proporciona un <strong>listado de documentos</strong>. El <strong>objetivo</strong> de esta tarea es <strong>recuperar</strong> los <strong>documentos más acordes</strong> a los <strong>temas</strong> proporcionados. Un <strong>conjunto de temas</strong> en el siguiente <strong>formato</strong>, otros tópicos que podríamos utilizar adicionalmente.</p>
+<p><strong>Ejemplo de entrada:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">topics</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;2020 TREC Precision Medicine&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">topic</span> <span class="n">number</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">disease</span><span class="o">&gt;</span><span class="n">melanoma</span><span class="o">&lt;/</span><span class="n">disease</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">gene</span><span class="o">&gt;</span><span class="n">BRAF</span> <span class="p">(</span><span class="n">V600E</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">gene</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">treatment</span><span class="o">&gt;</span><span class="n">Dabrafenib</span><span class="o">&lt;/</span><span class="n">treatment</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">topic</span><span class="o">&gt;</span>
+  <span class="o">...</span>
+<span class="o">&lt;/</span><span class="n">topics</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Formato de salida:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TOPIC_NO</span> <span class="n">Q0</span> <span class="n">ID</span> <span class="n">RANK</span> <span class="n">SCORE</span> <span class="n">RUN_NAME</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo de salida:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Q0</span> <span class="pre">28348404</span> <span class="pre">1</span> <span class="pre">0.9999</span> <span class="pre">my-run</span></code>; lo cual indica que la ejecución denominada <code class="docutils literal notranslate"><span class="pre">my-run</span></code> <strong>recupera el documento</strong> <code class="docutils literal notranslate"><span class="pre">28348404</span></code> del <strong>tema</strong> número <code class="docutils literal notranslate"><span class="pre">1</span></code> en el rango de 0-1 con una puntuación de <code class="docutils literal notranslate"><span class="pre">0,9999</span></code>.</p>
+</section>
+<section id="metricas-mas-comunes-de-evaluacion">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#metricas-mas-comunes-de-evaluacion" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Precisión</p></li>
+<li><p>Recobrado (Cobertura, <em>Recall</em>)</p></li>
+<li><p><strong>F1</strong> (Medida F)</p></li>
+<li><p>Exactitud</p></li>
+</ul>
+</section>
+<section id="que-otras-aplicaciones-especificas-pensais-que-pueden-formar-parte-esta">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#que-otras-aplicaciones-especificas-pensais-que-pueden-formar-parte-esta" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar!</p>
+</section>
+<section id="benchmarcks">
+<h4>Benchmarcks<a class="headerlink" href="#benchmarcks" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/information-retrieval">https://paperswithcode.com/task/information-retrieval</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Acompetitions">https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Acompetitions</a></p></li>
+<li><p>TREC: <a class="reference external" href="https://trec.nist.gov/">https://trec.nist.gov/</a></p></li>
+</ul>
+</section>
+<section id="repositorios-de-codigo">
+<h4>Repositorios de Código<a class="headerlink" href="#repositorios-de-codigo" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Anotebooks">https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Anotebooks</a></p></li>
+</ul>
+</section>
+<section id="conjuntos-de-datos">
+<h4>Conjuntos de datos<a class="headerlink" href="#conjuntos-de-datos" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>TREC: <a class="reference external" href="https://trec.nist.gov/data.html">https://trec.nist.gov/data.html</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Adatasets">https://www.kaggle.com/search?q=%22information+retrieval%22+in%3Adatasets</a></p></li>
+</ul>
+</section>
+<section id="articulos">
+<h4>Artículos<a class="headerlink" href="#articulos" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>TREC: <a class="reference external" href="https://trec.nist.gov/pubs.html">https://trec.nist.gov/pubs.html</a></p></li>
+</ul>
+</section>
+</section>
+<section id="information-extraction-extraccion-de-informacion">
+<h3>Information Extraction (Extracción de Información)<a class="headerlink" href="#information-extraction-extraccion-de-informacion" title="Permalink to this headline">#</a></h3>
+<section id="id1">
+<h4>Descripción<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<p>La extracción de información <strong>extrae</strong> información <strong>explícita</strong> o <strong>implícita</strong> del <strong>texto</strong>. Los resultados de los sistemas varían, pero a menudo los <strong>datos extraídos</strong> y las <strong>relaciones entre de ellos</strong> se <strong>guardan en bases de datos relacionales</strong>. No obstante, una <strong>etapa avanzada</strong> es poder <strong>almacenar</strong> esta información en <strong>estructuras y de datos semánticas</strong>. La información comúnmente extraída incluye <strong>entidades nombradas y relaciones</strong>, <strong>eventos</strong> y sus implicaciones, <strong>información temporal</strong> y tuplas de <strong>hechos</strong>.</p>
+<p>Las <strong>actividades más comunes</strong> implicadas en la extracción de información son:</p>
+<ul class="simple">
+<li><p><strong>Reconocimiento de entidad nombrada</strong> (Named Entity Recognition)</p></li>
+<li><p><strong>Extracción de eventos</strong> (Event Extraction)</p></li>
+<li><p><strong>Extracción de relaciones</strong> (Relationship Extraction)</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/ie.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/ie.jpg" style="width: 600px;" /></a>
+<p>Figura 5. Arquitectura genérica de un sistema IE.</p>
+</section>
+<section id="id2">
+<h4>Ejemplo<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://knowledge-learning.github.io/ehealthkd-2020">“eHealth-KD Challenge 2020”</a></p>
+<p>El sistema debe ser <strong>capaz de</strong>:</p>
+<ol class="simple">
+<li><p><strong>Detectar</strong> frases claves</p></li>
+<li><p><strong>Clasificar</strong> las frases claves</p></li>
+<li><p><strong>Establecer relaciones</strong> semánticas <strong>entre</strong> las <strong>entidades</strong> siguiendo un modelo conceptual previamente proporcionado que especifica cada tipo de entidad y relación posible.
+Se nos <strong>proporcionan documentos</strong> de texto con contenido similares a la entrada del ejemplo siguiente:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Ejemplo de entrada:</strong><code class="docutils literal notranslate"><span class="pre">“El</span> <span class="pre">asma</span> <span class="pre">es</span> <span class="pre">una</span> <span class="pre">enfermedad</span> <span class="pre">que</span> <span class="pre">afecta</span> <span class="pre">las</span> <span class="pre">vías</span> <span class="pre">respiratorias”</span></code></p></li>
+<li><p><strong>Ejemplo de salida:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="n">Texto</span><span class="o">|</span> <span class="n">Concepto</span><span class="o">|</span> <span class="n">inicio</span><span class="o">|</span> <span class="n">fin</span><span class="o">|</span> <span class="n">palabra</span><span class="o">|</span>
+<span class="o">|</span><span class="n">T1</span><span class="o">|</span> <span class="n">Concept</span><span class="o">|</span> <span class="mi">3</span><span class="o">|</span> <span class="mi">7</span><span class="o">|</span><span class="n">asma</span>
+<span class="o">|</span><span class="n">T2</span><span class="o">|</span> <span class="n">Concept</span><span class="o">|</span> <span class="mi">15</span><span class="o">|</span> <span class="mi">25</span><span class="o">|</span> <span class="n">enfermedad</span><span class="o">|</span>
+<span class="o">|</span><span class="n">T4</span><span class="o">|</span> <span class="n">Action</span><span class="o">|</span> <span class="mi">30</span><span class="o">|</span> <span class="mi">36</span><span class="o">|</span> <span class="n">afecta</span><span class="o">|</span>
+<span class="o">|</span><span class="n">T3</span><span class="o">|</span> <span class="n">Concept</span><span class="o">|</span> <span class="mi">41</span> <span class="mi">45</span><span class="p">;</span><span class="mi">46</span> <span class="mi">59</span><span class="o">|</span><span class="n">vías</span> <span class="n">respiratorias</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>La <strong>primera columna</strong> es un <strong>identificador del elemento</strong> por orden de aparición; la <strong>segunda columna</strong> indica la <strong>clasificación de frase clave</strong> detectada; la <strong>tercera y cuarta columna</strong> se refieren a la <strong>posición de inicio y fin</strong> de la <strong>frase clave</strong> y la <strong>quinta columna</strong> indica el <strong>tipo de relación</strong>.</p>
+</section>
+<section id="id3">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Precisión</p></li>
+<li><p>Recobrado (Cobertura)</p></li>
+<li><p>F1 (Medida F)</p></li>
+<li><p>Exactitud</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar!</p>
+</section>
+<section id="id5">
+<h4>Benchmarcks<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/information-extraction">https://paperswithcode.com/task/information-extraction</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22information+extraction%22+in%3Acompetitions">https://www.kaggle.com/search?q=%22information+extraction%22+in%3Acompetitions</a></p></li>
+<li><p>IberLEF (Español):</p>
+<ul>
+<li><p>eHealth-KD: <a class="reference external" href="https://knowledge-learning.github.io/ehealthkd-2020/">https://knowledge-learning.github.io/ehealthkd-2020/</a></p></li>
+<li><p>Named Entity Recognition and Relation Extraction for Portuguese: <a class="reference external" href="https://www.inf.pucrs.br/linatural/wordpress/iberlef-2019/">https://www.inf.pucrs.br/linatural/wordpress/iberlef-2019/</a></p></li>
+<li><p>Cantemist:  <a class="reference external" href="https://temu.bsc.es/cantemist/">https://temu.bsc.es/cantemist/</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h4>Repositorios de Código<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22information+extraction%22+in%3Anotebooks">https://www.kaggle.com/search?q=%22information+extraction%22+in%3Anotebooks</a></p></li>
+</ul>
+</section>
+<section id="id7">
+<h4>Conjuntos de datos<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22information+extraction%22+in%3Adatasets">https://www.kaggle.com/search?q=%22information+extraction%22+in%3Adatasets</a></p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>Artículos<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/information-extraction">https://paperswithcode.com/task/information-extraction</a></p></li>
+</ul>
+</section>
+</section>
+<section id="text-clasification-clasificacion-textual">
+<h3>Text Clasification (Clasificación textual)<a class="headerlink" href="#text-clasification-clasificacion-textual" title="Permalink to this headline">#</a></h3>
+<section id="id9">
+<h4>Descripción<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<p>Esta área trata la <strong>clasificación de texto</strong> o la <strong>asignación de documentos de texto libre a clases predefinidas</strong>. La clasificación de documentos <strong>tiene numerosas aplicaciones</strong>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/tc1.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/tc1.jpg" style="width: 600px;" /></a>
+<p>Figura 6. <strong>Arquitectura genérica</strong> de un sistema TC. <strong>Una clasificación</strong> por texto.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/tc2.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/tc2.jpg" style="width: 600px;" /></a>
+<p>Figura 7. <strong>Arquitectura genérica</strong> de un sistema TC. <strong>Varias clasificaciones</strong> por texto.</p>
+<p>Una explicación extendida sobre el <strong>agrupamiento</strong> y/o <strong>clasificación</strong> de elementos, así como los <strong>distintos métodos</strong> puede verse en el siguiente enlace: <a class="reference external" href="https://www.kaggle.com/general/116692">CLUSTERING1</a>, <a class="reference external" href="https://www.kaggle.com/general/116693">CLUSTERING2</a>, <a class="reference external" href="https://www.kaggle.com/general/219500">CLUSTERING3</a>.</p>
+<p>Aunque es una tarea que se viene <strong>trabajando</strong> desde hace <strong>mucho tiempo</strong> con <strong>algoritmos clásicos</strong> de máquinas de aprendizaje, Kim [2] fue el <strong>primero en utilizar vectores de palabras</strong> previamente <strong>entrenados en una Redes Neuronales Convolucionales</strong> (CNN) para la clasificación a nivel de oración. El <strong>trabajo</strong> de Kim fue <strong>motivador</strong>, y demostró que las <strong>CNN simples</strong>, con una <strong>capa convolucional</strong> seguida de una <strong>capa densa con desactivación de neuronas y salida de softmax</strong>, podían <strong>lograr excelentes</strong> resultados. Los <strong>modelos de CNN</strong> propuestos pudieron <strong>mejorar</strong> el estado del arte en <strong>4 de las 7 tareas</strong> diferentes presentadas como clasificación de oraciones, incluido el <strong>análisis de sentimientos</strong> y la <strong>clasificación de preguntas</strong>. Conneau y col. [3] <strong>mostró más tarde</strong> que las <strong>redes</strong> que emplean un <strong>gran número de capas convolucionales funcionan bien</strong> para la <strong>clasificación de documentos</strong>.</p>
+</section>
+<section id="id10">
+<h4>Ejemplo:<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://www.kaggle.com/datatattle/covid-19-nlp-text-classification">“Coronavirus tweets NLP - Text Classification”:</a></p>
+<p>Esta trarea propone realizar <strong>clasificación</strong> de texto <strong>en los datos</strong>. Se han obtenido de comentarios de Twitter relacionados con el COVID19 y se ha realizado el <strong>etiquetado manual</strong>.</p>
+<ul class="simple">
+<li><p><strong>Clases posibles:</strong> Negative, Positive, Neutral, Extremely Positive, Extremely Negative</p></li>
+<li><p><strong>Ejemplo de entrada:</strong> <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">COVID-19</span> <span class="pre">coronavirus</span> <span class="pre">pandemic</span> <span class="pre">is</span> <span class="pre">impacting</span> <span class="pre">consumer</span> <span class="pre">shopping</span> <span class="pre">behavior</span>&#160; <span class="pre">purchase</span> <span class="pre">decisions</span> <span class="pre">and</span> <span class="pre">retail</span> <span class="pre">sales</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">First</span> <span class="pre">Insight</span> <span class="pre">study.</span></code></p></li>
+<li><p><strong>Salida del sistema:</strong> <code class="docutils literal notranslate"><span class="pre">Neutral</span></code></p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Precisión</p></li>
+<li><p>Recobrado (Cobertura)</p></li>
+<li><p>F1 (Medida F)</p></li>
+<li><p>Exactitud</p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar! Pensad en algún caso de múltiples clasificaciones.</p>
+</section>
+<section id="id13">
+<h4>Benchmarcks<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/text-classification">https://paperswithcode.com/task/text-classification</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=text+classification+in%3Acompetitions">https://www.kaggle.com/search?q=text+classification+in%3Acompetitions</a></p></li>
+<li><p>IberLEF (spanish):</p>
+<ul>
+<li><p>HAHA: <a class="reference external" href="https://www.fing.edu.uy/inco/grupos/pln/haha/">https://www.fing.edu.uy/inco/grupos/pln/haha/</a></p></li>
+<li><p>Fact: <a class="reference external" href="https://www.fing.edu.uy/inco/grupos/pln/fact/">https://www.fing.edu.uy/inco/grupos/pln/fact/</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id14">
+<h4>Repositorios de Código<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=text+classification+in%3Anotebooks">https://www.kaggle.com/search?q=text+classification+in%3Anotebooks</a></p></li>
+</ul>
+</section>
+<section id="id15">
+<h4>Conjuntos de datos<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=text+classification+in%3Adatasets">https://www.kaggle.com/search?q=text+classification+in%3Adatasets</a></p></li>
+<li><p>Huggingface: <a class="reference external" href="https://huggingface.co/datasets?filter=task_categories:text-classification">https://huggingface.co/datasets?filter=task_categories:text-classification</a></p></li>
+</ul>
+</section>
+<section id="id16">
+<h4>Artículos<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/text-classification">https://paperswithcode.com/task/text-classification</a></p></li>
+</ul>
+</section>
+</section>
+<section id="natural-language-generation-nlg-generacion-de-lenguaje-natural">
+<h3>Natural Language Generation (NLG, Generación de lenguaje natural)<a class="headerlink" href="#natural-language-generation-nlg-generacion-de-lenguaje-natural" title="Permalink to this headline">#</a></h3>
+<section id="id17">
+<h4>Descripción<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h4>
+<p>Muchas <strong>tareas</strong> de PLN <strong>requieren</strong> de la <strong>generación de un lenguaje</strong> (GLN) similar al humano. El <strong>resumen y la traducción</strong> automática <strong>convierten</strong> un <strong>texto</strong> en <strong>otro</strong> de una manera secuencia a secuencia (seq2seq). <strong>Otras</strong> tareas, como los <strong>subtítulos automáticos de imágenes y videos</strong> y los <strong>informes meteorológicos</strong> y <strong>deportivos</strong>, <strong>convierten datos</strong> no textuales en <strong>texto</strong>. <strong>Algunas</strong> tareas, sin embargo, <strong>producen texto</strong> <strong>sin</strong> ningún <strong>dato de entrada</strong> para convertir (o con pequeñas cantidades utilizadas como tema o guía) [1].</p>
+<p>Para <strong>generar un texto</strong>, un sistema debe <strong>escoger</strong> cierta <strong>información</strong> de la base de conocimiento, <strong>decidir cómo organizarla</strong>, y <strong>determinar cómo producir</strong> el <strong>texto</strong> en lenguaje natural, lo cual incluye el <strong>decidir</strong> acerca de la <strong>entrada del léxico</strong> y de las <strong>estructuras sintácticas</strong>.</p>
+<p>Esto hace que el <strong>proceso de generación</strong> se divida en <strong>dos partes</strong>:</p>
+<ul class="simple">
+<li><p>una componente de <strong>planificación del texto</strong> y</p></li>
+<li><p>una componente de <strong>generación</strong> propiamente dicha.</p>
+<ul>
+<li><p>Elección de léxico</p></li>
+<li><p>Recursos gramaticales</p></li>
+<li><p>Morfología</p></li>
+</ul>
+</li>
+</ul>
+<p>Ésta a su vez se divide en <strong>dos tareas</strong>:</p>
+<ul class="simple">
+<li><p>la de <strong>escoger los objetos del léxico</strong> y</p></li>
+<li><p>la de <strong>efectuar selecciones gramaticales</strong>.
+En todo esto se trata de <strong>escoger apropiadamente</strong> para <strong>expresar</strong> lo mejor posible el <strong>significado deseado</strong>.</p></li>
+</ul>
+<p>Entre las <strong>tareas del GLN</strong> se encuentran:</p>
+<ul class="simple">
+<li><p>la <strong>Traducción Automática</strong> (Machine Translation)</p></li>
+<li><p>La <strong>Generación de Resúmenes</strong> (Text Sumarisation)</p></li>
+<li><p>la <strong>Respuesta a Preguntas</strong> (Question Answering)</p></li>
+</ul>
+<p><strong>Arquitectura general</strong> del GNL donde el requisito es generar una <strong>salida textual</strong> utilizando alguna <strong>entrada</strong> textual <strong>no estructurada</strong> se conoce como <em><strong>T2T GLN</strong></em> y cuando la <strong>entrada es estructurada</strong> sería <em><strong>D2T GNL</strong></em>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/gen.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/gen.jpg" style="width: 500px;" /></a>
+<p>Figura 8. Arquitectura genérica de un sistema de GLN, ya sea Texto a Texto o Dato a Texto, a partir tomando información desde texto o desde bases de información y conocimiento.</p>
+</section>
+<section id="ejemplos-de-texto-a-texto">
+<h4>Ejemplos de texto a texto<a class="headerlink" href="#ejemplos-de-texto-a-texto" title="Permalink to this headline">#</a></h4>
+<p>Tomado de <a class="reference external" href="https://towardsdatascience.com/simple-text-generation-d1c93f43f340">https://towardsdatascience.com/simple-text-generation-d1c93f43f340</a></p>
+<section id="ejemplo-1">
+<h5>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">#</a></h5>
+<ul class="simple">
+<li><p><strong>Ejemplo de entrada:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;First</span> <span class="pre">of</span> <span class="pre">all</span> <span class="pre">I</span> <span class="pre">dismembered</span> <span class="pre">the</span> <span class="pre">corpse.&quot;</span></code></p></li>
+<li><p><strong>Ejemplo de salida:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;first</span> <span class="pre">of</span> <span class="pre">all</span> <span class="pre">i</span> <span class="pre">dismembered</span> <span class="pre">the</span> <span class="pre">corpse</span> <span class="pre">which</span> <span class="pre">is</span> <span class="pre">profound</span> <span class="pre">since</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">place</span> <span class="pre">he</span> <span class="pre">appeared</span> <span class="pre">at</span> <span class="pre">first</span> <span class="pre">so</span> <span class="pre">suddenly</span> <span class="pre">as</span> <span class="pre">any</span> <span class="pre">matter</span> <span class="pre">no</span> <span class="pre">answer</span> <span class="pre">was</span> <span class="pre">impossible</span> <span class="pre">to</span> <span class="pre">find</span> <span class="pre">my</span> <span class="pre">sake</span> <span class="pre">he</span> <span class="pre">now</span> <span class="pre">happened</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">sure</span> <span class="pre">it</span> <span class="pre">was</span> <span class="pre">he</span> <span class="pre">suspected</span> <span class="pre">or</span> <span class="pre">caution</span> <span class="pre">or</span> <span class="pre">gods</span> <span class="pre">and</span> <span class="pre">some</span> <span class="pre">voice</span> <span class="pre">held</span> <span class="pre">forth</span> <span class="pre">upon</span> <span class="pre">view</span> <span class="pre">the</span> <span class="pre">conditions&quot;</span></code></p></li>
+</ul>
+<p>Tomado de: texto a texto <a class="reference external" href="https://unipython.com/generacion-de-textos-con-inteligencia-artificial/">https://unipython.com/generacion-de-textos-con-inteligencia-artificial/</a></p>
+</section>
+<section id="ejemplo-2">
+<h5>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">#</a></h5>
+<ul class="simple">
+<li><p><strong>Ejemplo de entrada:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">rmanos</span> <span class="pre">que</span> <span class="pre">sería</span> <span class="pre">bueno</span> <span class="pre">que</span> <span class="pre">se</span> <span class="pre">pusieran</span> <span class="pre">a</span> <span class="pre">construir</span> <span class="pre">sus</span> <span class="pre">propias</span> <span class="pre">casas</span> <span class="pre">para</span> <span class="pre">estar</span> <span class="pre">protegidos.</span> <span class="pre">a</span> <span class="pre">los</span> <span class="pre">ot&quot;</span></code></p></li>
+<li><p><strong>Ejemplo de salida:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;dos</span> <span class="pre">les</span> <span class="pre">pareció</span> <span class="pre">una</span> <span class="pre">buena</span> <span class="pre">idea,</span> <span class="pre">y</span> <span class="pre">se</span> <span class="pre">pusieron</span> <span class="pre">manos</span> <span class="pre">a</span> <span class="pre">la</span> <span class="pre">obra,</span> <span class="pre">cada</span> <span class="pre">uno</span> <span class="pre">construyó</span> <span class="pre">su</span> <span class="pre">casita.</span>&#160; <span class="pre">-</span> <span class="pre">la</span> <span class="pre">mía</span> <span class="pre">será</span> <span class="pre">de</span> <span class="pre">paja</span> <span class="pre">-</span> <span class="pre">dijo</span> <span class="pre">el</span> <span class="pre">más</span> <span class="pre">pequeño-,</span> <span class="pre">la</span> <span class="pre">paja</span> <span class="pre">es</span> <span class="pre">blanda</span> <span class="pre">y</span> <span class="pre">se</span> <span class="pre">puede</span> <span class="pre">sujetar</span> <span class="pre">con</span> <span class="pre">facilidad.</span> <span class="pre">terminaré</span> <span class="pre">muy</span> <span class="pre">pronto</span> <span class="pre">y</span> <span class="pre">podré</span> <span class="pre">ir</span> <span class="pre">a</span> <span class="pre">jugar.</span> <span class="pre">el</span> <span class="pre">hermano</span> <span class="pre">mediano</span> <span class="pre">decidió</span> <span class="pre">que</span> <span class="pre">su</span> <span class="pre">casa</span> <span class="pre">sería</span> <span class="pre">de</span> <span class="pre">madera:</span>&#160; <span class="pre">-</span> <span class="pre">puedo</span> <span class="pre">encontrar</span> <span class="pre">un</span> <span class="pre">montón</span> <span class="pre">de</span> <span class="pre">madera</span> <span class="pre">por</span> <span class="pre">los</span> <span class="pre">alrededores</span> <span class="pre">-</span> <span class="pre">explicó...&quot;</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="generacion-de-datos-a-texto-d2t-gln">
+<h4>Generación de Datos a Texto (D2T GLN)<a class="headerlink" href="#generacion-de-datos-a-texto-d2t-gln" title="Permalink to this headline">#</a></h4>
+<p>La <strong>generación</strong> de <strong>datos</strong> a <strong>texto</strong> (D2T NLG) se puede describir como generación de lenguaje natural a partir de <strong>entrada estructurada</strong>. El requisito es <strong>generar una salida textual</strong> de la entrada proporcionada en un formato estructurado como: <strong>tablas; o gráficos de conocimiento; XML o JSON</strong>. Referencias relacionadas:</p>
+<ul class="simple">
+<li><p>Generación de texto desde datos: <a class="reference external" href="http://nlpprogress.com/english/data_to_text_generation.html">http://nlpprogress.com/english/data_to_text_generation.html</a></p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/data2gen.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/data2gen.jpg" style="width: 600px;" /></a>
+<p>Figura 9. Arquitectura genérica de un sistema de GLN tomando como fuente datos estructurados. Tomado de <a class="reference external" href="https://paperswithcode.com/task/table-to-text-generation">https://paperswithcode.com/task/table-to-text-generation</a></p>
+</section>
+<section id="id18">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>Selección de contenido</strong>: <strong>precisión</strong> (P%) y <strong>recobrado</strong> (R%) de relaciones únicas extraídas del texto generado que también se extraen del texto de referencia. Esto mide qué tan bien el documento generado coincide con el documento de referencia.</p></li>
+<li><p><strong>Generación de relaciones</strong>: <strong>precisión</strong> (P%) y <strong>número de relaciones únicas</strong> (#) extraídas del texto generado que también aparecen en la entrada estructurada proporcionada. Esto mide qué tan bien el sistema es capaz de generar texto que contiene registros fácticos (es decir, correctos).</p></li>
+<li><p><strong>Orden de contenido</strong>: <strong>Distancia Damerau-Levenshtein normalizada</strong> (% DLD) entre las secuencias de registros extraídas del texto de referencia y las extraídas del texto generado. Esto mide qué tan bien el sistema ordena los registros que elige discutir.</p></li>
+</ul>
+<p><strong>Otras métricas:</strong></p>
+<ul class="simple">
+<li><p>ROUGE: ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-4, ROUGE-L, ROUGE-SU4, … [5]</p></li>
+<li><p>BLEU[6]</p></li>
+</ul>
+</section>
+<section id="id19">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar!</p>
+</section>
+<section id="id20">
+<h4>Benchmarcks<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/text-generation">https://paperswithcode.com/task/text-generation</a></p></li>
+<li><p>WebNLG: <a class="reference external" href="https://webnlg-challenge.loria.fr/">https://webnlg-challenge.loria.fr/</a></p></li>
+<li><p>NLP Progress: <a class="reference external" href="http://nlpprogress.com/english/data_to_text_generation.html">http://nlpprogress.com/english/data_to_text_generation.html</a></p></li>
+</ul>
+</section>
+<section id="id21">
+<h4>Repositorios de Código<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/text-generation">https://paperswithcode.com/task/text-generation</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22text+generation%22+in%3Anotebooks">https://www.kaggle.com/search?q=%22text+generation%22+in%3Anotebooks</a></p></li>
+</ul>
+</section>
+<section id="id22">
+<h4>Conjuntos de datos<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>RotoWire: <a class="reference external" href="https://github.com/harvardnlp/boxscore-data/blob/master/rotowire.tar.bz2">https://github.com/harvardnlp/boxscore-data/blob/master/rotowire.tar.bz2</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=%22text+generation%22+in%3Adatasets">https://www.kaggle.com/search?q=%22text+generation%22+in%3Adatasets</a></p></li>
+</ul>
+</section>
+<section id="id23">
+<h4>Artículos<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/text-generation">https://paperswithcode.com/task/text-generation</a></p></li>
+</ul>
+</section>
+</section>
+<section id="text-sumarisation-generacion-de-resumenes">
+<h3>Text Sumarisation (Generación de resúmenes)<a class="headerlink" href="#text-sumarisation-generacion-de-resumenes" title="Permalink to this headline">#</a></h3>
+<section id="id24">
+<h4>Descripción<a class="headerlink" href="#id24" title="Permalink to this headline">#</a></h4>
+<p>El <strong>resumen automático</strong> es la tarea de <strong>producir</strong> una <strong>versión más corta</strong> de uno o varios documentos que <strong>conserve</strong> la mayor parte del <strong>significado del documento original</strong>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/sum.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/sum.jpg" style="width: 600px;" /></a>
+<p>Figura 10. Arquitectura general</p>
+<p>La generación de resúmenes puede ser de <strong>dos tipos</strong>:</p>
+<ul class="simple">
+<li><p><strong>Extractiva:</strong> Los resúmenes extractivos son aquellos en su <strong>texto resultante</strong> este <strong>compuesto por fragmentos</strong> del <strong>texto original</strong>.</p></li>
+<li><p><strong>Abstractiva:</strong> Los resúmenes abstractivos son aquellos que en su <strong>texto resultante</strong> se <strong>generan nuevas frases</strong> representativas del contenido original.</p></li>
+</ul>
+</section>
+<section id="abstractiva">
+<h4>Abstractiva<a class="headerlink" href="#abstractiva" title="Permalink to this headline">#</a></h4>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/sum-abst.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/sum-abst.jpg" style="width: 600px;" /></a>
+<p>Figura 11. Tipos de resúmenes abstractivos. Tomado de <a class="reference external" href="https://doi.org/10.1016/j.eswa.2018.12.011">https://doi.org/10.1016/j.eswa.2018.12.011</a></p>
+</section>
+<section id="extractiva">
+<h4>Extractiva<a class="headerlink" href="#extractiva" title="Permalink to this headline">#</a></h4>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/sum-extract.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/sum-extract.jpg" style="width: 600px;" /></a>
+<p>Figura 12. Ejemplo de resumen extractivo. Tomado de <a class="reference external" href="https://medium.com/&#64;ondenyi.eric/extractive-text-summarization-techniques-with-sumy-3d3b127a0a32">https://medium.com/&#64;ondenyi.eric/extractive-text-summarization-techniques-with-sumy-3d3b127a0a32</a></p>
+</section>
+<section id="id25">
+<h4>Ejemplo<a class="headerlink" href="#id25" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>Ejemplo de entrada:</strong> Documento</p></li>
+<li><p><strong>Ejemplo de salida:</strong> Documento reducido o resumen generado</p></li>
+</ul>
+</section>
+<section id="id26">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#id26" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>ROUGE: ROUGE-1, ROUGE-2, ROUGE-3, ROUGE-4, ROUGE-L, ROUGE-SU4, … [5]</p></li>
+<li><p>BLEU[6]</p></li>
+</ul>
+</section>
+<section id="id27">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#id27" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar!</p>
+</section>
+<section id="id28">
+<h4>Benchmarcks<a class="headerlink" href="#id28" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/search?q_meta=&amp;amp;q=summarisation">https://paperswithcode.com/search?q_meta=&amp;amp;q=summarisation</a></p></li>
+<li><p>LaySumm: <a class="reference external" href="https://ornlcda.github.io/SDProc/sharedtasks.html">https://ornlcda.github.io/SDProc/sharedtasks.html</a>; <a class="reference external" href="https://competitions.codalab.org/competitions/25516">https://competitions.codalab.org/competitions/25516</a></p></li>
+</ul>
+</section>
+<section id="id29">
+<h4>Repositorios de Código<a class="headerlink" href="#id29" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/search?q_meta=&amp;amp;q=summarisation">https://paperswithcode.com/search?q_meta=&amp;amp;q=summarisation</a></p></li>
+</ul>
+</section>
+<section id="id30">
+<h4>Conjuntos de datos<a class="headerlink" href="#id30" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Huggingface: <a class="reference external" href="https://huggingface.co/datasets?filter=task_ids:summarization">https://huggingface.co/datasets?filter=task_ids:summarization</a></p></li>
+</ul>
+</section>
+<section id="id31">
+<h4>Artículos<a class="headerlink" href="#id31" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/search?q_meta=&amp;amp;q=summarisation">https://paperswithcode.com/search?q_meta=&amp;amp;q=summarisation</a></p></li>
+</ul>
+</section>
+</section>
+<section id="question-answering-qa-respuestas-a-preguntas">
+<h3>Question Answering (QA, Respuestas a preguntas)<a class="headerlink" href="#question-answering-qa-respuestas-a-preguntas" title="Permalink to this headline">#</a></h3>
+<section id="id32">
+<h4>Descripción<a class="headerlink" href="#id32" title="Permalink to this headline">#</a></h4>
+<p>Es un <strong>tipo de recuperación de la información</strong> capaz de <strong>recuperar respuestas</strong> a <strong>preguntas</strong> planteadas en <strong>lengua natural</strong>. Se encarga de <strong>buscar</strong> una <strong>información</strong> en una cantidad más o menos grande de documentos, ya que esto debe extraer de dichos documentos un fragmento de texto que responda a una pregunta dada en lenguaje natural.</p>
+<p>Estos sistemas están <strong>muy ligados a los buscadores web</strong>. Debe <strong>considerar listas, definiciones</strong>, y <strong>preguntas</strong> del tipo <strong>cómo</strong>, <strong>cuándo</strong>, <strong>dónde</strong>, <strong>por qué</strong>, etc.</p>
+<p><strong>Similar al resumen y la extracción de información</strong>, la respuesta a preguntas (QA) <strong>recopila palabras</strong>, <strong>frases</strong> u <strong>oraciones</strong> relevantes de un documento. QA <strong>devuelve</strong> esta <strong>información</strong> de <strong>forma coherente</strong> en respuesta a una solicitud. Los métodos actuales se parecen a los de resumen[1][8].</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/qa.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/qa.jpg" style="width: 600px;" /></a>
+<p>Figura 13. Arquitectura genérica de un sistema de QA.</p>
+</section>
+<section id="id33">
+<h4>Ejemplo<a class="headerlink" href="#id33" title="Permalink to this headline">#</a></h4>
+<p>Tomado de <a class="reference external" href="https://ai.google.com/research/NaturalQuestions/visualization">https://ai.google.com/research/NaturalQuestions/visualization</a></p>
+<ul class="simple">
+<li><p><strong>Ejemplo de entrada:</strong> Pregunta: When are hops added to the brewing process? =&gt; ES:¿ Cuándo se agregan lúpulos al proceso de elaboración?</p></li>
+<li><p><strong>Ejemplo de salida:</strong></p>
+<ul>
+<li><p><strong>Respuesta corta:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">boiling</span> <span class="pre">process&quot;</span></code> =&gt; ES: <code class="docutils literal notranslate"><span class="pre">&quot;El</span> <span class="pre">proceso</span> <span class="pre">de</span> <span class="pre">ebullición&quot;</span></code></p></li>
+<li><p><strong>Respuesta larga:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;After</span> <span class="pre">mashing</span> <span class="pre">,</span> <span class="pre">the</span> <span class="pre">beer</span> <span class="pre">wort</span> <span class="pre">is</span> <span class="pre">boiled</span> <span class="pre">with</span> <span class="pre">hops</span> <span class="pre">(</span> <span class="pre">and</span> <span class="pre">other</span> <span class="pre">flavourings</span> <span class="pre">if</span> <span class="pre">used</span> <span class="pre">)</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">large</span> <span class="pre">tank</span> <span class="pre">known</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">&quot;</span> <span class="pre">copper</span> <span class="pre">&quot;</span> <span class="pre">or</span> <span class="pre">brew</span> <span class="pre">kettle</span> <span class="pre">–</span> <span class="pre">though</span> <span class="pre">historically</span> <span class="pre">the</span> <span class="pre">mash</span> <span class="pre">vessel</span> <span class="pre">was</span> <span class="pre">used</span> <span class="pre">and</span> <span class="pre">is</span> <span class="pre">still</span> <span class="pre">in</span> <span class="pre">some</span> <span class="pre">small</span> <span class="pre">breweries</span> <span class="pre">.</span> <span class="pre">The</span> <span class="pre">boiling</span> <span class="pre">process</span> <span class="pre">is</span> <span class="pre">where</span> <span class="pre">chemical</span> <span class="pre">reactions</span> <span class="pre">take</span> <span class="pre">place</span> <span class="pre">,</span> <span class="pre">including</span> <span class="pre">sterilization</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">wort</span> <span class="pre">to</span> <span class="pre">remove</span> <span class="pre">unwanted</span> <span class="pre">bacteria</span> <span class="pre">,</span> <span class="pre">releasing</span> <span class="pre">of</span> <span class="pre">hop</span> <span class="pre">flavours</span> <span class="pre">,</span> <span class="pre">bitterness</span> <span class="pre">and</span> <span class="pre">aroma</span> <span class="pre">compounds</span> <span class="pre">through</span> <span class="pre">isomerization</span> <span class="pre">,</span> <span class="pre">stopping</span> <span class="pre">of</span> <span class="pre">enzymatic</span> <span class="pre">processes</span> <span class="pre">,</span> <span class="pre">precipitation</span> <span class="pre">of</span> <span class="pre">proteins</span> <span class="pre">,</span> <span class="pre">and</span> <span class="pre">concentration</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">wort</span> <span class="pre">.</span> <span class="pre">Finally</span> <span class="pre">,</span> <span class="pre">the</span> <span class="pre">vapours</span> <span class="pre">produced</span> <span class="pre">during</span> <span class="pre">the</span> <span class="pre">boil</span> <span class="pre">volatilise</span> <span class="pre">off</span> <span class="pre">-</span> <span class="pre">flavours</span> <span class="pre">,</span> <span class="pre">including</span> <span class="pre">dimethyl</span> <span class="pre">sulfide</span> <span class="pre">precursors</span> <span class="pre">.</span> <span class="pre">The</span> <span class="pre">boil</span> <span class="pre">is</span> <span class="pre">conducted</span> <span class="pre">so</span> <span class="pre">that</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">even</span> <span class="pre">and</span> <span class="pre">intense</span> <span class="pre">–</span> <span class="pre">a</span> <span class="pre">continuous</span> <span class="pre">&quot;</span> <span class="pre">rolling</span> <span class="pre">boil</span> <span class="pre">&quot;</span> <span class="pre">.</span> <span class="pre">The</span> <span class="pre">boil</span> <span class="pre">on</span> <span class="pre">average</span> <span class="pre">lasts</span> <span class="pre">between</span> <span class="pre">45</span> <span class="pre">and</span> <span class="pre">90</span> <span class="pre">minutes</span> <span class="pre">,</span> <span class="pre">depending</span> <span class="pre">on</span> <span class="pre">its</span> <span class="pre">intensity</span> <span class="pre">,</span> <span class="pre">the</span> <span class="pre">hop</span> <span class="pre">addition</span> <span class="pre">schedule</span> <span class="pre">,</span> <span class="pre">and</span> <span class="pre">volume</span> <span class="pre">of</span> <span class="pre">water</span> <span class="pre">the</span> <span class="pre">brewer</span> <span class="pre">expects</span> <span class="pre">to</span> <span class="pre">evaporate</span> <span class="pre">.</span> <span class="pre">At</span> <span class="pre">the</span> <span class="pre">end</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">boil</span> <span class="pre">,</span> <span class="pre">solid</span> <span class="pre">particles</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">hopped</span> <span class="pre">wort</span> <span class="pre">are</span> <span class="pre">separated</span> <span class="pre">out</span> <span class="pre">,</span> <span class="pre">usually</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">vessel</span> <span class="pre">called</span> <span class="pre">a</span> <span class="pre">&quot;</span> <span class="pre">whirlpool</span> <span class="pre">&quot;</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id34">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#id34" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Precisión</p></li>
+<li><p>Recobrado (Recall)</p></li>
+<li><p>F1</p></li>
+<li><p>BLEU</p></li>
+<li><p>ROUGE-L</p></li>
+<li><p>METEOR</p></li>
+<li><p>EM (Exact Match): Coincidencia exacta con el valor esperado</p></li>
+<li><p>Ver otros [8]</p></li>
+</ul>
+</section>
+<section id="id35">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#id35" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar!</p>
+</section>
+<section id="id36">
+<h4>Benchmarcks<a class="headerlink" href="#id36" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/question-answering">https://paperswithcode.com/task/question-answering</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=Question+Answering+in%3Acompetitions">https://www.kaggle.com/search?q=Question+Answering+in%3Acompetitions</a></p></li>
+<li><p>CodaLab: <a class="reference external" href="https://competitions.codalab.org/competitions/?q=Question+Answering">https://competitions.codalab.org/competitions/?q=Question+Answering</a></p></li>
+</ul>
+</section>
+<section id="id37">
+<h4>Repositorios de Código<a class="headerlink" href="#id37" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/question-answering">https://paperswithcode.com/task/question-answering</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=Question+Answering+in%3Anotebooks">https://www.kaggle.com/search?q=Question+Answering+in%3Anotebooks</a></p></li>
+</ul>
+</section>
+<section id="id38">
+<h4>Conjuntos de datos<a class="headerlink" href="#id38" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Huggingface: <a class="reference external" href="https://huggingface.co/datasets?filter=task_categories:question-answering">https://huggingface.co/datasets?filter=task_categories:question-answering</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=Question+Answering+in%3Adatasets">https://www.kaggle.com/search?q=Question+Answering+in%3Adatasets</a></p></li>
+</ul>
+</section>
+<section id="id39">
+<h4>Artículos<a class="headerlink" href="#id39" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/question-answering">https://paperswithcode.com/task/question-answering</a></p></li>
+</ul>
+</section>
+</section>
+<section id="machine-translation">
+<h3>Machine Translation<a class="headerlink" href="#machine-translation" title="Permalink to this headline">#</a></h3>
+<section id="id40">
+<h4>Descripción<a class="headerlink" href="#id40" title="Permalink to this headline">#</a></h4>
+<p>La traducción automática (MT) es la <strong>aplicación por excelencia del PLN</strong>. Implica el uso de técnicas <strong>matemáticas</strong> y <strong>algorítmicas</strong> para traducir <strong>documentos</strong> de un idioma a otro. Realizar una traducción eficaz es intrínsecamente complejo incluso para los humanos, y <strong>requiere</strong> competencia en áreas como <strong>morfología, sintaxis y semántica, así como una comprensión y un discernimiento expertos de las sensibilidades culturales</strong>, tanto para los idiomas (y sociedades asociadas) en consideración [7].</p>
+</section>
+<section id="traduccion-automatica-basada-en-reglas">
+<h4>Traducción automática basada en reglas<a class="headerlink" href="#traduccion-automatica-basada-en-reglas" title="Permalink to this headline">#</a></h4>
+<p>Consiste en realizar <strong>transformaciones</strong> a partir del original, <strong>reemplazando las palabras</strong> por su <strong>equivalente</strong> más apropiado. Al conjunto de este tipo de transformaciones del texto original se le llama predicción de textos.</p>
+<p><strong>Tipos</strong> de traductores basados en reglas:</p>
+<ul class="simple">
+<li><p><strong>Directos</strong> (traducción automática <strong>basada en diccionarios</strong>) los cuales asignan la entrada a la salida con reglas básicas.</p></li>
+<li><p>De <strong>transferencia</strong> (traducción automática <strong>basada en transferencia</strong>) emplean <strong>análisis morfológico y sintáctico</strong>.</p></li>
+<li><p><strong>Interlingüísticos</strong> (Interlingua) utilizan un <strong>significado abstracto</strong>.</p></li>
+</ul>
+<p>Como mínimo, para <strong>obtener una traducción</strong> de un idioma A hacia un idioma B, se <strong>necesita</strong>:</p>
+<ul class="simple">
+<li><p>Un <strong>diccionario</strong> que asignará cada palabra en A a una palabra B adecuada.</p></li>
+<li><p><strong>Reglas</strong> que representan la <strong>estructura regular</strong> de las <strong>oraciones</strong> en <strong>A</strong>.</p></li>
+<li><p><strong>Reglas</strong> que representan la <strong>estructura regular</strong> de las oraciones en <strong>B</strong>.</p></li>
+</ul>
+</section>
+<section id="traduccion-automatica-basada-en-corpus">
+<h4>Traducción automática basada en corpus<a class="headerlink" href="#traduccion-automatica-basada-en-corpus" title="Permalink to this headline">#</a></h4>
+<p>La traducción automática a partir de un corpus lingüístico se basa en el <strong>análisis de muestras</strong> reales con sus <strong>respectivas traducciones</strong>. Entre los mecanismos que utilizan corpus se incluyen los <strong>métodos estadísticos</strong> y los <strong>basados en ejemplos</strong>.</p>
+<ul class="simple">
+<li><p><strong>Estadística</strong>: El objetivo de la traducción automática estadística es <strong>generar traducciones</strong> a partir de <strong>métodos estadísticos</strong> basados en corpus de <strong>textos bilingües</strong>, como por ejemplo las <strong>actas del parlamento europeo</strong>, que se encuentran traducidas en todos los idiomas oficiales de la UE. A medida que se generan y se analizan corpus de textos multilingües, se mejoran iterativamente los resultados al traducir textos de ámbitos similares.</p></li>
+<li><p><strong>Basada en ejemplos</strong>: La traducción automática basada en ejemplos se caracteriza por el <strong>uso de un corpus bilingüe</strong> como principal fuente de conocimiento en tiempo real. Es esencialmente una <strong>traducción por analogía (relación de semejanza)</strong> y puede ser interpretada como una implementación del razonamiento por casos base empleado en el aprendizaje automático, que consiste en la <strong>resolución de un problema</strong> basándose en la solución de <strong>problemas similares</strong>.</p></li>
+</ul>
+</section>
+<section id="traduccion-automatica-basada-en-el-contexto">
+<h4>Traducción automática basada en el contexto<a class="headerlink" href="#traduccion-automatica-basada-en-el-contexto" title="Permalink to this headline">#</a></h4>
+<p>La traducción automática basada en el contexto utiliza técnicas basadas en <strong>hallar la mejor traducción</strong> para <strong>una palabra fijándose en el resto de palabras que la rodean</strong>.</p>
+<p>Básicamente este método se basa en <strong>tratar</strong> el texto en <strong>unidades de entre 4 y 8 palabras</strong>, de manera que se <strong>traduce cada una</strong> de ellas por su <strong>traducción al idioma destino</strong>, y <strong>se eliminan las traducciones</strong> que han generado una “frase” <strong>sin sentido</strong>. Luego, se <strong>mueve la ventana</strong> una posición (palabra), <strong>retraduciendo la mayoría</strong> de ellas <strong>de nuevo</strong> y <strong>volviendo a filtrar</strong> dejando solo las frases coherentes. <strong>Se repite</strong> dicho paso para todo el texto. Y luego se pasa a <strong>concatenar los resultados</strong> de dichas <strong>ventanas</strong> de manera que se <strong>logre</strong> una <strong>única traducción</strong> del texto.</p>
+<p>El <strong>filtrado</strong> que se realiza donde se <strong>decide</strong> si es una <strong>frase con sentido utiliza un corpus del lenguaje destino</strong>, donde se cuentan el <strong>número de apariciones</strong> de la frase buscada.
+Se trata, por tanto, de un método basado en ideas bastante simples que <strong>ofrecen muy buenos resultados</strong> en comparación a otros métodos.</p>
+<p>Como <strong>ventajas</strong>, aporta también la facilidad de <strong>añadir nuevas lenguas</strong>, ya que solo se <strong>necesita</strong>:</p>
+<ul class="simple">
+<li><p>un buen <strong>diccionario</strong>, que puede ser cualquier versión comercial adaptada mediante reglas gramaticales para tener los verbos conjugados y los nombres/adjetivos con sus variaciones en número y género, y</p></li>
+<li><p>un <strong>corpus en el lenguaje destino</strong>, que se puede sacar por ejemplo de Internet, sin que sea necesario traducir ninguna parte, como en los métodos estadísticos.</p></li>
+</ul>
+</section>
+<section id="redes-neuronales-codificador-decodificador">
+<h4>Redes neuronales. Codificador-Decodificador<a class="headerlink" href="#redes-neuronales-codificador-decodificador" title="Permalink to this headline">#</a></h4>
+<p>Entre las <strong>técnicas más actuales</strong> utilizadas en este ámbito está el uso de <strong>Redes Neuronales profundas</strong> y como parte de esto el uso de <strong>codificadores</strong> (encoders) y <strong>decodificadores</strong> (decoders). Una red neuronal (<strong>el codificador</strong>) <strong>procesa una oración</strong> de la fuente original <strong>para</strong> otra red (<strong>el decodificador</strong>). La <strong>segunda</strong> red neuronal <strong>predice las palabras</strong> en el lenguaje del <strong>destino</strong>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/trad-deep.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/trad-deep.jpg" style="width: 600px;" /></a>
+<p>Figura 15. Representación del modelo de codificador-decodificador (Inglés-Alemán). Tomado de <a class="reference external" href="https://github.com/shangeth/Seq2Seq-Machine-Translation">https://github.com/shangeth/Seq2Seq-Machine-Translation</a></p>
+</section>
+<section id="ejemplo-espanol-ingles">
+<h4>Ejemplo (Español- Ingles)<a class="headerlink" href="#ejemplo-espanol-ingles" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>Ejemplo de entrada</strong>: (Español) <code class="docutils literal notranslate"><span class="pre">&quot;Carlos</span> <span class="pre">llamó</span> <span class="pre">a</span> <span class="pre">su</span> <span class="pre">amigo</span> <span class="pre">por</span> <span class="pre">teléfono&quot;</span></code></p></li>
+<li><p><strong>Ejemplo de salida</strong>: (Inglés) <code class="docutils literal notranslate"><span class="pre">&quot;Carlos</span> <span class="pre">called</span> <span class="pre">his</span> <span class="pre">friend</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">phone&quot;</span></code></p></li>
+</ul>
+</section>
+<section id="id41">
+<h4>Métricas más comunes de evaluación<a class="headerlink" href="#id41" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>BLEU</strong>: La <strong>calidad de las traducciones</strong> se evalúa con la BLEU Metric (BiLingual Evaluation Understudy). La evaluación se basa en la idea de que <strong>cuanto más se parece la traducción a una realizada</strong> por lingüistas <strong>profesionales</strong>, mejor es. Se evalúa sobre 1, considerándose que la puntuación de un traductor humano está entre el 0.7 y el 0.85.</p></li>
+</ul>
+</section>
+<section id="id42">
+<h4>¿Qué otras aplicaciones específicas pensáis que pueden formar parte esta?<a class="headerlink" href="#id42" title="Permalink to this headline">#</a></h4>
+<p>!Mencione <strong>tres problemas actuales</strong> que se puedan solucionar!</p>
+</section>
+<section id="id43">
+<h4>Benchmarcks<a class="headerlink" href="#id43" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/machine-translation">https://paperswithcode.com/task/machine-translation</a></p></li>
+<li><p>Codalab: <a class="reference external" href="https://competitions.codalab.org/competitions/?q=machine+translation">https://competitions.codalab.org/competitions/?q=machine+translation</a></p></li>
+</ul>
+</section>
+<section id="id44">
+<h4>Repositorios de Código<a class="headerlink" href="#id44" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/machine-translation">https://paperswithcode.com/task/machine-translation</a></p></li>
+<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/search?q=machine+translation+in%3Anotebooks+tag%3Alanguages">https://www.kaggle.com/search?q=machine+translation+in%3Anotebooks+tag%3Alanguages</a></p></li>
+</ul>
+</section>
+<section id="id45">
+<h4>Conjuntos de datos<a class="headerlink" href="#id45" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Huggingface: <a class="reference external" href="https://huggingface.co/datasets?filter=task_ids:machine-translation">https://huggingface.co/datasets?filter=task_ids:machine-translation</a></p></li>
+<li><p>PapersWithCode: <a class="reference external" href="https://paperswithcode.com/datasets?q=machine+trasnlation&amp;amp;v=lst&amp;amp;o=match&amp;amp;mod=texts&amp;amp;page=1">https://paperswithcode.com/datasets?q=machine+trasnlation&amp;amp;v=lst&amp;amp;o=match&amp;amp;mod=texts&amp;amp;page=1</a></p></li>
+</ul>
+</section>
+<section id="id46">
+<h4>Artículos<a class="headerlink" href="#id46" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Papers With Code: <a class="reference external" href="https://paperswithcode.com/task/machine-translation">https://paperswithcode.com/task/machine-translation</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="bibliografia">
+<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
+<p>[1] Otter, D. W., Medina, J. R., &amp; Kalita, J. K. (2020). A survey of the usages of deep learning for natural language processing. IEEE Transactions on Neural Networks and Learning Systems.</p>
+<p>[2] Y. Kim, “Convolutional neural networks for sentence classification,” arXiv preprint arXiv:1408.5882, 2014.</p>
+<p>[3] A. Conneau, H. Schwenk, L. Barrault, and Y. Lecun, “Very deep convolutional networks for text classification,” in European ACL, vol. 1, 2017, pp. 1107–1116.</p>
+<p>[4] N. Moratanch and S. Chitrakala, “A survey on abstractive text summarization,” 2016 International Conference on Circuit, Power and Computing Technologies (ICCPCT), Nagercoil, 2016, pp. 1-7, doi: 10.1109/ICCPCT.2016.7530193.</p>
+<p>[5]  Lin, Chin-Yew. 2004. ROUGE: a Package for Automatic Evaluation of Summaries. In Proceedings of the Workshop on Text Summarization Branches Out (WAS 2004), Barcelona, Spain, July 25 - 26, 2004.</p>
+<p>[6] Dreyer, Markus (2012). “HyTER: Meaning-Equivalent Semantics for Translation Evaluation”. Proc. 2012 NAACL: HLT: 162–171. Retrieved 22 January 2015.</p>
+<p>[7] D. Jurafsky and J. Martin, Speech &amp; language processing. Pearson Education, 2000.</p>
+<p>[8] <a class="reference external" href="https://www.aclweb.org/anthology/D19-5817.pdf">https://www.aclweb.org/anthology/D19-5817.pdf</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Universitat d'Alacant<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>11. Práctica. Lectura y documentación del código de un extractor de entidades &#8212; Minería de Textos</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Aplicaciones de la minería de textos" href="bloque3.html" />
+    <link rel="prev" title="10. Representaciones de palabras y oraciones" href="bloque2_embeddings.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Materiales de Minería de Textos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1.html">
+   1. Introducción a la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_1Introduccion.html">
+   2. Minería de textos y procesamiento del lenguaje natural.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+   3. Análisis categorial y sintáctico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+   4. Análisis semántico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica1.html">
+   5. Práctica 1.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+   6. Análisis semántico vectorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica2.html">
+   7. Práctica 1b :
+   <em>
+    Topic modeling
+   </em>
+   .
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 3
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2.html">
+   8. Técnicas para la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_historia.html">
+   9. Revisión histórica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_embeddings.html">
+   10. Representaciones de palabras y oraciones
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. Práctica. Lectura y documentación del código de un extractor de entidades
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3.html">
+   12. Aplicaciones de la minería de textos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content.html">
+   13. Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   14. Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   15. Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/bloque2_practica.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivo">
+   11.1. Objetivo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comentarios-en-python">
+   11.2. Comentarios en Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-de-pycco-para-generar-la-documentacion">
+   11.3. Uso de Pycco para generar la documentación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orden-sugerido-para-el-estudio-del-codigo">
+   11.4. Orden sugerido para el estudio del código
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrega">
+   11.5. Entrega
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Práctica. Lectura y documentación del código de un extractor de entidades</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivo">
+   11.1. Objetivo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comentarios-en-python">
+   11.2. Comentarios en Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-de-pycco-para-generar-la-documentacion">
+   11.3. Uso de Pycco para generar la documentación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orden-sugerido-para-el-estudio-del-codigo">
+   11.4. Orden sugerido para el estudio del código
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrega">
+   11.5. Entrega
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="practica-lectura-y-documentacion-del-codigo-de-un-extractor-de-entidades">
+<h1><span class="section-number">11. </span>Práctica. Lectura y documentación del código de un extractor de entidades<a class="headerlink" href="#practica-lectura-y-documentacion-del-codigo-de-un-extractor-de-entidades" title="Permalink to this headline">#</a></h1>
+<p>[ Acceso rápido a la carpeta con el <a class="reference external" href="https://github.com/jaspock/mtextos2122/blob/main/code/ner/">código fuente</a> ]</p>
+<p>En esta práctica leerás el código de un programa escrito por otros y lo documentarás para demostrar que entiendes lo que hace. La documentación resultante es por lo que se te evaluará. La práctica se ha de realizar en parejas.</p>
+<p>Desde diversos frentes se <a class="reference external" href="https://www.stevejgordon.co.uk/become-a-better-developer-by-reading-source-code">defiende</a> la lectura de código escrito por otros como un enfoque adecuado para aprender a programar o mejorar las habilidades como programador. La metodología <a class="reference external" href="https://blog.teachcomputing.org/using-primm-to-structure-programming-lessons/">PRIMM</a>, por ejemplo, incentiva la discusión entre los estudiantes sobre cómo funciona un determinado programa y usa código ya existente  para integrar la lectura de código como una etapa anterior a la escritura.</p>
+<p>Esta asignatura incluye algunas prácticas en las que utilizarás modelos preentrenados para ciertas tareas de procesamiento del lenguaje natural, pero tanto la programación de los modelos subyacentes como el procesamiento de los datos quedarán normalmente ocultos tras la interfaz de los programas correspondientes. Partiendo de la premisa de que entender cómo funcionan las cosas ayuda a sacarles provecho y dado que la asignatura no incluye entre sus objetivos la escritura desde cero de un programa completo, esta práctica propone un acercamiento intermedio al estudiar el código escrito por terceros como preparación necesaria para poder más adelante crear tus propios programas o modificar los existentes. Tener que modificar código es una tarea más frecuente de lo que en principio se puede pensar: en el desarrollo de la profesión de científico de datos te encontrarás en situaciones en las que no existe un modelo que resuelva exactamente tu problema y deberás plantearte modificar el funcionamiento de un sistema base.</p>
+<p>Algunos estudios asemejan la labor de leer código a la de leer un texto escrito en lenguaje natural; otros lo equiparan más bien al procesamiento mental de ecuaciones matemáticas; otros <a class="reference external" href="https://www.sciencedaily.com/releases/2020/12/201215131236.htm">estudios</a> sugieren que el cerebro usa mecanismo distintos para la asimilación del código fuente.</p>
+<section id="objetivo">
+<h2><span class="section-number">11.1. </span>Objetivo<a class="headerlink" href="#objetivo" title="Permalink to this headline">#</a></h2>
+<p>En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python, algunos de los cuales usan la librería Pytorch para la programación del modelo neuronal. El código está en <a class="reference external" href="https://github.com/jaspock/mtextos2122/blob/main/code/ner/">esta carpeta</a> del repositorio de la asignatura, que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso Deep Learning (<a class="reference external" href="https://github.com/cs230-stanford/cs230-code-examples/">CS230</a>) de la Universidad de Stanford.</p>
+<p>El código original tiene algunos comentarios que puedes consultar en el repositorio del curso CS230 y que han sido eliminados en la versión de este curso; estos comentarios originales son relativamente generales. En esta práctica tienes que añadir muchos más comentarios para explicar con cierto nivel de detalle qué hacen las principales líneas del código.</p>
+<p>Para hacerte una idea de cómo funciona el reconocedor de entidades nombradas, ejecuta en primer lugar el programa tal y como se explica en el README saltando la parte opcional que descarga datos de Kaggle. Puedes leer también esta <a class="reference external" href="https://cs230.stanford.edu/blog/tips/">guía</a> sobre el uso y propósito del programa.</p>
+</section>
+<section id="comentarios-en-python">
+<h2><span class="section-number">11.2. </span>Comentarios en Python<a class="headerlink" href="#comentarios-en-python" title="Permalink to this headline">#</a></h2>
+<p>Los comentarios en Python pueden ser de <a class="reference external" href="https://realpython.com/documenting-python-code/">dos tipos</a>: comentarios de tipo <em>docstring</em> (que pueden aparecer en cualquier lugar del código, aunque suelen colocarse justo después de la definición de una clase o una función para documentarlas) y comentarios de una línea. Los primeros aparecen rodeados por una secuencia de tres comillas al principio y al final, y pueden ocupar más de una línea; los segundos se extienden desde el carácter de la almohadilla hasta el final de la línea. Dado que el propósito de esta práctica es escribir una documentación elaborada, es recomendable que uses más los comentarios de tipo <em>docstring</em>, aunque no para documentar únicamente clases o funciones, sino líneas concretas.</p>
+</section>
+<section id="uso-de-pycco-para-generar-la-documentacion">
+<h2><span class="section-number">11.3. </span>Uso de Pycco para generar la documentación<a class="headerlink" href="#uso-de-pycco-para-generar-la-documentacion" title="Permalink to this headline">#</a></h2>
+<p>En lugar de entregar el código fuente documentado, vas a generar una vista en HTML de los comentarios y el código que facilita su lectura. Para ello, vas a usar la herramienta <a class="reference external" href="https://github.com/pycco-docs/pycco">Pycco</a>. Para aprender sobre su funcionamiento basta con estudiar un pequeño <a class="reference external" href="https://realpython.com/generating-code-documentation-with-pycco/">tutorial</a>. Estudia también uno de los ficheros del código fuente de Pycco (que se usa a sí mismo para generar su documentación) como, por ejemplo, <a class="reference external" href="https://github.com/pycco-docs/pycco/blob/master/pycco/main.py">main.py</a>, y observa después como se muestran sus comentarios en la <a class="reference external" href="https://pycco-docs.github.io/pycco/">página web generada</a>. Como ves, se puede utilizar <em>markdown</em> para dar un formato sencillo al texto de los comentarios.</p>
+<p>Para generar en la carpeta <em>docs</em> la documentación en HTML del código del detector de entidades nombradas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">pip</span> <span class="n">install</span> <span class="n">pycco</span>
+  <span class="n">pycco</span> <span class="o">--</span><span class="n">generate</span><span class="o">-</span><span class="n">index</span> <span class="o">*.</span><span class="n">py</span> <span class="n">model</span><span class="o">/*.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Puedes estudiar el fichero <code class="docutils literal notranslate"><span class="pre">build_vocab.py</span></code> que contiene algunos ejemplos de comentarios.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Algunas versiones de Pycco pueden provocar un error en Windows al intentar generar la documentación. Si es tu caso, puedes aplicar este <a class="reference external" href="https://github.com/pycco-docs/pycco/issues/109">parche</a> al código fuente de Pycco para arreglarlo.</p>
+</div>
+</section>
+<section id="orden-sugerido-para-el-estudio-del-codigo">
+<h2><span class="section-number">11.4. </span>Orden sugerido para el estudio del código<a class="headerlink" href="#orden-sugerido-para-el-estudio-del-codigo" title="Permalink to this headline">#</a></h2>
+<p>La <a class="reference internal" href="#tab-ficheros"><span class="std std-numref">Table 11.1</span></a> muestra el orden aproximado en que se recomienda ir documentando el código. Es posible que en ocasiones tengas que consultar parte de los ficheros de filas inferiores debido a las dependencias. En general, es recomendable que realices un primer repaso general sobre el código antes de ponerte a documentarlo. No hay que documentar los ficheros <code class="docutils literal notranslate"><span class="pre">search_hyperparams.py</span></code>, <code class="docutils literal notranslate"><span class="pre">synthesize_results.py</span></code> y <code class="docutils literal notranslate"><span class="pre">build_kaggle_dataset.py</span></code>.</p>
+<p></p>
+<table class="table" id="tab-ficheros">
+<caption><span class="caption-number">Table 11.1 </span><span class="caption-text">Ficheros a documentar y orden recomendado.</span><a class="headerlink" href="#tab-ficheros" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fichero</p></th>
+<th class="head"><p>Dependencias</p></th>
+<th class="head"><p>Semana</p></th>
+<th class="head"><p>Clases o funciones</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build_vocab.py</span></code></p></td>
+<td></td>
+<td><p>S1</p></td>
+<td><p>save_vocab_to_text_file, save_dict_to_json, update_vocab</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">utils.py</span></code></p></td>
+<td></td>
+<td><p>S1</p></td>
+<td><p>Params, RunningAverage, set_logger, save_dict_to_json, save_checkpoint, load_checkpoint</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model/net.py</span></code></p></td>
+<td></td>
+<td><p>S2</p></td>
+<td><p>Net, accuracy, loss_fn</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">evaluate.py</span></code></p></td>
+<td><p>utils, <a class="reference external" href="http://model.net">model.net</a>, model.data_loader</p></td>
+<td><p>S3</p></td>
+<td><p>evaluate</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model/data_loader.py</span></code></p></td>
+<td><p>utils</p></td>
+<td><p>S4</p></td>
+<td><p>DataLoader</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">train.py</span></code></p></td>
+<td><p><a class="reference external" href="http://model.net">model.net</a>, model.data_loader, utils</p></td>
+<td><p>S4</p></td>
+<td><p>train, train_and_evaluate</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="entrega">
+<h2><span class="section-number">11.5. </span>Entrega<a class="headerlink" href="#entrega" title="Permalink to this headline">#</a></h2>
+<p>La fecha límite para entregar la práctica es el 5 de abril de 2022 a las 23.59 horas. Entrega a través del <a class="reference external" href="https://pracdlsi.dlsi.ua.es/index.cgi">servidor de prácticas</a> del Departamento un fichero zip de nombre <code class="docutils literal notranslate"><span class="pre">mtextos-ner-21-22.zip</span></code> que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta <code class="docutils literal notranslate"><span class="pre">model</span></code>) con la estructura original que permita ejecutarlo, así como la carpeta <code class="docutils literal notranslate"><span class="pre">docs</span></code> generada por Pycco; no incluyas en el zip las carpetas <code class="docutils literal notranslate"><span class="pre">data</span></code> y <code class="docutils literal notranslate"><span class="pre">experiments</span></code>, ya que pueden ocupar demasiado espacio si has probado el código con datos de cierto tamaño.</p>
+<p>En el momento de realizar la entrega indica los datos de tu pareja. Solo uno de los dos miembros de la pareja ha de realizar la entrega.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bloque2_embeddings.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Representaciones de palabras y oraciones</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Aplicaciones de la minería de textos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Universitat d'Alacant<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Redes neuronales recurrentes &#8212; Minería de Textos</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Materiales de Minería de Textos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1.html">
+   1. Introducción a la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_1Introduccion.html">
+   2. Minería de textos y procesamiento del lenguaje natural.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+   3. Análisis categorial y sintáctico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+   4. Análisis semántico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica1.html">
+   5. Práctica 1.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+   6. Análisis semántico vectorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque1_Practica2.html">
+   7. Práctica 1b :
+   <em>
+    Topic modeling
+   </em>
+   .
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2.html">
+   8. Técnicas para la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_historia.html">
+   9. Revisión histórica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_embeddings.html">
+   10. Representaciones de palabras y oraciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque2_practica.html">
+   11. Práctica. Lectura y documentación del código de un extractor de entidades
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bloque 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3.html">
+   12. Aplicaciones de la minería de textos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extras
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content.html">
+   13. Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   14. Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   15. Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/bloque2_recurrent.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procesamiento-simbolico-con-redes-recurrentes">
+   Procesamiento simbólico con redes recurrentes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#red-recurrente-de-elman">
+   Red recurrente de Elman
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrenamiento-de-redes-neuronales-recurrentes">
+   Entrenamiento de redes neuronales recurrentes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descenso-por-gradiente">
+     Descenso por gradiente
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aprendizaje-recurrente-en-tiempo-real">
+     Aprendizaje recurrente en tiempo real
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retropropagacion-en-el-tiempo">
+     Retropropagación en el tiempo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-problema-del-gradiente-evanescente">
+   El problema del gradiente evanescente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unidades-lstm">
+   Unidades LSTM
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-lstm">
+     Ecuaciones del modelo LSTM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitacion-de-la-red-lstm-original-reticencia-a-olvidar">
+     Limitación de la red LSTM original: reticencia a olvidar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convergencia">
+   Convergencia
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Redes neuronales recurrentes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procesamiento-simbolico-con-redes-recurrentes">
+   Procesamiento simbólico con redes recurrentes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#red-recurrente-de-elman">
+   Red recurrente de Elman
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrenamiento-de-redes-neuronales-recurrentes">
+   Entrenamiento de redes neuronales recurrentes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descenso-por-gradiente">
+     Descenso por gradiente
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aprendizaje-recurrente-en-tiempo-real">
+     Aprendizaje recurrente en tiempo real
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retropropagacion-en-el-tiempo">
+     Retropropagación en el tiempo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-problema-del-gradiente-evanescente">
+   El problema del gradiente evanescente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unidades-lstm">
+   Unidades LSTM
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-lstm">
+     Ecuaciones del modelo LSTM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitacion-de-la-red-lstm-original-reticencia-a-olvidar">
+     Limitación de la red LSTM original: reticencia a olvidar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convergencia">
+   Convergencia
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="redes-neuronales-recurrentes">
+<h1>Redes neuronales recurrentes<a class="headerlink" href="#redes-neuronales-recurrentes" title="Permalink to this headline">#</a></h1>
+<p>Hasta hace pocos años, las redes neuronales recurrentes (RNR) eran el modelo neuronal más usado para el procesamiento de las secuencias (principalmente textos) implicadas en el procesamiento del lenguaje natural. Aunque las redes convolucionales se han venido usando también en ciertos contextos, la arquitectura transformer, aparecida en 2017, es la que verdaderamente explica la pérdida de protagonismo de las RNR. Esta situación, no obstante, puede cambiar en el futuro.</p>
+<p>En este apartado veremos los fundamentos de las RNR y dejaremos el transformer para más adelante.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Una discusión introductoria y menos detallada de buena parte de lo aquí comentado puede seguirse en “A beginner’s <a class="reference external" href="https://wiki.pathmind.com/lstm">guide</a> to LSTMs and recurrent neural networks”.</p>
+</div>
+<p>Las RNR o el transformer no son la única manera de incorporar información sobre la historia de una secuencia a una red neuronal. Una red no recurrente puede ser ampliada con la incorporación a sus entradas de una memoria explícita a corto plazo mediante una <em>ventana temporal</em> de tokens. De esta forma, la entrada a la red consistirá en el token actual <span class="math notranslate nohighlight">\(u[t]\)</span> (para simplificar, podemos asumir por ahora que un token es una palabra) concatenado con los <span class="math notranslate nohighlight">\(p-1\)</span> tokens anteriores <span class="math notranslate nohighlight">\(u[t-1],\ldots,u[t-p+1]\)</span> o con una ventana de valores en torno a <span class="math notranslate nohighlight">\(u[t]\)</span>. En este caso, sin embargo, el contexto disponible es mucho más limitado, el alcance de las representaciones más reducido y el número de parámetros mayor.</p>
+<section id="procesamiento-simbolico-con-redes-recurrentes">
+<h2>Procesamiento simbólico con redes recurrentes<a class="headerlink" href="#procesamiento-simbolico-con-redes-recurrentes" title="Permalink to this headline">#</a></h2>
+<p>Consideremos que tenemos un <em>vocabulario</em> (un conjunto de símbolos conocidos como <em>tokens</em>) <span class="math notranslate nohighlight">\(V = \{\sigma_1, \ldots, \sigma_{|V|}\}\)</span> a partir del cual se obtienen secuencias temporales de la forma <span class="math notranslate nohighlight">\(s[1],\ldots,s[t],\ldots,s[L]\)</span>. Aunque las redes recurrentes pueden ser entrenadas para múltiples tareas como clasificar la temática de una frase de entrada o generar una traducción a otro idioma, aquí nos centraremos en la tarea de predecir el siguiente token de una secuencia. Los aspectos relevantes son los mismos independientemente de la tarea concreta para la que se utilice la RNR: la entrada se procesa token a token, se generan unas representaciones intermedias en un <em>espacio de estados</em> y a partir de estas representaciones se obtiene la salida de la red, que se interpretará de una forma u otra en función de la tarea.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>En las tareas de procesamiento del lenguaje natural, normalmente se reserva un token del vocabulario al que suele llamarse <code class="docutils literal notranslate"><span class="pre">UNK</span></code> (por el inglés <em>unknown</em>) para representar cualquier token desconocido que no pertenezca al vocabulario (OOV, por <em>out-of-vocabulary</em>), bien durante el entrenamiento, bien durante el uso en producción del modelo. El criterio para decidir si un token forma parte o no del vocabulario suele ser su frecuencia de aparición en el corpus de entrenamiento. El criterio para decidir el tamaño del vocabulario suele basarse en el tamaño deseado de la arquitectura resultante (a mayor vocabulario, mayor tamaño de la red neuronal).</p>
+</div>
+<p>Para predecir el siguiente símbolo de  la secuencia con una RNR debemos determinar varias cosas: cómo se representa cada uno de los símbolos de <span class="math notranslate nohighlight">\(V\)</span> y cómo se realiza el entrenamiento de la red para esta tarea. La forma más habitual de codificar los distintos símbolos <span class="math notranslate nohighlight">\(\sigma_i \in V\)</span> para su procesamiento por una RNR es la denominada  codificación <em>exclusiva</em>, más comúnmente conocida como representación <em>one-hot</em>. En ella, todos los símbolos se codifican mediante vectores unitarios de tamaño <span class="math notranslate nohighlight">\(|V|\)</span>, de forma que la representación del símbolo <span class="math notranslate nohighlight">\(\sigma_i\)</span> en un espacio <span class="math notranslate nohighlight">\([0,1]^{|V|}\)</span> se obtiene a través de la función de codificación:</p>
+<div class="math notranslate nohighlight">
+\[
+C_{V}: V \longrightarrow [0,1]^{|V|}
+\]</div>
+<p>en la que el <span class="math notranslate nohighlight">\(j\)</span>-ésimo componente del vector resultante es:</p>
+<div class="math notranslate nohighlight">
+\[
+  (C_V(\sigma_i))_j = \delta_{i,j} \quad\quad 
+  \sigma_i \in V, \,\,
+j=1,\ldots,|V| 
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\delta\)</span> es la función <em>delta de Kronecker</em>, definida como:</p>
+<div class="math notranslate nohighlight" id="equation-ec-kronecker">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-kronecker" title="Permalink to this equation">#</a></span>\[\begin{split}
+\delta_{i,j} = 
+\left\{ \begin{array}{r&#64;{\quad}l}
+1 &amp; \mbox{si $i=j$} \\[2ex]
+0 &amp; \mbox{en otro caso}
+\end{array} \right.
+\end{split}\]</div>
+<p>Es decir, el símbolo <span class="math notranslate nohighlight">\(\sigma_i\)</span> se representa mediante un vector unitario en el que todos los componentes excepto el <span class="math notranslate nohighlight">\(i\)</span>-ésimo son cero. En principio, cada token se representa con el mismo vector durante todo el entrenamiento.</p>
+<p>Cuando se entrena una RNR para predecir las probabilidades del siguiente token de una secuencia, en el instante <span class="math notranslate nohighlight">\(t\)</span> se alimenta la red con la entrada:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{u}[t]= C_V(s[t])
+\]</div>
+<p>y la salida obtenida <span class="math notranslate nohighlight">\(y_i[t]\)</span> se puede interpretar (como veremos más adelante), después de normalizarla para que todos sus componentes sumen uno, como la probabilidad de que el siguiente símbolo de la secuencia sea <span class="math notranslate nohighlight">\(\sigma_i\)</span>. Para reajustar los pesos de la red, se considera como salida deseada para el algoritmo de entrenamiento la codificación <em>one-hot</em> del siguiente token:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{d}[t]= C_V(s[t+1])
+\]</div>
+<p>Cuando la codificación <em>one-hot</em> se aplica a las entradas, el número de estas es <span class="math notranslate nohighlight">\(n_U=|V|\)</span>, y puede considerarse que cada símbolo selecciona una determinada dinámica de la red. Al aplicar este tipo de codificación también a las salidas deseadas, el número de neuronas de salida es <span class="math notranslate nohighlight">\(n_Y=|V|\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>A estas alturas del curso, ya sabes que hoy en día en el procesamiento de lenguaje natural las entradas se representan mediante vectores más ricos denominados <em>embeddings</em>. Los embeddings no son incompatibles con la codificación <em>one-hot</em>, en cualquier caso. Si los embeddings se almacenan en una matriz <span class="math notranslate nohighlight">\(W\)</span> de tamaño <span class="math notranslate nohighlight">\(|V| \times n\)</span> donde <span class="math notranslate nohighlight">\(n\)</span> es la dimensión de los embeddings (el embedding de cada token ocupa, por tanto, una fila de la matriz) y consideramos la representación <em>one-hot</em> de la entrada como un vector fila, el producto matricial <span class="math notranslate nohighlight">\(C_V(s[t]) \, W\)</span> devolverá el embedding correspondiente al token de la entrada. Esta matriz <span class="math notranslate nohighlight">\(W\)</span> de embeddings puede rellenarse con los embeddings resultantes de aplicar un algoritmo como <em>word2vec</em> y mantenerse fija durante el aprendizaje, o bien cada uno de sus elementos puede considerarse como un parámetro a ajustar por el algoritmo de entrenamiento. Aunque matemáticamente el producto matricial anterior refleja la idea de seleccionar un embedding, a la hora de implementar esta operativa en un programa la multiplicación no es necesaria y basta con seleccionar como entrada a la red neuronal la fila de la matriz o <em>tabla de embeddings</em> <span class="math notranslate nohighlight">\(W\)</span> correspondiente al token a procesar. La representación <em>one-hot</em> sí que se usa en cualquier caso a la salida de la red para representar la salida esperada en la función de pérdida.</p>
+</div>
+</section>
+<section id="red-recurrente-de-elman">
+<h2>Red recurrente de Elman<a class="headerlink" href="#red-recurrente-de-elman" title="Permalink to this headline">#</a></h2>
+<p>Existen muchos tipos de arquitecturas neuronales recurrentes. Aquí nos centraremos en una de las más simples: la <em>red recurrente de Elman</em>, propuesta por Jeffrey L. Elman en 1990. Este modelo se acerca bastante a lo que un profesional tiene en su cabeza cuando piensa en términos generales en una red recurrente, aunque no la denomine como <em>red de Elman</em>. La arquitectura, que puede observarse en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-rrs1</span></code>, nos permite presentar conceptos que luego pueden extrapolarse a modelos más complejos.</p>
+<figure class="align-default" id="fig-rrs1">
+<a class="reference internal image-reference" href="_images/rnr-elman.png"><img alt="_images/rnr-elman.png" src="_images/rnr-elman.png" style="height: 320px;" /></a>
+<figcaption>
+<p><span class="caption-text">Esquema de la red recurrente de Elman.</span><a class="headerlink" href="#fig-rrs1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La dinámica de la red de Elman viene determinada por las ecuaciones siguientes:</p>
+<div class="math notranslate nohighlight" id="equation-ec-rrs1y">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-rrs1y" title="Permalink to this equation">#</a></span>\[\begin{split}
+y_i [t] &amp; = &amp; g_Y (Y_i [t]) \quad\quad i=1,\ldots,n_Y \\[2ex]
+Y_i [t] &amp; = &amp; \sum_{j=1}^{n_X} W^{y,x}_{i,j} x_j [t] + W^y_i \\[2ex]
+x_i [t] &amp; = &amp; g_X (X_i [t]) \quad\quad i=1,\ldots,n_X \\[2ex]
+X_i [t] &amp; = &amp;
+  \sum_{j=1}^{n_U} W^{x,u}_{i,j} u_j [t] +
+  \sum_{j=1}^{n_X} W^{x,x}_{i,j} x_{j} [t-1] + W^x_i
+\end{split}\]</div>
+<p>En las ecuaciones anteriores, los superíndices indican el cálculo en el que está implicado el peso: por ejemplo, <span class="math notranslate nohighlight">\(W^{y,u}_{i,j}\)</span> indica que ese peso contribuye a determinar la salida <span class="math notranslate nohighlight">\(y\)</span> a partir de la entrada <span class="math notranslate nohighlight">\(u\)</span>. Por otra parte, <span class="math notranslate nohighlight">\(W^{x}_{i}\)</span> indica que este peso es un sesgo implicado en el cálculo del estado <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>. Los subíndices muestran las unidades concretas que se ven afectadas (conectadas) y van paralelos a los superíndices. El vector <span class="math notranslate nohighlight">\(\boldsymbol{u}[t]\)</span>, como se ha comentado, es el embedding correspondiente al token actual o, en modelos más simples, la codificación <em>one-hot</em> de dicho token. A la representación <span class="math notranslate nohighlight">\(\boldsymbol{x}[t]\)</span> se le llama <em>estado</em> de la red neuronal; estas representaciones pueden también considerarse en ciertos contextos como embeddings del token de entrada correspondiente. Las funciones <span class="math notranslate nohighlight">\(g_X\)</span> y <span class="math notranslate nohighlight">\(g_Y\)</span> son funciones de activación (por ejemplo, sigmoideas).</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Aunque el modelo aquí presentado es completamente válido y útil, en tareas complejas la red se suele ampliar con capas de estado adicionales. En este caso, la recurrencia sigue existiendo entre cada capa y ella misma, pero también son posibles esquemas más avanzados en los que la salida de una capa retroalimenta la entrada de capas anteriores.</p>
+</div>
+<p>El estado inicial <span class="math notranslate nohighlight">\(\boldsymbol{x}[0]\)</span> se inicializa normalmente a <span class="math notranslate nohighlight">\(\boldsymbol{0}\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Este modelo solo considera el contexto anterior para determinar la historia de la secuencia. En muchas tareas de procesamiento del lenguaje natural, sin embargo, suele ser necesario (o como mínimo beneficioso) tener en cuenta también el contexto posterior a un token dado. Por ello, se emplean sistemas como las <em>RNR bidireccionales</em> que usan dos modelos recurrentes: uno que procesa la entrada de izquierda a derecha y otro que la procesa de derecha a izquierda. Dado un token, se considera como su vector de estado el resultante de alguna operación (la media, la suma o la concatenación, por ejemplo) que integre los vectores de estado de ambos modelos. Observa que podría darse el caso de sistemas que han de procesar la entrada en tiempo real a nivel de token sin esperar al final de la frase (como en la traducción simultánea), pero lo más habitual es disponer como mínimo de la frase completa desde el principio.</p>
+</div>
+</section>
+<section id="entrenamiento-de-redes-neuronales-recurrentes">
+<h2>Entrenamiento de redes neuronales recurrentes<a class="headerlink" href="#entrenamiento-de-redes-neuronales-recurrentes" title="Permalink to this headline">#</a></h2>
+<p>Para entrenar la RNR de forma supervisada se necesita normalmente algún tipo de <em>función de pérdida</em> o <em>medida del error</em> <span class="math notranslate nohighlight">\(E[t]\)</span> que describa la adecuación de la salida proporcionada por la red al valor deseado. Los parámetros se ajustan entonces intentando minimizar este error. Una posible función de error es la función de error cuadrático, definida para el instante <span class="math notranslate nohighlight">\(t\)</span> como:</p>
+<div class="math notranslate nohighlight" id="equation-ec-error">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-error" title="Permalink to this equation">#</a></span>\[
+  E[t] = \frac{1}{2} \sum_{i=1}^{n_Y} \left( d_i [t] - y_i[t] \right)^2
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(d_i[t]\)</span> es el <em>valor deseado</em> o <em>esperado</em> para la <span class="math notranslate nohighlight">\(i\)</span>-ésima componente de la salida en el instante <span class="math notranslate nohighlight">\(t\)</span>, e <span class="math notranslate nohighlight">\(y_i[t]\)</span> es la salida correspondiente de la red.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>En el contexto del procesamiento del lenguaje natural y en el caso habitual de que la salida de la red se interprete como un vector de probabilidades, se utilizan funciones de pérdida más específicas como la entropia cruzada, que ya vimos. En este apartado, sin embargo, por motivos pedagógicos, nos centraremos en la función de error cuadrático ya que su derivada, que calcularemos a continuación, es ligeramente más sencilla. Lo que interesa es que entiendas cómo se calculan en general estas derivadas, porque, a efectos prácticos, las librerías como Pytorch o Tensorflow se encargan de obtenerlas automáticamente para una u otra función de pérdida.</p>
+</div>
+<section id="descenso-por-gradiente">
+<h3>Descenso por gradiente<a class="headerlink" href="#descenso-por-gradiente" title="Permalink to this headline">#</a></h3>
+<p>Los principales algoritmos de entrenamiento se basan en el cálculo del <em>gradiente</em> de la función de error, esto es, de la derivada de la función de error con respecto a los distintos parámetros ajustables de la red. Se trata de intentar encontrar el mínimo de la función de error mediante la búsqueda de un punto donde el gradiente se anule. Esta condición es necesaria, pero no suficiente debido a la existencia de mínimos locales, máximos o puntos de silla; de ahí el carácter heurístico del método.</p>
+<p>Una de las variantes basadas en el gradiente más utilizadas es el <em>descenso por el gradiente</em>. En él los sucesivos ajustes realizados se hacen de forma individual para cada parámetro, digamos <span class="math notranslate nohighlight">\(W_i\)</span>, en sentido opuesto al vector de gradiente <span class="math notranslate nohighlight">\(\partial E[n] / \partial W_i[n]\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+W_i[n+1] = W_i[n] - \alpha \: \frac{\partial E[n]}{\partial W_i[n]}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\alpha\)</span> es un parámetro conocido como <em>tasa de aprendizaje</em>, que ha de tomar un valor convenientemente pequeño. Al pasar de la iteración <span class="math notranslate nohighlight">\(n\)</span> a la <span class="math notranslate nohighlight">\(n+1\)</span> (el momento preciso de la actualización de los parámetros depende del tipo concreto de entrenamiento, pero normalmente se realiza tras finalizar el procesamiento de un <em>mini-batch</em>), el algoritmo aplica la corrección:</p>
+<div class="math notranslate nohighlight" id="equation-ec-introdelta">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-introdelta" title="Permalink to this equation">#</a></span>\[
+\Delta W_i[n] = W_i[n+1] - W_i[n] = 
+                   - \alpha \: \frac{\partial E[n]}{\partial W_i[n]}
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Observa que en la ecuación anterior hemos usado <span class="math notranslate nohighlight">\(n\)</span> y no <span class="math notranslate nohighlight">\(t\)</span> para referirnos a los momentos en que se atualizan los pesos de la red porque el procesamiento de cada nuevo token de la secuencia no tiene por qué coincidir con un nuevo paso en la actualización de los pesos. Si los pesos se actualizan tras cada token se habla de <em>actualización en línea</em>, si se hace tras cada frase de <em>actualización por patrones o secuencias</em> y si se hace tras procesar un conjunto de varias frases (lo más habitual para aprovechar el rendimiento de la GPUs) se habla de <em>actualización por lotes</em> o <em>minilotes</em>.</p>
+</div>
+<p>La tasa de aprendizaje <span class="math notranslate nohighlight">\(\alpha\)</span> tiene una enorme influencia en la convergencia del método de descenso por el gradiente. Si <span class="math notranslate nohighlight">\(\alpha\)</span> es pequeña, el proceso de aprendizaje se desarrolla suavemente, pero la convergencia del sistema a una solución estable puede llevar un tiempo excesivo. Si <span class="math notranslate nohighlight">\(\alpha\)</span> es grande, la velocidad de aprendizaje aumenta, pero existe el riesgo de que el proceso de aprendizaje diverja y el sistema se vuelva inestable.</p>
+<p>Existen dos formas diferentes de calcular las derivadas parciales anteriores. La primera que veremos, el <em>aprendizaje recurrente en tiempo real</em> es conceptualmente más sencilla pero no se usa mucho actualmente. La segunda, conocida como <em>retropropagación a través del tiempo</em>, permite transformar el problema del entrenamiento de una RNR en uno equivalente de entrenamiento de una red no recurrente (<em>feedforward</em>) y aplicar las soluciones convencionales para este tipo de redes.</p>
+</section>
+<section id="aprendizaje-recurrente-en-tiempo-real">
+<h3>Aprendizaje recurrente en tiempo real<a class="headerlink" href="#aprendizaje-recurrente-en-tiempo-real" title="Permalink to this headline">#</a></h3>
+<p>El <em>aprendizaje recurrente en tiempo real</em> (RTRL, por el inglés <em>real-time recurrent learning</em>) es una forma de calcular las derivadas parciales de la función de error, aunque algunos autores se refieren a él como un algoritmo de entrenamiento <em>per se</em> al combinarlo con el ajuste de pesos realizado con el descenso por el gradiente. Veámoslo con un ejemplo, derivando las ecuaciones de una red recurrente de Elman, cuya dinámica viene definida por las ecuaciones del bloque <a class="reference internal" href="#equation-ec-rrs1y">()</a>. La derivación de las ecuaciones para otros tipos de redes recurrentes es muy similar a la de la red de Elman.</p>
+<p>Consideremos una función de error cuadrático como la de <a class="reference internal" href="#equation-ec-error">()</a>. La regla de la cadena nos dice que:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(f \circ g \right)'(x) = f'(g(x)) \cdot g'(x)
+\]</div>
+<p>Aplicando la regla de la cadena y considerando un parámetro ajustable cualquiera, se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial E[t]}{\partial \Box} = - \sum_{l=1}^{n_Y}
+(d_l[t] - y_l[t]) 
+\frac{\partial y_l[t]}{\partial \Box}
+\]</div>
+<p>En lo anterior, la derivada <span class="math notranslate nohighlight">\(\partial y_l[t] / \partial \Box\)</span> depende del parámetro concreto considerado. A continuación se dan las expresiones de estas derivadas para todos los pesos y sesgos de la red. Comprueba que obtienes el mismo resultado.</p>
+<div class="math notranslate nohighlight" id="equation-ec-apb1">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-apb1" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{eqnarray}
+\frac{\partial y_l[t]}{\partial W^y_i} &amp; = &amp;
+  g_Y'(Y_l[t]) \, \delta_{l,i}  \\[2ex]
+\frac{\partial y_l[t]}{\partial W^{y,x}_{i,j}} &amp; = &amp; 
+  g_Y'(Y_l[t]) \, x_j[t] \delta_{l,i}  \\[2ex]
+\frac{\partial y_l[t]}{\partial W^{x}_j} &amp; = &amp;
+  g_Y'(Y_l[t]) \sum_{i=1}^{n_X} W^{y,x}_{l,i} 
+  \frac{\partial x_i[t]}{\partial W^{x}_j}  \\[2ex]
+\frac{\partial y_l[t]}{\partial W^{x,u}_{j,k}} &amp; = &amp;
+  g_Y'(Y_l[t]) \sum_{i=1}^{n_X} W^{y,x}_{l,i} 
+  \frac{\partial x_i[t]}{\partial W^{x,u}_{j,k}}  \\[2ex]
+\frac{\partial y_l[t]}{\partial W^{x,x}_{j,k}} &amp; = &amp;
+  g_Y'(Y_l[t]) \sum_{i=1}^{n_X} W^{y,x}_{l,i} 
+  \frac{\partial x_i[t]}{\partial W^{x,x}_{j,k}} 
+\end{eqnarray}
+\end{split}\]</div>
+<p>Para la derivación de las ecuaciones anteriores debe tenerse en cuenta las siguientes expresiones:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\frac{\partial W^y_i}{\partial W^y_j} &amp; = &amp; \delta_{i,j} \\[2ex]
+\frac{\partial W^{y,x}_{i,j}}{\partial W^{y,x}_{k,l}} &amp; = &amp; \delta_{i,k}
+ \,  \delta_{j,l} \\[2ex]
+\frac{\partial W^x_i}{\partial W^x_j} &amp; = &amp; \delta_{i,j} \\[2ex]
+\frac{\partial W^{x,u}_{i,j}}{\partial W^{x,u}_{k,l}} &amp; = &amp; \delta_{i,k}
+ \,  \delta_{j,l} \\[2ex]
+\frac{\partial W^{x,x}_{i,j}}{\partial W^{x,x}_{k,l}} &amp; = &amp; \delta_{i,k}
+ \,  \delta_{j,l}
+\end{eqnarray}
+\end{split}\]</div>
+<p>donde la función <span class="math notranslate nohighlight">\(\delta_{i,j}\)</span> es la <em>delta de Kronecker</em>, ya definida en <a class="reference internal" href="#equation-ec-kronecker">()</a>.</p>
+<p>Las derivadas del estado <span class="math notranslate nohighlight">\(x_i[t]\)</span> de las ecuaciones del bloque <a class="reference internal" href="#equation-ec-apb1">()</a> son recurrentes en RTRL como resultado de la propia recurrencia de la red:</p>
+<div class="math notranslate nohighlight" id="equation-ec-ejrtrl">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-ejrtrl" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{eqnarray}
+\frac{\partial x_i[t]}{\partial W^{x}_j} &amp; = &amp;
+  g_X'(X_i[t]) 
+  \left( \delta_{i,j} + \sum_{k=1}^{n_X} W^{x,x}_{i,k} 
+  \frac{\partial x_k[t-1]}{\partial W^{x}_j} \right)  \\[2ex]
+\frac{\partial x_i[t]}{\partial W^{x,u}_{j,k}} &amp; = &amp;
+  g_X'(X_i[t]) 
+  \left( u_k[t] \delta_{i,j} + \sum_{m=1}^{n_X} W^{x,x}_{i,m} 
+  \frac{\partial x_m[t-1]}{\partial W^{x,u}_{j,k}} \right) \\[2ex]
+\frac{\partial x_i[t]}{\partial W^{x,x}_{j,k}} &amp; = &amp;
+  g_X'(X_i[t])
+  \left( x_k[t-1] \delta_{i,j} + \sum_{m=1}^{n_X} W^{x,x}_{i,m} 
+  \frac{\partial x_m[t-1]}{\partial W^{x,x}_{j,k}} \right)
+\end{eqnarray}
+\end{split}\]</div>
+<p>La implementación de un algoritmo de descenso por el gradiente a partir de estas ecuaciones es sencilla. En cada paso es necesario tener guardadas las derivadas del estado anterior para poder calcular las del siguiente. La derivada de la función logística <span class="math notranslate nohighlight">\(g_L(x)\)</span> es <span class="math notranslate nohighlight">\(g_L(x) (1 - g_L(x))\)</span> y la derivada de la función tangente hiperbólica <span class="math notranslate nohighlight">\(g_T(x)\)</span> es <span class="math notranslate nohighlight">\(1 - g_{T}^{2}(x)\)</span>.</p>
+</section>
+<section id="retropropagacion-en-el-tiempo">
+<h3>Retropropagación en el tiempo<a class="headerlink" href="#retropropagacion-en-el-tiempo" title="Permalink to this headline">#</a></h3>
+<p>Al igual que hicimos con RTRL, consideraremos la retropropagación en el tiempo (BPTT, por el inglés <em>backpropagation through time</em>) como una forma de calcular las derivadas parciales de la función de error con respecto a los parámetros ajustables de la red, aunque hay autores que denominan BPTT a la combinación de lo anterior con el descenso por el gradiente.</p>
+<p>Al calcular las derivadas parciales en BPTT se asume que el comportamiento temporal de la RNR puede ser <em>desplegado</em> en el tiempo en forma de red hacia adelante. Es posible aplicar entonces el conocido algoritmo de retropropagación para calcular las derivadas parciales de este tipo de redes. El despliegue de la RNR hace que la red hacia adelante (<em>red extendida</em>) vaya creciendo una y otra vez tras consumir cada nuevo token. Así, suponiendo una red de Elman, las unidades de entrada y las unidades de estado del instante <span class="math notranslate nohighlight">\(t\)</span> se convierten en dos nuevas capas en la red extendida; las unidades de entrada y las unidades ocultas del instante <span class="math notranslate nohighlight">\(t-1\)</span> se convierten también en dos nuevas capas de la red extendida; y así sucesivamente hasta llegar al primer instante de tiempo correspondiente al primer token de la secuencia. En la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-bptt</span></code> se muestra la red de Elman desplegada en el instante <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<figure class="align-default" id="fig-bptt">
+<a class="reference internal image-reference" href="_images/rnr-bptt.png"><img alt="_images/rnr-bptt.png" src="_images/rnr-bptt.png" style="height: 640px;" /></a>
+<figcaption>
+<p><span class="caption-text">Una red de Elman desplegada en el instante <span class="math notranslate nohighlight">\(t\)</span> según el algoritmo de retropropagación en el tiempo.</span><a class="headerlink" href="#fig-bptt" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Como realmente solo existe un conjunto de unidades de entrada y de unidades ocultas, los pesos equivalentes en las distintas capas virtuales han de tener idéntico valor; el algoritmo de retropropagación permite obtener la contribución al error total de cada una de las versiones de los pesos, pero a la hora de actualizarlos debe considerarse las contribuciones de los pesos equivalentes. Habitualmente, para cada parámetro instanciado múltiples veces en la red desplegada se toma la media de las actualizaciones correspondientes para actualizarlo.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Es fácil ver que el tamaño de cada secuencia determina el de la red extendida. En el caso de una secuencia de longitud relativamente extensa, las necesidades temporales y espaciales del algoritmo crecerían linealmente conforme la red fuera procesando los tokens. Por ello, en estos casos, la historia de la red se puede <em>truncar</em> y se considera irrelevante cualquier información anterior a <span class="math notranslate nohighlight">\(t_0\)</span> instantes de tiempo. El valor <span class="math notranslate nohighlight">\(t_0\)</span> se conoce como <em>umbral de truncamiento</em> y la técnica resultante como <em>retropropagación en el tiempo truncada</em>.</p>
+</div>
+<p>Vamos a derivar las ecuaciones de BPTT para una red recurrente de Elman con la dinámica definida por las ecuaciones del bloque <a class="reference internal" href="#equation-ec-rrs1y">()</a> y que desplegada en el tiempo tiene el aspecto de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-bptt</span></code>. La red neuronal de esta figura es una red no recurrente con lo que las derivadas de la función de error serán las mismas que las calculadas con la técnica de <em>retropropagación</em>, de la que no mostraremos aquí los detalles. Si se utiliza el descenso por el gradiente, el algoritmo se limita a actualizar cada peso (no se muestran las ecuaciones de los sesgos) mediante la llamada <em>regla delta generalizada</em> como sigue:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\Delta W^{y,x}_{i,j}[t] &amp; = &amp; \alpha \, \delta^Y_i[t] \, x_j[t] \\[2ex]
+\Delta W^{x,x}_{i,j}[t] &amp; = &amp; \alpha \sum_{\tau=1}^{t} \delta^X_i[\tau] \,
+x_j[\tau-1] \\[2ex]
+\Delta W^{x,u}_{i,j}[t] &amp; = &amp; \alpha \sum_{\tau=1}^{t} \delta^X_i[\tau] \,
+u_j[\tau] 
+\end{eqnarray}
+\end{split}\]</div>
+<p>donde la <em>señal de error</em> <span class="math notranslate nohighlight">\(\delta^Y\)</span> y la <em>señal de error retropropagada</em> <span class="math notranslate nohighlight">\(\delta^X\)</span> se definen a partir de:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\delta^Y_i[t] &amp; = &amp; \frac{\partial E[t]}{\partial Y_i[t]} \\[2ex]
+\delta^X_i[t] &amp; = &amp; g_X'(X_i[t]) \sum_{j=1}^{n_Y} \delta^Y_j[t] \, W^{y,x}_{j,i} 
+\end{eqnarray}
+\end{split}\]</div>
+<p>y para <span class="math notranslate nohighlight">\(1 \leq \tau &lt; t\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\delta^X_i[\tau] = g_X'(X_i[\tau]) \sum_{j=1}^{n_X}
+\delta^X_j[\tau+1]  W^{x,x}_{j,i} 
+\]</div>
+<p>Excepto en el caso, poco empleado en la práctica, de que los pesos se actualicen tras ver cada token, el valor de la derivada es el [mismo] tanto si se usa RTRL como si se usa BPTT para su cálculo. La complejidad temporal del <a class="reference external" href="https://www.dlsi.ua.es/~mlf/nnafmc/pbook/node29.html">primero</a> es <span class="math notranslate nohighlight">\(n_X^4\)</span> (asumiendo que <span class="math notranslate nohighlight">\(n_X &gt; n_U\)</span>) y la del <a class="reference external" href="https://www.dlsi.ua.es/~mlf/nnafmc/pbook/node28.html">segundo</a> es <span class="math notranslate nohighlight">\(n_X^2\)</span>. La complejidad espacial de BPTT es mayor, por otro lado, y su implementación un poco más compleja.</p>
+</section>
+</section>
+<section id="el-problema-del-gradiente-evanescente">
+<h2>El problema del gradiente evanescente<a class="headerlink" href="#el-problema-del-gradiente-evanescente" title="Permalink to this headline">#</a></h2>
+<p>Aunque teóricamente el estado de una RNR puede almacenar toda la información relevante sobre la historia de una secuencia, la práctica totalidad de los algoritmos de entrenamiento encuentran grandes problemas (en ocasiones insalvables) para <em>mantener</em> esta información, especialmente cuando el intervalo de tiempo entre la presencia de una determinada entrada y la salida deseada correspondiente es relativamente largo. Esto hace que a la hora de la verdad muchas RNR tengan poca ventaja sobre las redes no recurrentes con ventana temporal.</p>
+<p>Los algoritmos de entrenamiento de RNR suelen ser inacapaces de constatar las dependencias a largo plazo debido a que la salida actual de la red es muy poco sensible a una entrada antigua, esto es, <span class="math notranslate nohighlight">\(\partial y[t+k] / \partial W[t]\)</span> tiende a cero cuando <span class="math notranslate nohighlight">\(k\)</span> aumenta para cualquier peso <span class="math notranslate nohighlight">\(W\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Aunque la demostración es más compleja, para comprender aproximadamente por qué ocurre esto, puedes pensar en el algoritmo BPTT y en el hecho de que la derivada parcial de la función de pérdida respecto a un peso que se encuentra en una capa muy inferior se obtiene mediante la regla de la cadena como el producto de diferentes derivadas parciales encadenadas; si los valores de estas derivadas parciales son menores de la unidad, se producirá el desvanecimiento exponencial de la información del gradiente; si son mayores que la unidad, se producirá el efecto contrario, conocido como explosión del gradiente, que producirá igualmente una inestabilidad excesiva en el entrenamiento al aumentar los pesos exageradamente y provocar la saturación de las neuronas.</p>
+</div>
+<p>Las unidades LSTM que estudiaremos a continuación sustituyen a las neuronas convencionales en las capas de estado de la RNR para intentar mitigar el problema del gradiente evanescente en base a la idea, que no desarrollaremos aquí, de asegurar lo que se conoce como <em>flujo de error constante</em> a través de ellas. Las celdas de una unidad LSTM tienen un <em>carrusel</em> que asegura este flujo de error constante y pueden guardar un valor indefinidamente; las compuertas de entrada vetan las entradas indeseadas al carrusel o permiten que este se vea modificado cuando corresponda; las compuertas de salida impiden que el contenido de la celda influya en el resto de la red hasta que sea el momento oportuno. El algoritmo de entrenamiento aprenderá idealmente a abrir y cerrar estas compuertas cuendo corresponda. La gestión de las dependencias a muy largo plazo en los carruseles permite que la red LSTM pueda detectar adecuadamente eventos interdependientes separados por decenas o cientos de instantes de tiempo, mientras que las RNR tradicionales no suelen ser capaces de manejar correctamente intervalos superiores a unos pocos instantes de tiempo.</p>
+<p>En el capítulo 7 de esta <a class="reference external" href="https://www.dlsi.ua.es/~japerez/pub/pdf/tesi2002.pdf">tesis</a> se analiza las activaciones de las distintas compuertas de una red LSTM que ha aprendido a predecir el lenguaje <span class="math notranslate nohighlight">\(a^nb^nc^n\)</span>. Para una consulta rápida, la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-anbncn</span></code> muestra una de las gráficas más representativas de dicho capítulo.</p>
+<figure class="align-default" id="fig-anbncn">
+<a class="reference internal image-reference" href="_images/rnr-anbncn.png"><img alt="_images/rnr-anbncn.png" src="_images/rnr-anbncn.png" style="height: 800px;" /></a>
+<figcaption>
+<p><span class="caption-text">Activaciones en una unidad LSTM con dos celdas que forma parte de una red neuronal recurrente que ha aprendido el lenguaje <span class="math notranslate nohighlight">\(a^nb^nc^n\)</span>.</span><a class="headerlink" href="#fig-anbncn" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="unidades-lstm">
+<h2>Unidades LSTM<a class="headerlink" href="#unidades-lstm" title="Permalink to this headline">#</a></h2>
+<p>Para comprender el modelo de memoria a corto y largo plazo (LSTM, por el inglés <em>long short-term memory</em>) es fundamental conocer el problema del gradiente evanescente que las motiva y que se ha presentado más arriba.</p>
+<p>El componente básico del modelo LSTM propuesto en 1997 por Hochreiter y Schmidhuber es el <em>bloque de memoria</em>, que contiene una o más <em>celdas</em> de memoria, una <em>compuerta de entrada</em> y una <em>compuerta de salida</em>. Las compuertas son unidades multiplicativas con activación continua (normalmente dentro del intervalo unidad) y son compartidas por todas las celdas que pertenecen a un mismo bloque de memoria. Cada celda contiene una unidad lineal con una conexión recurrente local llamada <em>carrusel de error constante</em> (CEC); la activación del CEC se conoce como el <em>estado</em> de la celda.</p>
+<p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-basecell</span></code> muestra uno de estos bloques de memoria con una única celda; esta figura es útil también para introducir la notación utilizada.</p>
+<figure class="align-default" id="fig-basecell">
+<a class="reference internal image-reference" href="_images/rnr-basecell.png"><img alt="_images/rnr-basecell.png" src="_images/rnr-basecell.png" style="height: 280px;" /></a>
+<figcaption>
+<p><span class="caption-text">Un bloque de memoria con una única celda. La entrada de la celda se representa con <span class="math notranslate nohighlight">\(Z\)</span>, la activación de la compuerta de entrada con <span class="math notranslate nohighlight">\(\phi\)</span>, la activación de la compuerta de salida con <span class="math notranslate nohighlight">\(\gamma\)</span>, la activación del CEC con <span class="math notranslate nohighlight">\(x\)</span> y la activación global de la celda con <span class="math notranslate nohighlight">\(z\)</span>.</span><a class="headerlink" href="#fig-basecell" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-basetwocell</span></code> muestra un bloque de memoria con dos celdas que comparten las compuertas del bloque, aunque esta configuración ha caído en desuso. Cuando alguien habla de una <em>red recurrente LSTM</em> la mayoría de las veces se está refiriendo a una RNR similar a la red de Elman (probablemente con más de una capa de estado) en la que cada neurona convencional de la capa de estado se ha sustituido por un bloque de memoria LSTM con una única celda.</p>
+<figure class="align-default" id="fig-basetwocell">
+<a class="reference internal image-reference" href="_images/rnr-basetwocell.png"><img alt="_images/rnr-basetwocell.png" src="_images/rnr-basetwocell.png" style="height: 380px;" /></a>
+<figcaption>
+<p><span class="caption-text">El bloque de memoria <span class="math notranslate nohighlight">\(i\)</span>-ésimo de una capa de una red LSTM con dos celdas por bloque.</span><a class="headerlink" href="#fig-basetwocell" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Cada celda recibe como entrada una colección de valores (ponderados mediante los pesos correspondientes) provenientes de la entrada de la red y de las salidas de todas las celdas del modelo en el instante anterior. La compuerta de entrada se encarga de permitir o impedir el acceso de estos valores al CEC del interior de la celda. La compuerta de salida realiza una acción similar sobre la salida de la celda, tolerando o reprimiendo la difusión del estado del CEC al resto de la red.</p>
+<p>Los bloques de memoria configuran una red LSTM como puede verse en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-lstm</span></code>, donde no se indican los sesgos de las distintas neuronas del modelo y solo hay una capa de estado.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Valores no acotados.</p>
+<p>Nótese cómo los valores de algunos componentes del estado, en especial la activación de los CEC, no están acotados.</p>
+</aside>
+<figure class="align-default" id="fig-lstm">
+<a class="reference internal image-reference" href="_images/rnr-wholelstm.png"><img alt="_images/rnr-wholelstm.png" src="_images/rnr-wholelstm.png" style="height: 560px;" /></a>
+<figcaption>
+<p><span class="caption-text">Una red LSTM con una única capa oculta dos bloques de memoria de dos celdas cada uno. Solo se muestran algunas conexiones y no se muestran los sesgos. En este diagrama, a diferencia de la red de Elman, hay una conexión directa (con los pesos correspondientes) entre la entrada y la salida.</span><a class="headerlink" href="#fig-lstm" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="ecuaciones-del-modelo-lstm">
+<h3>Ecuaciones del modelo LSTM<a class="headerlink" href="#ecuaciones-del-modelo-lstm" title="Permalink to this headline">#</a></h3>
+<p>Sean <span class="math notranslate nohighlight">\(n_U\)</span>, <span class="math notranslate nohighlight">\(n_Y\)</span>, <span class="math notranslate nohighlight">\(n_M\)</span> y <span class="math notranslate nohighlight">\(n_C\)</span> el número de neuronas de entrada, salida, bloques de memoria y celdas por bloque, respectivamente, de una configuración LSTM de tipo red de Elman con una capa de estado. La entrada en el instante <span class="math notranslate nohighlight">\(t\)</span> se denota con <span class="math notranslate nohighlight">\(\boldsymbol{u}[t]\)</span> y la salida correspondiente con <span class="math notranslate nohighlight">\(\boldsymbol{y}[t]\)</span>. La salida de la <span class="math notranslate nohighlight">\(j\)</span>-ésima celda del bloque <span class="math notranslate nohighlight">\(i\)</span>-ésimo se representa con <span class="math notranslate nohighlight">\(z_{ij}[t]\)</span>.</p>
+<p>Como ya se vio antes, al representar los pesos los superíndices indican el cálculo en el que está involucrado el peso en cuestión: el “<span class="math notranslate nohighlight">\(\phi,z\)</span>” en <span class="math notranslate nohighlight">\(W^{\phi,z}\)</span> indica que el peso se usa para calcular la activación de una compuerta de entrada (<span class="math notranslate nohighlight">\(\phi\)</span>) a partir de la de una celda (<span class="math notranslate nohighlight">\(z\)</span>); el “<span class="math notranslate nohighlight">\(\gamma\)</span>” en <span class="math notranslate nohighlight">\(W^{\gamma}\)</span> indica que el sesgo se usa para calcular la activación de
+una compuerta de salida. Los subíndices indican las unidades particulares afectadas por el peso y van paralelos a los superíndices.</p>
+<p>La activación de la compuerta de entrada del <span class="math notranslate nohighlight">\(i\)</span>-ésimo bloque de memoria <span class="math notranslate nohighlight">\(\phi_i\)</span> se calcula como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Phi_i[t] &amp; = &amp; \sum_{j=1}^{n_M} \sum_{k=1}^{n_C}
+   W^{\phi,z}_{i,jk} \, z_{jk} [t-1] +
+   \sum_{j=1}^{n_U} W^{\phi,u}_{i,j} \, u_j[t] 
+   + W^{\phi}_i \\[2ex]
+\phi_i [t] &amp; = &amp; g_C( \Phi_i[t] )
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(g_C\)</span> es la función de activación de todas las compuertas de la red (la función logística que devuelve valores en <span class="math notranslate nohighlight">\([0,1]\)</span>, por ejemplo).</p>
+<p>La activación de la compuerta de salida se calcula como sigue:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Gamma_i[t] &amp; = &amp; \sum_{j=1}^{n_M} \sum_{k=1}^{n_C}
+   W^{\gamma,z}_{i,jk} \, z_{jk} [t-1] +
+   \sum_{j=1}^{n_U} W^{\gamma,u}_{i,j} \, u_j[t] 
+   + W^{\gamma}_i \\[2ex]
+\gamma_i [t] &amp; = &amp; g_C( \Gamma_i[t] )
+\end{split}\]</div>
+<p>El estado interno de la celda de memoria se calcula sumando la entrada modificada por la compuerta correspondiente con el estado en el instante anterior <span class="math notranslate nohighlight">\(t-1\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-xsinforget">
+<span class="eqno">()<a class="headerlink" href="#equation-xsinforget" title="Permalink to this equation">#</a></span>\[
+x_{ij}[t] = x_{ij}[t-1] + \phi_i[t] \, g_Z(Z_{ij}[t])
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(g_Z\)</span> es una función de activación (normalmente sigmoidea y acotada) y:</p>
+<div class="math notranslate nohighlight">
+\[
+Z_{ij}[t] = \sum_{k=1}^{n_M} \sum_{l=1}^{n_C}
+   W^{z,z}_{ij,kl} z_{kl} [t-1] +
+   \sum_{k=1}^{n_U} W^{z,u}_{ij,k} \, u_k[t] + W^z_{ij}
+\]</div>
+<p>con <span class="math notranslate nohighlight">\(x_{ij} [0] = 0\)</span> para todo <span class="math notranslate nohighlight">\(ij\)</span>. La salida de la celda se calcula ajustando el estado del CEC mediante una nueva función de activación <span class="math notranslate nohighlight">\(g_M\)</span> y multiplicando el valor resultante por la activación de la compuerta de salida:</p>
+<div class="math notranslate nohighlight">
+\[
+z_{ij}[t] = \gamma_i[t] \, g_M(x_{ij}[t])
+\]</div>
+<p>Finalmente, si permitimos la conexión directa entre la entrada y las neuronas de salida, la salida global de la red se calcula mediante:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+Y_i[t] &amp; = &amp; \sum_{j=1}^{n_M} \sum_{k=1}^{n_C}
+   W^{y,z}_{i,jk} \, z_{jk} [t] +
+   \sum_{j=1}^{n_U} W^{y,u}_{i,j} \, u_j[t] + W^y_i \\[2ex]
+y_i[t] &amp; = &amp; g_Y( Y_i[t] )
+\end{eqnarray}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(g_Y\)</span> es, otra vez, una función de activación adecuada.</p>
+<p>Los pesos que inciden en las compuertas de entrada y salida se suelen iniciar de forma que <span class="math notranslate nohighlight">\(\phi_i[0]\)</span> y <span class="math notranslate nohighlight">\(\gamma_i[0]\)</span> estén cerca de <span class="math notranslate nohighlight">\(0\)</span>; de esta manera los bloques de memoria están desactivados inicialmente y el entrenamiento se centra en las conexiones directas entre la entrada y las neuronas de salida. Así, el protagonismo de los bloques de memoria va aumentando paulatinamente conforme el algoritmo de aprendizaje determina su rol.</p>
+</section>
+<section id="limitacion-de-la-red-lstm-original-reticencia-a-olvidar">
+<h3>Limitación de la red LSTM original: reticencia a olvidar<a class="headerlink" href="#limitacion-de-la-red-lstm-original-reticencia-a-olvidar" title="Permalink to this headline">#</a></h3>
+<p>El modelo inicial de la red LSTM ha sido aumentado desde su concepción original para superar algunos problemas detectados. Una de las principales modificaciones consistió en añadir las compuertas de olvido como se explica a continuación.</p>
+<p>Cuando la red LSTM presentada hasta ahora se aplica a tareas de procesamiento de secuencias de longitud arbitrariamente larga, el modelo se vuelve inestable debido a que bajo determinadas circunstancias el estado de los CEC crece indefinidamente. Para paliar este problema, se incorpora una tercera compuerta a los bloques de memoria: la <em>compuerta de olvido</em>.</p>
+<p>La compuerta de olvido puede rebajar e incluso anular el estado interno de la celda, esto es, la activación del CEC, cuando sus contenidos caducan. Estas compuertas permiten que la red LSTM pueda procesar establemente secuencias de longitud arbitrariamente larga.</p>
+<p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-cell</span></code> muestra la nueva imagen de los bloques de memoria con la adición de la compuerta de olvido. Como ocurría con las compuertas de entrada y de salida, la compuerta de olvido es compartida por todas las celdas del bloque.</p>
+<figure class="align-default" id="fig-cell">
+<a class="reference internal image-reference" href="_images/rnr-cell.png"><img alt="_images/rnr-cell.png" src="_images/rnr-cell.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Un bloque de memoria con una compuerta de olvido con activación <span class="math notranslate nohighlight">\(\lambda\)</span>.</span><a class="headerlink" href="#fig-cell" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La activación de las compuertas de olvido <span class="math notranslate nohighlight">\(\lambda_i\)</span> se obtiene calculando:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Lambda_i[t] &amp; = &amp; \sum_{j=1}^{n_M} \sum_{k=1}^{n_C}
+   W^{\lambda,z}_{i,jk} \, z_{jk} [t-1] +
+   \sum_{j=1}^{n_U} W^{\lambda,u}_{i,j} \, u_j[t] 
+   + W^{\lambda}_i \\[2ex]
+\lambda_i [t] &amp; = &amp; g_C( \Lambda_i[t] )
+\end{split}\]</div>
+<p>Al considerar las compuertas de olvido, la ecuación <a class="reference internal" href="#equation-xsinforget">()</a> cambia su forma. El estado interno de la celda de memoria se calcula ahora sumando la entrada modificada por la compuerta correspondiente y el estado en el instante anterior <span class="math notranslate nohighlight">\(t-1\)</span> multiplicado por la correspondiente compuerta de olvido:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{ij}[t] = \lambda_i[t] \, x_{ij}[t-1] + \phi_i[t] \, g_Z(Z_{ij}[t])
+\]</div>
+<p>Los pesos de las compuertas de olvido se inicializan normalmente de manera que <span class="math notranslate nohighlight">\(\lambda_i[0]\)</span> esté cerca de <span class="math notranslate nohighlight">\(1\)</span>; con esta inicialización, las celdas no olvidan nada hasta que aprendan cómo olvidar.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Aunque las unidades LSTM siguen siendo ampliamente utilizadas en las RNR, con el paso de los años han aparecido variaciones del modelo inicial que mantienen su esencia, pero simplifican las ecuaciones para reducir el número de parámetros a entrenar. Una de las alternativas más conocidas son las <em>unidades recurrentes con compuertas</em> (GRU, por el inglés <em>gated recurrent unit</em>).</p>
+</div>
+</section>
+</section>
+<section id="convergencia">
+<h2>Convergencia<a class="headerlink" href="#convergencia" title="Permalink to this headline">#</a></h2>
+<p>Como apéndice final, a continuación se demuestra que con una RNR de Elman en el caso de que el entorno sea estacionario (es decir, que la distribución de los datos no cambie dinámicamente durante el aprendizaje), el entrenamiento se haga por épocas (es decir, se consideren todos los datos disponibles antes de reestimar los parámetros) y se utilice una función de error cuadrático, el mínimo de esta se produce cuando la salida <span class="math notranslate nohighlight">\(y_i[t]\)</span> de la red es la probabilidad condicionada de obtener <span class="math notranslate nohighlight">\(\sigma_i\)</span> después de haber
+visto todos los tokens de la secuencia hasta el instante <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>En efecto, la contribución al error total debida al símbolo <span class="math notranslate nohighlight">\(s[t]\)</span> de una de las secuencias viene dada, si consideramos la función de error cuadrático <a class="reference internal" href="#equation-ec-error">()</a>, por:</p>
+<div class="math notranslate nohighlight" id="equation-ec-errorquad">
+<span class="eqno">()<a class="headerlink" href="#equation-ec-errorquad" title="Permalink to this equation">#</a></span>\[
+\frac{1}{2} \sum_{i=1}^{n_Y} (d_i[t] - y_i[t])^2
+\]</div>
+<p>donde la salida deseada <span class="math notranslate nohighlight">\(\boldsymbol{d}[t]\)</span> es la codificación <em>one-hot</em> del token <span class="math notranslate nohighlight">\(s[t+1]\)</span>. El error asociado al componente <span class="math notranslate nohighlight">\(i\)</span>-ésimo de la salida es, por tanto, <span class="math notranslate nohighlight">\((1-y_i)^2\)</span> si <span class="math notranslate nohighlight">\(s[t+1]=\sigma_i\)</span>, e <span class="math notranslate nohighlight">\(y_i^2\)</span> en caso contrario.</p>
+<p>Supongamos que <span class="math notranslate nohighlight">\(N\)</span> secuencias de la muestra de entrenamiento tienen el prefijo <span class="math notranslate nohighlight">\(v=s[1],s[2],\ldots,s[t]\)</span> en común y que de ellas <span class="math notranslate nohighlight">\(n\)</span> continúan con el token <span class="math notranslate nohighlight">\(\sigma_i\)</span> y <span class="math notranslate nohighlight">\(N-n\)</span> con un símbolo distinto de <span class="math notranslate nohighlight">\(V - \{ \sigma_i \}\)</span>. Si estas <span class="math notranslate nohighlight">\(N\)</span> secuencias comparten el mismo prefijo <span class="math notranslate nohighlight">\(v\)</span>, significa que el mismo estado <span class="math notranslate nohighlight">\(\boldsymbol{x}[t]\)</span> y, por tanto, la misma salida <span class="math notranslate nohighlight">\(\boldsymbol{y}[t]\)</span> serán obtenidos exactamente <span class="math notranslate nohighlight">\(N\)</span> veces durante una época en el contexto de <span class="math notranslate nohighlight">\(v\)</span>. Entonces, puede considerarse el error acumulado debido al prefijo <span class="math notranslate nohighlight">\(v\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[
+n (1- y_i[t])^2 + (N-n) (y_i[t])^2
+\]</div>
+<p>Derivando la ecuación anterior con respecto a <span class="math notranslate nohighlight">\(y_i[t]\)</span>, obtenemos:</p>
+<div class="math notranslate nohighlight">
+\[
+-2n (1 - y_i[t]) + 2(N- n) y_i[t]
+\]</div>
+<p>La segunda derivada es <span class="math notranslate nohighlight">\(2N &gt; 0\)</span>. Luego el mínimo de la función de pérdida se obtiene cuando <span class="math notranslate nohighlight">\(y_i[t]= n/N\)</span>, es decir, cuando el valor predicho por la red neuronal para el token <span class="math notranslate nohighlight">\(\sigma_i\)</span> tras leer el prefijo <span class="math notranslate nohighlight">\(v\)</span> coincide con la frecuencia relativa con que <span class="math notranslate nohighlight">\(\sigma_i\)</span> sigue a <span class="math notranslate nohighlight">\(v\)</span>. Un buen algoritmo de entrenamiento debería descubrir este mínimo.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Universitat d'Alacant<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
