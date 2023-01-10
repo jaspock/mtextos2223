@@ -1084,13 +1084,13 @@ Se aplican además <strong>jerarquías de conceptos</strong> los cuales <strong>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">autogoal.kb</span> <span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">Word</span><span class="p">,</span> <span class="n">AlgorithmBase</span>
 <span class="nd">@nice_repr</span>
 <span class="k">class</span> <span class="nc">WikipediaSummaryExample</span><span class="p">(</span><span class="n">AlgorithmBase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;This class find a word in Wikipedia and return a summary in english.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class find a word in Wikipedia and return a summary in english.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Word</span><span class="p">)</span><span class="o">-&gt;</span> <span class="n">Document</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;This method use wikipedia.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This method use wikipedia.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">wikipedia</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
