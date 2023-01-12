@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Modelos preentrenados &#8212; Minería de Textos</title>
+    <title>Ev. Evaluación del bloque 3 &#8212; Minería de Textos</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -346,7 +346,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/bloque2_pretrained.md"
+        <a href="_sources/bloque3_ev copy.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -383,70 +383,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduccion-a-elmo-y-bert">
-   Introducción a ELMo y BERT
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipologia-de-modelos-preentrenados">
-   Tipología de modelos preentrenados
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Modelos preentrenados</h1>
+                <h1>Ev. Evaluación del bloque 3</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduccion-a-elmo-y-bert">
-   Introducción a ELMo y BERT
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipologia-de-modelos-preentrenados">
-   Tipología de modelos preentrenados
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -454,32 +407,30 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="modelos-preentrenados">
-<h1>Modelos preentrenados<a class="headerlink" href="#modelos-preentrenados" title="Permalink to this headline">#</a></h1>
-<a class="reference internal image-reference" href="_images/elmo.png"><img alt="ELMo" class="align-left" src="_images/elmo.png" style="width: 120px;" /></a>
-<p>Los denominados <em>modelos neuronales preentrenados</em> han supuesto todo un lavado de cara para el procesamiento del lenguaje natural. Aunque la cantidad de este tipo de modelos existente hoy día es enorme, casi todos comparten los mismos fundamentos. El punto de inflexión de estos modelos lo podemos situar en el año 2018 con la aparición de ELMo, en primer lugar, y BERT, unos meses después. Nos centraremos en este último en nuestro estudio, pero sin descuidar otras propuestas.</p>
-<div class="note admonition">
-<p class="admonition-title">Nota</p>
-<p>Podemos decir que estos modelos son un ejemplo de <em>aprendizaje por transferencia</em> (<em>transfer learning</em>) en el que lo aprendido para una tarea secundaria ayuda a resolver la tarea principal. La tarea secundaria en este caso es <em>no supervisada</em> (<em>unsupervised</em>) en el sentido de que no utiliza datos etiquetados externamente (como cuando anotamos la polaridad de un texto), pero el entrenamiento sigue teniendo una función de pérdida en la que el valor emitido se compara con el deseado, por lo que para evitar confusión se habla de entrenamiento <em>autosupervisado</em>. En el entrenamiento autosupervisado las etiquetas que conforman el valor esperado se obtienen automáticamente a partir de la muestra con un algoritmo normalmente muy simple, pero, al mismo tiempo, la tarea de generarlas adecuadamente no es trivial e implica que para hacerlo la red ha de generar buenas representaciones intermedias.</p>
-</div>
-<figure class="align-default" id="fig-pretrained">
-<a class="reference internal image-reference" href="_images/pretrained.png"><img alt="_images/pretrained.png" src="_images/pretrained.png" style="height: 360px;" /></a>
-<figcaption>
-<p><span class="caption-text">Algunos de los hitos en la historia reciente del procesamiento del lenguaje natural. Tomado de “2019, <a class="reference external" href="https://towardsdatascience.com/2019-year-of-bert-and-transformer-f200b53d05b9">year of BERT and Transformer</a>” de Manu Suryavansh.</span><a class="headerlink" href="#fig-pretrained" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<section id="introduccion-a-elmo-y-bert">
-<h2>Introducción a ELMo y BERT<a class="headerlink" href="#introduccion-a-elmo-y-bert" title="Permalink to this headline">#</a></h2>
-<p>Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos <a class="reference external" href="http://jalammar.github.io/illustrated-bert/">BERT y ELMo</a>.</p>
-<div class="note admonition">
-<p class="admonition-title">Problema</p>
-<p>Obtén los códigos BPE resultantes de aplicar 4 operaciones de unión al texto “para el bus en la parada abandonada”. A continuación, aplica los códigos a la entrada “ensalada para la empanada”.</p>
-</div>
-</section>
-<section id="tipologia-de-modelos-preentrenados">
-<h2>Tipología de modelos preentrenados<a class="headerlink" href="#tipologia-de-modelos-preentrenados" title="Permalink to this headline">#</a></h2>
-<p>Ahora vamos a ahondar en las características de estos modelos con las diapositivas del tema “<a class="reference external" href="http://web.stanford.edu/class/cs224n/slides/cs224n-2021-lecture10-pretraining.pdf">Pretraining</a>” que John Hewitt usa en el curso “CS224n: Natural Language Processing with Deep Learning” de la Universidad de Stanford.</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="ev-evaluacion-del-bloque-3">
+<h1>Ev. Evaluación del bloque 3<a class="headerlink" href="#ev-evaluacion-del-bloque-3" title="Permalink to this headline">#</a></h1>
+<p>Para la evaluación de este bloque el estudiante deberá realizar las siguentes actividades:</p>
+<ul class="simple">
+<li><p>Seleccionar un <strong>problema propio</strong> de su entorno profesional o de mayor interés personal</p>
+<ul>
+<li><p>Se requerirá la aplicación de técnicas de PLN orientadas a <strong>resolver tareas finales del mundo real</strong>.</p></li>
+</ul>
+</li>
+<li><p>Se <strong>creará un cuaderno de trabajo</strong> (la selección de la tecnología/lenguaje es indiferente) que resuelva el problema seleccionado.</p></li>
+<li><p>Se dispondrá de <strong>al menos una interfaz</strong> (i.e. función, procedimiento, o formulario visual etc.) que <strong>permita probar en modo usuario la tecnología resultante</strong>.</p></li>
+<li><p>El <strong>cuaderno de trabajo</strong> debe estar <strong>bien documentado</strong> en cada una de las etapas, procedimientos, variables, bloques de código, etc.</p></li>
+<li><p>Los <strong>datos</strong> que se procesarán y el <strong>cuaderno de trabajo</strong> deben estar <strong>incluidos</strong> en un  <strong>paquete de trabajo</strong>.</p></li>
+<li><p>Se entragará la tarea (paquete de trabajo) mediante una <strong>entrega en UAcloud</strong> que se habilitará para ello. El paquete deberá comprimirse en un <code class="docutils literal notranslate"><span class="pre">.zip</span></code> y tener la siguiente estructura: <code class="docutils literal notranslate"><span class="pre">[nombreEstudiante]-mtextos-bloque3-20-21.zip</span></code>. Además entregar el enlace de Colab donde se encuentra el cuaderno.</p></li>
+</ul>
+<p><strong>Criterios a tener en cuenta</strong>:</p>
+<ul class="simple">
+<li><p>El cuaderno no debe tener errores de ejecución</p></li>
+<li><p>Cada modificación/aporte de autor debe ser señalada con comentario. Por ejemplo ####Codigo de Alumno1 ….#####</p></li>
+<li><p>Se deben comentar y describir los aportes realizados por el autor, y explicar los motivos</p></li>
+<li><p>Se deben evaluar varias opciones de experimentación (i.e. preprocesamiento, configuraciones, tecnologías, modelos) y explicarlas.</p></li>
+<li><p>Se deben describir discusiones y conclusiones del estudio.</p></li>
+<li><p>Se tendrá en cuenta la complejidad de la propuesta.</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">

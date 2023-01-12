@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>P1.1. Pipeline simple &#8212; Minería de Textos</title>
+    <title>16. P1.1. Pipeline simple &#8212; Minería de Textos</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="17. P1.2. APIs Transformers" href="bloque3_p2_SA-Transformers-Basic.html" />
+    <link rel="prev" title="15. T5.1. AutoGOAL" href="bloque3_t5.1_autogoal.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -163,10 +165,65 @@ const thebe_selector_output = ".output, .cell_output"
   Bloque 2
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bloque3.html">
    8. Aplicaciones de la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t1_aplicaciones.html">
+   9. T1. Aplicaciones generales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t2_subaplicaciones-benchmarks.html">
+   10. T2. Aplicaciones específicas y Benchmacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t2.1_analisis_sentimientos.html">
+   11. T2.1. Aplicaciones específicas. Análisis de Sentimientos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t3.1_metricas.html">
+   12. T3. Métricas de Evaluación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t4_huggingface.html">
+   13. T4. Centralización de datasets y modelos: Huggingface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t5_automl.html">
+   14. T5. Auto Machine Learning(AutoML)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t5.1_autogoal.html">
+   15. T5.1. AutoGOAL
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   16. P1.1. Pipeline simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p2_SA-Transformers-Basic.html">
+   17. P1.2. APIs Transformers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p3_SA-Transformers-Training-FineTuning.html">
+   18. P2. Reajustar modelos Transformers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p4_SA-Transformers-Training-Custom.html">
+   19. P3. Composición de vectores de características
   </a>
  </li>
 </ul>
@@ -178,22 +235,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2.html">
-   9. Técnicas para la minería de textos
+   20. Técnicas para la minería de textos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2_historia.html">
-   10. Revisión histórica
+   21. Revisión histórica
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2_embeddings.html">
-   11. Representaciones de palabras y oraciones
+   22. Representaciones de palabras y oraciones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2_practica.html">
-   12. Práctica. Lectura y documentación del código de un extractor de entidades
+   23. Práctica. Lectura y documentación del código de un extractor de entidades
   </a>
  </li>
 </ul>
@@ -205,17 +262,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="content.html">
-   13. Content in Jupyter Book
+   24. Content in Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
-   14. Markdown Files
+   25. Markdown Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
-   15. Content with notebooks
+   26. Content with notebooks
   </a>
  </li>
 </ul>
@@ -352,6 +409,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clase-practica">
+   16.1.
    <strong>
     Clase práctica.
    </strong>
@@ -359,44 +417,44 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creacion-de-un-pipeline-simple-caso-de-estudio-de-analisis-de-sentimientos">
-     Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos
+     16.1.1. Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#descripcion">
-     Descripción
+     16.1.2. Descripción
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-demostrativo">
-     Ejemplo demostrativo
+     16.1.3. Ejemplo demostrativo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicios">
-     Ejercicios
+     16.1.4. Ejercicios
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-1">
-       Ejercicio 1
+       16.1.4.1. Ejercicio 1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-2">
-       Ejercicio 2
+       16.1.4.2. Ejercicio 2
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicios-adicionales-opcional">
-       Ejercicios adicionales (opcional)
+       16.1.4.3. Ejercicios adicionales (opcional)
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#criterios-a-tener-en-cuenta-para-la-practica">
-     Criterios a tener en cuenta para la práctica:
+     16.1.5. Criterios a tener en cuenta para la práctica:
     </a>
    </li>
   </ul>
@@ -422,6 +480,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clase-practica">
+   16.1.
    <strong>
     Clase práctica.
    </strong>
@@ -429,44 +488,44 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creacion-de-un-pipeline-simple-caso-de-estudio-de-analisis-de-sentimientos">
-     Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos
+     16.1.1. Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#descripcion">
-     Descripción
+     16.1.2. Descripción
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-demostrativo">
-     Ejemplo demostrativo
+     16.1.3. Ejemplo demostrativo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicios">
-     Ejercicios
+     16.1.4. Ejercicios
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-1">
-       Ejercicio 1
+       16.1.4.1. Ejercicio 1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-2">
-       Ejercicio 2
+       16.1.4.2. Ejercicio 2
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicios-adicionales-opcional">
-       Ejercicios adicionales (opcional)
+       16.1.4.3. Ejercicios adicionales (opcional)
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#criterios-a-tener-en-cuenta-para-la-practica">
-     Criterios a tener en cuenta para la práctica:
+     16.1.5. Criterios a tener en cuenta para la práctica:
     </a>
    </li>
   </ul>
@@ -482,33 +541,33 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="p1-1-pipeline-simple">
-<h1>P1.1. Pipeline simple<a class="headerlink" href="#p1-1-pipeline-simple" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">16. </span>P1.1. Pipeline simple<a class="headerlink" href="#p1-1-pipeline-simple" title="Permalink to this headline">#</a></h1>
 <section id="clase-practica">
-<h2><strong>Clase práctica.</strong><a class="headerlink" href="#clase-practica" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">16.1. </span><strong>Clase práctica.</strong><a class="headerlink" href="#clase-practica" title="Permalink to this headline">#</a></h2>
 <section id="creacion-de-un-pipeline-simple-caso-de-estudio-de-analisis-de-sentimientos">
-<h3>Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos<a class="headerlink" href="#creacion-de-un-pipeline-simple-caso-de-estudio-de-analisis-de-sentimientos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.1.1. </span>Creación de un Pipeline simple: Caso de estudio de Análisis de Sentimientos<a class="headerlink" href="#creacion-de-un-pipeline-simple-caso-de-estudio-de-analisis-de-sentimientos" title="Permalink to this headline">#</a></h3>
 <!-- **Autores:** 
 
 - [Yoan Gutiérrez Vázquez][yoan]
 - [José Ignacio Abreu Salas][abreu] -->
 </section>
 <section id="descripcion">
-<h3>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.1.2. </span>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">#</a></h3>
 <p>En esta clase práctica estudiaremos cómo crear pipelines de clasificación de sentimientos con el lenguaje Python, utilizando la librería Sklearn.
 Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso de los ejemplos estudiados para adaptarlos a estos.</p>
 <p>Las entregas de ejercicios se han de hacer a través del UAcloud&gt;Evaluación&gt;[Nombre de la práctica].</p>
 </section>
 <section id="ejemplo-demostrativo">
-<h3>Ejemplo demostrativo<a class="headerlink" href="#ejemplo-demostrativo" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.1.3. </span>Ejemplo demostrativo<a class="headerlink" href="#ejemplo-demostrativo" title="Permalink to this headline">#</a></h3>
 <p>Pipeline Movie Reviews:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/TeachingTextMining/TextClassification/tree/main/01-SA-Pipeline">01-SA-Pipeline-Reviews</a></p></li>
 </ul>
 </section>
 <section id="ejercicios">
-<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.1.4. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">#</a></h3>
 <section id="ejercicio-1">
-<h4>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">16.1.4.1. </span>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h4>
 <p>Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.</p>
 <ul class="simple">
 <li><p>sample_data/ejercicio_tripadvisor.csv</p></li>
@@ -516,7 +575,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso 
 </ul>
 </section>
 <section id="ejercicio-2">
-<h4>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">16.1.4.2. </span>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h4>
 <p>Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.</p>
 <ul class="simple">
 <li><p>sample_data/ejercicio_bbc_train.csv</p></li>
@@ -524,7 +583,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso 
 </ul>
 </section>
 <section id="ejercicios-adicionales-opcional">
-<h4>Ejercicios adicionales (opcional)<a class="headerlink" href="#ejercicios-adicionales-opcional" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">16.1.4.3. </span>Ejercicios adicionales (opcional)<a class="headerlink" href="#ejercicios-adicionales-opcional" title="Permalink to this headline">#</a></h4>
 <p>Elige alguno de los siguientes datasets y conforma tu propio sistema de sentiment analysis.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.kaggle.com/search?q=sentiment+analysis+in%3Adatasets">SA Kaggle todos</a></p></li>
@@ -534,7 +593,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso 
 </section>
 </section>
 <section id="criterios-a-tener-en-cuenta-para-la-practica">
-<h3>Criterios a tener en cuenta para la práctica:<a class="headerlink" href="#criterios-a-tener-en-cuenta-para-la-practica" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">16.1.5. </span>Criterios a tener en cuenta para la práctica:<a class="headerlink" href="#criterios-a-tener-en-cuenta-para-la-practica" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>El cuaderno a entregar no debe tener errores de ejecución.</p></li>
 <li><p>Cada modificación de autor incorporada en cuaderno debe ser señalada con comentario. Por ejemplo ####Codigo NOMBRE_DEL_AUTOR ….#####.</p></li>
@@ -573,6 +632,20 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá hacer uso 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bloque3_t5.1_autogoal.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">15. </span>T5.1. AutoGOAL</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque3_p2_SA-Transformers-Basic.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>P1.2. APIs Transformers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

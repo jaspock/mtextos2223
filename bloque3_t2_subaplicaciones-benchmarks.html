@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>T2. Aplicaciones específicas y Benchmacks &#8212; Minería de Textos</title>
+    <title>10. T2. Aplicaciones específicas y Benchmacks &#8212; Minería de Textos</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. T2.1. Aplicaciones específicas. Análisis de Sentimientos" href="bloque3_t2.1_analisis_sentimientos.html" />
+    <link rel="prev" title="9. T1. Aplicaciones generales" href="bloque3_t1_aplicaciones.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -163,10 +165,65 @@ const thebe_selector_output = ".output, .cell_output"
   Bloque 2
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bloque3.html">
    8. Aplicaciones de la minería de textos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t1_aplicaciones.html">
+   9. T1. Aplicaciones generales
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10. T2. Aplicaciones específicas y Benchmacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t2.1_analisis_sentimientos.html">
+   11. T2.1. Aplicaciones específicas. Análisis de Sentimientos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t3.1_metricas.html">
+   12. T3. Métricas de Evaluación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t4_huggingface.html">
+   13. T4. Centralización de datasets y modelos: Huggingface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t5_automl.html">
+   14. T5. Auto Machine Learning(AutoML)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_t5.1_autogoal.html">
+   15. T5.1. AutoGOAL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p1_SA-Pipeline-Reviews.html">
+   16. P1.1. Pipeline simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p2_SA-Transformers-Basic.html">
+   17. P1.2. APIs Transformers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p3_SA-Transformers-Training-FineTuning.html">
+   18. P2. Reajustar modelos Transformers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bloque3_p4_SA-Transformers-Training-Custom.html">
+   19. P3. Composición de vectores de características
   </a>
  </li>
 </ul>
@@ -178,22 +235,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2.html">
-   9. Técnicas para la minería de textos
+   20. Técnicas para la minería de textos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2_historia.html">
-   10. Revisión histórica
+   21. Revisión histórica
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2_embeddings.html">
-   11. Representaciones de palabras y oraciones
+   22. Representaciones de palabras y oraciones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque2_practica.html">
-   12. Práctica. Lectura y documentación del código de un extractor de entidades
+   23. Práctica. Lectura y documentación del código de un extractor de entidades
   </a>
  </li>
 </ul>
@@ -205,17 +262,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="content.html">
-   13. Content in Jupyter Book
+   24. Content in Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
-   14. Markdown Files
+   25. Markdown Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
-   15. Content with notebooks
+   26. Content with notebooks
   </a>
  </li>
 </ul>
@@ -352,42 +409,42 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aplicaciones-especificas">
-   Aplicaciones específicas
+   10.1. Aplicaciones específicas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analisis-de-sentimientos">
-     Análisis de sentimientos
+     10.1.1. Análisis de sentimientos
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#reputacion-social">
-       Reputación social
+       10.1.1.1. Reputación social
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#identificacion-de-haters-o-trols">
-       Identificación de Haters o trols
+       10.1.1.2. Identificación de Haters o trols
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ciberbullying">
-       CiberBullying
+       10.1.1.3. CiberBullying
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ner-name-entity-recognition-y-sus-aplicaciones">
-       NER (Name Entity Recognition) y sus aplicaciones
+       10.1.1.4. NER (Name Entity Recognition) y sus aplicaciones
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#categorizacion-de-noticias">
-       Categorización de Noticias
+       10.1.1.5. Categorización de Noticias
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#fakenews-bulos">
-         FakeNews/Bulos
+         10.1.1.5.1. FakeNews/Bulos
         </a>
        </li>
       </ul>
@@ -396,56 +453,56 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#semantic-textual-similarity-similitud-textual-semantica">
-     Semantic textual similarity (similitud textual semántica)
+     10.1.2. Semantic textual similarity (similitud textual semántica)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#paraphrase-identification-identificacion-de-parafrases">
-     Paraphrase identification (identificación de parafrases)
+     10.1.3. Paraphrase identification (identificación de parafrases)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#natural-language-inference-inferencia-del-language-natural">
-       Natural language inference (Inferencia del Language Natural)
+       10.1.3.1. Natural language inference (Inferencia del Language Natural)
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#contradiccion">
-         Contradicción
+         10.1.3.1.1. Contradicción
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#neutral">
-         Neutral
+         10.1.3.1.2. Neutral
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#implicacion">
-         Implicación
+         10.1.3.1.3. Implicación
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#textual-entailment-implicacion-textual">
-       Textual entailment (implicación textual)
+       10.1.3.2. Textual entailment (implicación textual)
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#topic-analysis-modelado-de-temas">
-         Topic Analysis (Modelado de temas)
+         10.1.3.2.1. Topic Analysis (Modelado de temas)
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#event-extraction-extraccion-de-eventos">
-       Event extraction(Extracción de eventos)
+       10.1.3.3. Event extraction(Extracción de eventos)
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#biomedical-event-extraction-extraccion-de-eventos-en-textos-biomedicos">
-         Biomedical Event Extraction (Extracción de eventos en textos biomédicos)
+         10.1.3.3.1. Biomedical Event Extraction (Extracción de eventos en textos biomédicos)
         </a>
        </li>
       </ul>
@@ -454,93 +511,93 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#otras-aplicaciones-del-pln">
-     Otras aplicaciones del PLN
+     10.1.4. Otras aplicaciones del PLN
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#benchmarks-y-competiciones-cientificas">
-   Benchmarks y competiciones científicas
+   10.2. Benchmarks y competiciones científicas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#definiciones-sobre-benchmark">
-     Definiciones sobre Benchmark
+     10.2.1. Definiciones sobre Benchmark
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#senseeval-semeval">
-     SenseEval/SemEval
+     10.2.2. SenseEval/SemEval
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#clef">
-     CLEF
+     10.2.3. CLEF
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#datasets-and-corpora">
-       Datasets and Corpora
+       10.2.3.1. Datasets and Corpora
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trec-text-retrieval-conference">
-     TREC: Text REtrieval Conference
+     10.2.4. TREC: Text REtrieval Conference
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tac-text-analysis-conference">
-     TAC. Text Analysis Conference
+     10.2.5. TAC. Text Analysis Conference
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iberlef-iberian-languages-evaluation-forum">
-     IberLEF: Iberian Languages Evaluation Forum
+     10.2.6. IberLEF: Iberian Languages Evaluation Forum
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ediciones">
-       Ediciones
+       10.2.6.1. Ediciones
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#benchmarks-e-infraestructuras-de-evaluacion">
-     Benchmarks e infraestructuras de evaluación
+     10.2.7. Benchmarks e infraestructuras de evaluación
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#codalab-cuadernos-de-trabajo-concursos">
-       CodaLab [cuadernos de trabajo, concursos]
+       10.2.7.1. CodaLab [cuadernos de trabajo, concursos]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#kaggle-concursos-conjunto-de-datos-codigos-fuente">
-       Kaggle [concursos, conjunto de datos, códigos fuente]
+       10.2.7.2. Kaggle [concursos, conjunto de datos, códigos fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#glue-tabla-de-rankings-conjunto-de-datos-codigos-fuente">
-       GLUE [tabla de rankings, conjunto de datos, códigos fuente]
+       10.2.7.3. GLUE [tabla de rankings, conjunto de datos, códigos fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#superglue-tabla-de-rankings-conjunto-de-datos-codigos-fuente">
-       SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
+       10.2.7.4. SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#huggingface-conjunto-de-datos-codigo-fuente">
-       Huggingface 🤗 [conjunto de datos, código fuente]
+       10.2.7.5. Huggingface 🤗 [conjunto de datos, código fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#extreme-tabla-de-rankings-conjunto-de-datos-codigos-fuente-papers">
-       Extreme [tabla de rankings, conjunto de datos, códigos fuente. papers]
+       10.2.7.6. Extreme [tabla de rankings, conjunto de datos, códigos fuente. papers]
       </a>
      </li>
     </ul>
@@ -549,7 +606,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   Bibliografía
+   10.3. Bibliografía
   </a>
  </li>
 </ul>
@@ -573,42 +630,42 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aplicaciones-especificas">
-   Aplicaciones específicas
+   10.1. Aplicaciones específicas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analisis-de-sentimientos">
-     Análisis de sentimientos
+     10.1.1. Análisis de sentimientos
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#reputacion-social">
-       Reputación social
+       10.1.1.1. Reputación social
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#identificacion-de-haters-o-trols">
-       Identificación de Haters o trols
+       10.1.1.2. Identificación de Haters o trols
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ciberbullying">
-       CiberBullying
+       10.1.1.3. CiberBullying
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ner-name-entity-recognition-y-sus-aplicaciones">
-       NER (Name Entity Recognition) y sus aplicaciones
+       10.1.1.4. NER (Name Entity Recognition) y sus aplicaciones
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#categorizacion-de-noticias">
-       Categorización de Noticias
+       10.1.1.5. Categorización de Noticias
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#fakenews-bulos">
-         FakeNews/Bulos
+         10.1.1.5.1. FakeNews/Bulos
         </a>
        </li>
       </ul>
@@ -617,56 +674,56 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#semantic-textual-similarity-similitud-textual-semantica">
-     Semantic textual similarity (similitud textual semántica)
+     10.1.2. Semantic textual similarity (similitud textual semántica)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#paraphrase-identification-identificacion-de-parafrases">
-     Paraphrase identification (identificación de parafrases)
+     10.1.3. Paraphrase identification (identificación de parafrases)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#natural-language-inference-inferencia-del-language-natural">
-       Natural language inference (Inferencia del Language Natural)
+       10.1.3.1. Natural language inference (Inferencia del Language Natural)
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#contradiccion">
-         Contradicción
+         10.1.3.1.1. Contradicción
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#neutral">
-         Neutral
+         10.1.3.1.2. Neutral
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#implicacion">
-         Implicación
+         10.1.3.1.3. Implicación
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#textual-entailment-implicacion-textual">
-       Textual entailment (implicación textual)
+       10.1.3.2. Textual entailment (implicación textual)
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#topic-analysis-modelado-de-temas">
-         Topic Analysis (Modelado de temas)
+         10.1.3.2.1. Topic Analysis (Modelado de temas)
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#event-extraction-extraccion-de-eventos">
-       Event extraction(Extracción de eventos)
+       10.1.3.3. Event extraction(Extracción de eventos)
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#biomedical-event-extraction-extraccion-de-eventos-en-textos-biomedicos">
-         Biomedical Event Extraction (Extracción de eventos en textos biomédicos)
+         10.1.3.3.1. Biomedical Event Extraction (Extracción de eventos en textos biomédicos)
         </a>
        </li>
       </ul>
@@ -675,93 +732,93 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#otras-aplicaciones-del-pln">
-     Otras aplicaciones del PLN
+     10.1.4. Otras aplicaciones del PLN
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#benchmarks-y-competiciones-cientificas">
-   Benchmarks y competiciones científicas
+   10.2. Benchmarks y competiciones científicas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#definiciones-sobre-benchmark">
-     Definiciones sobre Benchmark
+     10.2.1. Definiciones sobre Benchmark
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#senseeval-semeval">
-     SenseEval/SemEval
+     10.2.2. SenseEval/SemEval
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#clef">
-     CLEF
+     10.2.3. CLEF
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#datasets-and-corpora">
-       Datasets and Corpora
+       10.2.3.1. Datasets and Corpora
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trec-text-retrieval-conference">
-     TREC: Text REtrieval Conference
+     10.2.4. TREC: Text REtrieval Conference
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tac-text-analysis-conference">
-     TAC. Text Analysis Conference
+     10.2.5. TAC. Text Analysis Conference
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iberlef-iberian-languages-evaluation-forum">
-     IberLEF: Iberian Languages Evaluation Forum
+     10.2.6. IberLEF: Iberian Languages Evaluation Forum
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ediciones">
-       Ediciones
+       10.2.6.1. Ediciones
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#benchmarks-e-infraestructuras-de-evaluacion">
-     Benchmarks e infraestructuras de evaluación
+     10.2.7. Benchmarks e infraestructuras de evaluación
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#codalab-cuadernos-de-trabajo-concursos">
-       CodaLab [cuadernos de trabajo, concursos]
+       10.2.7.1. CodaLab [cuadernos de trabajo, concursos]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#kaggle-concursos-conjunto-de-datos-codigos-fuente">
-       Kaggle [concursos, conjunto de datos, códigos fuente]
+       10.2.7.2. Kaggle [concursos, conjunto de datos, códigos fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#glue-tabla-de-rankings-conjunto-de-datos-codigos-fuente">
-       GLUE [tabla de rankings, conjunto de datos, códigos fuente]
+       10.2.7.3. GLUE [tabla de rankings, conjunto de datos, códigos fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#superglue-tabla-de-rankings-conjunto-de-datos-codigos-fuente">
-       SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
+       10.2.7.4. SuperGLUE [tabla de rankings, conjunto de datos, códigos fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#huggingface-conjunto-de-datos-codigo-fuente">
-       Huggingface 🤗 [conjunto de datos, código fuente]
+       10.2.7.5. Huggingface 🤗 [conjunto de datos, código fuente]
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#extreme-tabla-de-rankings-conjunto-de-datos-codigos-fuente-papers">
-       Extreme [tabla de rankings, conjunto de datos, códigos fuente. papers]
+       10.2.7.6. Extreme [tabla de rankings, conjunto de datos, códigos fuente. papers]
       </a>
      </li>
     </ul>
@@ -770,7 +827,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   Bibliografía
+   10.3. Bibliografía
   </a>
  </li>
 </ul>
@@ -784,21 +841,21 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="t2-aplicaciones-especificas-y-benchmacks">
-<h1>T2. Aplicaciones específicas y Benchmacks<a class="headerlink" href="#t2-aplicaciones-especificas-y-benchmacks" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>T2. Aplicaciones específicas y Benchmacks<a class="headerlink" href="#t2-aplicaciones-especificas-y-benchmacks" title="Permalink to this headline">#</a></h1>
 <p>Contenidos:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="#aplicaciones-especificas">Aplicaciones específicas</a></p></li>
 <li><p><a class="reference external" href="#benchmarks-y-competiciones-cientificas">BenchMarks y competiciones científicas</a></p></li>
 </ul>
 <section id="aplicaciones-especificas">
-<h2>Aplicaciones específicas<a class="headerlink" href="#aplicaciones-especificas" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>Aplicaciones específicas<a class="headerlink" href="#aplicaciones-especificas" title="Permalink to this headline">#</a></h2>
 <p>Dentro de las aplicaciones generales del PLN existen una <strong>gran diversidad de aplicaciones</strong> específicas y variantes. A continuación, se mencionan <strong>algunas de ellas</strong>.</p>
 <section id="analisis-de-sentimientos">
-<h3>Análisis de sentimientos<a class="headerlink" href="#analisis-de-sentimientos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.1. </span>Análisis de sentimientos<a class="headerlink" href="#analisis-de-sentimientos" title="Permalink to this headline">#</a></h3>
 <p>El <strong>análisis de sentimientos(SA)</strong> (o minería de opiniones/emociones) se refiere al uso del procesamiento del lenguaje natural para <strong>identificar, extraer, cuantificar y estudiar</strong> sistemáticamente <strong>estados afectivos e información subjetiva</strong>. Se suele aplicar contenido proveniente de <strong>redes sociales</strong> y en línea, y <strong>contenidos</strong> de cualquier otra índole que ofrezcan un <strong>criterio formulado</strong>. Sus <strong>aplicaciones de dominio</strong> desde el <strong>marketing</strong> hasta el <strong>servicio al cliente</strong> y la <strong>medicina clínica</strong>.</p>
 <p>Entre los mayores <strong>promotores</strong> del estudio del análisis de sentimientos para idiomas iberoamericanos podemos encontrar el <strong>TASS</strong> (Taller de Análisis Semántico de la <a class="reference external" href="http://tass.sepln.org/">SEPLN</a>).</p>
 <section id="reputacion-social">
-<h4>Reputación social<a class="headerlink" href="#reputacion-social" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.1.1. </span>Reputación social<a class="headerlink" href="#reputacion-social" title="Permalink to this headline">#</a></h4>
 <p>La reputación de una entidad social (una <strong>persona</strong>, un <strong>grupo social</strong>, una <strong>organización</strong>, <strong>marca</strong> o un <strong>lugar</strong>) es una <strong>opinión sobre esa entidad</strong>, típicamente como resultado de una <strong>evaluación social</strong> sobre un conjunto de <strong>criterios</strong>, como el comportamiento o el desempeño. Cuando a esto le añadimos el <strong>componente social</strong> digital nos trasladamos entonces a crear mecanismo que <strong>cuantifiquen dicha opinión</strong>.
 Existen múltiples <strong>estrategias</strong> para <strong>cuantificar</strong> la <strong>opinión social</strong>, una de ellas es considerar elementos como,</p>
 <p><strong>Subjetivos:</strong></p>
@@ -824,14 +881,14 @@ Existen múltiples <strong>estrategias</strong> para <strong>cuantificar</strong
 <p>Figura 2. Predicción de la <strong>reputación</strong></p>
 </section>
 <section id="identificacion-de-haters-o-trols">
-<h4>Identificación de Haters o trols<a class="headerlink" href="#identificacion-de-haters-o-trols" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.1.2. </span>Identificación de Haters o trols<a class="headerlink" href="#identificacion-de-haters-o-trols" title="Permalink to this headline">#</a></h4>
 <p>El <strong>contenido (lenguaje) de odio</strong> en línea, o discurso de odio, se <strong>caracteriza</strong> por algunos <strong>aspectos</strong> clave (como la <strong>viralidad</strong> o el presunto <strong>anonimato</strong>) que lo <strong>distinguen</strong> de la comunicación fuera de línea y lo hacen <strong>potencialmente más peligroso y dañino</strong>. Por tanto, su <strong>identificación</strong> se convierte en una <strong>misión crucial</strong> en muchos campos.</p>
 <p>Mediante el uso de técnicas de <strong>SA</strong> podemos <strong>modelar lenguajes</strong> con connotación negativa (<strong>dañina</strong>) para su <strong>seguimiento</strong> en el tiempo.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/hate.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hate.jpg" style="width: 600px;" /></a>
 <p>Figura 3. Trols y Haters. Tomado de <a class="reference external" href="https://www.dw.com/en/german-anti-hate-speech-group-counters-facebook-trolls/a-38358671">https://www.dw.com/en/german-anti-hate-speech-group-counters-facebook-trolls/a-38358671</a></p>
 </section>
 <section id="ciberbullying">
-<h4>CiberBullying<a class="headerlink" href="#ciberbullying" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.1.3. </span>CiberBullying<a class="headerlink" href="#ciberbullying" title="Permalink to this headline">#</a></h4>
 <p>Hay evidencias que apuntan a que el <strong>Cyberbullyng</strong> es un <strong>fenómeno</strong> que cada vez más está <strong>presente</strong> entre los <strong>actuales problemas</strong> de nuestros <strong>jóvenes</strong>. El bullyng <strong>siempre ha existido</strong>, pero con la aparición de las <strong>redes sociales</strong> y medios de <strong>comunicación instantáneos</strong> su <strong>efecto</strong> se ha hace <strong>global</strong> y con <strong>mayor impacto</strong>  <code class="docutils literal notranslate"><span class="pre">[2]</span></code>.</p>
 <p>El cyberbullying <strong>consiste</strong> en <strong>enviar mensajes instantáneos</strong> o en un chat para <strong>herir a una persona</strong>, <strong>publicar fotos o videos vergonzosos</strong> en las redes sociales y <strong>crear rumores</strong> en línea.</p>
 <p>¿Como el PLN puede intervenir en este problema? Pues creando <strong>tecnologías de detección precoz</strong> de <strong>mensajes de acoso, agresivos, vergonzosos</strong>, diseñar algoritmos para <strong>identificar</strong> los distintos <strong>roles</strong> (acosado, acosador, etc.) y <strong>derivar</strong> dicha información a las <strong>autoridades competentes</strong>.</p>
@@ -843,7 +900,7 @@ Existen múltiples <strong>estrategias</strong> para <strong>cuantificar</strong
 </ul>
 </section>
 <section id="ner-name-entity-recognition-y-sus-aplicaciones">
-<h4>NER (Name Entity Recognition) y sus aplicaciones<a class="headerlink" href="#ner-name-entity-recognition-y-sus-aplicaciones" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.1.4. </span>NER (Name Entity Recognition) y sus aplicaciones<a class="headerlink" href="#ner-name-entity-recognition-y-sus-aplicaciones" title="Permalink to this headline">#</a></h4>
 <p>Named Entity Recognition, (<strong>NER</strong>) es la tarea o aplicación de NLP que <strong>ayuda</strong> a <strong>entender</strong> el <strong>qué</strong>, <strong>quién</strong> y <strong>dónde</strong> de una serie de <strong>documentos</strong> [4].</p>
 <p>Nació como sustituto de la extracción de información relevante de los textos, se pensó:</p>
 <ul class="simple">
@@ -879,7 +936,7 @@ Existen múltiples <strong>estrategias</strong> para <strong>cuantificar</strong
 <p>Figura 5. NER en documentos clínicos</p>
 </section>
 <section id="categorizacion-de-noticias">
-<h4>Categorización de Noticias<a class="headerlink" href="#categorizacion-de-noticias" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.1.5. </span>Categorización de Noticias<a class="headerlink" href="#categorizacion-de-noticias" title="Permalink to this headline">#</a></h4>
 <p>El <strong>contenido de prensa</strong> suele utilizar diferentes <strong>estilos de redacción y presentación</strong> del contenido para <strong>captar una mayor atención</strong> de la audiencia. Entre los distintos <strong>criterios</strong> que pudiéramos necesitar caracterizar.</p>
 <p>Las noticias de prensa podemos <strong>clasificarlas en</strong>:</p>
 <ul class="simple">
@@ -904,7 +961,7 @@ Existen múltiples <strong>estrategias</strong> para <strong>cuantificar</strong
 <li><p><strong>Internacional</strong></p></li>
 </ul>
 <section id="fakenews-bulos">
-<h5>FakeNews/Bulos<a class="headerlink" href="#fakenews-bulos" title="Permalink to this headline">#</a></h5>
+<h5><span class="section-number">10.1.1.5.1. </span>FakeNews/Bulos<a class="headerlink" href="#fakenews-bulos" title="Permalink to this headline">#</a></h5>
 <p>Con respecto a <strong>valorar la calidad o fiabilidad de las noticias</strong> surge un nuevo, pero ya antiguo en su origen, concepto que <strong>busca corroborar la veracidad</strong> de los <strong>contenidos informativos</strong> o <strong>de opinión</strong>, <a class="reference external" href="https://doi.org/10.1016/j.eswa.2019.112943">Fake News</a>.</p>
 <p>Dentro de las Fake News existen varios <strong>problemas</strong> que se pueden tratar con PLN:</p>
 <ul class="simple">
@@ -949,7 +1006,7 @@ Existen múltiples <strong>estrategias</strong> para <strong>cuantificar</strong
 </section>
 </section>
 <section id="semantic-textual-similarity-similitud-textual-semantica">
-<h3>Semantic textual similarity (similitud textual semántica)<a class="headerlink" href="#semantic-textual-similarity-similitud-textual-semantica" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.2. </span>Semantic textual similarity (similitud textual semántica)<a class="headerlink" href="#semantic-textual-similarity-similitud-textual-semantica" title="Permalink to this headline">#</a></h3>
 <p>La similitud textual semántica trata de <strong>determinar</strong> qué tan <strong>similares</strong> son <strong>dos piezas de texto</strong>. Esto puede tomar la forma de <strong>asignar una puntuación</strong> del 1 al 5. Las <strong>tareas relacionadas</strong> son la <strong>identificación parafraseada</strong> o <strong>duplicada</strong>.
 Por ejemplo, tomado de nlp-progress (<a class="reference external" href="http://nlpprogress.com/english/semantic_textual_similarity.html">http://nlpprogress.com/english/semantic_textual_similarity.html</a>):</p>
 <ul class="simple">
@@ -959,7 +1016,7 @@ Por ejemplo, tomado de nlp-progress (<a class="reference external" href="http://
 </ul>
 </section>
 <section id="paraphrase-identification-identificacion-de-parafrases">
-<h3>Paraphrase identification (identificación de parafrases)<a class="headerlink" href="#paraphrase-identification-identificacion-de-parafrases" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.3. </span>Paraphrase identification (identificación de parafrases)<a class="headerlink" href="#paraphrase-identification-identificacion-de-parafrases" title="Permalink to this headline">#</a></h3>
 <p>La detección de <strong>paráfrasis</strong> es un <strong>problema de clasificación</strong> de PLN donde dado un <strong>par de oraciones</strong>, el sistema determina la <strong>similitud semántica</strong> entre las dos oraciones. Si las dos oraciones <strong>tienen el mismo significado</strong>, entonces se etiqueta como <strong>paráfrasis</strong>; de lo <strong>contrario</strong>, se etiqueta como <strong>no parafraseado</strong>.</p>
 <p>Esta técnica permite se puede <strong>aplicar</strong>, por ejemplo, al problema de <strong>detección de plagio</strong>, ya que no solo mide el <em><strong>match</strong></em> <strong>léxico</strong> entre ambos textos, sino que también el <em><strong>match</strong></em> <strong>semántico</strong>.</p>
 <p>Ejemplo tomado de <a class="reference external" href="https://arxiv.org/pdf/1803.05449.pdf">1</a>:</p>
@@ -969,10 +1026,10 @@ Por ejemplo, tomado de nlp-progress (<a class="reference external" href="http://
 <li><p><strong>Salida</strong>:  <code class="docutils literal notranslate"><span class="pre">parafrase</span></code></p></li>
 </ul>
 <section id="natural-language-inference-inferencia-del-language-natural">
-<h4>Natural language inference (Inferencia del Language Natural)<a class="headerlink" href="#natural-language-inference-inferencia-del-language-natural" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.3.1. </span>Natural language inference (Inferencia del Language Natural)<a class="headerlink" href="#natural-language-inference-inferencia-del-language-natural" title="Permalink to this headline">#</a></h4>
 <p>La inferencia del lenguaje natural es la tarea de <strong>determinar si</strong> una <strong>“hipótesis” es verdadera</strong> (implicación), <strong>falsa</strong> (contradicción) o <strong>indeterminada</strong> (neutral) dada una <strong>“premisa”</strong><a class="reference external" href="http://nlpprogress.com/english/natural_language_inference.html">NLP Prog TI</a>.</p>
 <section id="contradiccion">
-<h5>Contradicción<a class="headerlink" href="#contradiccion" title="Permalink to this headline">#</a></h5>
+<h5><span class="section-number">10.1.3.1.1. </span>Contradicción<a class="headerlink" href="#contradiccion" title="Permalink to this headline">#</a></h5>
 <ul class="simple">
 <li><p><strong>Premisa</strong>: <code class="docutils literal notranslate"><span class="pre">“Un</span> <span class="pre">hombre</span> <span class="pre">inspecciona</span> <span class="pre">todo</span> <span class="pre">el</span> <span class="pre">recinto</span> <span class="pre">antes</span> <span class="pre">de</span> <span class="pre">abrir</span> <span class="pre">las</span> <span class="pre">puertas.”</span></code></p></li>
 <li><p><strong>Hipótesis</strong>: <code class="docutils literal notranslate"><span class="pre">“El</span> <span class="pre">hombre</span> <span class="pre">duerme”</span></code></p></li>
@@ -980,7 +1037,7 @@ Por ejemplo, tomado de nlp-progress (<a class="reference external" href="http://
 </ul>
 </section>
 <section id="neutral">
-<h5>Neutral<a class="headerlink" href="#neutral" title="Permalink to this headline">#</a></h5>
+<h5><span class="section-number">10.1.3.1.2. </span>Neutral<a class="headerlink" href="#neutral" title="Permalink to this headline">#</a></h5>
 <ul class="simple">
 <li><p><strong>Premisa</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;Un</span> <span class="pre">hombre</span> <span class="pre">mayor</span> <span class="pre">y</span> <span class="pre">uno</span> <span class="pre">más</span> <span class="pre">joven</span> <span class="pre">sonríen.&quot;</span></code></p></li>
 <li><p><strong>Hipótesis</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;Dos</span> <span class="pre">hombres</span> <span class="pre">sonríen</span> <span class="pre">y</span> <span class="pre">se</span> <span class="pre">ríen</span> <span class="pre">de</span> <span class="pre">los</span> <span class="pre">gatos</span> <span class="pre">que</span> <span class="pre">juegan</span> <span class="pre">en</span> <span class="pre">el</span> <span class="pre">suelo.&quot;</span></code></p></li>
@@ -988,7 +1045,7 @@ Por ejemplo, tomado de nlp-progress (<a class="reference external" href="http://
 </ul>
 </section>
 <section id="implicacion">
-<h5>Implicación<a class="headerlink" href="#implicacion" title="Permalink to this headline">#</a></h5>
+<h5><span class="section-number">10.1.3.1.3. </span>Implicación<a class="headerlink" href="#implicacion" title="Permalink to this headline">#</a></h5>
 <ul class="simple">
 <li><p><strong>Premisa</strong>: <code class="docutils literal notranslate"><span class="pre">“Un</span> <span class="pre">partido</span> <span class="pre">de</span> <span class="pre">fútbol</span> <span class="pre">con</span> <span class="pre">varios</span> <span class="pre">hombres</span> <span class="pre">jugando.”</span></code></p></li>
 <li><p><strong>Hipótesis</strong>: <code class="docutils literal notranslate"><span class="pre">“Algunos</span> <span class="pre">hombres</span> <span class="pre">practican</span> <span class="pre">algún</span> <span class="pre">deporte.”</span></code></p></li>
@@ -997,7 +1054,7 @@ Por ejemplo, tomado de nlp-progress (<a class="reference external" href="http://
 </section>
 </section>
 <section id="textual-entailment-implicacion-textual">
-<h4>Textual entailment (implicación textual)<a class="headerlink" href="#textual-entailment-implicacion-textual" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.3.2. </span>Textual entailment (implicación textual)<a class="headerlink" href="#textual-entailment-implicacion-textual" title="Permalink to this headline">#</a></h4>
 <p>Describe el problema en el que se requiere <strong>reconocer</strong> la <strong>relación direccional</strong> <strong>entre fragmentos de texto</strong>. La relación se mantiene siempre que la <strong>verdad de un fragmento de texto</strong> se <strong>sigue</strong> de <strong>otro texto</strong>.
 Los <strong>textos vinculantes</strong> y <strong>vinculados</strong> se denominan <strong>texto (<code class="docutils literal notranslate"><span class="pre">t</span></code>)</strong> e <strong>hipótesis (<code class="docutils literal notranslate"><span class="pre">h</span></code>)</strong>, respectivamente.</p>
 <p><strong>“t implica h” (<code class="docutils literal notranslate"><span class="pre">t</span></code> ⇒ <code class="docutils literal notranslate"><span class="pre">h</span></code>)</strong> si, típicamente, una lectura humana <code class="docutils literal notranslate"><span class="pre">t</span></code> inferiría que <code class="docutils literal notranslate"><span class="pre">h</span></code> es probablemente verdadera.</p>
@@ -1008,7 +1065,7 @@ Los <strong>textos vinculantes</strong> y <strong>vinculados</strong> se denomin
 <li><p><strong>Resultado</strong>: implicación</p></li>
 </ul>
 <section id="topic-analysis-modelado-de-temas">
-<h5>Topic Analysis (Modelado de temas)<a class="headerlink" href="#topic-analysis-modelado-de-temas" title="Permalink to this headline">#</a></h5>
+<h5><span class="section-number">10.1.3.2.1. </span>Topic Analysis (Modelado de temas)<a class="headerlink" href="#topic-analysis-modelado-de-temas" title="Permalink to this headline">#</a></h5>
 <p>El <strong>análisis de temas</strong> (también llamado detección de temas, modelado de temas o extracción de temas) es una técnica de aprendizaje automático que <strong>organiza</strong> y <strong>comprende grandes colecciones de datos de texto</strong>, mediante la <strong>asignación de etiquetas</strong> o <strong>categorías</strong> según el tema o tema de cada texto individual.</p>
 <p><strong>¿Qué es un tema en el modelado de temas?</strong>
 En PLN el modelo de tema es un <strong>tipo de modelo estadístico</strong> para <strong>descubrir</strong> los <strong>temas abstractos</strong> que ocurren en una <strong>colección de documentos</strong>. Los <strong>temas</strong> producidos por las técnicas de modelado de temas <strong>son grupos de palabras similares</strong>.</p>
@@ -1027,7 +1084,7 @@ Veamos un ejemplo de <a class="reference external" href="https://monkeylearn.com
 </section>
 </section>
 <section id="event-extraction-extraccion-de-eventos">
-<h4>Event extraction(Extracción de eventos)<a class="headerlink" href="#event-extraction-extraccion-de-eventos" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.1.3.3. </span>Event extraction(Extracción de eventos)<a class="headerlink" href="#event-extraction-extraccion-de-eventos" title="Permalink to this headline">#</a></h4>
 <p>Es el proceso de <strong>recopilar conocimiento</strong> sobre <strong>incidentes periódicos</strong> que se encuentran en los <strong>textos</strong>, <strong>identificando</strong> automáticamente información sobre lo <strong>qué</strong> sucedió y <strong>cuándo</strong> sucedió.</p>
 <p>Un elemento <strong>vital</strong> es <strong>identificar</strong> el <strong>tema central</strong> para conseguir su <strong>seguimiento</strong>. Tomado de <a class="reference external" href="https://towardsdatascience.com/natural-language-processing-event-extraction-f20d634661d3">EventExtraction</a></p>
 <p>Por ejemplo:</p>
@@ -1038,7 +1095,7 @@ Veamos un ejemplo de <a class="reference external" href="https://monkeylearn.com
 </div>
 <p>La <strong>extracción de eventos</strong> brinda la <strong>capacidad de contextualizar</strong> la información nos permite <strong>conectar eventos</strong> distribuidos <strong>en el tiempo</strong> y asimilar <strong>sus efectos</strong>, y cómo se desarrolla un conjunto de episodios a lo largo del tiempo.</p>
 <section id="biomedical-event-extraction-extraccion-de-eventos-en-textos-biomedicos">
-<h5>Biomedical Event Extraction (Extracción de eventos en textos biomédicos)<a class="headerlink" href="#biomedical-event-extraction-extraccion-de-eventos-en-textos-biomedicos" title="Permalink to this headline">#</a></h5>
+<h5><span class="section-number">10.1.3.3.1. </span>Biomedical Event Extraction (Extracción de eventos en textos biomédicos)<a class="headerlink" href="#biomedical-event-extraction-extraccion-de-eventos-en-textos-biomedicos" title="Permalink to this headline">#</a></h5>
 <p>Por otro lado, podemos ver <strong>otro tipo de extracciones de eventos</strong> para <strong>dominios concretos</strong> como por el ejemplo en <strong>textos biomédicos</strong>. Ver más detalles en <a class="reference external" href="https://paperswithcode.com/dataset/genia">KaggleEvent</a> y <a class="reference external" href="https://knowledge-learning.github.io/ehealthkd-2020/">eHealthKD2020</a>.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/ehealth.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/ehealth.jpg" style="width: 600px;" /></a>
 <p>Figura 7. Extracción de entidades, eventos y relaciones</p>
@@ -1046,16 +1103,16 @@ Veamos un ejemplo de <a class="reference external" href="https://monkeylearn.com
 </section>
 </section>
 <section id="otras-aplicaciones-del-pln">
-<h3>Otras aplicaciones del PLN<a class="headerlink" href="#otras-aplicaciones-del-pln" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.4. </span>Otras aplicaciones del PLN<a class="headerlink" href="#otras-aplicaciones-del-pln" title="Permalink to this headline">#</a></h3>
 <p>Son <strong>muchas las aplicaciones del PLN</strong>, en los siguientes apartados se abordarán <strong>copeticiones científicas</strong> y <strong>marcos de referencia</strong> en los cuales se aglutinan la mayor parte de estas aplicaciones.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/aplicacionesporareas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/aplicacionesporareas.jpg" style="width: 800px;" /></a>
 <p>Figura 8. Técnicas y aplicaciones por areas. Según <a class="reference external" href="https://en.wikipedia.org/wiki/Natural_language_processing">Wikipedia</a></p>
 </section>
 </section>
 <section id="benchmarks-y-competiciones-cientificas">
-<h2>Benchmarks y competiciones científicas<a class="headerlink" href="#benchmarks-y-competiciones-cientificas" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.2. </span>Benchmarks y competiciones científicas<a class="headerlink" href="#benchmarks-y-competiciones-cientificas" title="Permalink to this headline">#</a></h2>
 <section id="definiciones-sobre-benchmark">
-<h3>Definiciones sobre Benchmark<a class="headerlink" href="#definiciones-sobre-benchmark" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>Definiciones sobre Benchmark<a class="headerlink" href="#definiciones-sobre-benchmark" title="Permalink to this headline">#</a></h3>
 <p><strong>Economía y finanzas:</strong>
 El <strong>benchmark</strong> es un <strong>punto de referencia</strong> utilizado para <strong>medir el rendimiento de una inversión</strong>. Se trata de un <strong>indicador financiero</strong> utilizado como herramienta de <strong>comparación</strong> para <strong>evaluar el rendimiento</strong> de una inversión. <a class="reference external" href="https://economipedia.com/definiciones/benchmark.html">1</a></p>
 <p><strong>Informática:</strong>
@@ -1093,7 +1150,7 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 <p><strong>Infraestructura de Evaluación</strong>: <a class="reference external" href="https://colab.research.google.com/">Colab</a>, <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>, etc.</p>
 </section>
 <section id="senseeval-semeval">
-<h3>SenseEval/SemEval<a class="headerlink" href="#senseeval-semeval" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>SenseEval/SemEval<a class="headerlink" href="#senseeval-semeval" title="Permalink to this headline">#</a></h3>
 <p>URL: <a class="reference external" href="https://semeval.github.io/">https://semeval.github.io/</a></p>
 <p><strong>Lista de ediciones</strong>:</p>
 <ul class="simple">
@@ -1113,7 +1170,7 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 <p>Figura 11. Tareas Semeval</p>
 </section>
 <section id="clef">
-<h3>CLEF<a class="headerlink" href="#clef" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.3. </span>CLEF<a class="headerlink" href="#clef" title="Permalink to this headline">#</a></h3>
 <p>URL: <a class="reference external" href="http://www.clef-initiative.eu/">http://www.clef-initiative.eu/</a></p>
 <p><strong>CLEF</strong>(inicios año 2000) obtiene sus siglas en inglés de <strong>Conference and Labs of the Evaluation Forum</strong>, y formalmente <strong>conocido</strong> como <strong>Cross-Language Evaluation Forum</strong>,  es un organismo auto-organizado cuya misión principal es <strong>promover la investigación</strong>, la innovación y el <strong>desarrollo de sistemas de acceso a la información</strong> con énfasis en la información <strong>multilingüe</strong> y <strong>multimodal</strong> con varios niveles de estructura.</p>
 <!---  
@@ -1172,12 +1229,12 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 <li><p>Sum – Summarisation (1)</p></li>
 </ul>
 <section id="datasets-and-corpora">
-<h4>Datasets and Corpora<a class="headerlink" href="#datasets-and-corpora" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.3.1. </span>Datasets and Corpora<a class="headerlink" href="#datasets-and-corpora" title="Permalink to this headline">#</a></h4>
 <p>Este marco de evaluación como la mayoría <strong>proporciona</strong> a los investigadores <strong>datasets y corpus</strong> de entrenamiento y evaluación.</p>
 </section>
 </section>
 <section id="trec-text-retrieval-conference">
-<h3>TREC: Text REtrieval Conference<a class="headerlink" href="#trec-text-retrieval-conference" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.4. </span>TREC: Text REtrieval Conference<a class="headerlink" href="#trec-text-retrieval-conference" title="Permalink to this headline">#</a></h3>
 <p>URL:  <a class="reference external" href="https://trec.nist.gov/">https://trec.nist.gov/</a></p>
 <p><strong>Propone:</strong></p>
 <ul class="simple">
@@ -1232,7 +1289,7 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 </ul>
 </section>
 <section id="tac-text-analysis-conference">
-<h3>TAC. Text Analysis Conference<a class="headerlink" href="#tac-text-analysis-conference" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.5. </span>TAC. Text Analysis Conference<a class="headerlink" href="#tac-text-analysis-conference" title="Permalink to this headline">#</a></h3>
 <p>URL: <a class="reference external" href="https://tac.nist.gov/">https://tac.nist.gov/</a></p>
 <p>La <strong>Conferencia de Análisis de Texto</strong> (TAC) se conforma por una serie de <strong>talleres de evaluación</strong> organizados para fomentar la investigación en el <strong>procesamiento del lenguaje natural</strong> y <strong>aplicaciones relacionadas</strong>. <strong>Proporciona</strong> una gran <strong>colección de pruebas, procedimientos de evaluación comunes</strong> y un foro para que las organizaciones compartan sus resultados.</p>
 <p>TAC comprende conjuntos de <strong>tareas conocidas como “pistas”</strong>, cada una de las cuales se <strong>centra en un subproblema particular</strong> del PLN. Los tracks de TAC se centran en las <strong>tareas del usuario final</strong>, pero también incluyen evaluaciones de componentes situadas dentro del contexto de estas.</p>
@@ -1242,11 +1299,11 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 <p>Figura 15. Tareas CLEF</p>
 </section>
 <section id="iberlef-iberian-languages-evaluation-forum">
-<h3>IberLEF: Iberian Languages Evaluation Forum<a class="headerlink" href="#iberlef-iberian-languages-evaluation-forum" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.6. </span>IberLEF: Iberian Languages Evaluation Forum<a class="headerlink" href="#iberlef-iberian-languages-evaluation-forum" title="Permalink to this headline">#</a></h3>
 <p>IberLEF es una <strong>campaña de evaluación</strong> comparativa de sistemas de <strong>Procesamiento de Lenguaje Natural</strong> en <strong>español y otras lenguas ibéricas</strong>.</p>
 <p>Su objetivo es alentar a la comunidad investigadora a <strong>organizar tareas competitivas</strong> de <strong>procesamiento</strong>, <strong>comprensión</strong> y <strong>generación de textos</strong> para definir nuevos desafíos de investigación y establecer nuevos resultados de vanguardia en esos idiomas.</p>
 <section id="ediciones">
-<h4>Ediciones<a class="headerlink" href="#ediciones" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.6.1. </span>Ediciones<a class="headerlink" href="#ediciones" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>TASS 2012-2020: <a class="reference external" href="http://tass.sepln.org/">http://tass.sepln.org/</a></p></li>
 <li><p>IberEval 2017: <a class="reference external" href="https://sepln2017.um.es/ibereval.html">https://sepln2017.um.es/ibereval.html</a></p></li>
@@ -1258,9 +1315,9 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 </section>
 </section>
 <section id="benchmarks-e-infraestructuras-de-evaluacion">
-<h3>Benchmarks e infraestructuras de evaluación<a class="headerlink" href="#benchmarks-e-infraestructuras-de-evaluacion" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.7. </span>Benchmarks e infraestructuras de evaluación<a class="headerlink" href="#benchmarks-e-infraestructuras-de-evaluacion" title="Permalink to this headline">#</a></h3>
 <section id="codalab-cuadernos-de-trabajo-concursos">
-<h4><a class="reference external" href="https://codalab.org/">CodaLab</a> [cuadernos de trabajo, concursos]<a class="headerlink" href="#codalab-cuadernos-de-trabajo-concursos" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.7.1. </span><a class="reference external" href="https://codalab.org/">CodaLab</a> [cuadernos de trabajo, concursos]<a class="headerlink" href="#codalab-cuadernos-de-trabajo-concursos" title="Permalink to this headline">#</a></h4>
 <p>CodaLab es una <strong>plataforma de código abierto</strong> que proporciona un <strong>ecosistema</strong> para realizar <strong>investigación computacional</strong> de una manera más eficiente, <strong>reproducible y colaborativa</strong>.</p>
 <p>Hay dos <strong>aspectos de CodaLab</strong>:</p>
 <ul class="simple">
@@ -1269,11 +1326,11 @@ Una <strong>prueba de rendimiento</strong> o <strong>comparativa</strong> (en in
 </ul>
 </section>
 <section id="kaggle-concursos-conjunto-de-datos-codigos-fuente">
-<h4><a class="reference external" href="https://www.kaggle.com/">Kaggle</a> [concursos, conjunto de datos, códigos fuente]<a class="headerlink" href="#kaggle-concursos-conjunto-de-datos-codigos-fuente" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.7.2. </span><a class="reference external" href="https://www.kaggle.com/">Kaggle</a> [concursos, conjunto de datos, códigos fuente]<a class="headerlink" href="#kaggle-concursos-conjunto-de-datos-codigos-fuente" title="Permalink to this headline">#</a></h4>
 <p>Entidad <strong>subsidiaria de Google LLC</strong>, permite a los usuarios <strong>encontrar y publicar conjuntos de datos, explorar y construir modelos</strong> en un entorno de ciencia de datos basado en la web, trabajar <strong>organizar concursos</strong> para resolver desafíos de ciencia de datos.</p>
 </section>
 <section id="glue-tabla-de-rankings-conjunto-de-datos-codigos-fuente">
-<h4><a class="reference external" href="https://gluebenchmark.com">GLUE</a> [tabla de rankings, conjunto de datos, códigos fuente]<a class="headerlink" href="#glue-tabla-de-rankings-conjunto-de-datos-codigos-fuente" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.7.3. </span><a class="reference external" href="https://gluebenchmark.com">GLUE</a> [tabla de rankings, conjunto de datos, códigos fuente]<a class="headerlink" href="#glue-tabla-de-rankings-conjunto-de-datos-codigos-fuente" title="Permalink to this headline">#</a></h4>
 <p>El <strong>marco de referencia</strong> de <strong>evaluación</strong> de comprensión del lenguaje general (GLUE) es una <strong>colección de recursos</strong> para <strong>entrenar, evaluar y analizar sistemas de comprensión del lenguaje natural</strong>.</p>
 <p>GLUE se compone de:</p>
 <ul class="simple">
@@ -1289,11 +1346,11 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen <strong>rendimiento
 </ul>
 </section>
 <section id="superglue-tabla-de-rankings-conjunto-de-datos-codigos-fuente">
-<h4><a class="reference external" href="https://super.gluebenchmark.com/">SuperGLUE</a> [tabla de rankings, conjunto de datos, códigos fuente]<a class="headerlink" href="#superglue-tabla-de-rankings-conjunto-de-datos-codigos-fuente" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.7.4. </span><a class="reference external" href="https://super.gluebenchmark.com/">SuperGLUE</a> [tabla de rankings, conjunto de datos, códigos fuente]<a class="headerlink" href="#superglue-tabla-de-rankings-conjunto-de-datos-codigos-fuente" title="Permalink to this headline">#</a></h4>
 <p><strong>SuperGLUE</strong>, un <strong>nuevo Benckmark</strong> con el <strong>estilo de GLUE</strong> con un <strong>nuevo conjunto de tareas</strong> de comprensión del idioma <strong>más difíciles</strong>, <strong>recursos mejorados</strong> y <strong>una nueva tabla de clasificación pública</strong>.</p>
 </section>
 <section id="huggingface-conjunto-de-datos-codigo-fuente">
-<h4><a class="reference external" href="https://huggingface.co/">Huggingface 🤗</a> [conjunto de datos, código fuente]<a class="headerlink" href="#huggingface-conjunto-de-datos-codigo-fuente" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.7.5. </span><a class="reference external" href="https://huggingface.co/">Huggingface 🤗</a> [conjunto de datos, código fuente]<a class="headerlink" href="#huggingface-conjunto-de-datos-codigo-fuente" title="Permalink to this headline">#</a></h4>
 <p>Hugging Face es una <strong>empresa emergente líder en el PLN</strong> con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la <strong>biblioteca</strong> <strong>Transformers</strong>) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente <strong>arquitecturas NLP</strong> como: <strong>BERT</strong> (Google, 2018)</p>
 <p>La librería Transformers <strong>proporciona</strong>:</p>
 <ul class="simple">
@@ -1303,14 +1360,14 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen <strong>rendimiento
 </ul>
 </section>
 <section id="extreme-tabla-de-rankings-conjunto-de-datos-codigos-fuente-papers">
-<h4><a class="reference external" href="https://sites.research.google/xtreme">Extreme</a> [tabla de rankings, conjunto de datos, códigos fuente. papers]<a class="headerlink" href="#extreme-tabla-de-rankings-conjunto-de-datos-codigos-fuente-papers" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">10.2.7.6. </span><a class="reference external" href="https://sites.research.google/xtreme">Extreme</a> [tabla de rankings, conjunto de datos, códigos fuente. papers]<a class="headerlink" href="#extreme-tabla-de-rankings-conjunto-de-datos-codigos-fuente-papers" title="Permalink to this headline">#</a></h4>
 <p><strong>TRansfer Evaluation of Multilingual Encoders</strong> ([Extreme]) es un benckmark para la <strong>evaluación</strong> de la capacidad de <strong>generalización</strong> entre <strong>idiomas de modelos multilingües</strong> previamente entrenados. Cubre <strong>40 idiomas</strong> tipológicamente diversos (que abarcan 12 familias de idiomas) e incluye <strong>nueve tareas</strong> que colectivamente requieren razonamiento sobre diferentes niveles de sintaxis y semántica.
 <a class="reference external" href="https://github.com/google-research/xtreme">Extreme</a></p>
 </section>
 </section>
 </section>
 <section id="bibliografia">
-<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.3. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">[1]</span></code> <a class="reference external" href="https://www.acl-bg.org/proceedings/2017/RANLP%202017/pdf/RANLP032.pdf">https://www.acl-bg.org/proceedings/2017/RANLP%202017/pdf/RANLP032.pdf</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">[2]</span></code> Van Hee, C., Jacobs, G., Emmery, C., Desmet, B., Lefever, E., Verhoeven, B., … &amp; Hoste, V. (2018). Automatic detection of cyberbullying in social media text. PloS one, 13(10), e0203794.</p>
 <p><code class="docutils literal notranslate"><span class="pre">[3]</span></code> <a class="reference external" href="https://dac.cs.vt.edu/research-project/semi-supervised-learning-cyberbullying-harassment-patterns-social-media/">https://dac.cs.vt.edu/research-project/semi-supervised-learning-cyberbullying-harassment-patterns-social-media/</a></p>
@@ -1347,6 +1404,20 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen <strong>rendimiento
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bloque3_t1_aplicaciones.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>T1. Aplicaciones generales</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque3_t2.1_analisis_sentimientos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>T2.1. Aplicaciones específicas. Análisis de Sentimientos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
