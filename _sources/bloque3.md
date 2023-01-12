@@ -14,9 +14,9 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 - [T2. Aplicaciones específicas y Benchmacks][t2]
 - [T2.1. Caso de estudio Análisis de Sentimientos][t2.1]
 - [T3. Métricas de Evaluación][t3]
-%- [T4. Centralización de modelos y datasets: Huggingface transformers][t4]
-%- [T5. AutoML. Descripción general y estado de la cuestión][t5]
-%- [T5.1. AutoGOAL: Marco de trabajo para la generación de pipelines óptimos][t5.1]
+% - [T4. Centralización de modelos y datasets: Huggingface transformers][t4]
+% - [T5. AutoML. Descripción general y estado de la cuestión][t5]
+% - [T5.1. AutoGOAL: Marco de trabajo para la generación de pipelines óptimos][t5.1]
 
 ### Prácticas
 
@@ -25,11 +25,11 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 - [P2. Transformer fine tunnig. Caso de uso Clasificación de Documentos][p3]
 - [P3. Composición de características auxiliándose de transformers y otras tecnicas de extracción de  características. Caso de uso Clasificación de Documentos][p4]
 - [P4. Ensembler de classificadores, entre ellos trasnformers, SMV, etc.  Caso de uso Clasificación  de Documentos][p5]
-%- [P5. Utilización de técnicas de AutoML, libreria AutoGOAL.  Caso de uso Clasificación de Documentos][p6]
+% - [P5. Utilización de técnicas de AutoML, libreria AutoGOAL.  Caso de uso Clasificación de Documentos][p6]
 
 % ### Evaluación
 
-%- [Ev1. Creación de un cuaderno/sistema para resolver un problema del mundo real][ev1]
+% - [Ev1. Creación de un cuaderno/sistema para resolver un problema del mundo real][ev1]
 
 
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
