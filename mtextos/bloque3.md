@@ -27,9 +27,9 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 - [P4. Ensembler de classificadores, entre ellos trasnformers, SMV, etc.  Caso de uso Clasificación  de Documentos][p5]
 % - [P5. Utilización de técnicas de AutoML, libreria AutoGOAL.  Caso de uso Clasificación de Documentos][p6]
 
-% ### Evaluación
+### Evaluación
 
-% - [Ev1. Creación de un cuaderno/sistema para resolver un problema del mundo real][ev1]
+- [Ev1. Actividades de evaluación del bloque 2][ev1]
 
 
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
