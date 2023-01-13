@@ -7,6 +7,7 @@ Contenidos:
 - [Introducción](#introduccion)
 - [Repositorio de Datasets](#repositorio-de-datasets)
 - [Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
+- [Tecnologías de Generción (Copilot, ChatGPT)](#)
 
 ## Introducción
 
@@ -257,6 +258,14 @@ tensor([[[-1.8296e-01, -7.4054e-02,  5.0267e-02,  ..., -1.1261e-01,
 ````
 
 Es importante conocer que las **configuraciones** de modelos Transformer ya **cuentan** con **modelos base pre-entrenados**. En el caso de ``DistilBERT`` podemos encontrar ``distilbert-base-uncased``.
+
+
+## Tecnologías de generación de texto
+
+### Copilot
+
+### ChatGPT
+
 
 
 ## Bibliografía
