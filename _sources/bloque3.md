@@ -14,9 +14,9 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 - [T2. Aplicaciones específicas y Benchmacks][t2]
 - [T2.1. Caso de estudio Análisis de Sentimientos][t2.1]
 - [T3. Métricas de Evaluación][t3]
-% - [T4. Centralización de modelos y datasets: Huggingface transformers][t4]
-% - [T5. AutoML. Descripción general y estado de la cuestión][t5]
-% - [T5.1. AutoGOAL: Marco de trabajo para la generación de pipelines óptimos][t5.1]
+- [T4. Centralización de modelos, datasets y tecnologías de generación][t4]
+- [T5. AutoML. Descripción general y estado de la cuestión][t5]
+- [T5.1. AutoGOAL: Marco de trabajo para la generación de pipelines óptimos][t5.1]
 
 ### Prácticas
 
