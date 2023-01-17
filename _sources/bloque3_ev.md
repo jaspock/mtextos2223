@@ -22,13 +22,14 @@ O **UNA entrega** , para optar por una nota máxima de 10pts, teniendo en cuenta
 
 - El **cuaderno de trabajo** debe estar **bien documentado** en cada una de las etapas, procedimientos, variables, bloques de código, etc.  
 - Los **datos** que se procesarán y el **cuaderno de trabajo** deben estar **incluidos** en un  **paquete de trabajo**.
-- Se entragará la tarea (paquete de trabajo) mediante una **entrega en UAcloud** que se habilitará para ello. El paquete deberá comprimirse en un ``.zip`` y tener la siguiente estructura: ``[nombreEstudiante]-mtextos-bloque3-20-21.zip``. Además entregar el enlace de Colab donde se encuentra el cuaderno.
 - El cuaderno **no debe tener errores de ejecución**
 - Cada **modificación/aporte de autor debe ser señalada con comentario**. Por ejemplo ####Codigo de Alumno1 ....#####
 - Se deben **comentar y describir los aportes** realizados por el autor, y **explicar los motivos**
-- Se tendrá en cuenta para la evaluación el empleo de varias opciones de experimentación/estrategias (i.e. preprocesamiento, configuraciones, tecnologías, modelos) y explicarlas. 
-- Se deben describir discusiones y conclusiones del estudio.
+- Se tendrá en cuenta para la evaluación el **empleo de varias opciones de experimentación/estrategias (i.e. preprocesamiento, configuraciones, tecnologías, modelos) y explicarlas.** 
+- Se deben **describir discusiones** y **conclusiones del estudio.**
 - Se tendrá en cuenta en la puntuación la complejidad de la propuesta.
+
+Se entragará la tarea (paquete de trabajo) mediante una **entrega en UAcloud** que se habilitará para ello. El paquete deberá comprimirse en un ``.zip`` y tener la siguiente estructura: ``[nombreEstudiante]-mtextos-bloque3-20-21.zip``. Además entregar el enlace de Colab donde se encuentra el cuaderno.
 
 
 [p1]: https://jaspock.github.io/mtextos2122/bloque3_p1_SA-Pipeline-Reviews.html
