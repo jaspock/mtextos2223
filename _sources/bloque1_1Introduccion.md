@@ -88,16 +88,16 @@ En nivel morfológico se estudian y analizan las palabras como unidad lingüíst
 
 En PLN, este nivel está relacionado con unos de los tipos de análsis más importantes: el análisis categorial o *Part of Speech taggers* (*PoS_taggers*). Todo sistema de PLN tiene como mínimo un *PoS tagger*. Estos sistemas suelen realizar cuatro tareas:
 
-    a. tokenización: separación de la cadena en *tokens*;
-    b. lematización: especificación del lema o forma no marcada del *token*;
-    c. análisis morfológico: *stemmers*, separación de lexemas y morfemas, especificación de rasgos morfológicos...;
-    d. análisis categorial: clasificación de palabras según la categoría gramatical (nombre, verbo, adjetivo, etc).
+1. tokenización: separación de la cadena en *tokens*;
+2. lematización: especificación del lema o forma no marcada del *token*;
+3. análisis morfológico: *stemmers*, separación de lexemas y morfemas, especificación de rasgos morfológicos...;
+4. análisis categorial: clasificación de palabras según la categoría gramatical (nombre, verbo, adjetivo, etc).
 
-Por ajemplo, dad la siguiente oración:
+Por ejemplo, dada la siguiente oración:
 
 > "Inesperadamente,los límites de su vida se habían reducido a la mínima expresión."
 
-un *PoS tagger* ofrece la siguiente salida:
+un *PoS tagger* ofrece la siguiente salida (ID|Token|Lema|Categoría gramatical|Categoría gramatical abreviada|Análisis morfológico):
 
     1  Inesperadamente inesperadamente RG      RG  pos=adverb|type=general
     2  ,               ,               Fc      Fc  pos=punctuation|type=comma
@@ -115,7 +115,7 @@ un *PoS tagger* ofrece la siguiente salida:
     14 expresión       expresión       NCFS000 NC  pos=noun|type=common|gen=feminine|num=singular
     15 .               .               Fp      Fp  pos=punctuation|type=period
 
-En el tema siguiente se expondrán los principales problemas del análisis categorial y los métodos computacionales.
+En el tema siguiente se expondrán los principales problemas y métodos del análisis categorial.
 
 ### Nivel sintáctico
 
