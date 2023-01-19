@@ -617,20 +617,23 @@ title="Print to PDF"
 <span id="label-intro"></span><h1><span class="section-number">2. </span>Minería de textos y procesamiento del lenguaje natural.<a class="headerlink" href="#mineria-de-textos-y-procesamiento-del-lenguaje-natural" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://docs.google.com/presentation/d/1R049gfFDPNW0Y9VqmqgBuSioGRTLQ_YPzlOg7KUzJQc/edit?usp=sharing">Transparencias de clase</a></p>
 <p><em>Minería de textos</em> es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.</p>
-<p>Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.</p>
-<p>Esa información está codificada en textos, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información.</p>
-<p>La disciplina computacional que idea y desarrolla sistemas para la interpretación de los textos es el procesamiento del lenguaje natural, disciplina híbrida entre la lingüística y la computación.</p>
-<p>Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta, así como herramientas y recursos disponibles para la minería de textos.</p>
-<p>Muchos de los conceptos y problemas presentados en este bloque serán recurrentes a lo largo de toda la asignatura, y en algunos de ellos se profundizará en los siguientes módulos.</p>
+<!-- Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente. -->
+<p>Esa información está codificada en <em>textos</em>, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información. La disciplina computacional que idea y desarrolla sistemas para la interpretación lingüística de los textos es el <strong>procesamiento del lenguaje natural</strong> (PLN o NLP por sus siglas en ingés: <em>Natural Language Processing</em>), disciplina híbrida entre la lingüística y la computación.</p>
+<p>Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta y métodos de resolución, así como herramientas y recursos disponibles para la minería de textos.</p>
+<!--Muchos de los conceptos y problemas presentados en este bloque serán recurrentes a lo largo de toda la asignatura, y en algunos de ellos se profundizará en los siguientes módulos.-->
 <section id="que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico">
 <h2><span class="section-number">2.1. </span>Qué es un texto (y por qué es difícil su procesamiento automático).<a class="headerlink" href="#que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico" title="Permalink to this headline">#</a></h2>
-<p>La minería de textos, como su nombre indica, debe procesar automáticamente textos escritos en una lengua concreta para extraer de ellos información.</p>
-<p>La información de un texto está codificada en signos. Estos signos forman lo que se denomina “idioma” o “lengua”.</p>
-<p>El ser humano está capacitado para interpretar esos signos: extraer la información contenida en el texto. Desde la percepción visual de las letras hasta la acción o reacción provocada por esa información.</p>
-<p>Los ordenadores, sin embargo, necesitan algoritmos complejos para procesar los signos e interpretarlos.</p>
-<p>Principales problemas, “fáciles” para el ser humano y complejos para el ordenador:</p>
+<p>La información de un texto está codificada en signos. El sistema que especifica cómo son esos signos, cómo se combinan y cómo se intepretan es el “idioma” o “lengua”. El ser humano que conoce el idioma en que está codificado el texto está capacitado para interpretarlo. Esta interpretación va desde la percepción visual de los signos (letras) hasta la acción o reacción provocada por esa información. Este proceso podemos esquematizarlo en cuatro pasos:</p>
+<ol class="simple">
+<li><p>Reconocimiento visual o auditivo (lectura o escucha) de los signos lingüísticos (palabras, frases, etc.)</p></li>
+<li><p>Procesamiento sintáctico: cómo se combinan esos signos dentro del texto.</p></li>
+<li><p>Procesamiento semántico: qué signficado asumen los signos teniendo en cuenta el resto de signos y el contexto comunicativo.</p></li>
+<li><p>Reacción: cómo actúa el ser humano a partir de la interprtación del texto (reir un chiste, aprender información, cerrar una ventana, saludar…)</p></li>
+</ol>
+<p>Para este proceso los ordenadores necesitan, sin embargo, algoritmos complejos.</p>
+<p>A continuación se presentan algunso de los principales problemas a los que se enfrenta la máquina para interpretar un texto. PAra el ser humano puede resutar “fáciles” (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastante problemas.</p>
 <ul>
-<li><p>Ambigüedad:</p>
+<li><p>Ambigüedad. Es el principal problema. Aquí un caso de ambigüedad léxica (luego se verán más casos de ambigüedad):</p>
 <p>“Te espero en el <em>banco</em>”</p>
 <p>¿Qué es “banco”?</p>
 </li>
@@ -647,7 +650,7 @@ title="Print to PDF"
 <p>¿Qué tiene que ver la luz con los ronquidos?</p>
 </li>
 <li><p>Metáforas y usos simbólicos del lenguaje:</p>
-<p>La metáfora NO es un fenómeno literario (exclusivamente), sino un mecanismo básico de cognición humana (Lakoff y Johnson 1980). Definición. De lo abstracto a lo concreto.</p>
+<p>La metáfora NO es un fenómeno literario (exclusivamente), sino un mecanismo básico de cognición humana (Lakoff y Johnson 1980). Es muy común, por ejemplo, utilizar metafóricamente términos concretos para hablar de cuestiones abstractas, como en estos casos:</p>
 <p>“Deja de <em>perder el tiempo</em> y ponte a estudiar” (Tiempo :=:  dinero)</p>
 <p>“A ver si se te <em>mete</em> esto en la cabeza de una vez” (Mente :=: objeto hueco que se puede llenar)</p>
 </li>
@@ -662,7 +665,7 @@ title="Print to PDF"
 <section id="actividad-para-pensar">
 <h3><span class="section-number">2.1.1. </span>Actividad para pensar:<a class="headerlink" href="#actividad-para-pensar" title="Permalink to this headline">#</a></h3>
 <p>Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:</p>
-<p><a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link">Formulario ambigüedad</a></p>
+<p><a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link">Formulario <em>Caos de Ambigüedad</em></a></p>
 </section>
 </section>
 <section id="niveles-de-descripcion-linguistica">
