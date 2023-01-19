@@ -54,7 +54,7 @@ A continuación se presentan algunos de los principales problemas a los que se e
 
 Para estudiar las lenguas en toda su complejidad, los lingüistas las han seccionado en diferentes niveles llamados *niveles de descripción lingüística*. El PLN se basa en estos niveles para desarrollar sus sistemas.
 
-En un orden interpretativo[^1] (del texto a la interpretación), los niveles de descripción lingüística son los siguientes:
+En un proceso interpretativo[¹] (del texto a la interpretación), los niveles de descripción lingüística son los siguientes:
 
 ### Imagen o sonidos extralingüístico.
 
@@ -233,4 +233,4 @@ Manning, Christopher D. (2015) "Computational Linguistics and Deep Learning" *Co
 
 Schubert, Lenhart, "Computational Linguistics", *The Stanford Encyclopedia of Philosophy* (Spring 2020 Edition), Edward N. Zalta (ed.), https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/ 
 
-[^1] En proceso contrario sería la generación: de la idea al texto.
+[¹] En proceso contrario sería la generación: de la idea al texto.
