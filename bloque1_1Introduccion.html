@@ -695,15 +695,19 @@ title="Print to PDF"
 </section>
 <section id="nivel-morfologico">
 <h3><span class="section-number">2.2.3. </span>Nivel morfológico.<a class="headerlink" href="#nivel-morfologico" title="Permalink to this headline">#</a></h3>
-<p>La palabra como unidad básica. Elementos constitutivos de las palabras (lexemas, morfemas, etc.), tipos de palabras (nombre, verbo, adjetivo, etc.), así como otro fenómenos lingüísticos como derivación, composición, etc.</p>
-<p>En PLN, este nivel está relacionado con los sistemas de análisis categorial o Part of Speech taggers (PoS_tagger). Estos sistemas suelen realizar cuatro tareas de análisis:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a. tokenización
-b. lematización
-c. análisis morfológico (stemmers, separación de lexemas y morfemas, especificación de rasgos morfológicos)
-d. análisis categorial (clasificación de palabras según la categoría gramatical).
+<p>En nivel morfológico se estudian y analizan las palabras como unidad lingüística básica. Se analizan sus elementos constitutivos (lexemas, morfemas, etc.), los tipos de palabras según su comportamiento gramatical (nombre, verbo, adjetivo, etc.), así como otro fenómenos lingüísticos como derivación, composición, etc.</p>
+<p>En PLN, este nivel está relacionado con unos de los tipos de análsis más importantes: el análisis categorial o <em>Part of Speech taggers</em> (<em>PoS_taggers</em>). Todo sistema de PLN tiene como mínimo un <em>PoS tagger</em>. Estos sistemas suelen realizar cuatro tareas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a. tokenización: separación de la cadena en *tokens*;
+b. lematización: especificación del lema o forma no marcada del *token*;
+c. análisis morfológico: *stemmers*, separación de lexemas y morfemas, especificación de rasgos morfológicos...;
+d. análisis categorial: clasificación de palabras según la categoría gramatical (nombre, verbo, adjetivo, etc).
 </pre></div>
 </div>
-<p>Ejemplo: “Inesperadamente,los límites de su vida se habían reducido a la mínima expresión.”</p>
+<p>Por ajemplo, dad la siguiente oración:</p>
+<blockquote>
+<div><p>“Inesperadamente,los límites de su vida se habían reducido a la mínima expresión.”</p>
+</div></blockquote>
+<p>un <em>PoS tagger</em> ofrece la siguiente salida:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1  Inesperadamente inesperadamente RG      RG  pos=adverb|type=general
 2  ,               ,               Fc      Fc  pos=punctuation|type=comma
 3  los             el              DA0MP0  DA  pos=determiner|type=article|gen=masculine|num=plural
@@ -721,6 +725,7 @@ d. análisis categorial (clasificación de palabras según la categoría gramati
 15 .               .               Fp      Fp  pos=punctuation|type=period
 </pre></div>
 </div>
+<p>En el tema siguiente se expondrán los principales problemas del análisis categorial y los métodos computacionales.</p>
 </section>
 <section id="nivel-sintactico">
 <h3><span class="section-number">2.2.4. </span>Nivel sintáctico<a class="headerlink" href="#nivel-sintactico" title="Permalink to this headline">#</a></h3>

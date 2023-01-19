@@ -84,16 +84,20 @@ Esta tarea no será tratada en este curso. Si quieres más información, consult
 
 ### Nivel morfológico.
 
-La palabra como unidad básica. Elementos constitutivos de las palabras (lexemas, morfemas, etc.), tipos de palabras (nombre, verbo, adjetivo, etc.), así como otro fenómenos lingüísticos como derivación, composición, etc.
+En nivel morfológico se estudian y analizan las palabras como unidad lingüística básica. Se analizan sus elementos constitutivos (lexemas, morfemas, etc.), los tipos de palabras según su comportamiento gramatical (nombre, verbo, adjetivo, etc.), así como otro fenómenos lingüísticos como derivación, composición, etc.
 
-En PLN, este nivel está relacionado con los sistemas de análisis categorial o Part of Speech taggers (PoS_tagger). Estos sistemas suelen realizar cuatro tareas de análisis:
+En PLN, este nivel está relacionado con unos de los tipos de análsis más importantes: el análisis categorial o *Part of Speech taggers* (*PoS_taggers*). Todo sistema de PLN tiene como mínimo un *PoS tagger*. Estos sistemas suelen realizar cuatro tareas:
 
-    a. tokenización
-    b. lematización
-    c. análisis morfológico (stemmers, separación de lexemas y morfemas, especificación de rasgos morfológicos)
-    d. análisis categorial (clasificación de palabras según la categoría gramatical).
+    a. tokenización: separación de la cadena en *tokens*;
+    b. lematización: especificación del lema o forma no marcada del *token*;
+    c. análisis morfológico: *stemmers*, separación de lexemas y morfemas, especificación de rasgos morfológicos...;
+    d. análisis categorial: clasificación de palabras según la categoría gramatical (nombre, verbo, adjetivo, etc).
 
-Ejemplo: "Inesperadamente,los límites de su vida se habían reducido a la mínima expresión."
+Por ajemplo, dad la siguiente oración:
+
+> "Inesperadamente,los límites de su vida se habían reducido a la mínima expresión."
+
+un *PoS tagger* ofrece la siguiente salida:
 
     1  Inesperadamente inesperadamente RG      RG  pos=adverb|type=general
     2  ,               ,               Fc      Fc  pos=punctuation|type=comma
@@ -111,6 +115,7 @@ Ejemplo: "Inesperadamente,los límites de su vida se habían reducido a la míni
     14 expresión       expresión       NCFS000 NC  pos=noun|type=common|gen=feminine|num=singular
     15 .               .               Fp      Fp  pos=punctuation|type=period
 
+En el tema siguiente se expondrán los principales problemas del análisis categorial y los métodos computacionales.
 
 ### Nivel sintáctico
 
