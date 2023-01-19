@@ -131,7 +131,7 @@ El principal problema que debe resolver un *parser* es la ambigüedad estructura
 
 Efectivamente, "con los prismáticos" puede ser tanto complemento del verbo (y por tanto quien tiene los prismáticos es el "yo" sujeto) como complemento del nombre "hermano" (en cuyo caso es el hermano quien tiene los prismáticos).
 
-En el próximo tema se verá con más detalle los formalismos de análisis sintático y los métodos de análisis.
+En el próximo tema se verá con más detalle los formalismos de análisis sintático y los principales métodos de análisis.
 
 ### Nivel semántico
 
