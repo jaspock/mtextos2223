@@ -9,7 +9,7 @@ Minería de textos y procesamiento del lenguaje natural.
 
 Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.
 
-Esa información está codificada en textos, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer el información.
+Esa información está codificada en textos, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información.
 
 La disciplina computacional que idea y desarrolla sistemas para la interpretación de los textos es el procesamiento del lenguaje natural, disciplina híbrida entre la lingüística y la computación.
 
