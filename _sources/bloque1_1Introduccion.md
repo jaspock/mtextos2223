@@ -29,66 +29,58 @@ Para este proceso los ordenadores necesitan, sin embargo, algoritmos complejos.
 A continuación se presentan algunos de los principales problemas a los que se enfrenta la máquina para interpretar un texto. Para el ser humano pueden resutar "fáciles" (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastantes problemas.
 
 - Ambigüedad. Es el principal problema. Aquí un caso de ambigüedad léxica (luego se verán más casos de ambigüedad):
-    + "Te espero en el _banco_.": ¿Qué es "banco" en esta oración?, ¿qué otros significados puede tener la palabra "banco"?
+    + "Te espero en el _banco_." | ¿Qué es "banco" en esta oración?, ¿qué otros significados puede tener la palabra "banco"?
 
 - Vaguedad:
-
-    "Tu hermano es todavía muy *joven*" |  ¿A qué edad se deja de ser joven?
-
-    "*Pasados unos días* llegamos a nuestro destino" | ¿Cuántos días? ¿Cuándo llegaron?
+    + "Tu hermano es todavía muy *joven*" |  ¿A qué edad se deja de ser joven?
+    + "*Pasados unos días* llegamos a nuestro destino" | ¿Cuántos días? ¿Cuándo llegaron?
 
 - Conocimiento del mundo, conocimiento implícito y sentido común:
     + Visualiza la siguiente conversación entre un humano y un ordenador (HAL 9000) e intenta deducir qué información implícita (conocimiento del mundo, etc.) debe asumir el ordenador para poner entenderse con el humano: <https://www.youtube.com/watch?v=Mme2Aya_6Bc>
 
 - Implicaciones:
+    + "Oí ronquidos y decidí no encender la luz" | ¿Qué tiene que ver la luz con los ronquidos?
 
-    "Oí ronquidos y decidí no encender la luz"
+- Metáforas y usos simbólicos del lenguaje: la metáfora NO es solo un fenómeno literario, sino un mecanismo básico de cognición humana (Lakoff y Johnson 1980). Es muy común, por ejemplo, utilizar metafóricamente términos concretos para hablar de cuestiones abstractas, como en estos casos:
+    + "Deja de _perder el tiempo_ y ponte a estudiar" | Tiempo :=:  dinero
+    + "A ver si se te _mete_ esto en la cabeza de una vez" | Mente :=: objeto hueco que se puede llenar
 
-    ¿Qué tiene que ver la luz con los ronquidos?
+- Denotación y emociones: junto a su significado denotativo (el del diccionario, el concepto prototípico asociado a la palabra), las palabras pueden transmitir un abanico de significados connotativos: asociaciones socio-culturales relacionadas con la palabra.
+    + "Por fin en _casa_" | casa =  "Edificio para habitar" (RAE), pero también "hogar, familia, lugar entrañable, seguridad, acogimiento, tranquilidad, descanso, reposo, etc..."
 
-- Metáforas y usos simbólicos del lenguaje:
-
-    La metáfora NO es un fenómeno literario (exclusivamente), sino un mecanismo básico de cognición humana (Lakoff y Johnson 1980). Es muy común, por ejemplo, utilizar metafóricamente términos concretos para hablar de cuestiones abstractas, como en estos casos:
-    
-    "Deja de _perder el tiempo_ y ponte a estudiar" (Tiempo :=:  dinero)
-
-    "A ver si se te _mete_ esto en la cabeza de una vez" (Mente :=: objeto hueco que se puede llenar)
-
-- Denotación y emociones:
-
-Junto a su significado denotativo (el del diccionario, el concepto prototípico asociado a la palabra), las palabras pueden transmitir un abanico de significados connotativos: asociaciones socio-culturales relacionadas con la palabra. 
-
-"Por fin en _casa_"
-
-casa =  "Edificio para habitar" (RAE), pero también "hogar, familia, lugar entrañable, seguridad, acogimiento, tranquilidad, descanso, reposo, etc..."
-
-- ¿Otros?
-
-### Actividad para pensar:
-
-Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:
-
-[Formulario *Caos de Ambigüedad*](https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link)
+- ...
 
 ## Niveles de descripción lingüística.
 
-Para estudiar las lenguas en su complejidad, los lingüistas las han seccionado en diferentes niveles, lo llamados *niveles de descripción lingüística*. El PLN se basa en estos niveles para desarrollar sus sistemas.
+Para estudiar las lenguas en toda su complejidad, los lingüistas las han seccionado en diferentes niveles llamados *niveles de descripción lingüística*. El PLN se basa en estos niveles para desarrollar sus sistemas.
 
-Se presentan en orden semasiológico. 
+En un orden interpretativo[^1] (del texto a la interpretación), los niveles de descripción lingüística son los siguientes:
 
 ### Imagen o sonidos extralingüístico.
 
-Percepción por la vista (tipografía) o el oído (fonética).
+Percepción por la vista (tipografía) o el oído (fonética). Detección de que la imagen o sonido es un objeto lingüístico y por tanto puede ser interpretado, y separación del resto de imágenes/sonidos no lingüísticos (ruido).
 
 ### Nivel fono-fonológico.
 
 Percepción y representación mental (prototípica y abstracta) de los sonidos (o su imágenes tipográficas correspondiente). Sistema fonológico basado en rasgos articulatorios mediante oposiciones: modo de articulación (vocales y consonantes), punto de articulación (bilabial, labiodental, interdenta, nasal, palatal, velar, etc.) y vibración de las cuerdas vocales (sonoras - sordas).
 
-Los sistemas de PLN de este nivel son los sistemas de reconocimiento del habla o análisis de voz. El primero transforman una cadena de sonido hablado en una representación textual procesable (texto digital codificado en UTF-8, etc.). Problemas: relacionar sonidos y fonemas, sílabas, entonación, discriminación del habla de otros tipos de sonidos (ruido), separación de palabras (o unidades significativas), etc.
+Los sistemas de PLN de este nivel son los sistemas de reconocimiento del habla o análisis de voz. El primero transforman una cadena de sonido hablado en una representación textual procesable (texto digital codificado en UTF-8, etc.).
+
+Esta tarea se denomina "Automatic Speech Recognition". Algunos de los problemas que trata de resolver son:
+
+- discriminación del habla de otros tipos de sonidos (ruido);
+- separar la cadena sonora (audio) en palabras u otras unidades significativas (sílabas, etc.)
+- relacionar sonidos lingüísticos con su fonema correspondiente;
+- detectar y procesar la entonación;
+- ....
+
+Por ejemplo, al hablar decimos todas las palabras juntas. ¿Sabrías separar la siguiente cadena para que sea una oración gramatical? (Hay dos soluciones según se separen las letras)
 
 Ej. "leasinvergüenza"
 
 El proceso contrario, del texto a habla, son los sistemas de síntesis de voz.
+
+Esta tarea no será tratada en este curso. Si quieres más información, consulta el capítulo 16 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, disponible en línea: <https://web.stanford.edu/~jurafsky/slp3/16.pdf> (lectura de ampliacón OPCIONAL. No entra en evaluación).
 
 ### Nivel morfológico.
 
@@ -222,6 +214,13 @@ En esta sesión se han presentado los análisis básicos de PLN, necesarios para
 http://nlpprogress.com/
 
 
+### Actividad para pensar:
+
+Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:
+
+[Formulario *Caos de Ambigüedad*](https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link)
+
+
 ## Bibliografía
 
 Bird, Steven; Klein, Ewan y Loper, Edward (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
@@ -233,3 +232,5 @@ Lakoff y Johnson (1980) *Metáforas de la vida cotidiana* Madrid, Cátedra, 1986
 Manning, Christopher D. (2015) "Computational Linguistics and Deep Learning" *Computational Linguistics* 41 (4) p.701-707
 
 Schubert, Lenhart, "Computational Linguistics", *The Stanford Encyclopedia of Philosophy* (Spring 2020 Edition), Edward N. Zalta (ed.), https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/ 
+
+[^1] En proceso contrario sería la generación: de la idea al texto.
