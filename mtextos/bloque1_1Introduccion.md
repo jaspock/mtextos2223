@@ -7,29 +7,28 @@ Minería de textos y procesamiento del lenguaje natural.
 
 *Minería de textos* es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.
 
-Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.
+<!-- Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente. -->
 
-Esa información está codificada en textos, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información.
+Esa información está codificada en *textos*, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información. La disciplina computacional que idea y desarrolla sistemas para la interpretación lingüística de los textos es el **procesamiento del lenguaje natural** (PLN o NLP por sus siglas en ingés: *Natural Language Processing*), disciplina híbrida entre la lingüística y la computación.
 
-La disciplina computacional que idea y desarrolla sistemas para la interpretación de los textos es el procesamiento del lenguaje natural, disciplina híbrida entre la lingüística y la computación.
+Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta y métodos de resolución, así como herramientas y recursos disponibles para la minería de textos.
 
-Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta, así como herramientas y recursos disponibles para la minería de textos.
-
-Muchos de los conceptos y problemas presentados en este bloque serán recurrentes a lo largo de toda la asignatura, y en algunos de ellos se profundizará en los siguientes módulos.
+<!--Muchos de los conceptos y problemas presentados en este bloque serán recurrentes a lo largo de toda la asignatura, y en algunos de ellos se profundizará en los siguientes módulos.-->
 
 ## Qué es un texto (y por qué es difícil su procesamiento automático).
 
-La minería de textos, como su nombre indica, debe procesar automáticamente textos escritos en una lengua concreta para extraer de ellos información.
+La información de un texto está codificada en signos. El sistema que especifica cómo son esos signos, cómo se combinan y cómo se intepretan es el "idioma" o "lengua". El ser humano que conoce el idioma en que está codificado el texto está capacitado para interpretarlo. Esta interpretación va desde la percepción visual de los signos (letras) hasta la acción o reacción provocada por esa información. Este proceso podemos esquematizarlo en cuatro pasos:
 
-La información de un texto está codificada en signos. Estos signos forman lo que se denomina "idioma" o "lengua".
+1. Reconocimiento visual o auditivo (lectura o escucha) de los signos lingüísticos (palabras, frases, etc.)
+2. Procesamiento sintáctico: cómo se combinan esos signos dentro del texto.
+3. Procesamiento semántico: qué signficado asumen los signos teniendo en cuenta el resto de signos y el contexto comunicativo.
+4. Reacción: cómo actúa el ser humano a partir de la interprtación del texto (reir un chiste, aprender información, cerrar una ventana, saludar...)
 
-El ser humano está capacitado para interpretar esos signos: extraer la información contenida en el texto. Desde la percepción visual de las letras hasta la acción o reacción provocada por esa información.
+Para este proceso los ordenadores necesitan, sin embargo, algoritmos complejos.
 
-Los ordenadores, sin embargo, necesitan algoritmos complejos para procesar los signos e interpretarlos.
+A continuación se presentan algunso de los principales problemas a los que se enfrenta la máquina para interpretar un texto. PAra el ser humano puede resutar "fáciles" (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastante problemas.
 
-Principales problemas, "fáciles" para el ser humano y complejos para el ordenador:
-
-- Ambigüedad:
+- Ambigüedad. Es el principal problema. Aquí un caso de ambigüedad léxica (luego se verán más casos de ambigüedad):
 
     "Te espero en el _banco_"
 
@@ -55,7 +54,7 @@ Principales problemas, "fáciles" para el ser humano y complejos para el ordenad
 
 - Metáforas y usos simbólicos del lenguaje:
 
-    La metáfora NO es un fenómeno literario (exclusivamente), sino un mecanismo básico de cognición humana (Lakoff y Johnson 1980). Definición. De lo abstracto a lo concreto.
+    La metáfora NO es un fenómeno literario (exclusivamente), sino un mecanismo básico de cognición humana (Lakoff y Johnson 1980). Es muy común, por ejemplo, utilizar metafóricamente términos concretos para hablar de cuestiones abstractas, como en estos casos:
     
     "Deja de _perder el tiempo_ y ponte a estudiar" (Tiempo :=:  dinero)
 
@@ -75,7 +74,7 @@ casa =  "Edificio para habitar" (RAE), pero también "hogar, familia, lugar entr
 
 Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:
 
-[Formulario ambigüedad](https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link)
+[Formulario *Caos de Ambigüedad*](https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link)
 
 ## Niveles de descripción lingüística.
 
