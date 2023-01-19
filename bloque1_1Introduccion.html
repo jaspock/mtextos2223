@@ -729,10 +729,15 @@ title="Print to PDF"
 </section>
 <section id="nivel-sintactico">
 <h3><span class="section-number">2.2.4. </span>Nivel sintáctico<a class="headerlink" href="#nivel-sintactico" title="Permalink to this headline">#</a></h3>
-<p>Dentro de una oración, las palabras se agrupan en constituyentes superiores (sintagmas) y establecen relaciones jerárquicas (dependencias) entre ellas. Estas relaciones determinan el significado final de la oración, por lo que es necesario determinarlas.</p>
-<p>En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de <em>parser</em>. Estos deben dar cuenta sobre todo de la ambigüedad estructural. Salida:</p>
+<p>En uno texto, las palabras no están aisladas, sino relacionadas unas con otras dentro de la oración. En el nivel sintáctico se estudian y analizan esas relaciones entre las palabras. Las palabras se agrupan así en constituyentes superiores (sintagmas) y establecen relaciones jerárquicas (dependencias) entre ellas. Estas relaciones determinan el significado final de la oración y del texto.</p>
+<p>En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de <em>parser</em> (por influencia de los compiladores). Dada una oración, el <em>parser</em> devuelve un árbol sintáctica. Por ejemplo, dada la oración anterior, tendremos esto:</p>
 <p><img alt="FreelingFullParser" src="_images/arbolSintatico_FreelingFullParser.png" /></p>
-<p>Ambigüedad: “Vi a tu hermano con los prismáticos”</p>
+<p>El principal problema que debe resolver un <em>parser</em> es la ambigüedad estructural: oraciones de las que es posible derivar dos o más árboles. Analiza la siguiente oración. ¿Sabrías decir quién tiene los prismáticos?</p>
+<blockquote>
+<div><p>“Vi a tu hermano con los prismáticos.”</p>
+</div></blockquote>
+<p>Efectivamente, “con los prismáticos” puede ser tanto complemento del verbo (y por tanto quien tiene los prismáticos es el “yo” sujeto) como complemento del nombre “hermano” (en cuyo caso es el hermano quien tiene los prismáticos).</p>
+<p>En el próximo tema se verá con más detalle los formalismos de análisis sintático y los métodos de análisis.</p>
 </section>
 <section id="nivel-semantico">
 <h3><span class="section-number">2.2.5. </span>Nivel semántico<a class="headerlink" href="#nivel-semantico" title="Permalink to this headline">#</a></h3>

@@ -119,13 +119,19 @@ En el tema siguiente se expondrán los principales problemas y métodos del aná
 
 ### Nivel sintáctico
 
-Dentro de una oración, las palabras se agrupan en constituyentes superiores (sintagmas) y establecen relaciones jerárquicas (dependencias) entre ellas. Estas relaciones determinan el significado final de la oración, por lo que es necesario determinarlas.
+En uno texto, las palabras no están aisladas, sino relacionadas unas con otras dentro de la oración. En el nivel sintáctico se estudian y analizan esas relaciones entre las palabras. Las palabras se agrupan así en constituyentes superiores (sintagmas) y establecen relaciones jerárquicas (dependencias) entre ellas. Estas relaciones determinan el significado final de la oración y del texto.
 
-En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de *parser*. Estos deben dar cuenta sobre todo de la ambigüedad estructural. Salida:
+En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de *parser* (por influencia de los compiladores). Dada una oración, el *parser* devuelve un árbol sintáctica. Por ejemplo, dada la oración anterior, tendremos esto:
 
 ![FreelingFullParser](images/arbolSintatico_FreelingFullParser.png)
 
-Ambigüedad: "Vi a tu hermano con los prismáticos"
+El principal problema que debe resolver un *parser* es la ambigüedad estructural: oraciones de las que es posible derivar dos o más árboles. Analiza la siguiente oración. ¿Sabrías decir quién tiene los prismáticos?
+
+> "Vi a tu hermano con los prismáticos."
+
+Efectivamente, "con los prismáticos" puede ser tanto complemento del verbo (y por tanto quien tiene los prismáticos es el "yo" sujeto) como complemento del nombre "hermano" (en cuyo caso es el hermano quien tiene los prismáticos).
+
+En el próximo tema se verá con más detalle los formalismos de análisis sintático y los métodos de análisis.
 
 ### Nivel semántico
 
