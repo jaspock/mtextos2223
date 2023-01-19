@@ -9,7 +9,7 @@ Minería de textos y procesamiento del lenguaje natural.
 
 <!-- Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente. -->
 
-Esa información está codificada en *textos*, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información. La disciplina computacional que idea y desarrolla sistemas para la interpretación lingüística de los textos es el **procesamiento del lenguaje natural** (PLN o NLP por sus siglas en ingés: *Natural Language Processing*), disciplina híbrida entre la lingüística y la computación.
+Esa información está codificada en **textos**, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información. La disciplina computacional que idea y desarrolla sistemas para la interpretación lingüística de los textos es el **procesamiento del lenguaje natural** (PLN o NLP por sus siglas en inglés: *Natural Language Processing*), disciplina híbrida entre la lingüística y la computación.
 
 Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta y métodos de resolución, así como herramientas y recursos disponibles para la minería de textos.
 
@@ -22,29 +22,23 @@ La información de un texto está codificada en signos. El sistema que especific
 1. Reconocimiento visual o auditivo (lectura o escucha) de los signos lingüísticos (palabras, frases, etc.)
 2. Procesamiento sintáctico: cómo se combinan esos signos dentro del texto.
 3. Procesamiento semántico: qué signficado asumen los signos teniendo en cuenta el resto de signos y el contexto comunicativo.
-4. Reacción: cómo actúa el ser humano a partir de la interprtación del texto (reir un chiste, aprender información, cerrar una ventana, saludar...)
+4. Reacción: cómo actúa el ser humano a partir de la interprtación del texto (reir un chiste, asimilar información, cerrar una ventana, saludar... o no hacer nada.)
 
 Para este proceso los ordenadores necesitan, sin embargo, algoritmos complejos.
 
-A continuación se presentan algunso de los principales problemas a los que se enfrenta la máquina para interpretar un texto. PAra el ser humano puede resutar "fáciles" (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastante problemas.
+A continuación se presentan algunos de los principales problemas a los que se enfrenta la máquina para interpretar un texto. Para el ser humano pueden resutar "fáciles" (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastantes problemas.
 
 - Ambigüedad. Es el principal problema. Aquí un caso de ambigüedad léxica (luego se verán más casos de ambigüedad):
-
-    "Te espero en el _banco_"
-
-    ¿Qué es "banco"?
+    + "Te espero en el _banco_.": ¿Qué es "banco" en esta oración?, ¿qué otros significados puede tener la palabra "banco"?
 
 - Vaguedad:
 
-    "Tu hermano es todavía muy *joven*"  ¿A qué edad se deja de ser joven?
+    "Tu hermano es todavía muy *joven*" |  ¿A qué edad se deja de ser joven?
 
-    "*Pasados unos días* llegamos a nuestro destino" ¿Cuántos días? ¿Cuándo llegaron?
+    "*Pasados unos días* llegamos a nuestro destino" | ¿Cuántos días? ¿Cuándo llegaron?
 
 - Conocimiento del mundo, conocimiento implícito y sentido común:
-
-    https://www.youtube.com/watch?v=Mme2Aya_6Bc
-
-    Determina el conocimiento del mundo necesario para la conversación anterior.
+    + Visualiza la siguiente conversación entre un humano y un ordenador (HAL 9000) e intenta deducir qué información implícita (conocimiento del mundo, etc.) debe asumir el ordenador para poner entenderse con el humano: <https://www.youtube.com/watch?v=Mme2Aya_6Bc>
 
 - Implicaciones:
 

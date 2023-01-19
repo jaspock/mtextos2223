@@ -618,7 +618,7 @@ title="Print to PDF"
 <p><a class="reference external" href="https://docs.google.com/presentation/d/1R049gfFDPNW0Y9VqmqgBuSioGRTLQ_YPzlOg7KUzJQc/edit?usp=sharing">Transparencias de clase</a></p>
 <p><em>Minería de textos</em> es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.</p>
 <!-- Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente. -->
-<p>Esa información está codificada en <em>textos</em>, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información. La disciplina computacional que idea y desarrolla sistemas para la interpretación lingüística de los textos es el <strong>procesamiento del lenguaje natural</strong> (PLN o NLP por sus siglas en ingés: <em>Natural Language Processing</em>), disciplina híbrida entre la lingüística y la computación.</p>
+<p>Esa información está codificada en <strong>textos</strong>, es decir, en un idioma o lengua. La minería de textos necesita, por tanto, interpretar (en mayor o menor medida) los textos y a partir de esa interpretación extraer la información. La disciplina computacional que idea y desarrolla sistemas para la interpretación lingüística de los textos es el <strong>procesamiento del lenguaje natural</strong> (PLN o NLP por sus siglas en inglés: <em>Natural Language Processing</em>), disciplina híbrida entre la lingüística y la computación.</p>
 <p>Este primer bloque de la asignatura es una introducción a los conceptos fundamentales del procesamiento del lenguaje natural. Se expondrán los principales problemas a los que se enfrenta y métodos de resolución, así como herramientas y recursos disponibles para la minería de textos.</p>
 <!--Muchos de los conceptos y problemas presentados en este bloque serán recurrentes a lo largo de toda la asignatura, y en algunos de ellos se profundizará en los siguientes módulos.-->
 <section id="que-es-un-texto-y-por-que-es-dificil-su-procesamiento-automatico">
@@ -628,22 +628,24 @@ title="Print to PDF"
 <li><p>Reconocimiento visual o auditivo (lectura o escucha) de los signos lingüísticos (palabras, frases, etc.)</p></li>
 <li><p>Procesamiento sintáctico: cómo se combinan esos signos dentro del texto.</p></li>
 <li><p>Procesamiento semántico: qué signficado asumen los signos teniendo en cuenta el resto de signos y el contexto comunicativo.</p></li>
-<li><p>Reacción: cómo actúa el ser humano a partir de la interprtación del texto (reir un chiste, aprender información, cerrar una ventana, saludar…)</p></li>
+<li><p>Reacción: cómo actúa el ser humano a partir de la interprtación del texto (reir un chiste, asimilar información, cerrar una ventana, saludar… o no hacer nada.)</p></li>
 </ol>
 <p>Para este proceso los ordenadores necesitan, sin embargo, algoritmos complejos.</p>
-<p>A continuación se presentan algunso de los principales problemas a los que se enfrenta la máquina para interpretar un texto. PAra el ser humano puede resutar “fáciles” (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastante problemas.</p>
+<p>A continuación se presentan algunos de los principales problemas a los que se enfrenta la máquina para interpretar un texto. Para el ser humano pueden resutar “fáciles” (de hecho muchos seres humanos no son capaces de ver el problema interpretativo), pero al ordenador le generan bastantes problemas.</p>
 <ul>
 <li><p>Ambigüedad. Es el principal problema. Aquí un caso de ambigüedad léxica (luego se verán más casos de ambigüedad):</p>
-<p>“Te espero en el <em>banco</em>”</p>
-<p>¿Qué es “banco”?</p>
+<ul class="simple">
+<li><p>“Te espero en el <em>banco</em>.”: ¿Qué es “banco” en esta oración?, ¿qué otros significados puede tener la palabra “banco”?</p></li>
+</ul>
 </li>
 <li><p>Vaguedad:</p>
-<p>“Tu hermano es todavía muy <em>joven</em>”  ¿A qué edad se deja de ser joven?</p>
-<p>“<em>Pasados unos días</em> llegamos a nuestro destino” ¿Cuántos días? ¿Cuándo llegaron?</p>
+<p>“Tu hermano es todavía muy <em>joven</em>” |  ¿A qué edad se deja de ser joven?</p>
+<p>“<em>Pasados unos días</em> llegamos a nuestro destino” | ¿Cuántos días? ¿Cuándo llegaron?</p>
 </li>
 <li><p>Conocimiento del mundo, conocimiento implícito y sentido común:</p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=Mme2Aya_6Bc">https://www.youtube.com/watch?v=Mme2Aya_6Bc</a></p>
-<p>Determina el conocimiento del mundo necesario para la conversación anterior.</p>
+<ul class="simple">
+<li><p>Visualiza la siguiente conversación entre un humano y un ordenador (HAL 9000) e intenta deducir qué información implícita (conocimiento del mundo, etc.) debe asumir el ordenador para poner entenderse con el humano: <a class="reference external" href="https://www.youtube.com/watch?v=Mme2Aya_6Bc">https://www.youtube.com/watch?v=Mme2Aya_6Bc</a></p></li>
+</ul>
 </li>
 <li><p>Implicaciones:</p>
 <p>“Oí ronquidos y decidí no encender la luz”</p>
