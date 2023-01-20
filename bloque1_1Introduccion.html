@@ -765,30 +765,33 @@ title="Print to PDF"
 <blockquote>
 <div><p>“Juan había ido elaborando una ruta perfecta de bares <em>que</em> <em>le</em> permitía ver <em>su</em> programa favorito”.</p>
 </div></blockquote>
-<p>Estas palabras no tienen significado por sí mismas, sino que lo asumen en la oración por la relación que establecen con palabras anteriores (el llamado “antecedente”). Así, “que” se refiere a “una ruta perfecta”, y “que” y “su” a “Juan”. Los sistemas de resolución de la correferencia tratan este problema.</p>
-<p>Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o <em>topics</em>) presentes en cada texto. Esta tarea ha recibido el nombre genérico de <em>topic modeling</em> y se suelen utiliza algorirmos basados en <a class="reference external" href="https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation"><em>Latent Dirichlet Allocation</em></a> o LDA.</p>
+<p>Estas palabras no tienen significado por sí mismas, sino que lo asumen en la oración por la relación que establecen con palabras anteriores (el llamado “antecedente”). Así, “que” se refiere a “ruta”, y “le” y “su” a “Juan”. Los sistemas de resolución de la correferencia tratan este problema.</p>
+<p>Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o <em>topics</em>) presentes en cada texto. Esta tarea ha recibido el nombre genérico de <em>topic modeling</em> y se suelen utiliza algorirmos basados en <a class="reference external" href="https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation"><em>Latent Dirichlet Allocation</em></a> o LDA. En el curso se realizará una práctica con <em>topic modeling</em>.</p>
 </section>
 <section id="nivel-pragmatico">
 <h3><span class="section-number">2.2.7. </span>Nivel pragmático<a class="headerlink" href="#nivel-pragmatico" title="Permalink to this headline">#</a></h3>
-<p>La comunicación, por último, no se produce de manera aislada, sino dentro de una situación comunicativa donde aparece una persona que crea el texto, otra que lo interpreta, un contexto, una intención, etc. Todos estos aspectos entran dentro de la pragmática.</p>
-<p>Algunos fenómenos que requieren tener en cuenta la situación pragmática:</p>
-<ul>
+<p>La comunicación, por último, no se produce de manera aislada, sino dentro de una situación comunicativa donde aparece una persona que crea el texto, otra que lo interpreta, un contexto o situación, una intención, etc. Todos estos aspectos, que se sitúan ya fuera del texto, entran dentro del nivel pragmático.</p>
+<p>Algunos fenómenos lingüśiticos que requieren tener en cuenta la situación pragmática:</p>
+<ul class="simple">
 <li><p>Referencias de lugar (“aquí”), temporales (“hoy”) o personales (“tú”), así como referencias concretas (“este libro”).</p></li>
-<li><p>Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto “ilocutivo”, y las consecuencias del acto en el receptor (perlocutivo).</p>
-<p>Ej:
-USUARIO: “¿Puedo darte un beso?”
+<li><p>Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto “ilocutivo”, y las consecuencias del acto en el receptor (perlocutivo). Algunos asistentes de voz como SIRI son capaces de detectar las intenciones del hablante (el acto “ilocutivo”) y contestar en consecuencia:</p></li>
+</ul>
+<blockquote>
+<div><p>USUARIO: “¿Puedo darte un beso?”
 SIRI: “¿Qué tal si busco “comportamiento inapropiado” en Internet?”</p>
-</li>
-<li><p>Intención del hablante: humor, ironía… Y engaños, mentiras, persuasión, etc.</p></li>
-<li><p>Agentes conversacionales y gestión del diálogo.</p></li>
+</div></blockquote>
+<ul class="simple">
+<li><p>Sentimientos y emociones expresados en el texto (si bien este punto podría considerarse también semántico).</p></li>
+<li><p>Intención del hablante: detecta el humor, la ironía… Y tambien bulos, engaños, mentiras; o técnicas de persuasión, etc.</p></li>
+<li><p>Agentes conversacionales y gestión del diálogo para sistemas de diálogo.</p></li>
 <li><p>etc.</p></li>
 </ul>
+<p>Y en general en este nivel se tratan todas las aplicaciones del PLN a tareas concretas, como se verá en próximos temas.</p>
 </section>
 </section>
 <section id="metodos-de-pln">
 <h2><span class="section-number">2.3. </span>Métodos de PLN.<a class="headerlink" href="#metodos-de-pln" title="Permalink to this headline">#</a></h2>
-<p>Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972).</p>
-<p>Desde los primeros años se establecieron dos métodos generales:</p>
+<p>Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos empíricos.</p>
 <section id="metodos-simbolicos-racionalismo">
 <h3><span class="section-number">2.3.1. </span>Métodos simbólicos (racionalismo):<a class="headerlink" href="#metodos-simbolicos-racionalismo" title="Permalink to this headline">#</a></h3>
 <p>Estos intentan describir el funcionamiento del idioma (en cualquiera de sus fenómenos y niveles) mediante reglas formales. En general, tratan de formalizar nuestro conocimiento de la gramática de un idioma en reglar que la máquina pueda entender.</p>

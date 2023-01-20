@@ -163,33 +163,32 @@ La resolución de la correferencia es quizá de los más interesantes en Minerí
 
 > "Juan había ido elaborando una ruta perfecta de bares *que* *le* permitía ver *su* programa favorito".
 
-Estas palabras no tienen significado por sí mismas, sino que lo asumen en la oración por la relación que establecen con palabras anteriores (el llamado "antecedente"). Así, "que" se refiere a "una ruta perfecta", y "que" y "su" a "Juan". Los sistemas de resolución de la correferencia tratan este problema.
+Estas palabras no tienen significado por sí mismas, sino que lo asumen en la oración por la relación que establecen con palabras anteriores (el llamado "antecedente"). Así, "que" se refiere a "ruta", y "le" y "su" a "Juan". Los sistemas de resolución de la correferencia tratan este problema.
 
-Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o *topics*) presentes en cada texto. Esta tarea ha recibido el nombre genérico de *topic modeling* y se suelen utiliza algorirmos basados en [*Latent Dirichlet Allocation*](https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation) o LDA.
+Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o *topics*) presentes en cada texto. Esta tarea ha recibido el nombre genérico de *topic modeling* y se suelen utiliza algorirmos basados en [*Latent Dirichlet Allocation*](https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation) o LDA. En el curso se realizará una práctica con *topic modeling*.
 
 ### Nivel pragmático
 
-La comunicación, por último, no se produce de manera aislada, sino dentro de una situación comunicativa donde aparece una persona que crea el texto, otra que lo interpreta, un contexto, una intención, etc. Todos estos aspectos entran dentro de la pragmática.
+La comunicación, por último, no se produce de manera aislada, sino dentro de una situación comunicativa donde aparece una persona que crea el texto, otra que lo interpreta, un contexto o situación, una intención, etc. Todos estos aspectos, que se sitúan ya fuera del texto, entran dentro del nivel pragmático.
 
-Algunos fenómenos que requieren tener en cuenta la situación pragmática:
+Algunos fenómenos lingüśiticos que requieren tener en cuenta la situación pragmática:
 
 - Referencias de lugar ("aquí"), temporales ("hoy") o personales ("tú"), así como referencias concretas ("este libro").
-- Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto "ilocutivo", y las consecuencias del acto en el receptor (perlocutivo).
+- Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto "ilocutivo", y las consecuencias del acto en el receptor (perlocutivo). Algunos asistentes de voz como SIRI son capaces de detectar las intenciones del hablante (el acto "ilocutivo") y contestar en consecuencia:
 
-    Ej:
-        USUARIO: "¿Puedo darte un beso?"
-        SIRI: "¿Qué tal si busco “comportamiento inapropiado” en Internet?"
+> USUARIO: "¿Puedo darte un beso?"
+> SIRI: "¿Qué tal si busco “comportamiento inapropiado” en Internet?"
 
-- Intención del hablante: humor, ironía... Y engaños, mentiras, persuasión, etc.
-- Agentes conversacionales y gestión del diálogo.
+- Sentimientos y emociones expresados en el texto (si bien este punto podría considerarse también semántico).
+- Intención del hablante: detecta el humor, la ironía... Y tambien bulos, engaños, mentiras; o técnicas de persuasión, etc.
+- Agentes conversacionales y gestión del diálogo para sistemas de diálogo.
 - etc.
- 
+
+Y en general en este nivel se tratan todas las aplicaciones del PLN a tareas concretas, como se verá en próximos temas.
 
 ## Métodos de PLN.
 
-Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972).
-
-Desde los primeros años se establecieron dos métodos generales:
+Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos empíricos.
 
 ### Métodos simbólicos (racionalismo):
 
