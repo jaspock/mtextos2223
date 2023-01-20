@@ -244,7 +244,7 @@ Otras referencias citadas en esta sección:
 - Schubert, Lenhart, "Computational Linguistics", *The Stanford Encyclopedia of Philosophy* (Spring 2020 Edition), Edward N. Zalta (ed.), https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/ 
 
 
-<--!
+<!--
 ### Actividad para pensar:
 
 Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:
