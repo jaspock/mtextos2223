@@ -86,7 +86,7 @@ Esta tarea no será tratada en este curso. Si quieres más información, consult
 
 En nivel morfológico se estudian y analizan las palabras como unidad lingüística básica. Se analizan sus elementos constitutivos (lexemas, morfemas, etc.), los tipos de palabras según su comportamiento gramatical (nombre, verbo, adjetivo, etc.), así como otro fenómenos lingüísticos como derivación, composición, etc.
 
-En PLN, este nivel está relacionado con unos de los tipos de análsis más importantes: el análisis categorial o *Part of Speech taggers* (*PoS_taggers*). Todo sistema de PLN tiene como mínimo un *PoS tagger*. Estos sistemas suelen realizar cuatro tareas:
+En PLN, este nivel está relacionado con uno de los tipos de análsis más importantes: el análisis categorial o *Part of Speech taggers* (*PoS_taggers*). Todo sistema de PLN tiene como mínimo un *PoS tagger*. Estos sistemas suelen realizar cuatro tareas:
 
 1. tokenización: separación de la cadena en *tokens*;
 2. lematización: especificación del lema o forma no marcada del *token*;
@@ -121,7 +121,7 @@ En el tema siguiente se expondrán los principales problemas y métodos del aná
 
 En uno texto, las palabras no están aisladas, sino relacionadas unas con otras dentro de la oración. En el nivel sintáctico se estudian y analizan esas relaciones entre las palabras. Las palabras se agrupan así en constituyentes superiores (sintagmas) y establecen relaciones jerárquicas (dependencias) entre ellas. Estas relaciones determinan el significado final de la oración y del texto.
 
-En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de *parser* (por influencia de los compiladores). Dada una oración, el *parser* devuelve un árbol sintáctica. Por ejemplo, dada la oración anterior, tendremos esto:
+En PLN, los sistemas que realizan el análisis sintáctico reciben el nombre genérico de *parser* (por influencia de los compiladores). Dada una oración, el *parser* devuelve un árbol sintáctico. Por ejemplo, dada la oración anterior, tendremos esto:
 
 ![FreelingFullParser](images/arbolSintatico_FreelingFullParser.png)
 
@@ -131,17 +131,17 @@ El principal problema que debe resolver un *parser* es la ambigüedad estructura
 
 Efectivamente, "con los prismáticos" puede ser tanto complemento del verbo (y por tanto quien tiene los prismáticos es el "yo" sujeto) como complemento del nombre "hermano" (en cuyo caso es el hermano quien tiene los prismáticos).
 
-En el próximo tema se verá con más detalle los formalismos de análisis sintático y los principales métodos de análisis.
+En el próximo tema se verá con más detalle los formalismos de análisis sintáctico y los principales métodos de análisis.
 
 ### Nivel semántico
 
 En el nivel semántico se trata todo aquello relacionado con el significado del texto. Aquí se pueden tratar muchos aspectos lingüísticos, de los cuales hay dos predominantes: la semántica léxica y la semántica oracional.
 
-La **semántica léxica** es la parte de la semántica centrada en el significado de las palabras. En PLN hay una tarea específica para el análisis del significado de las palabras denominado *word sense disambiguation* (WSD). En su forma más simple, un sistema de WSD es aquél que, dada una palabra con varios significados, decide cuál es el significado correcto en un contexto dado. Ese caso, en el que una palabra tiene varios significados (polisemia y homonimia) pero solo uno es el apropiado en un contexto determinado, se denomina **ambigüedad léxica**. Es la ambigüedad que aparece en la oracion antes comentada:
+La **semántica léxica** es la parte de la semántica centrada en el significado de las palabras. En PLN hay una tarea específica para el análisis del significado de las palabras denominado *word sense disambiguation* (WSD). En su forma más simple, un sistema de WSD es aquél que, dada una palabra con varios significados, decide cuál es el significado correcto en un contexto dado. Ese caso, en el que una palabra tiene varios significados (polisemia u homonimia) pero solo uno es el apropiado en un contexto determinado, se denomina **ambigüedad léxica**. Es la ambigüedad que aparece en la oracion antes comentada:
 
 > Te espero en el *banco*.
 
-Actualmente, con el desarrollo de los modelos neuronales y el *deep learning*, hay otros métodos de análisis léxico-semántico capaces de inferir el significado de una palabra a partir del contexto (significado distribucional). Y hay un tercer caso, más complejo, en el que las palabras se utilizan en contextos que no le son propios: son los usos metafóricos y, en general, simbólicos. En estos casos, el considera que la palabra tiene un significado "no lexicalizado" porque no está considerado en un diccionario.
+Actualmente, con el desarrollo de los modelos neuronales y el *deep learning*, hay otros métodos de análisis léxico-semántico capaces de inferir el significado de una palabra a partir del contexto (significado distribucional). Y hay un tercer caso, más complejo, en el que las palabras se utilizan en contextos que no le son propios: son los usos metafóricos y, en general, simbólicos. En estos casos, se considera que la palabra tiene un significado "no lexicalizado" porque no está considerado en un diccionario.
 
 La **semántica oracional** se centra el el significado que asume la oración en su conjunto. Este se basa en el principio de composicionalidad, según el cual el significado de la oración está en función del signficado de las palabras y de las relaciones que se establecen entre ellas. En este ámbito se han desarrollado diferentes modelos formales como la representación lógica, los roles semánticos, la semántica de eventos, entre otros.
 
@@ -159,19 +159,19 @@ En el siguiente tema se profundizará sobre todo en la semnántica léxica. Se v
 
 La comunicación no se realiza mediante palabras u oraciones, sino mediante textos. En lingüística el texto es la principal unidad comunicativa. En este nivel se estudian todos aquellos fenómenos lingüísticos que superan el límite oracional, como puede ser marcas de conexión entre oraciones o secciones, correferencias y anáforas (palabras que se interpretan por su relación con una palabra anterior, como ocurre por ejemplo con los pronombres), coherencia general del texto, temas... 
 
-La resolución de la correferencia es quizá de los más interesantes en Minería de textos por su relación con la extracción de entidades. El problma surge cuando se hace referencia a una entidad (a una persona, por ejemplo), no con el nombre que le es propio, sino con un pronombre u otra forma lingüística. Fíjate, por ejemplo, en las palabras "que", "le" y "su" de la siguiente oración: ¿cuál es su significado?
+La resolución de la correferencia es quizá de los más interesantes para Minería de textos por su relación con la extracción de entidades. El problma surge cuando se hace referencia a una entidad (a una persona, por ejemplo), no con el nombre que le es propio, sino con un pronombre u otra forma lingüística. Fíjate, por ejemplo, en las palabras "que", "le" y "su" de la siguiente oración: ¿cuál es su significado?
 
 > "Juan había ido elaborando una ruta perfecta de bares *que* *le* permitía ver *su* programa favorito".
 
 Estas palabras no tienen significado por sí mismas, sino que lo asumen en la oración por la relación que establecen con palabras anteriores (el llamado "antecedente"). Así, "que" se refiere a "ruta", y "le" y "su" a "Juan". Los sistemas de resolución de la correferencia tratan este problema.
 
-Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o *topics*) presentes en cada texto. Esta tarea ha recibido el nombre genérico de *topic modeling* y se suelen utiliza algorirmos basados en [*Latent Dirichlet Allocation*](https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation) o LDA. En el curso se realizará una práctica con *topic modeling*.
+Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o *topics*) presentes en cada texto. Esta tarea ha recibido el nombre genérico de *topic modeling* y se suelen utiliza algorirmos basados en [*Latent Dirichlet Allocation*](https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation) o LDA. En próximas semanas realizaremos una práctica con *topic modeling*.
 
 ### Nivel pragmático
 
 La comunicación, por último, no se produce de manera aislada, sino dentro de una situación comunicativa donde aparece una persona que crea el texto, otra que lo interpreta, un contexto o situación, una intención, etc. Todos estos aspectos, que se sitúan ya fuera del texto, entran dentro del nivel pragmático.
 
-Algunos fenómenos lingüśiticos que requieren tener en cuenta la situación pragmática:
+Algunos fenómenos lingüísticos que requieren tener en cuenta la situación pragmática:
 
 - Referencias de lugar ("aquí"), temporales ("hoy") o personales ("tú"), así como referencias concretas ("este libro").
 - Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto "ilocutivo", y las consecuencias del acto en el receptor (perlocutivo). Algunos asistentes de voz como SIRI son capaces de detectar las intenciones del hablante (el acto "ilocutivo") y contestar en consecuencia:
@@ -188,7 +188,7 @@ Y en general en este nivel se tratan todas las aplicaciones del PLN a tareas con
 
 ## Métodos de PLN.
 
-Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos estadísticos.
+Si bien las primeras propuestas de aplicar métodos computacionales al texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de abordar computacionalmente los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos estadísticos.
 
 ### Métodos simbólicos (basados en el racionalismo):
 
@@ -198,42 +198,42 @@ Este paradigma fue predominante en los años 80. Hoy día, si bien en investigac
 
 La gran ventaja de los métodos simbólicos es su precisión. Permite tratar fenómenos lingüísticos muy concretos. Adolecen, sin embargo, de cobertura, pues es complejo (por no decir imposible) prever y tratar todos los fenómenos lingüísticos que puede haber en un texto mediante reglas explícitas.
 
-### Métodos estadísticos (basdos en el empirismo).
+### Métodos estadísticos (basados en el empirismo).
 
-La aplicación de métodos estadísticos al procesamiento lingüístico tuvo especial desarrollo a partir de los años 90 del siglo XX. Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen por tanto de la disponibiliad de corpus: un conjunto de muestras lingüísticas. Estos corpus bien pueden ser corpus de aprendizaje o entrenamiento, bien corpus de evaluación (los llamados *gold standard*).
+La aplicación de métodos estadísticos al procesamiento lingüístico tuvo especial desarrollo a partir de los años 90 del siglo XX. Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen por tanto de la disponibiliad de corpus: un conjunto de muestras lingüísticas. Estos corpus bien pueden ser corpus de aprendizaje o entrenamiento, o bien corpus de evaluación (los llamados *gold standard*).
 
 Los corpus pueden ser básicamente de dos tipos:
 
-- corpus planos (*plain*), si ningún tipo de marca, etiqueta o anotación, donde se muestra el idioma tal cual es, tal cual la utilizan los hablantes.
+- corpus planos (*plain*), si ningún tipo de marca, etiqueta o anotación, donde se muestra el idioma tal cual es, tal cual lo utilizan los hablantes.
 - corpus anotados, en los que se introducen etiquetas formales que representan el conocimiento lingüístico. Este conocimiento (fonético, morfológico, sintáctico, semántico o pragmático) está en principio implícito en el texto, y con la etiquetas se hace explícito.
 
 Los corpus anotados son la fuente de información principal para los procesos de aprendizaje supervisado. Las tareas que se desarrollan con estos métodos son:
 
 - especificar y sistematizar el fenómeno lingüístico
-    - formalizar y representar en el corpus sin ambigüedades
-    - seleccionar el algoritmo apropiado para la detección del fenómeno y su clasificación según sus rasgos.
+- formalizar y representar en el corpus sin ambigüedades
+- seleccionar el algoritmo apropiado para la detección del fenómeno y su clasificación según sus rasgos.
 
 ### Métodos neuronales
 
-Hoy día, sin embargo, el método común son los métodos neuronales gracias al desarrollo del *deep learning*. Aunque se podrían considar un tipo de método estadístico, su desarrollo y complejidad hacen que sean tratados como un tipo metodológico diferente. Muchos de los métodos neuronales en realidad fueron diseñados en los años 70 y 80 del siglo XX, pero no ha sido hasta el siglo XXI que, gracias a la capacidad de cómputo de las maquinas, se han podido aplicar a grandes corpus.
+Hoy día, sin embargo, la más común en PLN es utilizar métodos neuronales o *deep learning*. Aunque se podrían considar un tipo de método estadístico, su desarrollo y complejidad hacen que sean tratados como un tipo metodológico diferente. Muchos de los métodos neuronales en realidad fueron diseñados en los años 70 y 80 del siglo XX, pero no ha sido hasta el siglo XXI en que, gracias a la capacidad de cómputo de las maquinas, se han podido aplicar a grandes corpus.
 
-La aproximación de los modelos neuronales es diferente a los modelos estadísticos, digamos, "clásicos". En vez de proponer un modelo matemático más o menos complejo con un diseño de rasgos (*feautres*) sofisiticado, los modelos neuronales proponen modelos matemáticos más o menos simples, como puede ser una función sigmoide (la "neurona", aunque ya  nada tiene que ver con la mente humana), pero repetido muchas veces (las capas ocultas y profundas: *deep*). Unido a una representación del significado mediante mediante vectores contextuales de tamaño fijo (los *word embeddings*), los modelos neuronoales han supuesto una revolución metodologica en el PLN en particular y en la Inteligencia Artifical en general.
+La aproximación de los modelos neuronales es diferente de los modelos estadísticos, digamos, "clásicos". En vez de proponer un modelo matemático más o menos complejo con un diseño de rasgos (*features*) sofisiticado, los modelos neuronales proponen modelos matemáticos más o menos simples, como puede ser una función sigmoide (la "neurona", aunque ya  nada tiene que ver con la mente humana), pero repetido muchas veces (las capas ocultas y profundas: *deep*). Unido a una representación del significado mediante vectores contextuales de tamaño fijo (los *word embeddings*), los modelos neuronoales han supuesto una revolución metodologica en el PLN en particular y en la Inteligencia Artifical en general.
 
-Efectivamente, hay áreas donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos, por no hablar de la mejora significativa de los sistema de traducción y, desde hace unos meses, la espectacularidad de sistemas de generación textual como [chatGPT](https://chat.openai.com/). El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.
+Efectivamente, hay áreas donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos, por no hablar de la mejora significativa de los sistema de traducción automática y, desde hace unos meses, la espectacularidad de sistemas de generación textual como [chatGPT](https://chat.openai.com/). El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.
 
 En este primer tema veremos sobre todo métodos simbólicos y estadísticos; para luego, en siguientes temas, profundizar en los métodos neuronales.
 
 ## Conclusión y bibliografía
 
-En esta sesión se ha presenta una panorámica del Procesamiento del Lenguaje Natural. Se han enunciado los principales problemas que tiene procesar un texto y los principales métodos. En el resto de la asignatura se irá profundizando tanto en (algunos de) los problemas como en los métodos; con el objetivo simpre de saber cómo procesar un texto para la extracción de datos.
+En esta sesión se ha presentado una panorámica del Procesamiento del Lenguaje Natural. Se han enunciado los principales problemas que tiene procesar un texto y los principales métodos. En el resto de la asignatura se irá profundizando tanto en (algunos de) los problemas como en los métodos; con el objetivo simpre de saber cómo procesar un texto para la extracción de datos.
 
 El principal manual de PLN, que utilizaremos en varios temas de esta asignatura, es el libro de Juravsky y Martin (2022) *Speech and Language Processing*. <https://web.stanford.edu/~jurafsky/slp3/>.
 
-Una introducción más ligera al PLN, sobre todo para estudiantes con perfil lingüístico, es el libro de Bird, Klein y Loper (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
+Una introducción más ligera al PLN, sobre todo para estudiantes sin conocimientos de informática, es el libro de Bird, Klein y Loper (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
 
 Para los modelos estadísticos, la referencia principal sigue siendo el libro de Manning y Schütze (1999) [*Foundations of Statistical Natural Language Processing*](https://nlp.stanford.edu/fsnlp/), MIT Press, si bien no trata modelos neuronales y en algunos temas ha quedado desfasado.
 
-En esta línea, pero totalmente actualizado, es recomendable el libro de Jacob Eisenstein (2018) [*Natural Language Processing*](https://raw.githubusercontent.com/jacobeisenstein/gt-nlp-class/master/notes/eisenstein-nlp-notes.pdf)
+En esta línea, pero totalmente actualizado, es recomendable el libro de Jacob Eisenstein (2018) [*Natural Language Processing*](https://raw.githubusercontent.com/jacobeisenstein/gt-nlp-class/master/notes/eisenstein-nlp-notes.pdf).
 
 Además de las tareas de procesamiento lingüístico básico aquí comentadas, el PLN tiene definidas otras tareas que puedes ver en <http://nlpprogress.com/>.
 
