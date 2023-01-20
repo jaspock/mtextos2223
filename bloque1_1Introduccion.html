@@ -741,16 +741,14 @@ title="Print to PDF"
 </section>
 <section id="nivel-semantico">
 <h3><span class="section-number">2.2.5. </span>Nivel semántico<a class="headerlink" href="#nivel-semantico" title="Permalink to this headline">#</a></h3>
-<p>Todo aquello relacionado con el significado del texto.</p>
-<ul class="simple">
-<li><p>Semántica léxica: el significado de las palabras. Si se parte de un diccionario, la tarea de PLN correspondiente se denomina <em>word sense disambiguation</em>, pero actualmente hay otros métodos de análisis léxico-semántico.</p></li>
-</ul>
-<p>Ej. El caso de “banco” antes comentado.</p>
-<p>Si el significado no está en un diccionario (no está “lexicalizado”), entonces son sentidos metafóricos y/o simbólicos.</p>
-<ul class="simple">
-<li><p>Semántica oracional: el significado del conjunto de palabras que forman una oración. Hay diferentes modelos: representación lógica, roles semánticos, semántica de eventos, etc.</p></li>
-</ul>
-<p>Ejemplo:</p>
+<p>En el nivel semántico se trata todo aquello relacionado con el significado del texto. Aquí se pueden tratar muchos aspectos lingüísticos, de los cuales hay dos predominantes: la semántica léxica y la semántica oracional.</p>
+<p>La <strong>semántica léxica</strong> es la parte de la semántica centrada en el significado de las palabras. En PLN hay una tarea específica para el análisis del significado de las palabras denominado <em>word sense disambiguation</em> (WSD). En su forma más simple, un sistema de WSD es aquél que, dada una palabra con varios significados, decide cuál es el significado correcto en un contexto dado. Ese caso, en el que una palabra tiene varios significados (polisemia y homonimia) pero solo uno es el apropiado en un contexto determinado, se denomina <strong>ambigüedad léxica</strong>. Es la ambigüedad que aparece en la oracion antes comentada:</p>
+<blockquote>
+<div><p>Te espero en el <em>banco</em>.</p>
+</div></blockquote>
+<p>Actualmente, con el desarrollo de los modelos neuronales y el <em>deep learning</em>, hay otros métodos de análisis léxico-semántico capaces de inferir el significado de una palabra a partir del contexto (significado distribucional). Y hay un tercer caso, más complejo, en el que las palabras se utilizan en contextos que no le son propios: son los usos metafóricos y, en general, simbólicos. En estos casos, el considera que la palabra tiene un significado “no lexicalizado” porque no está considerado en un diccionario.</p>
+<p>La <strong>semántica oracional</strong> se centra el el significado que asume la oración en su conjunto. Este se basa en el principio de composicionalidad, según el cual el significado de la oración está en función del signficado de las palabras y de las relaciones que se establecen entre ellas. En este ámbito se han desarrollado diferentes modelos formales como la representación lógica, los roles semánticos, la semántica de eventos, entre otros.</p>
+<p>El siguiente ejemplo muestra un análisis de roles semánticos de la oración “Inesperadamente, los límites de su vida se habían reducido a la mínima expresión.”, codificado en XML. El atributo “role” especifica el rol semántico que asume cada argumento en la oración.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;predicate head_token=&quot;t1.10&quot; id=&quot;P1.1&quot; sense=&quot;reducir.00&quot; words=&quot;reducido&quot;&gt;
     &lt;argument from=&quot;t1.1&quot; head_token=&quot;t1.1&quot; role=&quot;AM-MNR&quot; to=&quot;t1.2&quot; words=&quot;Inesperadamente ,&quot;/&gt;
     &lt;argument from=&quot;t1.3&quot; head_token=&quot;t1.4&quot; role=&quot;A1&quot; to=&quot;t1.7&quot; words=&quot;los límites de su vida&quot;/&gt;
@@ -758,6 +756,7 @@ title="Print to PDF"
 &lt;/predicate&gt;
 </pre></div>
 </div>
+<p>En el siguiente tema se profundizará sobre todo en la semnántica léxica. Se verán, por un lado, los principales métodos de <em>word sense disambiguation</em> y, por otro, los modelos semánticos distribucionales, que son la base lingüística de los actuales “word embeddings”.</p>
 </section>
 <section id="nivel-textual">
 <h3><span class="section-number">2.2.6. </span>Nivel textual<a class="headerlink" href="#nivel-textual" title="Permalink to this headline">#</a></h3>
