@@ -188,65 +188,70 @@ Y en general en este nivel se tratan todas las aplicaciones del PLN a tareas con
 
 ## Métodos de PLN.
 
-Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos empíricos.
+Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos estadísticos.
 
-### Métodos simbólicos (racionalismo):
+### Métodos simbólicos (basados en el racionalismo):
 
-Estos intentan describir el funcionamiento del idioma (en cualquiera de sus fenómenos y niveles) mediante reglas formales. En general, tratan de formalizar nuestro conocimiento de la gramática de un idioma en reglar que la máquina pueda entender.
+Estos métodos intentan describir el funcionamiento del idioma (en cualquiera de sus fenómenos y niveles) mediante **reglas formales**. En general, tratan de formalizar nuestro conocimiento de la gramática de un idioma con reglas que la máquina pueda entender.
 
 Este paradigma fue predominante en los años 80. Hoy día, si bien en investigación apenas tiene presencia (es raro encontrar artículos que presenten sistemas simbólicos), en la industria sigue siendo un paradigma utilizado. Los sistemas de PLN de muchas empresas dependen de gramáticas y otros recursos lingüísticos (diccionarios) que se crean y mantienen a mano por expertos (lingüistas).
 
-La gran ventaja de los métodos simbólicos es su precisión. Permite tratar fenómenos lingüísticos muy concretos (y a veces poco probables). Adolecen, sin embargo, de cobertura, pues es complejo prever y tratar todos los fenómenos lingüísticos que puede haber en un texto mediante reglas.
+La gran ventaja de los métodos simbólicos es su precisión. Permite tratar fenómenos lingüísticos muy concretos. Adolecen, sin embargo, de cobertura, pues es complejo (por no decir imposible) prever y tratar todos los fenómenos lingüísticos que puede haber en un texto mediante reglas explícitas.
 
-### Métodos estadísticos (empirismo).
+### Métodos estadísticos (basdos en el empirismo).
 
-La aplicación de métodos estadísticos al procesamiento lingüístico no es nueva, pero tuvo especial desarrollo a partir de los años 90 del siglo XX.
+La aplicación de métodos estadísticos al procesamiento lingüístico tuvo especial desarrollo a partir de los años 90 del siglo XX. Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen por tanto de la disponibiliad de corpus: un conjunto de muestras lingüísticas. Estos corpus bien pueden ser corpus de aprendizaje o entrenamiento, bien corpus de evaluación (los llamados *gold standard*).
 
-Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen siempre de la disponibiliad de corpus (selección de muestras lingüísticas); bien para los procesos de aprendizaje, bien para procesos de evaluación o bien para ambos.
+Los corpus pueden ser básicamente de dos tipos:
 
-Los corpus pueden ser de dos tipos:
+- corpus planos (*plain*), si ningún tipo de marca, etiqueta o anotación, donde se muestra el idioma tal cual es, tal cual la utilizan los hablantes.
+- corpus anotados, en los que se introducen etiquetas formales que representan el conocimiento lingüístico. Este conocimiento (fonético, morfológico, sintáctico, semántico o pragmático) está en principio implícito en el texto, y con la etiquetas se hace explícito.
 
-- corpus planos (*plain*), si ningún tipo de marca, etiqueta o anotación, donde se muestra el idioma tal cual es, tal cual la utilizan los hablantes nativos.
-- corpus anotados, en los que se introducen etiquetas formales que representan el conocimiento lingüístico. Este conocimiento (fonético, morfológico, sintáctico, semántico o pragmático) está en principio implícito en el texto, y con la etiqueta se hace explícito.
+Los corpus anotados son la fuente de información principal para los procesos de aprendizaje supervisado. Las tareas que se desarrollan con estos métodos son:
 
-Los corpus anotados son la fuente principal para los procesos de aprendizaje supervisado.
-
-Las tareas que se desarrollan con estos métodos son:
-
-    - especificar y sistematizar el fenómeno lingüístico
+- especificar y sistematizar el fenómeno lingüístico
     - formalizar y representar en el corpus sin ambigüedades
     - seleccionar el algoritmo apropiado para la detección del fenómeno y su clasificación según sus rasgos.
 
 ### Métodos neuronales
 
-En los últimos años se han desarrollado los procesos neuronales a partir del *deep learning*.
+Hoy día, sin embargo, el método común son los métodos neuronales gracias al desarrollo del *deep learning*. Aunque se podrían considar un tipo de método estadístico, su desarrollo y complejidad hacen que sean tratados como un tipo metodológico diferente. Muchos de los métodos neuronales en realidad fueron diseñados en los años 70 y 80 del siglo XX, pero no ha sido hasta el siglo XXI que, gracias a la capacidad de cómputo de las maquinas, se han podido aplicar a grandes corpus.
 
-Hay área donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos. El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.
+La aproximación de los modelos neuronales es diferente a los modelos estadísticos, digamos, "clásicos". En vez de proponer un modelo matemático más o menos complejo con un diseño de rasgos (*feautres*) sofisiticado, los modelos neuronales proponen modelos matemáticos más o menos simples, como puede ser una función sigmoide (la "neurona", aunque ya  nada tiene que ver con la mente humana), pero repetido muchas veces (las capas ocultas y profundas: *deep*). Unido a una representación del significado mediante mediante vectores contextuales de tamaño fijo (los *word embeddings*), los modelos neuronoales han supuesto una revolución metodologica en el PLN en particular y en la Inteligencia Artifical en general.
 
-## Conclusión
+Efectivamente, hay áreas donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos, por no hablar de la mejora significativa de los sistema de traducción y, desde hace unos meses, la espectacularidad de sistemas de generación textual como [chatGPT](https://chat.openai.com/). El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.
 
-En esta sesión se han presentado los análisis básicos de PLN, necesarios para preprocesar un corpus antes de realizar tareas de minería de textos. Además de estas tareas de procesamiento lingüístico básico, el PLN tiene definidas otras tareas como las expuestas aquí:
+En este primer tema veremos sobre todo métodos simbólicos y estadísticos; para luego, en siguientes temas, profundizar en los métodos neuronales.
 
-http://nlpprogress.com/
+## Conclusión y bibliografía
+
+En esta sesión se ha presenta una panorámica del Procesamiento del Lenguaje Natural. Se han enunciado los principales problemas que tiene procesar un texto y los principales métodos. En el resto de la asignatura se irá profundizando tanto en (algunos de) los problemas como en los métodos; con el objetivo simpre de saber cómo procesar un texto para la extracción de datos.
+
+El principal manual de PLN, que utilizaremos en varios temas de esta asignatura, es el libro de Juravsky y Martin (2022) *Speech and Language Processing*. <https://web.stanford.edu/~jurafsky/slp3/>.
+
+Una introducción más ligera al PLN, sobre todo para estudiantes con perfil lingüístico, es el libro de Bird, Klein y Loper (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
+
+Para los modelos estadísticos, la referencia principal sigue siendo el libro de Manning y Schütze (1999) [*Foundations of Statistical Natural Language Processing*](https://nlp.stanford.edu/fsnlp/), MIT Press, si bien no trata modelos neuronales y en algunos temas ha quedado desfasado.
+
+En esta línea, pero totalmente actualizado, es recomendable el libro de Jacob Eisenstein (2018) [*Natural Language Processing*](https://raw.githubusercontent.com/jacobeisenstein/gt-nlp-class/master/notes/eisenstein-nlp-notes.pdf)
+
+Además de las tareas de procesamiento lingüístico básico aquí comentadas, el PLN tiene definidas otras tareas que puedes ver en <http://nlpprogress.com/>.
+
+Otras referencias citadas en esta sección:
+
+- Lakoff y Johnson (1980) *Metáforas de la vida cotidiana* Madrid, Cátedra, 1986.
+- Manning, Christopher D. (2015) "Computational Linguistics and Deep Learning" *Computational Linguistics* 41 (4) p.701-707
+- Schubert, Lenhart, "Computational Linguistics", *The Stanford Encyclopedia of Philosophy* (Spring 2020 Edition), Edward N. Zalta (ed.), https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/ 
 
 
+<--!
 ### Actividad para pensar:
 
 Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:
 
 [Formulario *Caos de Ambigüedad*](https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link)
 
+-->
 
-## Bibliografía
-
-Bird, Steven; Klein, Ewan y Loper, Edward (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
-
-Juravsky y Martin (2020) *Speech and Language Processing*. https://web.stanford.edu/~jurafsky/slp3/
-
-Lakoff y Johnson (1980) *Metáforas de la vida cotidiana* Madrid, Cátedra, 1986.
-
-Manning, Christopher D. (2015) "Computational Linguistics and Deep Learning" *Computational Linguistics* 41 (4) p.701-707
-
-Schubert, Lenhart, "Computational Linguistics", *The Stanford Encyclopedia of Philosophy* (Spring 2020 Edition), Edward N. Zalta (ed.), https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/ 
 
 [¹] En proceso contrario sería la generación: de la idea al texto.
