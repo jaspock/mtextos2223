@@ -145,7 +145,7 @@ Actualmente, con el desarrollo de los modelos neuronales y el *deep learning*, h
 
 La **semántica oracional** se centra el el significado que asume la oración en su conjunto. Este se basa en el principio de composicionalidad, según el cual el significado de la oración está en función del signficado de las palabras y de las relaciones que se establecen entre ellas. En este ámbito se han desarrollado diferentes modelos formales como la representación lógica, los roles semánticos, la semántica de eventos, entre otros.
 
-El siguiente ejemplo muestra un análisis de roles semánticos de la oración "Inesperadamente, los límites de su vida se habían reducido a la mínima expresión.", codificado en XML. El atributo "role" especifica el rol semántico que asume cada argumento en la oración.
+El siguiente ejemplo muestra un análisis de roles semánticos de la oración "Inesperadamente, los límites de su vida se habían reducido a la mínima expresión.", codificado en XML. El atributo "role" especifica el rol semántico que asume cada argumento (etiqueta "argument") en la oración.
 
     <predicate head_token="t1.10" id="P1.1" sense="reducir.00" words="reducido">
         <argument from="t1.1" head_token="t1.1" role="AM-MNR" to="t1.2" words="Inesperadamente ,"/>
@@ -157,11 +157,15 @@ En el siguiente tema se profundizará sobre todo en la semnántica léxica. Se v
 
 ### Nivel textual
 
-La comunicación no se realiza mediante palabras u oraciones, sino mediante textos. EL texto es la unidad comunicativa superior. En este nivel se estudian fenómenos lingüísticos que relacionan oraciones: marcas de conexión entre oraciones o secciones, correferencias (anáforas y catáforas), coherencia general del texto, temas... 
+La comunicación no se realiza mediante palabras u oraciones, sino mediante textos. En lingüística el texto es la principal unidad comunicativa. En este nivel se estudian todos aquellos fenómenos lingüísticos que superan el límite oracional, como puede ser marcas de conexión entre oraciones o secciones, correferencias y anáforas (palabras que se interpretan por su relación con una palabra anterior, como ocurre por ejemplo con los pronombres), coherencia general del texto, temas... 
 
-Diferentes sistemas de PLN se encargan de estos fenómenos. La resolución de la correferencia es quizá de los más interesantes en Minería de textos por su relación con la extracción de entidades.
+La resolución de la correferencia es quizá de los más interesantes en Minería de textos por su relación con la extracción de entidades. El problma surge cuando se hace referencia a una entidad (a una persona, por ejemplo), no con el nombre que le es propio, sino con un pronombre u otra forma lingüística. Fíjate, por ejemplo, en las palabras "que", "le" y "su" de la siguiente oración: ¿cuál es su significado?
 
-Ej: "Juan había ido elaborando una ruta perfecta de bares *que* *le* permitía ver *su* programa favorito".
+> "Juan había ido elaborando una ruta perfecta de bares *que* *le* permitía ver *su* programa favorito".
+
+Estas palabras no tienen significado por sí mismas, sino que lo asumen en la oración por la relación que establecen con palabras anteriores (el llamado "antecedente"). Así, "que" se refiere a "una ruta perfecta", y "que" y "su" a "Juan". Los sistemas de resolución de la correferencia tratan este problema.
+
+Otro tema relevante en el nivel textual que ha tenido mucho desarrollo en la última década es la inferencia de temas: dado un conjuto de textos, determinar los temas (o *topics*) presentes en cada texto. Esta tarea ha recibido el nombre genérico de *topic modeling* y se suelen utiliza algorirmos basados en [*Latent Dirichlet Allocation*](https://es.wikipedia.org/wiki/Latent_Dirichlet_Allocation) o LDA.
 
 ### Nivel pragmático
 
