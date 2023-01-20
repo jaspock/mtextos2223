@@ -465,13 +465,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-simbolicos-racionalismo">
-     2.3.1. Métodos simbólicos (racionalismo):
+    <a class="reference internal nav-link" href="#metodos-simbolicos-basados-en-el-racionalismo">
+     2.3.1. Métodos simbólicos (basados en el racionalismo):
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-estadisticos-empirismo">
-     2.3.2. Métodos estadísticos (empirismo).
+    <a class="reference internal nav-link" href="#metodos-estadisticos-basdos-en-el-empirismo">
+     2.3.2. Métodos estadísticos (basdos en el empirismo).
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -482,8 +482,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   2.4. Conclusión
+  <a class="reference internal nav-link" href="#conclusion-y-bibliografia">
+   2.4. Conclusión y bibliografía
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -492,11 +492,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bibliografia">
-   2.5. Bibliografía
-  </a>
  </li>
 </ul>
 
@@ -570,13 +565,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-simbolicos-racionalismo">
-     2.3.1. Métodos simbólicos (racionalismo):
+    <a class="reference internal nav-link" href="#metodos-simbolicos-basados-en-el-racionalismo">
+     2.3.1. Métodos simbólicos (basados en el racionalismo):
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-estadisticos-empirismo">
-     2.3.2. Métodos estadísticos (empirismo).
+    <a class="reference internal nav-link" href="#metodos-estadisticos-basdos-en-el-empirismo">
+     2.3.2. Métodos estadísticos (basdos en el empirismo).
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -587,8 +582,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   2.4. Conclusión
+  <a class="reference internal nav-link" href="#conclusion-y-bibliografia">
+   2.4. Conclusión y bibliografía
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -597,11 +592,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bibliografia">
-   2.5. Bibliografía
-  </a>
  </li>
 </ul>
 
@@ -791,54 +781,61 @@ SIRI: “¿Qué tal si busco “comportamiento inapropiado” en Internet?”</p
 </section>
 <section id="metodos-de-pln">
 <h2><span class="section-number">2.3. </span>Métodos de PLN.<a class="headerlink" href="#metodos-de-pln" title="Permalink to this headline">#</a></h2>
-<p>Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos empíricos.</p>
-<section id="metodos-simbolicos-racionalismo">
-<h3><span class="section-number">2.3.1. </span>Métodos simbólicos (racionalismo):<a class="headerlink" href="#metodos-simbolicos-racionalismo" title="Permalink to this headline">#</a></h3>
-<p>Estos intentan describir el funcionamiento del idioma (en cualquiera de sus fenómenos y niveles) mediante reglas formales. En general, tratan de formalizar nuestro conocimiento de la gramática de un idioma en reglar que la máquina pueda entender.</p>
+<p>Si bien las primeras propuestas de aplicar métodos computacionales la texto datan de los años 40 (con el nacimiento de la teoría de los lenguajes formales), no es hasta los 70 cuando empiezan a aparecer los primeros sistemas de PLN (SHRDLU de Winograd, 1972). Desde los primeros años se establecieron dos formas de aborar computacionalemten los fenómenos lingüísticos, dos métodos generales: los métodos simbólicos y los métodos estadísticos.</p>
+<section id="metodos-simbolicos-basados-en-el-racionalismo">
+<h3><span class="section-number">2.3.1. </span>Métodos simbólicos (basados en el racionalismo):<a class="headerlink" href="#metodos-simbolicos-basados-en-el-racionalismo" title="Permalink to this headline">#</a></h3>
+<p>Estos métodos intentan describir el funcionamiento del idioma (en cualquiera de sus fenómenos y niveles) mediante <strong>reglas formales</strong>. En general, tratan de formalizar nuestro conocimiento de la gramática de un idioma con reglas que la máquina pueda entender.</p>
 <p>Este paradigma fue predominante en los años 80. Hoy día, si bien en investigación apenas tiene presencia (es raro encontrar artículos que presenten sistemas simbólicos), en la industria sigue siendo un paradigma utilizado. Los sistemas de PLN de muchas empresas dependen de gramáticas y otros recursos lingüísticos (diccionarios) que se crean y mantienen a mano por expertos (lingüistas).</p>
-<p>La gran ventaja de los métodos simbólicos es su precisión. Permite tratar fenómenos lingüísticos muy concretos (y a veces poco probables). Adolecen, sin embargo, de cobertura, pues es complejo prever y tratar todos los fenómenos lingüísticos que puede haber en un texto mediante reglas.</p>
+<p>La gran ventaja de los métodos simbólicos es su precisión. Permite tratar fenómenos lingüísticos muy concretos. Adolecen, sin embargo, de cobertura, pues es complejo (por no decir imposible) prever y tratar todos los fenómenos lingüísticos que puede haber en un texto mediante reglas explícitas.</p>
 </section>
-<section id="metodos-estadisticos-empirismo">
-<h3><span class="section-number">2.3.2. </span>Métodos estadísticos (empirismo).<a class="headerlink" href="#metodos-estadisticos-empirismo" title="Permalink to this headline">#</a></h3>
-<p>La aplicación de métodos estadísticos al procesamiento lingüístico no es nueva, pero tuvo especial desarrollo a partir de los años 90 del siglo XX.</p>
-<p>Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen siempre de la disponibiliad de corpus (selección de muestras lingüísticas); bien para los procesos de aprendizaje, bien para procesos de evaluación o bien para ambos.</p>
-<p>Los corpus pueden ser de dos tipos:</p>
+<section id="metodos-estadisticos-basdos-en-el-empirismo">
+<h3><span class="section-number">2.3.2. </span>Métodos estadísticos (basdos en el empirismo).<a class="headerlink" href="#metodos-estadisticos-basdos-en-el-empirismo" title="Permalink to this headline">#</a></h3>
+<p>La aplicación de métodos estadísticos al procesamiento lingüístico tuvo especial desarrollo a partir de los años 90 del siglo XX. Hoy día estos métodos siguen los modelos de aprendizaje automático: supervisado, no supervisado y semi-supervisado. Dependen por tanto de la disponibiliad de corpus: un conjunto de muestras lingüísticas. Estos corpus bien pueden ser corpus de aprendizaje o entrenamiento, bien corpus de evaluación (los llamados <em>gold standard</em>).</p>
+<p>Los corpus pueden ser básicamente de dos tipos:</p>
 <ul class="simple">
-<li><p>corpus planos (<em>plain</em>), si ningún tipo de marca, etiqueta o anotación, donde se muestra el idioma tal cual es, tal cual la utilizan los hablantes nativos.</p></li>
-<li><p>corpus anotados, en los que se introducen etiquetas formales que representan el conocimiento lingüístico. Este conocimiento (fonético, morfológico, sintáctico, semántico o pragmático) está en principio implícito en el texto, y con la etiqueta se hace explícito.</p></li>
+<li><p>corpus planos (<em>plain</em>), si ningún tipo de marca, etiqueta o anotación, donde se muestra el idioma tal cual es, tal cual la utilizan los hablantes.</p></li>
+<li><p>corpus anotados, en los que se introducen etiquetas formales que representan el conocimiento lingüístico. Este conocimiento (fonético, morfológico, sintáctico, semántico o pragmático) está en principio implícito en el texto, y con la etiquetas se hace explícito.</p></li>
 </ul>
-<p>Los corpus anotados son la fuente principal para los procesos de aprendizaje supervisado.</p>
-<p>Las tareas que se desarrollan con estos métodos son:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- especificar y sistematizar el fenómeno lingüístico
-- formalizar y representar en el corpus sin ambigüedades
-- seleccionar el algoritmo apropiado para la detección del fenómeno y su clasificación según sus rasgos.
-</pre></div>
-</div>
+<p>Los corpus anotados son la fuente de información principal para los procesos de aprendizaje supervisado. Las tareas que se desarrollan con estos métodos son:</p>
+<ul class="simple">
+<li><p>especificar y sistematizar el fenómeno lingüístico</p>
+<ul>
+<li><p>formalizar y representar en el corpus sin ambigüedades</p></li>
+<li><p>seleccionar el algoritmo apropiado para la detección del fenómeno y su clasificación según sus rasgos.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="metodos-neuronales">
 <h3><span class="section-number">2.3.3. </span>Métodos neuronales<a class="headerlink" href="#metodos-neuronales" title="Permalink to this headline">#</a></h3>
-<p>En los últimos años se han desarrollado los procesos neuronales a partir del <em>deep learning</em>.</p>
-<p>Hay área donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos. El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.</p>
+<p>Hoy día, sin embargo, el método común son los métodos neuronales gracias al desarrollo del <em>deep learning</em>. Aunque se podrían considar un tipo de método estadístico, su desarrollo y complejidad hacen que sean tratados como un tipo metodológico diferente. Muchos de los métodos neuronales en realidad fueron diseñados en los años 70 y 80 del siglo XX, pero no ha sido hasta el siglo XXI que, gracias a la capacidad de cómputo de las maquinas, se han podido aplicar a grandes corpus.</p>
+<p>La aproximación de los modelos neuronales es diferente a los modelos estadísticos, digamos, “clásicos”. En vez de proponer un modelo matemático más o menos complejo con un diseño de rasgos (<em>feautres</em>) sofisiticado, los modelos neuronales proponen modelos matemáticos más o menos simples, como puede ser una función sigmoide (la “neurona”, aunque ya  nada tiene que ver con la mente humana), pero repetido muchas veces (las capas ocultas y profundas: <em>deep</em>). Unido a una representación del significado mediante mediante vectores contextuales de tamaño fijo (los <em>word embeddings</em>), los modelos neuronoales han supuesto una revolución metodologica en el PLN en particular y en la Inteligencia Artifical en general.</p>
+<p>Efectivamente, hay áreas donde los modelos neuronales han hallado la solución a problemas complejos. En el caso del PLN, los sistemas de análisis de voz funcionan prácticamente ya sin problemas gracias a estos modelos, por no hablar de la mejora significativa de los sistema de traducción y, desde hace unos meses, la espectacularidad de sistemas de generación textual como <a class="reference external" href="https://chat.openai.com/">chatGPT</a>. El PLN en general, sin embargo, aún presenta muchos problemas irresolubles (Manning 2015), lo cual quizá sea la mayor prueba de la complejidad del análisis lingüístico.</p>
+<p>En este primer tema veremos sobre todo métodos simbólicos y estadísticos; para luego, en siguientes temas, profundizar en los métodos neuronales.</p>
 </section>
 </section>
-<section id="conclusion">
-<h2><span class="section-number">2.4. </span>Conclusión<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
-<p>En esta sesión se han presentado los análisis básicos de PLN, necesarios para preprocesar un corpus antes de realizar tareas de minería de textos. Además de estas tareas de procesamiento lingüístico básico, el PLN tiene definidas otras tareas como las expuestas aquí:</p>
-<p><a class="reference external" href="http://nlpprogress.com/">http://nlpprogress.com/</a></p>
+<section id="conclusion-y-bibliografia">
+<h2><span class="section-number">2.4. </span>Conclusión y bibliografía<a class="headerlink" href="#conclusion-y-bibliografia" title="Permalink to this headline">#</a></h2>
+<p>En esta sesión se ha presenta una panorámica del Procesamiento del Lenguaje Natural. Se han enunciado los principales problemas que tiene procesar un texto y los principales métodos. En el resto de la asignatura se irá profundizando tanto en (algunos de) los problemas como en los métodos; con el objetivo simpre de saber cómo procesar un texto para la extracción de datos.</p>
+<p>El principal manual de PLN, que utilizaremos en varios temas de esta asignatura, es el libro de Juravsky y Martin (2022) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
+<p>Una introducción más ligera al PLN, sobre todo para estudiantes con perfil lingüístico, es el libro de Bird, Klein y Loper (2009) <em>Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit</em> O’Reilly Media. <a class="reference external" href="https://www.nltk.org/book_1ed/">https://www.nltk.org/book_1ed/</a></p>
+<p>Para los modelos estadísticos, la referencia principal sigue siendo el libro de Manning y Schütze (1999) <a class="reference external" href="https://nlp.stanford.edu/fsnlp/"><em>Foundations of Statistical Natural Language Processing</em></a>, MIT Press, si bien no trata modelos neuronales y en algunos temas ha quedado desfasado.</p>
+<p>En esta línea, pero totalmente actualizado, es recomendable el libro de Jacob Eisenstein (2018) <a class="reference external" href="https://raw.githubusercontent.com/jacobeisenstein/gt-nlp-class/master/notes/eisenstein-nlp-notes.pdf"><em>Natural Language Processing</em></a></p>
+<p>Además de las tareas de procesamiento lingüístico básico aquí comentadas, el PLN tiene definidas otras tareas que puedes ver en <a class="reference external" href="http://nlpprogress.com/">http://nlpprogress.com/</a>.</p>
+<p>Otras referencias citadas en esta sección:</p>
+<ul class="simple">
+<li><p>Lakoff y Johnson (1980) <em>Metáforas de la vida cotidiana</em> Madrid, Cátedra, 1986.</p></li>
+<li><p>Manning, Christopher D. (2015) “Computational Linguistics and Deep Learning” <em>Computational Linguistics</em> 41 (4) p.701-707</p></li>
+<li><p>Schubert, Lenhart, “Computational Linguistics”, <em>The Stanford Encyclopedia of Philosophy</em> (Spring 2020 Edition), Edward N. Zalta (ed.), <a class="reference external" href="https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/">https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/</a></p></li>
+</ul>
+<p>&lt;–!</p>
 <section id="actividad-para-pensar">
 <h3><span class="section-number">2.4.1. </span>Actividad para pensar:<a class="headerlink" href="#actividad-para-pensar" title="Permalink to this headline">#</a></h3>
 <p>Consulta las siguientes oraciones e intenta determinar qué tipo de ambigüedad tienen:</p>
 <p><a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSekRufl7AoUu4z0kSxa2ZkCoYzd9pNzyaIxtCJN7ZBFOC7U2A/viewform?usp=sf_link">Formulario <em>Caos de Ambigüedad</em></a></p>
-</section>
-</section>
-<section id="bibliografia">
-<h2><span class="section-number">2.5. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
-<p>Bird, Steven; Klein, Ewan y Loper, Edward (2009) <em>Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit</em> O’Reilly Media. <a class="reference external" href="https://www.nltk.org/book_1ed/">https://www.nltk.org/book_1ed/</a></p>
-<p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a></p>
-<p>Lakoff y Johnson (1980) <em>Metáforas de la vida cotidiana</em> Madrid, Cátedra, 1986.</p>
-<p>Manning, Christopher D. (2015) “Computational Linguistics and Deep Learning” <em>Computational Linguistics</em> 41 (4) p.701-707</p>
-<p>Schubert, Lenhart, “Computational Linguistics”, <em>The Stanford Encyclopedia of Philosophy</em> (Spring 2020 Edition), Edward N. Zalta (ed.), <a class="reference external" href="https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/">https://plato.stanford.edu/archives/spr2020/entries/computational-linguistics/</a></p>
+<p>–&gt;</p>
 <p>[¹] En proceso contrario sería la generación: de la idea al texto.</p>
+</section>
 </section>
 </section>
 
