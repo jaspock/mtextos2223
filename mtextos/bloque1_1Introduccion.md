@@ -135,23 +135,25 @@ En el próximo tema se verá con más detalle los formalismos de análisis sint�
 
 ### Nivel semántico
 
-Todo aquello relacionado con el significado del texto.
+En el nivel semántico se trata todo aquello relacionado con el significado del texto. Aquí se pueden tratar muchos aspectos lingüísticos, de los cuales hay dos predominantes: la semántica léxica y la semántica oracional.
 
-- Semántica léxica: el significado de las palabras. Si se parte de un diccionario, la tarea de PLN correspondiente se denomina *word sense disambiguation*, pero actualmente hay otros métodos de análisis léxico-semántico.
+La **semántica léxica** es la parte de la semántica centrada en el significado de las palabras. En PLN hay una tarea específica para el análisis del significado de las palabras denominado *word sense disambiguation* (WSD). En su forma más simple, un sistema de WSD es aquél que, dada una palabra con varios significados, decide cuál es el significado correcto en un contexto dado. Ese caso, en el que una palabra tiene varios significados (polisemia y homonimia) pero solo uno es el apropiado en un contexto determinado, se denomina **ambigüedad léxica**. Es la ambigüedad que aparece en la oracion antes comentada:
 
-Ej. El caso de "banco" antes comentado.
+> Te espero en el *banco*.
 
-Si el significado no está en un diccionario (no está "lexicalizado"), entonces son sentidos metafóricos y/o simbólicos.
+Actualmente, con el desarrollo de los modelos neuronales y el *deep learning*, hay otros métodos de análisis léxico-semántico capaces de inferir el significado de una palabra a partir del contexto (significado distribucional). Y hay un tercer caso, más complejo, en el que las palabras se utilizan en contextos que no le son propios: son los usos metafóricos y, en general, simbólicos. En estos casos, el considera que la palabra tiene un significado "no lexicalizado" porque no está considerado en un diccionario.
 
-- Semántica oracional: el significado del conjunto de palabras que forman una oración. Hay diferentes modelos: representación lógica, roles semánticos, semántica de eventos, etc.
+La **semántica oracional** se centra el el significado que asume la oración en su conjunto. Este se basa en el principio de composicionalidad, según el cual el significado de la oración está en función del signficado de las palabras y de las relaciones que se establecen entre ellas. En este ámbito se han desarrollado diferentes modelos formales como la representación lógica, los roles semánticos, la semántica de eventos, entre otros.
 
-Ejemplo:
+El siguiente ejemplo muestra un análisis de roles semánticos de la oración "Inesperadamente, los límites de su vida se habían reducido a la mínima expresión.", codificado en XML. El atributo "role" especifica el rol semántico que asume cada argumento en la oración.
 
     <predicate head_token="t1.10" id="P1.1" sense="reducir.00" words="reducido">
         <argument from="t1.1" head_token="t1.1" role="AM-MNR" to="t1.2" words="Inesperadamente ,"/>
         <argument from="t1.3" head_token="t1.4" role="A1" to="t1.7" words="los límites de su vida"/>
         <argument from="t1.11" head_token="t1.11" role="A2" to="t1.14" words="a la mínima expresión"/>
     </predicate>
+
+En el siguiente tema se profundizará sobre todo en la semnántica léxica. Se verán, por un lado, los principales métodos de *word sense disambiguation* y, por otro, los modelos semánticos distribucionales, que son la base lingüística de los actuales "word embeddings".
 
 ### Nivel textual
 
