@@ -95,7 +95,7 @@ En PLN, este nivel está relacionado con unos de los tipos de análsis más impo
 
 Por ejemplo, dada la siguiente oración:
 
-> "Inesperadamente,los límites de su vida se habían reducido a la mínima expresión."
+> "Inesperadamente, los límites de su vida se habían reducido a la mínima expresión."
 
 un *PoS tagger* ofrece la siguiente salida (ID|Token|Lema|Categoría gramatical|Categoría gramatical abreviada|Análisis morfológico):
 
