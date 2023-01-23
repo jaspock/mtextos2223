@@ -50,9 +50,9 @@ El método de tokenización más simple es separar cada token por espacio en bla
 - unidades multipalabra (como formas complejas del verbo Ej. "he comido") o
 - contracciones ("del", "al") y en general formas aglutinantes ("dáselo").
 
-Necesidad de modelos más sofisticados. <!-- Hoy día es un problema resuelto>
+Necesidad de modelos más sofisticados. <!-- Hoy día es un problema resuelto -->
 
-<!-- Por otro lado, no siempre es necesario detectar la secuencia entre blancos. ver Stemmer, tokenización en word embeddings, incluso tokenización por carácter.>
+<!-- Por otro lado, no siempre es necesario detectar la secuencia entre blancos. ver Stemmer, tokenización en word embeddings, incluso tokenización por carácter. -->
 
 ### Lematización y *stemming*
 
