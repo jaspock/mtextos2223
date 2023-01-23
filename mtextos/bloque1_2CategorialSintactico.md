@@ -4,47 +4,59 @@ Análisis categorial y sintáctico
 
 ```{admonition} Nota
 :class: note
-Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
 ```
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
-Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.
+Si bien el conceopto de "palabra" se suele utilizar como unidad mínima y básica de comunicación, realmente desde la lingüística no tiene una definición clara: la palabra es un concepto vago muy difícil de delimitar.
 
-En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*.
+En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de "palabra", se trabaja con los conceptos de *type* y *token* (introducidos por el filósofo Charles S. Peirce a principio de siglo XX):
 
-  - *Type* es la palabra entendida como clase. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.  
-  - *Token* es cada una de las instancias concretas de esas clase que se pueden hallar en un texto [^1].
+  - *Type* es la palabra entendida como clase. Una secuencia de caracteres diferente de cualquier otra secuencia.  
+  - *Token* es cada una de las instancias concretas de esas clase (*type*) que se pueda hallar en un texto [^1].
 
-Por ejemplo, en este verso de [una canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_
+Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein
+
+> "Rose is a rose is a rose is a rose"
+
+Pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de [esta canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_ (que es una versión del verso de Stein):
 
 > "Una rosa es una rosa es" [^2]
 
 encontramos tres *types*:
 
-- una
-- rosa
-- es
+- "una"
+- "rosa"
+- "es"
 
-pero seis *tokens*.
+pero seis *tokens*:  2 *tokens* del *type* "una", 2 del *type* "rosa" y 2 del *type* "es". 2+2+2 = 6 *tokens*. Este texto está formado por tanto por seis *tokens* y tres *types*.
 
-El cálculo de frecuencas más simple que se puede hacer es contar la cantidad de *tokens* de cada *type*:
+Como se puede comprobar, esta diferencia es la base conceptual del cálculo de frecuencias textuales. El cálculo más simple es contar, como se ha hecho antes, la cantidad de *tokens* de cada *type* en un texto:
 
-- una (2)
-- rosa (2)
-- es (2)
+- $una | 2$
+- $rosa | 2$
+- $es | 2$
 
-El tamaño del corpus se suele indicar en número de *tokens*.
+En esta línea, el tamaño de un corpus siempre se mide en cantidad de *tokens*.
 
-La tokenización más simple es separar las palabras por espacios en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:
+### Tokenización
+
+El primer paso a la hora de procesar un texto es, por tanto, hallar los *tokens* y, con ello, los *types* que forman el texto. A este proceso se le denomina **tokenización**.
+
+El método de tokenización más simple es separar cada token por espacio en blaco. *Token* quedaría así definido como la secunencia de caracteres separada por un espacio en blanco. Desde un punto de vista lingüístico, esta aproximación presenta algunas limitaciones:
 
 - signos de puntuación,
 - unidades multipalabra (como formas complejas del verbo Ej. "he comido") o
 - contracciones ("del", "al") y en general formas aglutinantes ("dáselo").
 
-*Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
+Necesidad de modelos más sofisticados. <!-- Hoy día es un problema resuelto>
+
+<!-- Por otro lado, no siempre es necesario detectar la secuencia entre blancos. ver Stemmer, tokenización en word embeddings, incluso tokenización por carácter.>
 
 ### Lematización y *stemming*
+
+*Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
 
 Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
 
