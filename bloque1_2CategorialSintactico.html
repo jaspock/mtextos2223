@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Análisis semántico" href="bloque1_3AnalisisSemantico.html" />
@@ -426,38 +428,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lematizacion-y-stemming">
-     3.1.1. Lematización y
-     <em>
-      stemming
-     </em>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analisis-morfologico-y-categorial">
-   3.2. Análisis morfológico y categorial.
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fundamentos-linguisticos-a-modo-de-recordatorio">
-     3.2.1. Fundamentos lingüísticos (a modo de recordatorio).
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importancia-en-mineria-de-textos">
-     3.2.2. Importancia en Minería de textos
+    <a class="reference internal nav-link" href="#tokenizacion">
+     3.1.1. Tokenización
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#representacion-de-la-informacion-morfologica-y-categorial">
-     3.2.3. Representación de la información morfológica y categorial
+     3.1.2. Representación de la información morfológica y categorial
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
-     3.2.4. Arquitectura de un
+     3.1.3. Arquitectura de un
      <em>
       PoS_tagger
      </em>
@@ -466,29 +448,29 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica">
-     3.2.5. Algoritmos de desambiguación categorial (aproximación histórica)
+     3.1.4. Algoritmos de desambiguación categorial (aproximación histórica)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#modelo-de-reglas-simples">
-       3.2.5.1. Modelo de reglas simples.
+       3.1.4.1. Modelo de reglas simples.
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelo-estadistico-cadena-de-markov">
-     3.2.6. Modelo estadístico: cadena de markov.
+     3.1.5. Modelo estadístico: cadena de markov.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelo-oculto-de-markov">
-     3.2.7. Modelo oculto de Markov
+     3.1.6. Modelo oculto de Markov
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gramaticas-de-restricciones-constraint-grammar">
-     3.2.8. Gramáticas de restricciones (
+     3.1.7. Gramáticas de restricciones (
      <em>
       Constraint grammar
      </em>
@@ -497,29 +479,29 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
-     3.2.9. Modelos basados en aprendizaje automático.
+     3.1.8. Modelos basados en aprendizaje automático.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situacion-actual">
-     3.2.10. Situación actual
+     3.1.9. Situación actual
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#recursos">
-     3.2.11. Recursos.
+     3.1.10. Recursos.
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-sintactico">
-   3.3. Análisis sintáctico.
+   3.2. Análisis sintáctico.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#arquitectura-estandar-de-un-parser">
-     3.3.1. Arquitectura estándar de un
+     3.2.1. Arquitectura estándar de un
      <em>
       parser
      </em>
@@ -527,27 +509,27 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelos-de-representacion">
-     3.3.2. Modelos de representación
+     3.2.2. Modelos de representación
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#principal-problema-computacional">
-     3.3.3. Principal problema computacional
+     3.2.3. Principal problema computacional
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gramaticas-formales">
-     3.3.4. Gramáticas formales
+     3.2.4. Gramáticas formales
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#context-free-grammars">
-       3.3.4.1. Context free grammars
+       3.2.4.1. Context free grammars
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos">
-       3.3.4.2.
+       3.2.4.2.
        <em>
         Probabilistic Context Free Grammar
        </em>
@@ -558,7 +540,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chunkers">
-     3.3.5.
+     3.2.5.
      <em>
       Chunkers
      </em>
@@ -566,29 +548,29 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#estrategias">
-     3.3.6. Estrategias
+     3.2.6. Estrategias
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#formato-conll">
-     3.3.7. Formato CONLL
+     3.2.7. Formato CONLL
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     3.3.8. Situación actual
+     3.2.8. Situación actual
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#herramientas">
-     3.3.9. Herramientas
+     3.2.9. Herramientas
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   3.4. Bibliografía
+   3.3. Bibliografía
   </a>
  </li>
 </ul>
@@ -624,38 +606,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lematizacion-y-stemming">
-     3.1.1. Lematización y
-     <em>
-      stemming
-     </em>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analisis-morfologico-y-categorial">
-   3.2. Análisis morfológico y categorial.
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fundamentos-linguisticos-a-modo-de-recordatorio">
-     3.2.1. Fundamentos lingüísticos (a modo de recordatorio).
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importancia-en-mineria-de-textos">
-     3.2.2. Importancia en Minería de textos
+    <a class="reference internal nav-link" href="#tokenizacion">
+     3.1.1. Tokenización
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#representacion-de-la-informacion-morfologica-y-categorial">
-     3.2.3. Representación de la información morfológica y categorial
+     3.1.2. Representación de la información morfológica y categorial
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
-     3.2.4. Arquitectura de un
+     3.1.3. Arquitectura de un
      <em>
       PoS_tagger
      </em>
@@ -664,29 +626,29 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica">
-     3.2.5. Algoritmos de desambiguación categorial (aproximación histórica)
+     3.1.4. Algoritmos de desambiguación categorial (aproximación histórica)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#modelo-de-reglas-simples">
-       3.2.5.1. Modelo de reglas simples.
+       3.1.4.1. Modelo de reglas simples.
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelo-estadistico-cadena-de-markov">
-     3.2.6. Modelo estadístico: cadena de markov.
+     3.1.5. Modelo estadístico: cadena de markov.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelo-oculto-de-markov">
-     3.2.7. Modelo oculto de Markov
+     3.1.6. Modelo oculto de Markov
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gramaticas-de-restricciones-constraint-grammar">
-     3.2.8. Gramáticas de restricciones (
+     3.1.7. Gramáticas de restricciones (
      <em>
       Constraint grammar
      </em>
@@ -695,29 +657,29 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
-     3.2.9. Modelos basados en aprendizaje automático.
+     3.1.8. Modelos basados en aprendizaje automático.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situacion-actual">
-     3.2.10. Situación actual
+     3.1.9. Situación actual
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#recursos">
-     3.2.11. Recursos.
+     3.1.10. Recursos.
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-sintactico">
-   3.3. Análisis sintáctico.
+   3.2. Análisis sintáctico.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#arquitectura-estandar-de-un-parser">
-     3.3.1. Arquitectura estándar de un
+     3.2.1. Arquitectura estándar de un
      <em>
       parser
      </em>
@@ -725,27 +687,27 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modelos-de-representacion">
-     3.3.2. Modelos de representación
+     3.2.2. Modelos de representación
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#principal-problema-computacional">
-     3.3.3. Principal problema computacional
+     3.2.3. Principal problema computacional
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gramaticas-formales">
-     3.3.4. Gramáticas formales
+     3.2.4. Gramáticas formales
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#context-free-grammars">
-       3.3.4.1. Context free grammars
+       3.2.4.1. Context free grammars
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos">
-       3.3.4.2.
+       3.2.4.2.
        <em>
         Probabilistic Context Free Grammar
        </em>
@@ -756,7 +718,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chunkers">
-     3.3.5.
+     3.2.5.
      <em>
       Chunkers
      </em>
@@ -764,29 +726,29 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#estrategias">
-     3.3.6. Estrategias
+     3.2.6. Estrategias
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#formato-conll">
-     3.3.7. Formato CONLL
+     3.2.7. Formato CONLL
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     3.3.8. Situación actual
+     3.2.8. Situación actual
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#herramientas">
-     3.3.9. Herramientas
+     3.2.9. Herramientas
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   3.4. Bibliografía
+   3.3. Bibliografía
   </a>
  </li>
 </ul>
@@ -803,74 +765,93 @@ title="Print to PDF"
 <span id="label-pos"></span><h1><span class="section-number">3. </span>Análisis categorial y sintáctico<a class="headerlink" href="#analisis-categorial-y-sintactico" title="Permalink to this headline">#</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
+<p>Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2022) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
 </div>
 <section id="unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
 <h2><span class="section-number">3.1. </span>Unidades de comunicación básica. La palabra. <em>Type</em>, <em>token</em> y lema.<a class="headerlink" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema" title="Permalink to this headline">#</a></h2>
-<p>Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.</p>
-<p>En lingüística de corpus se trabaja con dos conceptos relacionados: <em>type</em> y <em>token</em>.</p>
+<p>Si bien el conceopto de “palabra” se suele utilizar como unidad mínima y básica de comunicación, realmente desde la lingüística no tiene una definición clara: la palabra es un concepto vago muy difícil de delimitar.</p>
+<p>En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de “palabra”, se trabaja con los conceptos de <em>type</em> y <em>token</em> (introducidos por el filósofo Charles S. Peirce a principio de siglo XX):</p>
 <ul class="simple">
-<li><p><em>Type</em> es la palabra entendida como clase. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.</p></li>
-<li><p><em>Token</em> es cada una de las instancias concretas de esas clase que se pueden hallar en un texto <a class="footnote-reference brackets" href="#id4" id="id1">1</a>.</p></li>
+<li><p><em>Type</em> es la palabra entendida como clase. Una secuencia de caracteres diferente de cualquier otra secuencia.</p></li>
+<li><p><em>Token</em> es cada una de las instancias concretas de esas clase (<em>type</em>) que se pueda hallar en un texto <a class="footnote-reference brackets" href="#id4" id="id1">1</a>.</p></li>
 </ul>
-<p>Por ejemplo, en este verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">una canción</a> del grupo de los 80 <em>Mecano</em></p>
+<p>Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein</p>
+<blockquote>
+<div><p>“Rose is a rose is a rose is a rose”</p>
+</div></blockquote>
+<p>Pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">esta canción</a> del grupo de los 80 <em>Mecano</em> (que es una versión del verso de Stein):</p>
 <blockquote>
 <div><p>“Una rosa es una rosa es” <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
 </div></blockquote>
 <p>encontramos tres <em>types</em>:</p>
 <ul class="simple">
-<li><p>una</p></li>
-<li><p>rosa</p></li>
-<li><p>es</p></li>
+<li><p>“una”</p></li>
+<li><p>“rosa”</p></li>
+<li><p>“es”</p></li>
 </ul>
-<p>pero seis <em>tokens</em>.</p>
-<p>El cálculo de frecuencas más simple que se puede hacer es contar la cantidad de <em>tokens</em> de cada <em>type</em>:</p>
+<p>pero seis <em>tokens</em>:  2 <em>tokens</em> del <em>type</em> “una”, 2 del <em>type</em> “rosa” y 2 del <em>type</em> “es”. 2+2+2 = 6 <em>tokens</em>. Este texto está formado por tanto por seis <em>tokens</em> y tres <em>types</em>.</p>
+<p>Como se puede comprobar, esta diferencia es la base conceptual del cálculo de frecuencias textuales. El cálculo más simple es contar, como se ha hecho antes, la cantidad de <em>tokens</em> de cada <em>type</em> en un texto:</p>
 <ul class="simple">
-<li><p>una (2)</p></li>
-<li><p>rosa (2)</p></li>
-<li><p>es (2)</p></li>
+<li><p><span class="math notranslate nohighlight">\(una | 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(rosa | 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(es | 2\)</span></p></li>
 </ul>
-<p>El tamaño del corpus se suele indicar en número de <em>tokens</em>.</p>
-<p>La tokenización más simple es separar las palabras por espacios en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:</p>
+<p>En esta línea, el tamaño de un corpus siempre se mide en cantidad de <em>tokens</em>.</p>
+<section id="tokenizacion">
+<h3><span class="section-number">3.1.1. </span>Tokenización<a class="headerlink" href="#tokenizacion" title="Permalink to this headline">#</a></h3>
+<p>El primer paso a la hora de procesar un texto es, por tanto, hallar los <em>tokens</em> y, con ello, los <em>types</em> que forman el texto. A este proceso se le denomina <strong>tokenización</strong>.</p>
+<p>El método de tokenización más simple es separar cada token por espacio en blaco. <em>Token</em> quedaría así definido como la secunencia de caracteres separada por un espacio en blanco. Desde un punto de vista lingüístico, esta aproximación presenta algunas limitaciones:</p>
 <ul class="simple">
 <li><p>signos de puntuación,</p></li>
 <li><p>unidades multipalabra (como formas complejas del verbo Ej. “he comido”) o</p></li>
 <li><p>contracciones (“del”, “al”) y en general formas aglutinantes (“dáselo”).</p></li>
 </ul>
-<p><em>Type</em> y <em>token</em> se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, “catamos” y “cantaré” son <em>tokens</em> distintos; al igual que “casa” y “casas”.</p>
-<section id="lematizacion-y-stemming">
-<h3><span class="section-number">3.1.1. </span>Lematización y <em>stemming</em><a class="headerlink" href="#lematizacion-y-stemming" title="Permalink to this headline">#</a></h3>
-<p>Para agrupar todos los <em>tokens</em> relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de <em>lematización</em>. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.</p>
-<p>La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del <em>token</em> “traje” puede ser “traer” (si es verbo) o “traje” (si es nombre).</p>
-<p>Un proceso similar pero más sencillo es el <em>stemming</em>: reducir cada <em>token</em> a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).</p>
-<blockquote>
-<div><p><em>Reflexión:</em> para minería de textos, ¿qué es mejor, dejar el corpus con los <em>tokens</em>, lematizarlo o trabajar solo con las raíces léxicas (<em>stemm</em>)?</p>
-</div></blockquote>
-</section>
-</section>
-<section id="analisis-morfologico-y-categorial">
-<h2><span class="section-number">3.2. </span>Análisis morfológico y categorial.<a class="headerlink" href="#analisis-morfologico-y-categorial" title="Permalink to this headline">#</a></h2>
-<p>El objetivo general de la anotación categorial (<em>PoS Tagger</em>): asignar a cada palabra de un texto su categoría gramatical correspondiente. En concreto, a cada <em>token</em> del texto (incluidos signos de puntuación, etc) se le asigna:</p>
+<p>Necesidad de modelos más sofisticados. &lt;!– Hoy día es un problema resuelto&gt;</p>
+<!-- Por otro lado, no siempre es necesario detectar la secuencia entre blancos. ver Stemmer, tokenización en word embeddings, incluso tokenización por carácter.>
+
+### Lematización y *stemming*
+
+*Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
+
+Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
+
+La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del *token* "traje" puede ser "traer" (si es verbo) o "traje" (si es nombre).
+
+Un proceso similar pero más sencillo es el *stemming*: reducir cada *token* a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).
+
+> *Reflexión:* para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? 
+
+## Análisis morfológico y categorial.
+
+El objetivo general de la anotación categorial (*PoS Tagger*): asignar a cada palabra de un texto su categoría gramatical correspondiente. En concreto, a cada *token* del texto (incluidos signos de puntuación, etc) se le asigna:
+
+- lema,
+- categoría gramatical,
+- rasgos morfológicos.
+
+El mayor problema viene en la selección de la categoría gramatical por los problemas de *ambigüedad categorial* que vimos en la sesión anterior.
+
+
+### Fundamentos lingüísticos (a modo de recordatorio).
+
+Categorías gramaticales: agrupaciones de palabras ("paradigmas") según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.
+
+ESP: determinantes (artículo, demostrativos, etc.), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.
+
+Por su función en el texto: categorías con significado léxico vs. "significado" gramatical (solo aportan información gramatical).
+
+Por su flexión: variables e invariables.
+
+Categorías abiertas vs cerradas.
+
+### Importancia en Minería de textos
+
+Base para análisis sintáctico y semántico.
+
+Un pre-proceso muy común en Minería de Textos es eliminar las "stop-words", es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de "stop-words"). Algunas aplicaciones dependen de las categorías gramaticales, como: 
+
+- extracción de entidades --> nombres propios;
 <ul class="simple">
-<li><p>lema,</p></li>
-<li><p>categoría gramatical,</p></li>
-<li><p>rasgos morfológicos.</p></li>
-</ul>
-<p>El mayor problema viene en la selección de la categoría gramatical por los problemas de <em>ambigüedad categorial</em> que vimos en la sesión anterior.</p>
-<section id="fundamentos-linguisticos-a-modo-de-recordatorio">
-<h3><span class="section-number">3.2.1. </span>Fundamentos lingüísticos (a modo de recordatorio).<a class="headerlink" href="#fundamentos-linguisticos-a-modo-de-recordatorio" title="Permalink to this headline">#</a></h3>
-<p>Categorías gramaticales: agrupaciones de palabras (“paradigmas”) según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.</p>
-<p>ESP: determinantes (artículo, demostrativos, etc.), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.</p>
-<p>Por su función en el texto: categorías con significado léxico vs. “significado” gramatical (solo aportan información gramatical).</p>
-<p>Por su flexión: variables e invariables.</p>
-<p>Categorías abiertas vs cerradas.</p>
-</section>
-<section id="importancia-en-mineria-de-textos">
-<h3><span class="section-number">3.2.2. </span>Importancia en Minería de textos<a class="headerlink" href="#importancia-en-mineria-de-textos" title="Permalink to this headline">#</a></h3>
-<p>Base para análisis sintáctico y semántico.</p>
-<p>Un pre-proceso muy común en Minería de Textos es eliminar las “stop-words”, es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de “stop-words”). Algunas aplicaciones dependen de las categorías gramaticales, como:</p>
-<ul class="simple">
-<li><p>extracción de entidades –&gt; nombres propios;</p></li>
 <li><p>extracción de eventos –&gt; verbos y nombres;</p></li>
 <li><p>extracción de sentimientos –&gt; adjetivos;</p></li>
 <li><p>detección de autoría –&gt; categorías cerradas;</p></li>
@@ -878,7 +859,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="representacion-de-la-informacion-morfologica-y-categorial">
-<h3><span class="section-number">3.2.3. </span>Representación de la información morfológica y categorial<a class="headerlink" href="#representacion-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.2. </span>Representación de la información morfológica y categorial<a class="headerlink" href="#representacion-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">#</a></h3>
 <p>La información categorial y morfológica se representa explícitamente mediante etiquetas.</p>
 <p>Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.</p>
 <p>Algunas propuestas:</p>
@@ -898,14 +879,14 @@ title="Print to PDF"
 <p><a class="reference external" href="https://universaldependencies.org/u/pos/">https://universaldependencies.org/u/pos/</a></p>
 </section>
 <section id="arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
-<h3><span class="section-number">3.2.4. </span>Arquitectura de un <em>PoS_tagger</em>. Algoritmos clásicos de desambiguación.<a class="headerlink" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.3. </span>Arquitectura de un <em>PoS_tagger</em>. Algoritmos clásicos de desambiguación.<a class="headerlink" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion" title="Permalink to this headline">#</a></h3>
 <p><img alt="ArquitecturaPoStagger" src="_images/arquitecturaPoStagger.png" /></p>
 <p>Ejemplo: Freeling.</p>
 </section>
 <section id="algoritmos-de-desambiguacion-categorial-aproximacion-historica">
-<h3><span class="section-number">3.2.5. </span>Algoritmos de desambiguación categorial (aproximación histórica)<a class="headerlink" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.4. </span>Algoritmos de desambiguación categorial (aproximación histórica)<a class="headerlink" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica" title="Permalink to this headline">#</a></h3>
 <section id="modelo-de-reglas-simples">
-<h4><span class="section-number">3.2.5.1. </span>Modelo de reglas simples.<a class="headerlink" href="#modelo-de-reglas-simples" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">3.1.4.1. </span>Modelo de reglas simples.<a class="headerlink" href="#modelo-de-reglas-simples" title="Permalink to this headline">#</a></h4>
 <p>Sistema TAGGIT (1950).
 71 etiquetas + 3300 reglas. 77% de precisión.</p>
 <p>Reglas: expresiones regulares tipo</p>
@@ -918,7 +899,7 @@ etc.
 </section>
 </section>
 <section id="modelo-estadistico-cadena-de-markov">
-<h3><span class="section-number">3.2.6. </span>Modelo estadístico: cadena de markov.<a class="headerlink" href="#modelo-estadistico-cadena-de-markov" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.5. </span>Modelo estadístico: cadena de markov.<a class="headerlink" href="#modelo-estadistico-cadena-de-markov" title="Permalink to this headline">#</a></h3>
 <p>Tiene en cuenta el contexto de aparición de las palabras.
 Basados en bigramas.</p>
 <p>Calculan dos tipos de probabilidades:
@@ -927,7 +908,7 @@ Contextual: p(W|T|Ctx)</p>
 <p>ctx = palabra anterior –&gt; bigrama.</p>
 </section>
 <section id="modelo-oculto-de-markov">
-<h3><span class="section-number">3.2.7. </span>Modelo oculto de Markov<a class="headerlink" href="#modelo-oculto-de-markov" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.6. </span>Modelo oculto de Markov<a class="headerlink" href="#modelo-oculto-de-markov" title="Permalink to this headline">#</a></h3>
 <p>Basado en la probabilidad de cadenas de etiquetas (cadena oculta).</p>
 <p>Dos tipos de probabilidades:</p>
 <ul class="simple">
@@ -941,7 +922,7 @@ Contextual: p(W|T|Ctx)</p>
 <p>Proceso iterativo: primero analiza lo no ambiguo, luego hace una segunda vuelta calculando probabilidades de transición y re-anotando, hasta llegar a situación estable (fin).</p>
 </section>
 <section id="gramaticas-de-restricciones-constraint-grammar">
-<h3><span class="section-number">3.2.8. </span>Gramáticas de restricciones (<em>Constraint grammar</em>)<a class="headerlink" href="#gramaticas-de-restricciones-constraint-grammar" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.7. </span>Gramáticas de restricciones (<em>Constraint grammar</em>)<a class="headerlink" href="#gramaticas-de-restricciones-constraint-grammar" title="Permalink to this headline">#</a></h3>
 <p>Modelo teórico: este tipo de gramáticas no dice cómo es un idioma, sino cómo NO es.</p>
 <p>Las reglas, por tanto, son reglas negativas. Dada una ambigüedad, las reglas indican cuál de las opciones seguro que no es. Combinando restricciones se llega al final a la solución correcta.</p>
 <p>Las reglas son condicionales al contexto (si la palabra anterior es X, la siguiente NO es Y).</p>
@@ -950,18 +931,18 @@ Contextual: p(W|T|Ctx)</p>
 <p>Sistema ENGCG de 1990 (Karlsson et al 1995)</p>
 </section>
 <section id="modelos-basados-en-aprendizaje-automatico">
-<h3><span class="section-number">3.2.9. </span>Modelos basados en aprendizaje automático.<a class="headerlink" href="#modelos-basados-en-aprendizaje-automatico" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.8. </span>Modelos basados en aprendizaje automático.<a class="headerlink" href="#modelos-basados-en-aprendizaje-automatico" title="Permalink to this headline">#</a></h3>
 <p>Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.</p>
 <p>Diferentes algoritmos: árboles de decisión, vectores de soporte (SVM), etc.</p>
 <p>Ejemplo “Transformation-based Tagger” (Brill 1995). Proceso iterativo donde va aprendiendo reglas, cada vez más específicas. Analiza aplicando primero las específicas y luego las generales. Refinamiento: revisón manual de cada iteración.</p>
 </section>
 <section id="situacion-actual">
-<h3><span class="section-number">3.2.10. </span>Situación actual<a class="headerlink" href="#situacion-actual" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.9. </span>Situación actual<a class="headerlink" href="#situacion-actual" title="Permalink to this headline">#</a></h3>
 <p>Aproximaciones multilingües basadas en <em>embeddings</em> y redes neuronales:</p>
 <p><a class="reference external" href="http://nlpprogress.com/english/part-of-speech_tagging.html">http://nlpprogress.com/english/part-of-speech_tagging.html</a></p>
 </section>
 <section id="recursos">
-<h3><span class="section-number">3.2.11. </span>Recursos.<a class="headerlink" href="#recursos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.10. </span>Recursos.<a class="headerlink" href="#recursos" title="Permalink to this headline">#</a></h3>
 <p>Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico.</p>
 <ul class="simple">
 <li><p>Freeling <a class="reference external" href="http://nlp.lsi.upc.edu/freeling/index.php/">http://nlp.lsi.upc.edu/freeling/index.php/</a></p></li>
@@ -974,15 +955,15 @@ Contextual: p(W|T|Ctx)</p>
 </section>
 </section>
 <section id="analisis-sintactico">
-<h2><span class="section-number">3.3. </span>Análisis sintáctico.<a class="headerlink" href="#analisis-sintactico" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.2. </span>Análisis sintáctico.<a class="headerlink" href="#analisis-sintactico" title="Permalink to this headline">#</a></h2>
 <p>Sintaxis: agrupación y relaciones de las palabras dentro de una oración.</p>
 <p>Análisis automático: <em>parser</em></p>
 <section id="arquitectura-estandar-de-un-parser">
-<h3><span class="section-number">3.3.1. </span>Arquitectura estándar de un <em>parser</em><a class="headerlink" href="#arquitectura-estandar-de-un-parser" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.1. </span>Arquitectura estándar de un <em>parser</em><a class="headerlink" href="#arquitectura-estandar-de-un-parser" title="Permalink to this headline">#</a></h3>
 <p><img alt="ArquitecturaParser" src="_images/parser.png" /></p>
 </section>
 <section id="modelos-de-representacion">
-<h3><span class="section-number">3.3.2. </span>Modelos de representación<a class="headerlink" href="#modelos-de-representacion" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.2. </span>Modelos de representación<a class="headerlink" href="#modelos-de-representacion" title="Permalink to this headline">#</a></h3>
 <p>Análisis basado en <em>constituyentes</em></p>
 <p><img alt="Constituyentes" src="_images/constituyentes.png" /></p>
 <p>Análisis basado en <em>dependencias</em></p>
@@ -990,7 +971,7 @@ Contextual: p(W|T|Ctx)</p>
 <p>(Créditos de la imagen <a class="reference external" href="http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias">aquí</a>)</p>
 </section>
 <section id="principal-problema-computacional">
-<h3><span class="section-number">3.3.3. </span>Principal problema computacional<a class="headerlink" href="#principal-problema-computacional" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.3. </span>Principal problema computacional<a class="headerlink" href="#principal-problema-computacional" title="Permalink to this headline">#</a></h3>
 <p>Ambigüedad estructural:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Ayer vi a tu hermano con los prismáticos&quot;
 </pre></div>
@@ -1001,10 +982,10 @@ Contextual: p(W|T|Ctx)</p>
 </div>
 </section>
 <section id="gramaticas-formales">
-<h3><span class="section-number">3.3.4. </span>Gramáticas formales<a class="headerlink" href="#gramaticas-formales" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.4. </span>Gramáticas formales<a class="headerlink" href="#gramaticas-formales" title="Permalink to this headline">#</a></h3>
 <p>Conjunto de reglas formales de análisis sintático.</p>
 <section id="context-free-grammars">
-<h4><span class="section-number">3.3.4.1. </span>Context free grammars<a class="headerlink" href="#context-free-grammars" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">3.2.4.1. </span>Context free grammars<a class="headerlink" href="#context-free-grammars" title="Permalink to this headline">#</a></h4>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>G = (NT, T, S, P)
 NT: {no terminales},
 T: {terminales},
@@ -1031,7 +1012,7 @@ P:
 <p>En lingüística se han desarrollado diferentes modelos basados en estas técnicas las <em>Head-driven phrase structure grammar</em> o las <em>Lexical-Functional Grammar</em> (que sigue siendo un modelo válido: <a class="reference external" href="https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/">https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/</a> )</p>
 </section>
 <section id="probabilistic-context-free-grammar-y-modelos-probabilisticos">
-<h4><span class="section-number">3.3.4.2. </span><em>Probabilistic Context Free Grammar</em> y modelos probabilísticos<a class="headerlink" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">3.2.4.2. </span><em>Probabilistic Context Free Grammar</em> y modelos probabilísticos<a class="headerlink" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos" title="Permalink to this headline">#</a></h4>
 <p>Añaden peso estadístico a cada regla.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SV → V SP SP (0.5)
 SV → V SP (0.3)
@@ -1057,12 +1038,12 @@ SV → V (0.2)
 </section>
 </section>
 <section id="chunkers">
-<h3><span class="section-number">3.3.5. </span><em>Chunkers</em><a class="headerlink" href="#chunkers" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.5. </span><em>Chunkers</em><a class="headerlink" href="#chunkers" title="Permalink to this headline">#</a></h3>
 <p>En ocasiones el análisis sintáctico completo (<em>full parsing</em>) es complejo, consume mucho recurso y no suele obtener buenos resultados.</p>
 <p>Lo normal es realizar <em>análisis sintáctico parcial</em> o <em>chunkers</em>: extraer agrupaciones sintáticas (<em>chunks</em>) sin llegar a derivar el árbol sintáctico completo (Abney 1991).</p>
 </section>
 <section id="estrategias">
-<h3><span class="section-number">3.3.6. </span>Estrategias<a class="headerlink" href="#estrategias" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.6. </span>Estrategias<a class="headerlink" href="#estrategias" title="Permalink to this headline">#</a></h3>
 <p>Descendente:
 Recursive Descendent:</p>
 <p>(El siguiente código es Python y requiere tener instalado <a class="reference external" href="https://www.nltk.org/">NLTK</a>)</p>
@@ -1078,7 +1059,7 @@ nltk.app.srparser()
 </div>
 </section>
 <section id="formato-conll">
-<h3><span class="section-number">3.3.7. </span>Formato CONLL<a class="headerlink" href="#formato-conll" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.7. </span>Formato CONLL<a class="headerlink" href="#formato-conll" title="Permalink to this headline">#</a></h3>
 <p>Formato de salida estándar en análisis de dependencias. Además de la información morfológica, por cada palabra indica de quién depende y el tipo de dependencia.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Salida CoNLL-U
     # sent_id = 1
@@ -1097,7 +1078,7 @@ nltk.app.srparser()
 </div>
 </section>
 <section id="id3">
-<h3><span class="section-number">3.3.8. </span>Situación actual<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.8. </span>Situación actual<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p><em>Transition-based dependency parsing</em> (Nivre 2014). Algoritmo shift-reduce.</p>
 <p><em>Neural Network Dependency Parser</em>: <a class="reference external" href="https://nlp.stanford.edu/software/nndep.shtml">https://nlp.stanford.edu/software/nndep.shtml</a></p>
 <p>Modelo de dependencias universal: <a class="reference external" href="https://universaldependencies.org/"><em>Universal Dependencies</em></a>:</p>
@@ -1109,7 +1090,7 @@ nltk.app.srparser()
 <p><a class="reference external" href="http://nlpprogress.com/english/constituency_parsing.html">http://nlpprogress.com/english/dependency_parsing.html</a></p>
 </section>
 <section id="herramientas">
-<h3><span class="section-number">3.3.9. </span>Herramientas<a class="headerlink" href="#herramientas" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.2.9. </span>Herramientas<a class="headerlink" href="#herramientas" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>SpaCy: <a class="reference external" href="https://spacy.io/">https://spacy.io/</a></p></li>
 <li><p>STANZA: <a class="reference external" href="https://stanfordnlp.github.io/stanza/">https://stanfordnlp.github.io/stanza/</a></p></li>
@@ -1119,7 +1100,7 @@ nltk.app.srparser()
 </section>
 </section>
 <section id="bibliografia">
-<h2><span class="section-number">3.4. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Abney S.P. (1991) “Parsing By Chunks”. In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. <a class="reference external" href="https://doi.org/10.1007/978-94-011-3474-3_10">https://doi.org/10.1007/978-94-011-3474-3_10</a></p></li>
 <li><p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a></p></li>
