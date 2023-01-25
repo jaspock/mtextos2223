@@ -453,8 +453,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importancia-del-analisis-categorial-en-mineria-de-textos">
-     3.2.2. Importancia del análisis categorial en Minería de textos
+    <a class="reference internal nav-link" href="#relevancia-del-analisis-categorial-en-mineria-de-textos">
+     3.2.2. Relevancia del análisis categorial en Minería de textos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -656,8 +656,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importancia-del-analisis-categorial-en-mineria-de-textos">
-     3.2.2. Importancia del análisis categorial en Minería de textos
+    <a class="reference internal nav-link" href="#relevancia-del-analisis-categorial-en-mineria-de-textos">
+     3.2.2. Relevancia del análisis categorial en Minería de textos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -912,15 +912,17 @@ title="Print to PDF"
 <p>Por su flexión, hay categorías cuyas palabras son variables o “flexivas” y categorías de palabras invariables. Son categorías variables los nombres (con flexión de género y número), verbos (con flexión en tiempo, modo, voz, aspectos, número y persona), adjetivos (género, número y grado), pronombres y algunos adverbios y determinantes. La flexión tiene implicaciones semánticas, por lo que su análisis es más complejo. Esta es la razón de ser del análisis morfológico completo, donde de cada <em>token</em> se especifica automáticamente no solo su categoría gramatical, sino también sus rasgos flexivos.</p>
 <p>Finalmente, por su función en el texto, se diferencia entre clases de palabras con significado léxico (nombres, verbos, adjetivos, adverbios) y clases de palabras con “significado” gramatical (determinantes, preposiciones, pronombres, etc.). Este significado gramatical no es significado pleno. Se refiere a que esas palabras pueden modificar o determinar el significado de las palabras con significado léxico con las que aparecen, pero en sí mismas y por sí solas no podemos decir que tengan un significado completo. Una preposición como “ante”, por ejemplo, podemos intuir rasgos semánticos (“frente a algo o delate de algo”), pero su función es completar ese “algo” con indicación de posición (“se paró <em>ante</em> de la puerta”).</p>
 </section>
-<section id="importancia-del-analisis-categorial-en-mineria-de-textos">
-<h3><span class="section-number">3.2.2. </span>Importancia del análisis categorial en Minería de textos<a class="headerlink" href="#importancia-del-analisis-categorial-en-mineria-de-textos" title="Permalink to this headline">#</a></h3>
-<p>Base para análisis sintáctico y semántico.</p>
-<p>Un pre-proceso muy común en Minería de Textos es eliminar las “stop-words”, es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de “stop-words”). Algunas aplicaciones dependen de las categorías gramaticales, como:</p>
+<section id="relevancia-del-analisis-categorial-en-mineria-de-textos">
+<h3><span class="section-number">3.2.2. </span>Relevancia del análisis categorial en Minería de textos<a class="headerlink" href="#relevancia-del-analisis-categorial-en-mineria-de-textos" title="Permalink to this headline">#</a></h3>
+<p>Así como un proceso de tokenización es un paso inleduble para realizar minería de textos, el análisis categorial no siempre es necesario. Éste es un proceso que requiere recursos computacionales y, si el corpus es muy amplio, también tiempo de procesamiento. Por ello se debe tener claro qué se necesita para valorar si es necesario utilizar un <em>pos tagger</em> o no.</p>
+<p>Un análisis categorial es en muchas ocasiones la base del sistema de PLN, porque los análisis sintáticos y muchos de los análisis semánticos y pragmáticos dependen de las clases de palabras: necesitan saber el lema de cada <em>token</em>, la clase de palabra a la que pertenecen y/o sus rasgos morfológicos.</p>
+<p>Un proceso muy común en minería de texto y de poco coste computacional es realizar un filtro de “stop words”: elimiar todas aquellas palabras que pertenecen a categorías cerradas y que no tienen significado léxico (preposiones, conjunciones, artículos, etc.). Este filtrado NO necesita realizar el análisis categorial completo: como son categorías cerradas (es, por tanto, un conjunto finito de palabras), se pueden listar en un fichero y filtrar con un simple <em>pattern matching</em>. También un proceso de <em>stemming</em> requiere poco tiempo de proceso (no es necesario realizar todo el ánalisis categorial) y permitiría tratar <em>token</em> de categorías flexivas como un solo <em>type</em>.</p>
+<p>Otras aplicaciones de minería de textos sí dependen de las categorías gramaticales y por tanto requieren realizar el análisis categorial y morfológico. Entre otras:</p>
 <ul class="simple">
-<li><p>extracción de entidades –&gt; nombres propios;</p></li>
-<li><p>extracción de eventos –&gt; verbos y nombres;</p></li>
-<li><p>extracción de sentimientos –&gt; adjetivos;</p></li>
-<li><p>detección de autoría –&gt; categorías cerradas;</p></li>
+<li><p>la <em>extracción de entidades</em> necesita saber qué palabras son nombres y en especial los nombres propios;</p></li>
+<li><p>la <em>extracción de eventos</em> necesita saber qué palabras son verbos y qué palabras son nombres;</p></li>
+<li><p>el <em>análisis de sentimientos y opiniones</em> depende mucho de los adjetivos;</p></li>
+<li><p>la <em>detección de autoría</em> determina automáticamente quién es el autor de un texto sobre todo por cómo se utilizan las palabras de categorías cerradas (preposiciones, conjunciones, etc). Se ha demostrado que sus frecuencias de uso depende mucho del estilo personal de escritura de cada persona. La frecuencia de uso de otras clases de palabras como nombres o verbos depende más del tema del texto y no suelen ser buenos indicadores para detectar automáticamente la autoría de un texto.</p></li>
 <li><p>etc.</p></li>
 </ul>
 </section>

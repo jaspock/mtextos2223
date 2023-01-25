@@ -104,16 +104,20 @@ Por su flexión, hay categorías cuyas palabras son variables o "flexivas" y cat
 
 Finalmente, por su función en el texto, se diferencia entre clases de palabras con significado léxico (nombres, verbos, adjetivos, adverbios) y clases de palabras con "significado" gramatical (determinantes, preposiciones, pronombres, etc.). Este significado gramatical no es significado pleno. Se refiere a que esas palabras pueden modificar o determinar el significado de las palabras con significado léxico con las que aparecen, pero en sí mismas y por sí solas no podemos decir que tengan un significado completo. Una preposición como "ante", por ejemplo, podemos intuir rasgos semánticos ("frente a algo o delate de algo"), pero su función es completar ese "algo" con indicación de posición ("se paró _ante_ de la puerta").
 
-### Importancia del análisis categorial en Minería de textos
+### Relevancia del análisis categorial en Minería de textos
 
-Base para análisis sintáctico y semántico.
+Así como un proceso de tokenización es un paso inleduble para realizar minería de textos, el análisis categorial no siempre es necesario. Éste es un proceso que requiere recursos computacionales y, si el corpus es muy amplio, también tiempo de procesamiento. Por ello se debe tener claro qué se necesita para valorar si es necesario utilizar un *pos tagger* o no.
 
-Un pre-proceso muy común en Minería de Textos es eliminar las "stop-words", es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de "stop-words"). Algunas aplicaciones dependen de las categorías gramaticales, como: 
+Un análisis categorial es en muchas ocasiones la base del sistema de PLN, porque los análisis sintáticos y muchos de los análisis semánticos y pragmáticos dependen de las clases de palabras: necesitan saber el lema de cada *token*, la clase de palabra a la que pertenecen y/o sus rasgos morfológicos. 
 
-- extracción de entidades --> nombres propios;
-- extracción de eventos --> verbos y nombres;
-- extracción de sentimientos --> adjetivos;
-- detección de autoría --> categorías cerradas;
+Un proceso muy común en minería de texto y de poco coste computacional es realizar un filtro de "stop words": elimiar todas aquellas palabras que pertenecen a categorías cerradas y que no tienen significado léxico (preposiones, conjunciones, artículos, etc.). Este filtrado NO necesita realizar el análisis categorial completo: como son categorías cerradas (es, por tanto, un conjunto finito de palabras), se pueden listar en un fichero y filtrar con un simple *pattern matching*. También un proceso de *stemming* requiere poco tiempo de proceso (no es necesario realizar todo el ánalisis categorial) y permitiría tratar *token* de categorías flexivas como un solo *type*.
+
+Otras aplicaciones de minería de textos sí dependen de las categorías gramaticales y por tanto requieren realizar el análisis categorial y morfológico. Entre otras: 
+
+- la *extracción de entidades* necesita saber qué palabras son nombres y en especial los nombres propios;
+- la *extracción de eventos* necesita saber qué palabras son verbos y qué palabras son nombres;
+- el *análisis de sentimientos y opiniones* depende mucho de los adjetivos;
+- la *detección de autoría* determina automáticamente quién es el autor de un texto sobre todo por cómo se utilizan las palabras de categorías cerradas (preposiciones, conjunciones, etc). Se ha demostrado que sus frecuencias de uso depende mucho del estilo personal de escritura de cada persona. La frecuencia de uso de otras clases de palabras como nombres o verbos depende más del tema del texto y no suelen ser buenos indicadores para detectar automáticamente la autoría de un texto.
 - etc.
 
 ### Representación de la información morfológica y categorial
