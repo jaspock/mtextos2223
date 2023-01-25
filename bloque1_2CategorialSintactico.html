@@ -582,7 +582,7 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      3.3.8. Situación actual
     </a>
    </li>
@@ -785,7 +785,7 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      3.3.8. Situación actual
     </a>
    </li>
@@ -823,7 +823,7 @@ title="Print to PDF"
 <p>En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de “palabra”, se trabaja con los conceptos de <em>type</em> (“tipo”) y <em>token</em> (“caso”) (<a class="reference external" href="https://es.wikipedia.org/wiki/Caso_y_tipo">introducidos por el filósofo Charles S. Peirce</a> a principio de siglo XX):</p>
 <ul class="simple">
 <li><p><em>Type</em> es la palabra entendida como clase o tipo. Una secuencia de caracteres diferente de cualquier otra secuencia.</p></li>
-<li><p><em>Token</em> es cada una de las instancias o casos concretos de esas clase <em>type</em> que se pueda hallar en un texto <a class="footnote-reference brackets" href="#id4" id="id1">1</a>.</p></li>
+<li><p><em>Token</em> es cada una de las instancias o casos concretos de esas clase <em>type</em> que se pueda hallar en un texto <a class="footnote-reference brackets" href="#id5" id="id1">1</a>.</p></li>
 </ul>
 <p>Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein:</p>
 <blockquote>
@@ -831,7 +831,7 @@ title="Print to PDF"
 </div></blockquote>
 <p>pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">esta canción</a> de <em>Mecano</em>, que es una versión simplificada del verso de Stein:</p>
 <blockquote>
-<div><p>“Una rosa es una rosa es” <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
+<div><p>“Una rosa es una rosa es” <a class="footnote-reference brackets" href="#id6" id="id2">2</a></p>
 </div></blockquote>
 <p>En este verso encontramos tres <em>types</em>:</p>
 <ul class="simple">
@@ -864,34 +864,34 @@ title="Print to PDF"
 <h3><span class="section-number">3.1.1. </span>Tokenización<a class="headerlink" href="#tokenizacion" title="Permalink to this headline">#</a></h3>
 <p>El primer paso a la hora de procesar un texto es, por tanto, hallar los <em>tokens</em> y, con ello, los <em>types</em> que forman el texto. A este proceso se le denomina <strong>tokenización</strong>.</p>
 <p>El método de tokenización más simple es separar cada token por espacio en blaco. <em>Token</em> quedaría así definido como la secunencia de caracteres separada por un espacio en blanco. Desde un punto de vista lingüístico, esta aproximación presenta algunas limitaciones:</p>
-<ul class="simple">
-<li><p>signos de puntuación,</p></li>
-<li><p>unidades multipalabra (como formas complejas del verbo Ej. “he comido”) o</p></li>
-<li><p>contracciones (“del”, “al”) y en general formas aglutinantes (“dáselo”).</p></li>
-</ul>
-<p>Necesidad de modelos más sofisticados. <!-- Hoy día es un problema resuelto --></p>
-<!-- Por otro lado, no siempre es necesario detectar la secuencia entre blancos. ver Stemmer, tokenización en word embeddings, incluso tokenización por carácter. -->
+<ol class="simple">
+<li><p>Los signos de puntuación son un <em>type</em> diferente, per aparecen pegados a la palabra anterior o posterio. Es necesario algún tipo de regla más allá del espacio en blanco que separe los signos de puntuación.</p></li>
+<li><p>Hay unidades lingüísticas que están formadas por más de un <em>type</em>. Me refiero a las llamadas “unidades multipalabra”, como por ejemplo las formas complejas de los verbos: “he comido”, “había creídos”, “fue resuelto”, etc.</p></li>
+<li><p>La situación contraria se produce con las contracciones como “del” o “al” y en general formas aglutinantes (“dáselo”). En este caso se podría considerar <em>types</em> diferentes porque responde a diferentes palabras y habría que separarlas.</p></li>
+</ol>
+<p>Un <em>tokenizado</em> estándar resuelve el primer problema de los signos de puntuación, pero no los otros dos. Esto se deja para el lematizados, que se comentará después.</p>
+<p>Por otro lado, no siempre la tokenización depende del espacio en blanco. Como se comentó antes, un <em>token</em> es la instancia de un <em>type</em>. Este puede ser cualquier secuencia de caracteres que se repitan en el texto, incluso se podría tokenizar por caracteres individuales.</p>
+<p>Los sistemas neuronales explotan diversas formas de tokenización para mejorar los análisis. En capítulos siguiente se verá cómo. Los sistemas de PLN estándar suelen trabajar con la tokenización por espacio en blanco. La herramienta NLTK (<em>Natural Language Toolkit</em>) dispone de diferentes <a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.html">tokenizadores</a>.<a class="footnote-reference brackets" href="#id7" id="id3">3</a></p>
 </section>
 <section id="lematizacion-y-stemming">
 <h3><span class="section-number">3.1.2. </span>Lematización y <em>stemming</em><a class="headerlink" href="#lematizacion-y-stemming" title="Permalink to this headline">#</a></h3>
-<p><em>Type</em> y <em>token</em> se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, “catamos” y “cantaré” son <em>tokens</em> distintos; al igual que “casa” y “casas”.</p>
-<p>Para agrupar todos los <em>tokens</em> relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de <em>lematización</em>. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.</p>
-<p>La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del <em>token</em> “traje” puede ser “traer” (si es verbo) o “traje” (si es nombre).</p>
-<p>Un proceso similar pero más sencillo es el <em>stemming</em>: reducir cada <em>token</em> a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).</p>
-<blockquote>
-<div><p><em>Reflexión:</em> para minería de textos, ¿qué es mejor, dejar el corpus con los <em>tokens</em>, lematizarlo o trabajar solo con las raíces léxicas (<em>stemm</em>)?</p>
-</div></blockquote>
+<p><em>Type</em> y <em>token</em> se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, “catamos” y “cantaré” son <em>types</em> distintos; al igual que “casa” y “casas”.</p>
+<p>Para agrupar todos los <em>tokens</em> relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de <em>lematización</em>. La lematización consiste en asignar a cada palabra lo que en lingüística se denomina su “forma no marcada”: el infinitivo para verbos, o la forma masculino singular para nombres y verbos. La forma no marcada es la que aparece en el diccionario. El lema es una manera de nombrar la palabra en toda su diversidad flexiva.</p>
+<p>La lematización es un fenómenos complejo porque para saber el lema de un <em>token</em> es necesario analizar morfológicamente la palabra. Hay muchos casos de ambigüedad. Por ejmeplo, el lema del <em>token</em> “traje” puede ser tanto “traer” (si es verbo) como “traje” (si es nombre).</p>
+<p>Por ello en algunas aplicaciones como en recuperación de información, en vez de una lematización completa, se utiliza un proceso similar pero más rápido y sencillo denominado <em><strong>stemming</strong></em>. Este consiste en reducir cada <em>token</em> a su raíz o lexema, es decir, la parte invarible del <em>token</em> (siempre y cuando responda a una flexió morfológica regular) que, en principio, asume el significado general de la palabra. Así, por ejemplo, de las diferentes formas del verbo “amar” (amaría, amaré, amado, ame, etc.), un <em>stemmer</em> reduciría cada <em>token</em> a su raíz “am-”, mientras que un lematizador lo relacionaría con el lema “amar”.</p>
+<!-- *Reflexión:* para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? -->
 </section>
 </section>
 <section id="analisis-morfologico-y-categorial">
 <h2><span class="section-number">3.2. </span>Análisis morfológico y categorial.<a class="headerlink" href="#analisis-morfologico-y-categorial" title="Permalink to this headline">#</a></h2>
-<p>El objetivo general de la anotación categorial (<em>PoS Tagger</em>): asignar a cada palabra de un texto su categoría gramatical correspondiente. En concreto, a cada <em>token</em> del texto (incluidos signos de puntuación, etc) se le asigna:</p>
+<p>La herramienta de PLN que realiza el análisis morfológico y categorial es el <em>Part of Speech tagger</em> (<em>pos_tagger</em> o analizador categorial).</p>
+<p>El objetivo principal de una analizador categorial es asignar a cada <em>token</em> de un texto su categoría gramatical correspondiente, incluidos signos de puntuación. En concreto, los datos que analiza un <em>pos_tagger</em> estándar suelen ser, por cada <em>token</em>:</p>
 <ul class="simple">
-<li><p>lema,</p></li>
-<li><p>categoría gramatical,</p></li>
-<li><p>rasgos morfológicos.</p></li>
+<li><p>el lema,</p></li>
+<li><p>la categoría gramatical (“nombre, verbo, adjetivo, …”),</p></li>
+<li><p>rasgos morfológicos (género, número, voz, tiempo, etc.).</p></li>
 </ul>
-<p>El mayor problema viene en la selección de la categoría gramatical por los problemas de <em>ambigüedad categorial</em> que vimos en la sesión anterior.</p>
+<p>El mayor problema que resuleve un analizador categorial es la <em>ambigüedad categorial</em> que vimos en la anteriormente: aquellos <em>tokens</em> que pueden pertencer a dos o más categorías gramaticales.</p>
 <section id="fundamentos-linguisticos-a-modo-de-recordatorio">
 <h3><span class="section-number">3.2.1. </span>Fundamentos lingüísticos (a modo de recordatorio).<a class="headerlink" href="#fundamentos-linguisticos-a-modo-de-recordatorio" title="Permalink to this headline">#</a></h3>
 <p>Categorías gramaticales: agrupaciones de palabras (“paradigmas”) según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.</p>
@@ -915,7 +915,7 @@ title="Print to PDF"
 <section id="representacion-de-la-informacion-morfologica-y-categorial">
 <h3><span class="section-number">3.2.3. </span>Representación de la información morfológica y categorial<a class="headerlink" href="#representacion-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">#</a></h3>
 <p>La información categorial y morfológica se representa explícitamente mediante etiquetas.</p>
-<p>Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.</p>
+<p>Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de <em>PoS tagger</em> que estemos utilizando par poder interpretar la información correctamente.</p>
 <p>Algunas propuestas:</p>
 <ul class="simple">
 <li><p>Penn Treebank tag set:</p></li>
@@ -1131,8 +1131,8 @@ nltk.app.srparser()
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3><span class="section-number">3.3.8. </span>Situación actual<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<section id="id4">
+<h3><span class="section-number">3.3.8. </span>Situación actual<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p><em>Transition-based dependency parsing</em> (Nivre 2014). Algoritmo shift-reduce.</p>
 <p><em>Neural Network Dependency Parser</em>: <a class="reference external" href="https://nlp.stanford.edu/software/nndep.shtml">https://nlp.stanford.edu/software/nndep.shtml</a></p>
 <p>Modelo de dependencias universal: <a class="reference external" href="https://universaldependencies.org/"><em>Universal Dependencies</em></a>:</p>
@@ -1157,17 +1157,21 @@ nltk.app.srparser()
 <h2><span class="section-number">3.4. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Abney S.P. (1991) “Parsing By Chunks”. In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. <a class="reference external" href="https://doi.org/10.1007/978-94-011-3474-3_10">https://doi.org/10.1007/978-94-011-3474-3_10</a></p></li>
+<li><p>Steven Bird, Ewan Klein, and Edward Loper (2009) <em>Natural Language Processing with Python</em> <a class="reference external" href="https://www.nltk.org/book/">https://www.nltk.org/book/</a></p></li>
 <li><p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a></p></li>
 <li><p>Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. <em>Constraint Grammar. A language-independent system for parsing unrestricted text</em>. Berlin and New-York: Mouton de Gruyter</p></li>
 </ul>
 <hr class="docutils" />
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>“Token” se asimila en este caso a “occurrence”. Cfr. <a class="reference external" href="https://plato.stanford.edu/entries/types-tokens/#Occ">https://plato.stanford.edu/entries/types-tokens/#Occ</a></p>
 </dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>Este verso es una adaptación del verso de Gertrude Stein “A rose is a rose is a rose”. Ver <a class="reference external" href="https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa">https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa</a>.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Ver <a class="reference external" href="https://www.nltk.org/book/ch03.html">capítulo 3</a> del libro <a class="reference external" href="https://www.nltk.org/book/ch03.html"><em>Natural Language Processing with Python</em></a> para una explicación sencialla.</p>
 </dd>
 </dl>
 </section>

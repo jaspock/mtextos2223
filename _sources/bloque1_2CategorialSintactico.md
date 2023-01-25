@@ -48,35 +48,39 @@ El primer paso a la hora de procesar un texto es, por tanto, hallar los *tokens*
 
 El método de tokenización más simple es separar cada token por espacio en blaco. *Token* quedaría así definido como la secunencia de caracteres separada por un espacio en blanco. Desde un punto de vista lingüístico, esta aproximación presenta algunas limitaciones:
 
-- signos de puntuación,
-- unidades multipalabra (como formas complejas del verbo Ej. "he comido") o
-- contracciones ("del", "al") y en general formas aglutinantes ("dáselo").
+1. Los signos de puntuación son un *type* diferente, per aparecen pegados a la palabra anterior o posterio. Es necesario algún tipo de regla más allá del espacio en blanco que separe los signos de puntuación.
+2. Hay unidades lingüísticas que están formadas por más de un *type*. Me refiero a las llamadas "unidades multipalabra", como por ejemplo las formas complejas de los verbos: "he comido", "había creídos", "fue resuelto", etc. 
+3. La situación contraria se produce con las contracciones como "del" o "al" y en general formas aglutinantes ("dáselo"). En este caso se podría considerar *types* diferentes porque responde a diferentes palabras y habría que separarlas. 
 
-Necesidad de modelos más sofisticados. <!-- Hoy día es un problema resuelto -->
+Un *tokenizado* estándar resuelve el primer problema de los signos de puntuación, pero no los otros dos. Esto se deja para el lematizados, que se comentará después.
 
-<!-- Por otro lado, no siempre es necesario detectar la secuencia entre blancos. ver Stemmer, tokenización en word embeddings, incluso tokenización por carácter. -->
+Por otro lado, no siempre la tokenización depende del espacio en blanco. Como se comentó antes, un *token* es la instancia de un *type*. Este puede ser cualquier secuencia de caracteres que se repitan en el texto, incluso se podría tokenizar por caracteres individuales.
+
+Los sistemas neuronales explotan diversas formas de tokenización para mejorar los análisis. En capítulos siguiente se verá cómo. Los sistemas de PLN estándar suelen trabajar con la tokenización por espacio en blanco. La herramienta NLTK (*Natural Language Toolkit*) dispone de diferentes [tokenizadores](https://www.nltk.org/api/nltk.tokenize.html).[^3]
 
 ### Lematización y *stemming*
 
-*Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
+*Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *types* distintos; al igual que "casa" y "casas".
 
-Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
+Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización consiste en asignar a cada palabra lo que en lingüística se denomina su "forma no marcada": el infinitivo para verbos, o la forma masculino singular para nombres y verbos. La forma no marcada es la que aparece en el diccionario. El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
 
-La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del *token* "traje" puede ser "traer" (si es verbo) o "traje" (si es nombre).
+La lematización es un fenómenos complejo porque para saber el lema de un *token* es necesario analizar morfológicamente la palabra. Hay muchos casos de ambigüedad. Por ejmeplo, el lema del *token* "traje" puede ser tanto "traer" (si es verbo) como "traje" (si es nombre).
 
-Un proceso similar pero más sencillo es el *stemming*: reducir cada *token* a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).
+Por ello en algunas aplicaciones como en recuperación de información, en vez de una lematización completa, se utiliza un proceso similar pero más rápido y sencillo denominado ***stemming***. Este consiste en reducir cada *token* a su raíz o lexema, es decir, la parte invarible del *token* (siempre y cuando responda a una flexió morfológica regular) que, en principio, asume el significado general de la palabra. Así, por ejemplo, de las diferentes formas del verbo "amar" (amaría, amaré, amado, ame, etc.), un *stemmer* reduciría cada *token* a su raíz "am-", mientras que un lematizador lo relacionaría con el lema "amar".  
 
-> *Reflexión:* para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? 
+<!-- *Reflexión:* para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? -->
 
 ## Análisis morfológico y categorial.
 
-El objetivo general de la anotación categorial (*PoS Tagger*): asignar a cada palabra de un texto su categoría gramatical correspondiente. En concreto, a cada *token* del texto (incluidos signos de puntuación, etc) se le asigna:
+La herramienta de PLN que realiza el análisis morfológico y categorial es el *Part of Speech tagger* (*pos_tagger* o analizador categorial).
 
-- lema,
-- categoría gramatical,
-- rasgos morfológicos.
+El objetivo principal de una analizador categorial es asignar a cada *token* de un texto su categoría gramatical correspondiente, incluidos signos de puntuación. En concreto, los datos que analiza un *pos_tagger* estándar suelen ser, por cada *token*: 
 
-El mayor problema viene en la selección de la categoría gramatical por los problemas de *ambigüedad categorial* que vimos en la sesión anterior.
+- el lema,
+- la categoría gramatical ("nombre, verbo, adjetivo, ..."),
+- rasgos morfológicos (género, número, voz, tiempo, etc.).
+
+El mayor problema que resuleve un analizador categorial es la *ambigüedad categorial* que vimos en la anteriormente: aquellos *tokens* que pueden pertencer a dos o más categorías gramaticales.
 
 
 ### Fundamentos lingüísticos (a modo de recordatorio).
@@ -107,7 +111,7 @@ Un pre-proceso muy común en Minería de Textos es eliminar las "stop-words", es
 
 La información categorial y morfológica se representa explícitamente mediante etiquetas.
 
-Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.
+Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de *PoS tagger* que estemos utilizando par poder interpretar la información correctamente.
 
 Algunas propuestas:
 
@@ -369,6 +373,7 @@ Representación vectorial (*embeddings*).
 ## Bibliografía
 
 - Abney S.P. (1991) "Parsing By Chunks". In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3474-3_10
+- Steven Bird, Ewan Klein, and Edward Loper (2009) *Natural Language Processing with Python* <https://www.nltk.org/book/>
 - Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
 - Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. _Constraint Grammar. A language-independent system for parsing unrestricted text_. Berlin and New-York: Mouton de Gruyter
 
@@ -377,3 +382,5 @@ Representación vectorial (*embeddings*).
 [^1]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
 
 [^2]: Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
+
+[^3]: Ver [capítulo 3](https://www.nltk.org/book/ch03.html) del libro [*Natural Language Processing with Python*](https://www.nltk.org/book/ch03.html) para una explicación sencialla.
