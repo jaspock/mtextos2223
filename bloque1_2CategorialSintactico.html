@@ -992,7 +992,8 @@ VMIP1S0 = verbo principal indicativo presente primera persona singular
 <section id="arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
 <h3><span class="section-number">3.2.4. </span>Arquitectura de un <em>PoS_tagger</em>. Algoritmos clásicos de desambiguación.<a class="headerlink" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion" title="Permalink to this headline">#</a></h3>
 <p>La siguiente imagen muestra una sencilla arquitectura para un <em>pos_tagger</em>:</p>
-<p><img alt="ArquitecturaPoStagger" src="_images/arquitecturaPoStagger.png" /></p>
+<!-- ![ArquitecturaPoStagger](images/arquitecturaPoStagger.png) -->
+<img src="images/arquitecturaPoStagger.png" width="350" height="300">
 <p>La entrada es un texto que ha sido previamente tokenizado. Los signos de puntuación, por ejemplo, estarán separados de las palabras anterior o posterior (según proceda). La salida será cada <em>token</em> de entrada junto a su información categorial y morfológica. Normalmente, la salida de un <em>pos tagger</em> es:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>token lema etiqueta_PoS
 </pre></div>
