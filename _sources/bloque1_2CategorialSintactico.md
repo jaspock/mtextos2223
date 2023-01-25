@@ -126,7 +126,6 @@ Antes de exponer los métodos de análisis categorial, vamos a ver cómo se repr
 
 La información categorial y morfológica se representa explícitamente mediante etiquetas o tags. Actualmente hay diversas propuestas, cada una con un juego de etiquetas diferente. Antes de usar un *PoS_tagger*, es muy importante saber con qué juego de etiquetas representa la información para poder luego interpretar la información correctamente. Las listas de etiquetas (o *tag sets*) comunes hoy día en PLN son los siguientes:
 
-
 + *Penn Treebank tag set* (solo para inglés):
   - [https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html](https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html)
   - Ejemplos:
@@ -170,13 +169,27 @@ La información categorial y morfológica se representa explícitamente mediante
   - Este modelo se planteó como un modelo multilingüe. Así, no todas las palabras de todos los idiomas tienen esa información morfológica. Si una palabra no tiene un rasgo morfológico determinado, en la etiqueta aparece $0$.
   - Por ejemplo, en la etiqueta "NCFP000" no es relevante ni el rasgo semántico (codificado como 00) ni el grado (codificado como 0). Sí es relevante la categoría (N: nombre), el tipo (C: común), el género (F: femenino) y el número (P: plural). Esta etiqueta se asociaría por ejemplo a la palabra "camisas".
 
+Como se puede observar, los *tag sets* utilizados en PLN suelen tener más categorías que las utilizadas en lingüística teórica. Por ejemplo, presentan etiquetas específicas para los signos de puntuación o para números y fechas, entre otros casos.
+
 ### Arquitectura de un *PoS_tagger*. Algoritmos clásicos de desambiguación.
+
+La siguiente imagen muestra una sencilla arquitectura para un *pos_tagger*:
 
 ![ArquitecturaPoStagger](images/arquitecturaPoStagger.png)
 
-Ejemplo: Freeling.
+La entrada es un texto que ha sido previamente tokenizado. Los signos de puntuación, por ejemplo, estarán separados de las palabras anterior o posterior (según proceda). La salida será cada *token* de entrada junto a su información categorial y morfológica. Normalmente, la salida de un *pos tagger* es:
+
+    token lema etiqueta_PoS
+
+Para poder determinar el lema y la categoría de cada *token*, así como la información morfológica, el *pos_tagger* necesita algún tipo de recurso. Básicamente dos: un diccionario que contenga la información morfológica de cada palabra; y un conjunto de reglas (gramática) que deriven la información morfológica según los rasgos de la palabra y de las palabas del contexto. Este puede haber sido creado a mano (reglas manuales) o  mediante aprendizaje automático.
+
+Un ejemplo de *PoS_tagger* para español es *Freeling*. Antes de seguir, prueba su demo:
+
+- <https://nlp.lsi.upc.edu/freeling/demo/demo.php>
 
 ### Algoritmos de desambiguación categorial (aproximación histórica)
+
+Si un *token* solo puede pertenecer a una categoría gramatical, su análisis morfológica es sencillo: basta con consultar el diccionario para saber su categoría. El problema viene cuando un *token* puede pertenecer a dos o más categorías gramaticales (ambigüedad categorial). Este es el caso más común, pues más del 60% de las palabras de un texto en español suelen presentar ambigüedad categorial. En esta sección se presentan los principales algoritmos para resolver ambigüedad categorial.
 
 #### Modelo de reglas simples.
 

@@ -987,14 +987,25 @@ VMIP1S0 = verbo principal indicativo presente primera persona singular
 </ul>
 </li>
 </ul>
+<p>Como se puede observar, los <em>tag sets</em> utilizados en PLN suelen tener más categorías que las utilizadas en lingüística teórica. Por ejemplo, presentan etiquetas específicas para los signos de puntuación o para números y fechas, entre otros casos.</p>
 </section>
 <section id="arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
 <h3><span class="section-number">3.2.4. </span>Arquitectura de un <em>PoS_tagger</em>. Algoritmos clásicos de desambiguación.<a class="headerlink" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion" title="Permalink to this headline">#</a></h3>
+<p>La siguiente imagen muestra una sencilla arquitectura para un <em>pos_tagger</em>:</p>
 <p><img alt="ArquitecturaPoStagger" src="_images/arquitecturaPoStagger.png" /></p>
-<p>Ejemplo: Freeling.</p>
+<p>La entrada es un texto que ha sido previamente tokenizado. Los signos de puntuación, por ejemplo, estarán separados de las palabras anterior o posterior (según proceda). La salida será cada <em>token</em> de entrada junto a su información categorial y morfológica. Normalmente, la salida de un <em>pos tagger</em> es:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>token lema etiqueta_PoS
+</pre></div>
+</div>
+<p>Para poder determinar el lema y la categoría de cada <em>token</em>, así como la información morfológica, el <em>pos_tagger</em> necesita algún tipo de recurso. Básicamente dos: un diccionario que contenga la información morfológica de cada palabra; y un conjunto de reglas (gramática) que deriven la información morfológica según los rasgos de la palabra y de las palabas del contexto. Este puede haber sido creado a mano (reglas manuales) o  mediante aprendizaje automático.</p>
+<p>Un ejemplo de <em>PoS_tagger</em> para español es <em>Freeling</em>. Antes de seguir, prueba su demo:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nlp.lsi.upc.edu/freeling/demo/demo.php">https://nlp.lsi.upc.edu/freeling/demo/demo.php</a></p></li>
+</ul>
 </section>
 <section id="algoritmos-de-desambiguacion-categorial-aproximacion-historica">
 <h3><span class="section-number">3.2.5. </span>Algoritmos de desambiguación categorial (aproximación histórica)<a class="headerlink" href="#algoritmos-de-desambiguacion-categorial-aproximacion-historica" title="Permalink to this headline">#</a></h3>
+<p>Si un <em>token</em> solo puede pertenecer a una categoría gramatical, su análisis morfológica es sencillo: basta con consultar el diccionario para saber su categoría. El problema viene cuando un <em>token</em> puede pertenecer a dos o más categorías gramaticales (ambigüedad categorial). Este es el caso más común, pues más del 60% de las palabras de un texto en español suelen presentar ambigüedad categorial. En esta sección se presentan los principales algoritmos para resolver ambigüedad categorial.</p>
 <section id="modelo-de-reglas-simples">
 <h4><span class="section-number">3.2.5.1. </span>Modelo de reglas simples.<a class="headerlink" href="#modelo-de-reglas-simples" title="Permalink to this headline">#</a></h4>
 <p>Sistema TAGGIT (1950).
