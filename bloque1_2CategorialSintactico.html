@@ -822,31 +822,44 @@ title="Print to PDF"
 <p>Si bien el concepto de “palabra” se suele utilizar como unidad mínima y básica de comunicación, realmente desde la palabra no tiene en lingüística una definición clara: es un concepto vago muy difícil de delimitar.</p>
 <p>En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de “palabra”, se trabaja con los conceptos de <em>type</em> (“tipo”) y <em>token</em> (“caso”) (<a class="reference external" href="https://es.wikipedia.org/wiki/Caso_y_tipo">introducidos por el filósofo Charles S. Peirce</a> a principio de siglo XX):</p>
 <ul class="simple">
-<li><p><em>Type</em> es la palabra entendida como clase. Una secuencia de caracteres diferente de cualquier otra secuencia.</p></li>
-<li><p><em>Token</em> es cada una de las instancias concretas de esas clase (<em>type</em>) que se pueda hallar en un texto <a class="footnote-reference brackets" href="#id4" id="id1">1</a>.</p></li>
+<li><p><em>Type</em> es la palabra entendida como clase o tipo. Una secuencia de caracteres diferente de cualquier otra secuencia.</p></li>
+<li><p><em>Token</em> es cada una de las instancias o casos concretos de esas clase <em>type</em> que se pueda hallar en un texto <a class="footnote-reference brackets" href="#id4" id="id1">1</a>.</p></li>
 </ul>
-<p>Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein</p>
+<p>Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein:</p>
 <blockquote>
-<div><p>“Rose is a rose is a rose is a rose”</p>
+<div><p>“Rose is a rose is a rose is a rose”;</p>
 </div></blockquote>
-<p>Pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">esta canción</a> del grupo de los 80 <em>Mecano</em> (que es una versión del verso de Stein):</p>
+<p>pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">esta canción</a> de <em>Mecano</em>, que es una versión simplificada del verso de Stein:</p>
 <blockquote>
 <div><p>“Una rosa es una rosa es” <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
 </div></blockquote>
-<p>encontramos tres <em>types</em>:</p>
+<p>En este verso encontramos tres <em>types</em>:</p>
 <ul class="simple">
 <li><p>“una”</p></li>
 <li><p>“rosa”</p></li>
-<li><p>“es”</p></li>
+<li><p>“es”;</p></li>
 </ul>
-<p>pero seis <em>tokens</em>:  2 <em>tokens</em> del <em>type</em> “una”, 2 del <em>type</em> “rosa” y 2 del <em>type</em> “es”. 2+2+2 = 6 <em>tokens</em>. Este texto está formado por tanto por seis <em>tokens</em> y tres <em>types</em>.</p>
+<p>pero seis <em>tokens</em>: 2 <em>tokens</em> del <em>type</em> “una”, 2 del <em>type</em> “rosa” y 2 del <em>type</em> “es”. Son por tanto <span class="math notranslate nohighlight">\(2+2+2 = 6\)</span> <em>tokens</em>. Este texto está formado por seis <em>tokens</em> y tres <em>types</em>.</p>
 <p>Como se puede comprobar, esta diferencia es la base conceptual del cálculo de frecuencias textuales. El cálculo más simple es contar, como se ha hecho antes, la cantidad de <em>tokens</em> de cada <em>type</em> en un texto:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(una | 2\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(rosa | 2\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(es | 2\)</span></p></li>
-</ul>
-<p>En esta línea, el tamaño de un corpus siempre se mide en cantidad de <em>tokens</em>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>type</em></p></th>
+<th class="head"><p><em>tokens</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>una</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>rosa</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>es</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>En esta línea, <strong>el tamaño de un corpus siempre se mide en cantidad de <em>tokens</em>.</strong></p>
 <section id="tokenizacion">
 <h3><span class="section-number">3.1.1. </span>Tokenización<a class="headerlink" href="#tokenizacion" title="Permalink to this headline">#</a></h3>
 <p>El primer paso a la hora de procesar un texto es, por tanto, hallar los <em>tokens</em> y, con ello, los <em>types</em> que forman el texto. A este proceso se le denomina <strong>tokenización</strong>.</p>
