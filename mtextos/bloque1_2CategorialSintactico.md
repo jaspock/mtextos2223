@@ -175,9 +175,7 @@ Como se puede observar, los *tag sets* utilizados en PLN suelen tener más categ
 
 La siguiente imagen muestra una sencilla arquitectura para un *pos_tagger*:
 
-<!-- ![ArquitecturaPoStagger](images/arquitecturaPoStagger.png) -->
-
-<img src="images/arquitecturaPoStagger.png" width="350" height="300">
+![ArquitecturaPoStagger](images/arquitecturaPoStagger.png)
 
 La entrada es un texto que ha sido previamente tokenizado. Los signos de puntuación, por ejemplo, estarán separados de las palabras anterior o posterior (según proceda). La salida será cada *token* de entrada junto a su información categorial y morfológica. Normalmente, la salida de un *pos tagger* es:
 
