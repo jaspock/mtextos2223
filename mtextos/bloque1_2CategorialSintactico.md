@@ -22,7 +22,7 @@ Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Ste
 
 pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de [esta canción](https://www.youtube.com/watch?v=dv958EeZXHc) de _Mecano_, que es una versión simplificada del verso de Stein:
 
-> "Una rosa es una rosa es" [^2]
+> "Una rosa es una rosa es".
 
 En este verso encontramos tres *types*:
 
@@ -64,7 +64,10 @@ Los sistemas neuronales explotan diversas formas de tokenización para mejorar l
 
 Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización consiste en asignar a cada palabra lo que en lingüística se denomina su "forma no marcada": el infinitivo para verbos, o la forma masculino singular para nombres y verbos. La forma no marcada es la que aparece en el diccionario. El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
 
-La lematización es un fenómenos complejo porque para saber el lema de un *token* es necesario analizar morfológicamente la palabra. Hay muchos casos de ambigüedad. Por ejmeplo, el lema del *token* "traje" puede ser tanto "traer" (si es verbo) como "traje" (si es nombre).
+La lematización es un fenómenos complejo porque para saber el lema de un *token* es necesario analizar morfológicamente la palabra. Hay muchos casos de ambigüedad. Por ejemplo, el lema del *token* "traje" puede ser tanto "traer" (si es verbo) como "traje" (si es nombre), como en el siguiente texto:
+
+> - ¿Usted no nada nada?
+> - Es que no traje traje.
 
 Por ello en algunas aplicaciones como en recuperación de información, en vez de una lematización completa, se utiliza un proceso similar pero más rápido y sencillo denominado ***stemming***. Este consiste en reducir cada *token* a su raíz o lexema, es decir, la parte invarible del *token* (siempre y cuando responda a una flexió morfológica regular) que, en principio, asume el significado general de la palabra. Así, por ejemplo, de las diferentes formas del verbo "amar" (amaría, amaré, amado, ame, etc.), un *stemmer* reduciría cada *token* a su raíz "am-", mientras que un lematizador lo relacionaría con el lema "amar".  
 
@@ -80,14 +83,22 @@ El objetivo principal de una analizador categorial es asignar a cada *token* de 
 - la categoría gramatical ("nombre, verbo, adjetivo, ..."),
 - rasgos morfológicos (género, número, voz, tiempo, etc.).
 
-El mayor problema que resuleve un analizador categorial es la *ambigüedad categorial* que vimos en la anteriormente: aquellos *tokens* que pueden pertencer a dos o más categorías gramaticales.
+El mayor problema que resuelve un analizador categorial es la *ambigüedad categorial* que vimos anteriormente: aquellos *tokens* que pueden pertencer a dos o más categorías gramaticales.
 
+### Algunos conceptos lingüísticos.
 
-### Fundamentos lingüísticos (a modo de recordatorio).
+A modo de recordatorio, en esta sección se repasan algunos conceptos lingüísticos que se deben tener claros para trabajar con *pos taggers*.[^4]
 
-Categorías gramaticales: agrupaciones de palabras ("paradigmas") según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.
+Las palabras de un idioma se clasifican en categorías gramaticales o "clases de palabras". Cada categoría agrupas palabras que tienen un corportamiento lingüístico similar: palabras con rasgos distributivos y morfológicos similares, y en algunso casos también rasgos semánticos parecidos.
 
-ESP: determinantes (artículo, demostrativos, etc.), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.
+Si bien no hay una lista fija de categorías gramaticales (las diferentes teorías suelen presentar pequeñas variantes), en español las categorías gramaticales suelen ser determinantes (incluyen aquí artículos, demostrativos, posesivos, numerales e indefinidos), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.
+
+Estas clases se agrupan en dos grandes grupos: las categorías abiertas y cerradas. Las abiertas son aquellas en las que constantemente está apareciendo palabras nuevas (neologismos) y desapareciendo otras (arcaísmos): nombres, verbos y adjetivos sobre todo. Las clases cerradas son las clases más estables porque apenas cambian en el tiempo (preposiciones, determinantes, conjunciones, interjecciones principalmente).
+
+Este diferencia es relevante desde el punto de vista computacional por dos hechos:
+
+1. Todo sistema de PLN debe estar preparado para analizar palabras nuevas. En una clase abierta el sistema de puede encontrar con palabras que no ha visto nunca antes (bien porque no está en el diccionario, bien porque no está en los corpus de aprendizaje) y debe ser capaz de analizarla. Este problema se da sobre todo con los nombres. Los sistemas neuronales actuales se han mostrado muy eficaces para tratar este problema.
+2. Las clases cerradas suelene estar formadas por pocas palabras. Esto provoca que la frecuencia de uso de las palabras de clases cerradas (preposiciones, conjunciones, etc.) sea muy alta. Así, al extraer las frecuencias de cualquier texto encontramos pocas palabras con frecuencias muy altas (las palabras de categorías cerradas) y muchas palabras con frecuencias muy bajas (el llamado [*hápax legómena*](https://es.wikipedia.org/wiki/H%C3%A1pax), que se produce con las palabras de categorías abiertas). Esto complica los análisis de frecuencia. Para evitar esta situación, las palabras de categoras cerradas se suelen filtrar antes de extraer frecuencias: son las llamadas *stop words*.
 
 Por su función en el texto: categorías con significado léxico vs. "significado" gramatical (solo aportan información gramatical).
 
@@ -373,6 +384,7 @@ Representación vectorial (*embeddings*).
 ## Bibliografía
 
 - Abney S.P. (1991) "Parsing By Chunks". In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3474-3_10
+- Emily M. Bender (2013) *Linguistic Fundamentals for Natural Language Processing. 100 Essentials from Morphology and Syntax*, Synthesis Lectures on Human Language Technologies DOI: <https://doi.org/10.1007/978-3-031-02150-3>
 - Steven Bird, Ewan Klein, and Edward Loper (2009) *Natural Language Processing with Python* <https://www.nltk.org/book/>
 - Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
 - Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. _Constraint Grammar. A language-independent system for parsing unrestricted text_. Berlin and New-York: Mouton de Gruyter
@@ -381,6 +393,6 @@ Representación vectorial (*embeddings*).
 
 [^1]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
 
-[^2]: Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
-
 [^3]: Ver [capítulo 3](https://www.nltk.org/book/ch03.html) del libro [*Natural Language Processing with Python*](https://www.nltk.org/book/ch03.html) para una explicación sencialla.
+
+[^4]: Bender (2013) presenta una buena introducción a conceptos lingüísticos de uso común en Procesamiento del Lenguaje Natural.
