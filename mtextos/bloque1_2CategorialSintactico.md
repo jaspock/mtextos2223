@@ -13,32 +13,34 @@ Si bien el concepto de "palabra" se suele utilizar como unidad mínima y básica
 
 En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de "palabra", se trabaja con los conceptos de *type* ("tipo") y *token* ("caso") ([introducidos por el filósofo Charles S. Peirce](https://es.wikipedia.org/wiki/Caso_y_tipo) a principio de siglo XX):
 
-  - *Type* es la palabra entendida como clase. Una secuencia de caracteres diferente de cualquier otra secuencia.  
-  - *Token* es cada una de las instancias concretas de esas clase (*type*) que se pueda hallar en un texto [^1].
+  - *Type* es la palabra entendida como clase o tipo. Una secuencia de caracteres diferente de cualquier otra secuencia.  
+  - *Token* es cada una de las instancias o casos concretos de esas clase *type* que se pueda hallar en un texto [^1].
 
-Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein
+Se suele ejemplificar la diferencia entre ambos conceptos con el verso de G. Stein:
 
-> "Rose is a rose is a rose is a rose"
+> "Rose is a rose is a rose is a rose";
 
-Pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de [esta canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_ (que es una versión del verso de Stein):
+pero para españolizarlo un poco vamos a coger como ejemplo el siguiente verso de [esta canción](https://www.youtube.com/watch?v=dv958EeZXHc) de _Mecano_, que es una versión simplificada del verso de Stein:
 
 > "Una rosa es una rosa es" [^2]
 
-encontramos tres *types*:
+En este verso encontramos tres *types*:
 
 - "una"
 - "rosa"
-- "es"
+- "es";
 
-pero seis *tokens*:  2 *tokens* del *type* "una", 2 del *type* "rosa" y 2 del *type* "es". 2+2+2 = 6 *tokens*. Este texto está formado por tanto por seis *tokens* y tres *types*.
+pero seis *tokens*: 2 *tokens* del *type* "una", 2 del *type* "rosa" y 2 del *type* "es". Son por tanto $2+2+2 = 6$ *tokens*. Este texto está formado por seis *tokens* y tres *types*.
 
 Como se puede comprobar, esta diferencia es la base conceptual del cálculo de frecuencias textuales. El cálculo más simple es contar, como se ha hecho antes, la cantidad de *tokens* de cada *type* en un texto:
 
-- $una | 2$
-- $rosa | 2$
-- $es | 2$
+|*type*|*tokens*|
+|------|--------|
+|una   | $2$    |
+|rosa  | $2$    |
+|es    | $2$    |
 
-En esta línea, el tamaño de un corpus siempre se mide en cantidad de *tokens*.
+En esta línea, **el tamaño de un corpus siempre se mide en cantidad de *tokens*.**
 
 ### Tokenización
 
