@@ -9,9 +9,9 @@ Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Marti
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
-Si bien el conceopto de "palabra" se suele utilizar como unidad mínima y básica de comunicación, realmente desde la lingüística no tiene una definición clara: la palabra es un concepto vago muy difícil de delimitar.
+Si bien el concepto de "palabra" se suele utilizar como unidad mínima y básica de comunicación, realmente desde la palabra no tiene en lingüística una definición clara: es un concepto vago muy difícil de delimitar.
 
-En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de "palabra", se trabaja con los conceptos de *type* y *token* (introducidos por el filósofo Charles S. Peirce a principio de siglo XX):
+En lingüística de corpus, lingüística computacional y procesamiento del lenguaje natural, más que con el concepto de "palabra", se trabaja con los conceptos de *type* ("tipo") y *token* ("caso") ([introducidos por el filósofo Charles S. Peirce](https://es.wikipedia.org/wiki/Caso_y_tipo) a principio de siglo XX):
 
   - *Type* es la palabra entendida como clase. Una secuencia de caracteres diferente de cualquier otra secuencia.  
   - *Token* es cada una de las instancias concretas de esas clase (*type*) que se pueda hallar en un texto [^1].
