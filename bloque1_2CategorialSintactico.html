@@ -458,8 +458,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#representacion-de-la-informacion-morfologica-y-categorial">
-     3.2.3. Representación de la información morfológica y categorial
+    <a class="reference internal nav-link" href="#representacion-formal-de-la-informacion-morfologica-y-categorial">
+     3.2.3. Representación formal de la información morfológica y categorial
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -661,8 +661,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#representacion-de-la-informacion-morfologica-y-categorial">
-     3.2.3. Representación de la información morfológica y categorial
+    <a class="reference internal nav-link" href="#representacion-formal-de-la-informacion-morfologica-y-categorial">
+     3.2.3. Representación formal de la información morfológica y categorial
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -926,25 +926,67 @@ title="Print to PDF"
 <li><p>etc.</p></li>
 </ul>
 </section>
-<section id="representacion-de-la-informacion-morfologica-y-categorial">
-<h3><span class="section-number">3.2.3. </span>Representación de la información morfológica y categorial<a class="headerlink" href="#representacion-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">#</a></h3>
-<p>La información categorial y morfológica se representa explícitamente mediante etiquetas.</p>
-<p>Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de <em>PoS tagger</em> que estemos utilizando par poder interpretar la información correctamente.</p>
-<p>Algunas propuestas:</p>
-<ul class="simple">
-<li><p>Penn Treebank tag set:</p></li>
+<section id="representacion-formal-de-la-informacion-morfologica-y-categorial">
+<h3><span class="section-number">3.2.3. </span>Representación formal de la información morfológica y categorial<a class="headerlink" href="#representacion-formal-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">#</a></h3>
+<p>Antes de exponer los métodos de análisis categorial, vamos a ver cómo se representa formalmente esta información lingüística.</p>
+<p>La información categorial y morfológica se representa explícitamente mediante etiquetas o tags. Actualmente hay diversas propuestas, cada una con un juego de etiquetas diferente. Antes de usar un <em>PoS_tagger</em>, es muy importante saber con qué juego de etiquetas representa la información para poder luego interpretar la información correctamente. Las listas de etiquetas (o <em>tag sets</em>) comunes hoy día en PLN son los siguientes:</p>
+<ul>
+<li><p><em>Penn Treebank tag set</em> (solo para inglés):</p>
+<ul>
+<li><p><a class="reference external" href="https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html">https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html</a></p></li>
+<li><p>Ejemplos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>JJ = adjetivo
+NN = nombre común
+VB = verbo
+...
+</pre></div>
+</div>
+</li>
 </ul>
-<p><a class="reference external" href="https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html">https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html</a></p>
-<ul class="simple">
-<li><p>EAGLES tag set:</p></li>
+</li>
+<li><p><em>Universal tagset</em> (<em>Universal dependencies project</em>):</p>
+<ul>
+<li><p><a class="reference external" href="https://universaldependencies.org/u/pos/">https://universaldependencies.org/u/pos/</a></p></li>
+<li><p>Ejemplos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ADJ   = adjetivo
+NOUN  = nombre
+VERB  = verbo
+...
+</pre></div>
+</div>
+</li>
+<li><p>Este modelo, el más utilizado hoy día, está adaptado a más de 50 idiomas (y sigue creciendo). Es el más apropiado para minería de textos multilingüe. Ver <a class="reference external" href="https://universaldependencies.org/">https://universaldependencies.org/</a></p></li>
 </ul>
-<p><a class="reference external" href="http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html">http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html</a></p>
-<p><a class="reference external" href="http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html">http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html</a></p>
-<p><a class="reference external" href="https://freeling-user-manual.readthedocs.io/en/latest/tagsets/">https://freeling-user-manual.readthedocs.io/en/latest/tagsets/</a></p>
+</li>
+<li><p><em>EAGLES tag set</em> (para varios idiomas):</p>
+<ul>
+<li><p><a class="reference external" href="http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html">http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html</a></p></li>
+<li><p><a class="reference external" href="https://freeling-user-manual.readthedocs.io/en/latest/tagsets/">https://freeling-user-manual.readthedocs.io/en/latest/tagsets/</a></p></li>
+<li><p><a class="reference external" href="http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html">http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html</a></p></li>
+<li><p>Ejemplo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AQ0CP0  = adjetivo calificativo común plural
+NCFP000 = nombre común femenino plural
+VMIP1S0 = verbo principal indicativo presente primera persona singular
+...
+</pre></div>
+</div>
+</li>
+<li><p>Este tipo de etiqueta es más complejo pero contiene bastante información. Cada posición es un rasgo morfológico. El primero (A, N, V, etc.) indica la categoría gramatical. El resto de posiciones, dependiendo de la categoría, aporta una información morfológica u otra. Así, para nombre, las posicones indican:</p>
 <ul class="simple">
-<li><p>Universal tagset (<em>Universal dependencies project</em>):</p></li>
+<li><p>1 categoría</p></li>
+<li><p>2: tipo: común o propio</p></li>
+<li><p>3: género</p></li>
+<li><p>4 número</p></li>
+<li><p>5-6 rasgos semántico</p></li>
+<li><p>7 grado</p></li>
 </ul>
-<p><a class="reference external" href="https://universaldependencies.org/u/pos/">https://universaldependencies.org/u/pos/</a></p>
+</li>
+<li><p>Ver las tablas para saber qué información contiene cada posición del resto de categorías.</p></li>
+<li><p>Este modelo se planteó como un modelo multilingüe. Así, no todas las palabras de todos los idiomas tienen esa información morfológica. Si una palabra no tiene un rasgo morfológico determinado, en la etiqueta aparece <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+<li><p>Por ejemplo, en la etiqueta “NCFP000” no es relevante ni el rasgo semántico (codificado como 00) ni el grado (codificado como 0). Sí es relevante la categoría (N: nombre), el tipo (C: común), el género (F: femenino) y el número (P: plural). Esta etiqueta se asociaría por ejemplo a la palabra “camisas”.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion">
 <h3><span class="section-number">3.2.4. </span>Arquitectura de un <em>PoS_tagger</em>. Algoritmos clásicos de desambiguación.<a class="headerlink" href="#arquitectura-de-un-pos-tagger-algoritmos-clasicos-de-desambiguacion" title="Permalink to this headline">#</a></h3>

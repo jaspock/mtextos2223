@@ -120,29 +120,55 @@ Otras aplicaciones de minería de textos sí dependen de las categorías gramati
 - la *detección de autoría* determina automáticamente quién es el autor de un texto sobre todo por cómo se utilizan las palabras de categorías cerradas (preposiciones, conjunciones, etc). Se ha demostrado que sus frecuencias de uso depende mucho del estilo personal de escritura de cada persona. La frecuencia de uso de otras clases de palabras como nombres o verbos depende más del tema del texto y no suelen ser buenos indicadores para detectar automáticamente la autoría de un texto.
 - etc.
 
-### Representación de la información morfológica y categorial
+### Representación formal de la información morfológica y categorial
 
-La información categorial y morfológica se representa explícitamente mediante etiquetas.
+Antes de exponer los métodos de análisis categorial, vamos a ver cómo se representa formalmente esta información lingüística. 
 
-Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de *PoS tagger* que estemos utilizando par poder interpretar la información correctamente.
+La información categorial y morfológica se representa explícitamente mediante etiquetas o tags. Actualmente hay diversas propuestas, cada una con un juego de etiquetas diferente. Antes de usar un *PoS_tagger*, es muy importante saber con qué juego de etiquetas representa la información para poder luego interpretar la información correctamente. Las listas de etiquetas (o *tag sets*) comunes hoy día en PLN son los siguientes:
 
-Algunas propuestas:
 
-- Penn Treebank tag set:
++ *Penn Treebank tag set* (solo para inglés):
+  - [https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html](https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html)
+  - Ejemplos:
 
-[https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html](https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html)
+        JJ = adjetivo
+        NN = nombre común
+        VB = verbo
+        ...
 
-- EAGLES tag set:
++ *Universal tagset* (*Universal dependencies project*):
+  - [https://universaldependencies.org/u/pos/](https://universaldependencies.org/u/pos/)
+  - Ejemplos:
+  
+        ADJ   = adjetivo
+        NOUN  = nombre
+        VERB  = verbo
+        ...
+ 
+  - Este modelo, el más utilizado hoy día, está adaptado a más de 50 idiomas (y sigue creciendo). Es el más apropiado para minería de textos multilingüe. Ver <https://universaldependencies.org/>
 
-[http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html](http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html)
++ *EAGLES tag set* (para varios idiomas):
+  - [http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html](http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html)
+  - [https://freeling-user-manual.readthedocs.io/en/latest/tagsets/](https://freeling-user-manual.readthedocs.io/en/latest/tagsets/)
+  - [http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html](http://www.ilc.cnr.it/EAGLES96/annotate/annotate.html)
+  - Ejemplo:
+  
+        AQ0CP0  = adjetivo calificativo común plural
+        NCFP000 = nombre común femenino plural
+        VMIP1S0 = verbo principal indicativo presente primera persona singular
+        ...
+    
+   - Este tipo de etiqueta es más complejo pero contiene bastante información. Cada posición es un rasgo morfológico. El primero (A, N, V, etc.) indica la categoría gramatical. El resto de posiciones, dependiendo de la categoría, aporta una información morfológica u otra. Así, para nombre, las posicones indican:
+     - 1 categoría
+     - 2: tipo: común o propio
+     - 3: género
+     - 4 número
+     - 5-6 rasgos semántico
+     - 7 grado
 
-[http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html](http://blade10.cs.upc.edu/freeling-old/doc/tagsets/tagset-es.html)
-
-[https://freeling-user-manual.readthedocs.io/en/latest/tagsets/](https://freeling-user-manual.readthedocs.io/en/latest/tagsets/)
-
-- Universal tagset (*Universal dependencies project*):
-
-[https://universaldependencies.org/u/pos/](https://universaldependencies.org/u/pos/)
+  - Ver las tablas para saber qué información contiene cada posición del resto de categorías.
+  - Este modelo se planteó como un modelo multilingüe. Así, no todas las palabras de todos los idiomas tienen esa información morfológica. Si una palabra no tiene un rasgo morfológico determinado, en la etiqueta aparece $0$.
+  - Por ejemplo, en la etiqueta "NCFP000" no es relevante ni el rasgo semántico (codificado como 00) ni el grado (codificado como 0). Sí es relevante la categoría (N: nombre), el tipo (C: común), el género (F: femenino) y el número (P: plural). Esta etiqueta se asociaría por ejemplo a la palabra "camisas".
 
 ### Arquitectura de un *PoS_tagger*. Algoritmos clásicos de desambiguación.
 
