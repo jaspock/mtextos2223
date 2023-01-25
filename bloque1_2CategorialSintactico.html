@@ -453,8 +453,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importancia-en-mineria-de-textos">
-     3.2.2. Importancia en Minería de textos
+    <a class="reference internal nav-link" href="#importancia-del-analisis-categorial-en-mineria-de-textos">
+     3.2.2. Importancia del análisis categorial en Minería de textos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -656,8 +656,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importancia-en-mineria-de-textos">
-     3.2.2. Importancia en Minería de textos
+    <a class="reference internal nav-link" href="#importancia-del-analisis-categorial-en-mineria-de-textos">
+     3.2.2. Importancia del análisis categorial en Minería de textos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -900,21 +900,20 @@ title="Print to PDF"
 <p>El mayor problema que resuelve un analizador categorial es la <em>ambigüedad categorial</em> que vimos anteriormente: aquellos <em>tokens</em> que pueden pertencer a dos o más categorías gramaticales.</p>
 <section id="algunos-conceptos-linguisticos">
 <h3><span class="section-number">3.2.1. </span>Algunos conceptos lingüísticos.<a class="headerlink" href="#algunos-conceptos-linguisticos" title="Permalink to this headline">#</a></h3>
-<p>A modo de recordatorio, en esta sección se repasan algunos conceptos lingüísticos que se deben tener claros para trabajar con <em>pos taggers</em>.<a class="footnote-reference brackets" href="#id7" id="id3">4</a></p>
-<p>Las palabras de un idioma se clasifican en categorías gramaticales o “clases de palabras”. Cada categoría agrupas palabras que tienen un corportamiento lingüístico similar: palabras con rasgos distributivos y morfológicos similares, y en algunso casos también rasgos semánticos parecidos.</p>
-<p>Si bien no hay una lista fija de categorías gramaticales (las diferentes teorías suelen presentar pequeñas variantes), en español las categorías gramaticales suelen ser determinantes (incluyen aquí artículos, demostrativos, posesivos, numerales e indefinidos), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.</p>
+<p>A modo de recordatorio, en esta sección se repasan algunos conceptos lingüísticos que se deben tener claros para trabajar con <em>PoS_taggers</em>.<a class="footnote-reference brackets" href="#id7" id="id3">4</a></p>
+<p>Las palabras de un idioma se clasifican en categorías gramaticales o “clases de palabras”. Cada categoría agrupas palabras que tienen un corportamiento lingüístico similar: palabras con rasgos distributivos y morfológicos similares, y en algunos casos también rasgos semánticos parecidos.</p>
+<p>Si bien no hay una lista fija de categorías gramaticales (las diferentes teorías suelen presentar pequeñas variantes), en español las categorías gramaticales suelen ser: determinantes (incluyendo aquí artículos, demostrativos, posesivos, numerales e indefinidos), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.</p>
 <p>Estas clases se agrupan en dos grandes grupos: las categorías abiertas y cerradas. Las abiertas son aquellas en las que constantemente está apareciendo palabras nuevas (neologismos) y desapareciendo otras (arcaísmos): nombres, verbos y adjetivos sobre todo. Las clases cerradas son las clases más estables porque apenas cambian en el tiempo (preposiciones, determinantes, conjunciones, interjecciones principalmente).</p>
 <p>Este diferencia es relevante desde el punto de vista computacional por dos hechos:</p>
 <ol class="simple">
-<li><p>Todo sistema de PLN debe estar preparado para analizar palabras nuevas. En una clase abierta el sistema de puede encontrar con palabras que no ha visto nunca antes (bien porque no está en el diccionario, bien porque no está en los corpus de aprendizaje) y debe ser capaz de analizarla. Este problema se da sobre todo con los nombres. Los sistemas neuronales actuales se han mostrado muy eficaces para tratar este problema.</p></li>
-<li><p>Las clases cerradas suelene estar formadas por pocas palabras. Esto provoca que la frecuencia de uso de las palabras de clases cerradas (preposiciones, conjunciones, etc.) sea muy alta. Así, al extraer las frecuencias de cualquier texto encontramos pocas palabras con frecuencias muy altas (las palabras de categorías cerradas) y muchas palabras con frecuencias muy bajas (el llamado <a class="reference external" href="https://es.wikipedia.org/wiki/H%C3%A1pax"><em>hápax legómena</em></a>, que se produce con las palabras de categorías abiertas). Esto complica los análisis de frecuencia. Para evitar esta situación, las palabras de categoras cerradas se suelen filtrar antes de extraer frecuencias: son las llamadas <em>stop words</em>.</p></li>
+<li><p>Todo sistema de PLN debe estar preparado para analizar palabras nuevas. En una clase abierta el sistema de PLN se puede encontrar con palabras que no ha visto nunca antes (bien porque no está en el diccionario, bien porque no está en los corpus de aprendizaje, o bien porque es un neologismo) y debe ser capaz de analizarla. Este problema se da sobre todo con los nombres. Los sistemas neuronales actuales han mostrado ser muy eficaces para tratar este problema.</p></li>
+<li><p>Las clases cerradas suelene estar formadas por pocas palabras. Esto provoca que la frecuencia de uso de las palabras de clases cerradas (preposiciones, conjunciones, pronombres, etc.) sea muy alta. Así, al extraer las frecuencias de cualquier texto encontramos pocas palabras con frecuencias muy altas (las palabras de categorías cerradas) y muchas palabras con frecuencias muy bajas (el llamado <a class="reference external" href="https://es.wikipedia.org/wiki/H%C3%A1pax"><em>hápax legómena</em></a>, que se produce por la gran cantidad de palabras de categorías abiertas que aparecen solo una vez). Esto complica los análisis de frecuencia. Para evitar esta situación, las palabras de categoras cerradas se suelen filtrar antes de extraer frecuencias: son las llamadas <em>stop words</em>.</p></li>
 </ol>
-<p>Por su función en el texto: categorías con significado léxico vs. “significado” gramatical (solo aportan información gramatical).</p>
-<p>Por su flexión: variables e invariables.</p>
-<p>Categorías abiertas vs cerradas.</p>
+<p>Por su flexión, hay categorías cuyas palabras son variables o “flexivas” y categorías de palabras invariables. Son categorías variables los nombres (con flexión de género y número), verbos (con flexión en tiempo, modo, voz, aspectos, número y persona), adjetivos (género, número y grado), pronombres y algunos adverbios y determinantes. La flexión tiene implicaciones semánticas, por lo que su análisis es más complejo. Esta es la razón de ser del análisis morfológico completo, donde de cada <em>token</em> se especifica automáticamente no solo su categoría gramatical, sino también sus rasgos flexivos.</p>
+<p>Finalmente, por su función en el texto, se diferencia entre clases de palabras con significado léxico (nombres, verbos, adjetivos, adverbios) y clases de palabras con “significado” gramatical (determinantes, preposiciones, pronombres, etc.). Este significado gramatical no es significado pleno. Se refiere a que esas palabras pueden modificar o determinar el significado de las palabras con significado léxico con las que aparecen, pero en sí mismas y por sí solas no podemos decir que tengan un significado completo. Una preposición como “ante”, por ejemplo, podemos intuir rasgos semánticos (“frente a algo o delate de algo”), pero su función es completar ese “algo” con indicación de posición (“se paró <em>ante</em> de la puerta”).</p>
 </section>
-<section id="importancia-en-mineria-de-textos">
-<h3><span class="section-number">3.2.2. </span>Importancia en Minería de textos<a class="headerlink" href="#importancia-en-mineria-de-textos" title="Permalink to this headline">#</a></h3>
+<section id="importancia-del-analisis-categorial-en-mineria-de-textos">
+<h3><span class="section-number">3.2.2. </span>Importancia del análisis categorial en Minería de textos<a class="headerlink" href="#importancia-del-analisis-categorial-en-mineria-de-textos" title="Permalink to this headline">#</a></h3>
 <p>Base para análisis sintáctico y semántico.</p>
 <p>Un pre-proceso muy común en Minería de Textos es eliminar las “stop-words”, es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de “stop-words”). Algunas aplicaciones dependen de las categorías gramaticales, como:</p>
 <ul class="simple">
