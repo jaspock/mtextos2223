@@ -171,7 +171,7 @@ La información categorial y morfológica se representa explícitamente mediante
 
 Como se puede observar, los *tag sets* utilizados en PLN suelen tener más categorías que las utilizadas en lingüística teórica. Por ejemplo, presentan etiquetas específicas para los signos de puntuación o para números y fechas, entre otros casos.
 
-### Arquitectura de un *PoS_tagger*. Algoritmos clásicos de desambiguación.
+### Arquitectura de un *PoS_tagger*.
 
 La siguiente imagen muestra una sencilla arquitectura para un *pos_tagger*:
 
@@ -181,7 +181,7 @@ La entrada es un texto que ha sido previamente tokenizado. Los signos de puntuac
 
     token lema etiqueta_PoS
 
-Para poder determinar el lema y la categoría de cada *token*, así como la información morfológica, el *pos_tagger* necesita algún tipo de recurso. Básicamente dos: un diccionario que contenga la información morfológica de cada palabra; y un conjunto de reglas (gramática) que deriven la información morfológica según los rasgos de la palabra y de las palabas del contexto. Este puede haber sido creado a mano (reglas manuales) o  mediante aprendizaje automático.
+Para poder determinar el lema y la categoría de cada *token*, así como la información morfológica, el *pos_tagger* necesita algún tipo de recurso. Básicamente dos: un diccionario que contenga la información morfológica de cada palabra; y un conjunto de reglas (gramática) que deriven la información morfológica según los rasgos de la palabra y de las palabas del contexto. Este puede haber sido creado a mano (reglas manuales) o  mediante aprendizaje automático. Esto es una analizador en dos fases (consulta diccionario y desambiguación), que es la arquitectura básica de un *PoS_tagger*.
 
 Un ejemplo de *PoS_tagger* para español es *Freeling*. Antes de seguir, prueba su demo:
 
