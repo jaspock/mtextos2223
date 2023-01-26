@@ -206,13 +206,29 @@ Ejemplo de esta aproximación es el sistema TAGGIT, de 1971. Constaba de 71 etiq
 
 La herramienta NLTK tiene implementado un *PoS_tagger* basado en expresiones regulares que se puede adaptar. Ver <https://www.nltk.org/book/ch05.html>.
 
+#### Gramáticas de restricciones (*Constraint grammar*)
+
+En los años 90 hubo un modelo teórico que tuvo buenos resultados en su aplicación al análisis categorial: las gramáticas de restricciones. Este modelo se basa en la idea de que las reglas de la gramática no tienen por qué ser positivas (reglas que digan cómo es el idioma), sino que pueden ser negativas (reglas que digan como NO es el idioma). Estas reglas negativas son las **restricciones**.
+
+Así, apliado al análisis categorial, una restricción indicaría no qué categoría sería la apropiada para una palabra dado un contexto, sino que categoría seguro que NO es la apropiada a una palabra dado un contexto. Por ejemplo, esta regla
+
+> "Un verbo no va precedido nunca de artículo". 
+
+permitiría analizar correctamente el sintagma:
+
+> El cura de la iglesia
+
+"Cura" no puede ser verbo (de "curar") porque va precedido de un artículo. Por tanto, es un nombre.
+
+El sistema principal basado en restricciones es el sistema ENGCG Karlsson et al 1995.[^6]
+
 ### Modelo estadístico: cadena de Markov.
 
 La aplicación de modelos de Markov supuso un gran avance en la desambiguación categorial. La categoría gramatical de un *token* depende en gran medida del contexto lingüístico donde aparece. Las reglas directas no son capaces de modelar ese contexto, pero los modelos de Markov sí.
 
 Dada una secuencia de estados, la propieda de Markov asume que es posible predecir el siguiente estado tendiendo en cuenta únicamente el estado presente. Así, dada una secuencia de palabras (cadena), la propiedad de Markov postula que podemos saber la siguiente palabra a partir de la palabra actual. Así, un modelo de Markov predice un token $w_i$  según la probabilidad de la palabra anterior $w_{i-1}$:
 
-$$p(w_i|w_{i-1})$$
+$$P(w_i|w_{i-1})$$
 
 Este es un modelo de bigramas porque solo tiene en cuenta la palabra anterior y no todas las palabras anteriores $w_{i-2} \dots w_{i-n}$, que es la asunción principal de la propiedad de Markov.
 
@@ -224,69 +240,56 @@ El modelo oculto de Markov necesita, así, en dos probabilidades: una probabilid
 
 Aplicado al análisis categorial, la probabilidad de transición es la probabilidad de una etiqueta categorial $t_i$ dada la etiqueta categorial de la palabra anterior $t_{i-1}$.
 
-$$p(t_i|t_{i-1})$$
+$$P(t_i|t_{i-1})$$
 
 La probabildad de emisión es la probabilidad de que una palabra dada $w_i$ esté asociada a una etiqueta categorial $t_i$:
 
-$$p(w_i|t_i)$$
+$$P(w_i|t_i)$$
 
-Multiplicando ambos valores tenemos el modelo oculto de Markov en su estado más simple:
+Combinando ambos valores obtenemos la predicción final:
 
-$$p(w_i|t_j) = p(w_i|t_j) * p(t_j|t_{j-1})$$
+$$P(t_i) = P(w_i|t_i) * P(t_i|t_{i-1})$$
 
-Por ejemplo, dado el siguiente sintagma:
+Por ejemplo, dado el siguiente sintagma ya comentado:
 
 > El cura de la iglesia.
 
 Un modelo oculto de Markov predice perfectamente que ese "cura" es nombre y no es verbo (de "curar") porque la probabilidad de que un artículo (la categoría del *token* "El") esté seguido por un verbo es prácticamente 0. Por lo que la probabilidad más alta es que "cura" sea nombre.
 
-Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pero también se puede entrenar de manera iterativa con corpus sin anotar, tomando las palabras no ambiguas como inicio del entrenamiento. 
-
-Lee con detalle el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) $Speech and Language Processing$, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pero también se puede entrenar de manera iterativa con corpus sin anotar, tomando las palabras no ambiguas como inicio del entrenamiento.
 
 ```{admonition} Lectura obligatoria
 :class: note
-Lee con detalle el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+Lee con atención el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
 ```
 
-### Gramáticas de restricciones (*Constraint grammar*)
+Si bien con modelos ocultos de Markov un *PoS_tagger* puede tener una precisión superior al 90%, aún hay aspectos en los que no funciona bien, como por ejemplo cómo analizar palabras que no ha visto antes (y por tanto no tiene probabilidad de emisión). Estos problemas se superaron con un modelo matemático también secuencial pero con más relevancia en cuanto al modelado del contexto: ***conditional random field*** (CRF o ["campo aleatorio condicional"](https://es.wikipedia.org/wiki/Campo_aleatorio_condicional)). Este permite un tratamiento más rico del contexto. Lee el apartado ["8.5 Conditional Random Fields (CRFs)"] (https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing* para más detalles.
 
-Modelo teórico: este tipo de gramáticas no dice cómo es un idioma, sino cómo NO es.
-
-Las reglas, por tanto, son reglas negativas. Dada una ambigüedad, las reglas indican cuál de las opciones seguro que no es. Combinando restricciones se llega al final a la solución correcta.
-
-Las reglas son condicionales al contexto (si la palabra anterior es X, la siguiente NO es Y).
-
-Ejemplo:
-     "Un verbo no va precedido de artículo". 
-
-Sistema ENGCG de 1990 (Karlsson et al 1995)
-
-
-### Modelos basados en aprendizaje automático.
-
-Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.
-
-Diferentes algoritmos: árboles de decisión, vectores de soporte (SVM), etc.
-
-Ejemplo "Transformation-based Tagger" (Brill 1995). Proceso iterativo donde va aprendiendo reglas, cada vez más específicas. Analiza aplicando primero las específicas y luego las generales. Refinamiento: revisón manual de cada iteración.
+Modelos ocultos de Markov y *Conditional Random Fields* son las dos principales aproximaciones al análisis categorial, pero no las únicas. Se han aplicado otro modelos de aprendizaje, tanto supervisados como no supervisados, como árboles de decisión o máquinas de vectores soporte (*support vector machine* SVM), etc. Un ejemplo que tuvo impacto en su momento fue el "Transformation-based Tagger" de Brill (1995), que aplicaba un modelo iterativo de aprendizaje de reglas con refinado manual.
 
 ### Situación actual
 
-Aproximaciones multilingües basadas en *embeddings* y redes neuronales:
+El análisis categorial de las lenguas más habladas se considera una tarea prácticamente resuelta. Las dos líneas de investigación principales son:
+
+- desarrollar analizadores multilingües (en la línea, por ejemplo, de las Dependencias Universales que se verá luego); y
+- aplicar redes neuronales, que es hoy día el modelo estándar. En próximos temas se verán las redes neuronales.
+
+La siguiente página recoge los últimos artículos sobre *Part of Speech tagging*:
 
 [http://nlpprogress.com/english/part-of-speech_tagging.html](http://nlpprogress.com/english/part-of-speech_tagging.html)
 
 
 ### Recursos.
 
-Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico.
+Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico. Hay muchos disponibles por la web:
 
 - Freeling [http://nlp.lsi.upc.edu/freeling/index.php/](http://nlp.lsi.upc.edu/freeling/index.php/)
 - SpaCy: [https://spacy.io/](https://spacy.io/)
 - NLTK: [http://www.nltk.org/](http://www.nltk.org/)
 - Standford CORE NLP: [https://stanfordnlp.github.io/CoreNLP/](https://stanfordnlp.github.io/CoreNLP/)
 - Google CLOUD: [https://cloud.google.com/natural-language/](https://cloud.google.com/natural-language/)
+- En CLARIN hay también varios PoS_taggers: [https://www.clarin.eu/resource-families/tools-part-speech-tagging-and-lemmatisation](https://www.clarin.eu/resource-families/tools-part-speech-tagging-and-lemmatisation)
+- En OpenNLP (Java): [https://opennlp.apache.org/docs/](https://opennlp.apache.org/docs/)
 
 y muchos más
 
@@ -461,3 +464,5 @@ Representación vectorial (*embeddings*).
 
 [^5]: Greene, B. B. and G. M. R.ubin (1971). "Automatic grammatical tagging of English. Technical report", Department of Linguistics, Brown University,
 Providence, Rhode Island.
+
+[^6]: Karlsson, Voutilainen, Heikkilä and Antilla (eds) 1995. *Constraint Grammar: A Language-Independent System for Parsing Unrestricted Text.* Mouton de Gruyter, Berlin and New York.
