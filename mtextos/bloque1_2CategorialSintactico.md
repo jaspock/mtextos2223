@@ -189,44 +189,60 @@ Un ejemplo de *PoS_tagger* para español es *Freeling*. Antes de seguir, prueba 
 
 ### Algoritmos de desambiguación categorial (aproximación histórica)
 
-Si un *token* solo puede pertenecer a una categoría gramatical, su análisis morfológica es sencillo: basta con consultar el diccionario para saber su categoría. El problema viene cuando un *token* puede pertenecer a dos o más categorías gramaticales (ambigüedad categorial). Este es el caso más común, pues más del 60% de las palabras de un texto en español suelen presentar ambigüedad categorial. En esta sección se presentan los principales algoritmos para resolver ambigüedad categorial.
+Si un *token* solo puede pertenecer a una categoría gramatical, su análisis morfológico es sencillo: basta con consultar el diccionario para saber su categoría. El problema viene cuando un *token* puede pertenecer a dos o más categorías gramaticales (ambigüedad categorial). Este es el caso más común, pues más del 60% de las palabras de un texto en español suelen presentar ambigüedad categorial. En esta sección se presentan los principales algoritmos para resolver la ambigüedad categorial.
 
 #### Modelo de reglas simples.
 
-Sistema TAGGIT (1950).
-71 etiquetas + 3300 reglas. 77% de precisión.
+Los primeros sistemas utilizaban reglas morfológica simples creadas a mano por lingüistas. Se seguía el modelo de dos fases: una primera que asigna las categorías gramaticales a cada *token* según el diccionario, y una segunda que aplica reglas de desambiguación en el caso de que el *token* tenga asignadas dos o más etiquetas.
 
-Reglas: expresiones regulares tipo
+Las reglas de desambiguación era básicamente expresiones regulares tipo:
 
-    \b.*ing\b = Verbo Infinitivo
-    \b.*mente\b = adverbio
-    las\s[a-z]*as → Nombre femenino plural
+    \b.*ing\b = Verbo Infinitivo en inglés.
+    \b.*mente\b = adverbio en español.
+    las\s[a-z]*as → Nombre femenino plural en español.
     etc.
 
-### Modelo estadístico: cadena de markov.
+Ejemplo de esta aproximación es el sistema TAGGIT, de 1971. Constaba de 71 etiquetas y 3300 reglas de desambiguación. Con esto alcanzó un nivel de precisión del 77%.[^5]
 
-Tiene en cuenta el contexto de aparición de las palabras.
-Basados en bigramas.
+La herramienta NLTK tiene implementado un *PoS_tagger* basado en expresiones regulares que se puede adaptar. Ver <https://www.nltk.org/book/ch05.html>.
 
-Calculan dos tipos de probabilidades:
-     Léxica: p(W|T)
-     Contextual: p(W|T|Ctx)
+### Modelo estadístico: cadena de Markov.
 
-ctx = palabra anterior --> bigrama.
+La aplicación de modelos de Markov supuso un gran avance en la desambiguación categorial. La categoría gramatical de un *token* depende en gran medida del contexto lingüístico donde aparece. Las reglas directas no son capaces de modelar ese contexto, pero los modelos de Markov sí.
 
-### Modelo oculto de Markov
+Dada una secuencia de estados, la propieda de Markov asume que es posible predecir el siguiente estado tendiendo en cuenta únicamente el estado presente. Así, dada una secuencia de palabras (cadena), la propiedad de Markov postula que podemos saber la siguiente palabra a partir de la palabra actual. Así, un modelo de Markov predice un token $w_i$  según la probabilidad de la palabra anterior $w_{i-1}$:
 
-Basado en la probabilidad de cadenas de etiquetas (cadena oculta).
+$$p(w_i|w_{i-1})$$
 
-Dos tipos de probabilidades:
-- Probabilidad de emisión = p(W|T)
-- Probabilidad de transmisión = p(T|T-1). Esta es la parte oculta.
+Este es un modelo de bigramas porque solo tiene en cuenta la palabra anterior y no todas las palabras anteriores $w_{i-2} \dots w_{i-n}$, que es la asunción principal de la propiedad de Markov.
 
-Así, la probabilidad final queda como:
+#### Modelo oculto de Markov
 
-    p(W|T) = p(W|T) * p(T|T-1)
+Aplicado a cadena de *tokens* tendríamos un simple predictor de palabras como el que tenemos en el móvil. Lo característico de su aplicación para análisis categorial es que se aplica no a la secuencia de palabras (la cadena visible de *tokens*), sino a la secuencia de categorías gramaticales: la cadena **oculta** de *tags*. Se condiera una cadena oculta porque las categorías gramaticales no están explícitamente en el texto, sino que son inferidas. De ahí el nombre de **Modelo Oculto de Markov** o ***Hidden Markov Model*** (HMM).
 
-Proceso iterativo: primero analiza lo no ambiguo, luego hace una segunda vuelta calculando probabilidades de transición y re-anotando, hasta llegar a situación estable (fin).
+El modelo oculto de Markov necesita, así, en dos probabilidades: una probabilidad de transición de un estado a otro de la cadena (la probabilidad del modelo de Markov simple) y además una probabilidad de emisión del estado oculto al estado visible.
+
+Aplicado al análisis categorial, la probabilidad de transición es la probabilidad de una etiqueta categorial $t_i$ dada la etiqueta categorial de la palabra anterior $t_{i-1}$.
+
+$$p(t_i|t_{i-1})$$
+
+La probabildad de emisión es la probabilidad de que una palabra dada $w_i$ esté asociada a una etiqueta categorial $t_i$:
+
+$$p(w_i|t_i)$$
+
+Multiplicando ambos valores tenemos el modelo oculto de Markov en su estado más simple:
+
+$$p(w_i|t_j) = p(w_i|t_j) * p(t_j|t_{j-1})$$
+
+Por ejemplo, dado el siguiente sintagma:
+
+> El cura de la iglesia
+
+Un modelo oculto de Markov predice perfectamente que ese "cura" es nombre y no es verbo (de "curar") porque la probabilidad de que un artículo (la categoría del *token* "El") esté seguido por un verbo es prácticamente 0. Por lo que la probabilidad más alta es que "cura" sea nombre.
+
+Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pero también se puede entrenar de manera iterativa con corpus sin anotar, tomando las palabras no ambiguas como inicio del entrenamiento. 
+
+Lee ahora con detalle el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) $Speech and Language Processing$, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
 
 ### Gramáticas de restricciones (*Constraint grammar*)
 
@@ -437,3 +453,6 @@ Representación vectorial (*embeddings*).
 [^3]: Ver [capítulo 3](https://www.nltk.org/book/ch03.html) del libro [*Natural Language Processing with Python*](https://www.nltk.org/book/ch03.html) para una explicación sencialla.
 
 [^4]: Bender (2013) presenta una buena introducción a conceptos lingüísticos de uso común en Procesamiento del Lenguaje Natural.
+
+[^5]: Greene, B. B. and G. M. R.ubin (1971). "Automatic grammatical tagging of English. Technical report", Department of Linguistics, Brown University,
+Providence, Rhode Island.
