@@ -819,7 +819,7 @@ title="Print to PDF"
 <span id="label-pos"></span><h1><span class="section-number">3. </span>Análisis categorial y sintáctico<a class="headerlink" href="#analisis-categorial-y-sintactico" title="Permalink to this headline">#</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2022) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
+<p>Para preparar este tema, consulta los capítulos 8,… de Juravsky y Martin (2022) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
 </div>
 <section id="unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
 <h2><span class="section-number">3.1. </span>Unidades de comunicación básica. La palabra. <em>Type</em>, <em>token</em> y lema.<a class="headerlink" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema" title="Permalink to this headline">#</a></h2>
@@ -1046,11 +1046,15 @@ etc.
 \[p(w_i|t_j) = p(w_i|t_j) * p(t_j|t_{j-1})\]</div>
 <p>Por ejemplo, dado el siguiente sintagma:</p>
 <blockquote>
-<div><p>El cura de la iglesia</p>
+<div><p>El cura de la iglesia.</p>
 </div></blockquote>
 <p>Un modelo oculto de Markov predice perfectamente que ese “cura” es nombre y no es verbo (de “curar”) porque la probabilidad de que un artículo (la categoría del <em>token</em> “El”) esté seguido por un verbo es prácticamente 0. Por lo que la probabilidad más alta es que “cura” sea nombre.</p>
 <p>Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pero también se puede entrenar de manera iterativa con corpus sin anotar, tomando las palabras no ambiguas como inicio del entrenamiento.</p>
-<p>Lee ahora con detalle el apartado <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/8.pdf">“8.4 HMM Part-of-Speech Tagging”</a> del capítulo 8 del libro de Juravsky y Martin (2022) <span class="math notranslate nohighlight">\(Speech and Language Processing\)</span>, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.</p>
+<p>Lee con detalle el apartado <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/8.pdf">“8.4 HMM Part-of-Speech Tagging”</a> del capítulo 8 del libro de Juravsky y Martin (2022) <span class="math notranslate nohighlight">\(Speech and Language Processing\)</span>, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.</p>
+<div class="note admonition">
+<p class="admonition-title">Lectura obligatoria</p>
+<p>Lee con detalle el apartado <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/8.pdf">“8.4 HMM Part-of-Speech Tagging”</a> del capítulo 8 del libro de Juravsky y Martin (2022) <em>Speech and Language Processing</em>, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.</p>
+</div>
 </section>
 </section>
 <section id="gramaticas-de-restricciones-constraint-grammar">

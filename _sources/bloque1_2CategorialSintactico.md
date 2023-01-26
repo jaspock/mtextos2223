@@ -4,7 +4,7 @@ Análisis categorial y sintáctico
 
 ```{admonition} Nota
 :class: note
-Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+Para preparar este tema, consulta los capítulos 8,... de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
 ```
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
@@ -236,13 +236,18 @@ $$p(w_i|t_j) = p(w_i|t_j) * p(t_j|t_{j-1})$$
 
 Por ejemplo, dado el siguiente sintagma:
 
-> El cura de la iglesia
+> El cura de la iglesia.
 
 Un modelo oculto de Markov predice perfectamente que ese "cura" es nombre y no es verbo (de "curar") porque la probabilidad de que un artículo (la categoría del *token* "El") esté seguido por un verbo es prácticamente 0. Por lo que la probabilidad más alta es que "cura" sea nombre.
 
 Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pero también se puede entrenar de manera iterativa con corpus sin anotar, tomando las palabras no ambiguas como inicio del entrenamiento. 
 
-Lee ahora con detalle el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) $Speech and Language Processing$, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+Lee con detalle el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) $Speech and Language Processing$, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+
+```{admonition} Lectura obligatoria
+:class: note
+Lee con detalle el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+```
 
 ### Gramáticas de restricciones (*Constraint grammar*)
 
