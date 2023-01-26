@@ -187,11 +187,11 @@ Un ejemplo de *PoS_tagger* para español es *Freeling*. Antes de seguir, prueba 
 
 - <https://nlp.lsi.upc.edu/freeling/demo/demo.php>
 
-### Algoritmos de desambiguación categorial (aproximación histórica)
+### Algoritmos de desambiguación categorial.
 
 Si un *token* solo puede pertenecer a una categoría gramatical, su análisis morfológico es sencillo: basta con consultar el diccionario para saber su categoría. El problema viene cuando un *token* puede pertenecer a dos o más categorías gramaticales (ambigüedad categorial). Este es el caso más común, pues más del 60% de las palabras de un texto en español suelen presentar ambigüedad categorial. En esta sección se presentan los principales algoritmos para resolver la ambigüedad categorial.
 
-#### Modelo de reglas simples.
+#### Modelo basado en reglas (simbólicos).
 
 Los primeros sistemas utilizaban reglas morfológica simples creadas a mano por lingüistas. Se seguía el modelo de dos fases: una primera que asigna las categorías gramaticales a cada *token* según el diccionario, y una segunda que aplica reglas de desambiguación en el caso de que el *token* tenga asignadas dos o más etiquetas.
 
@@ -206,7 +206,7 @@ Ejemplo de esta aproximación es el sistema TAGGIT, de 1971. Constaba de 71 etiq
 
 La herramienta NLTK tiene implementado un *PoS_tagger* basado en expresiones regulares que se puede adaptar. Ver <https://www.nltk.org/book/ch05.html>.
 
-#### Gramáticas de restricciones (*Constraint grammar*)
+##### Gramáticas de restricciones (*Constraint grammar*)
 
 En los años 90 hubo un modelo teórico que tuvo buenos resultados en su aplicación al análisis categorial: las gramáticas de restricciones. Este modelo se basa en la idea de que las reglas de la gramática no tienen por qué ser positivas (reglas que digan cómo es el idioma), sino que pueden ser negativas (reglas que digan como NO es el idioma). Estas reglas negativas son las **restricciones**.
 
@@ -222,7 +222,9 @@ permitiría analizar correctamente el sintagma:
 
 El sistema principal basado en restricciones es el sistema ENGCG Karlsson et al 1995.[^6]
 
-### Modelo estadístico: cadena de Markov.
+#### Modelos estadísticos
+
+##### Cadena de Markov
 
 La aplicación de modelos de Markov supuso un gran avance en la desambiguación categorial. La categoría gramatical de un *token* depende en gran medida del contexto lingüístico donde aparece. Las reglas directas no son capaces de modelar ese contexto, pero los modelos de Markov sí.
 
@@ -232,7 +234,7 @@ $$P(w_i|w_{i-1})$$
 
 Este es un modelo de bigramas porque solo tiene en cuenta la palabra anterior y no todas las palabras anteriores $w_{i-2} \dots w_{i-n}$, que es la asunción principal de la propiedad de Markov.
 
-#### Modelo oculto de Markov
+##### Modelo oculto de Markov
 
 Aplicado a cadena de *tokens* tendríamos un simple predictor de palabras como el que tenemos en el móvil. Lo característico de su aplicación para análisis categorial es que se aplica no a la secuencia de palabras (la cadena visible de *tokens*), sino a la secuencia de categorías gramaticales: la cadena **oculta** de *tags*. Se condiera una cadena oculta porque las categorías gramaticales no están explícitamente en el texto, sino que son inferidas. De ahí el nombre de **Modelo Oculto de Markov** o ***Hidden Markov Model*** (HMM).
 
@@ -262,6 +264,8 @@ Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pe
 :class: note
 Lee con atención el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
 ```
+
+##### *Conditional Random Fields* y otros.
 
 Si bien con modelos ocultos de Markov un *PoS_tagger* puede tener una precisión superior al 90%, aún hay aspectos en los que no funciona bien, como por ejemplo cómo analizar palabras que no ha visto antes (y por tanto no tiene probabilidad de emisión). Estos problemas se superaron con un modelo matemático también secuencial pero con más relevancia en cuanto al modelado del contexto: ***conditional random field*** (CRF o ["campo aleatorio condicional"](https://es.wikipedia.org/wiki/Campo_aleatorio_condicional)). Este permite un tratamiento más rico del contexto. Lee el apartado ["8.5 Conditional Random Fields (CRFs)"] (https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing* para más detalles.
 
