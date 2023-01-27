@@ -4,7 +4,7 @@ Análisis categorial y sintáctico
 
 ```{admonition} Nota
 :class: note
-Para preparar este tema, consulta los capítulos 8,... de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+Para preparar este tema, tras leer este documento, debes leer los capítulos 8 y 18 de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Durante la explicación a continuación se indica qué secciones son más relevantes.
 ```
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
@@ -295,18 +295,43 @@ Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico. Hay mu
 - En CLARIN hay también varios PoS_taggers: [https://www.clarin.eu/resource-families/tools-part-speech-tagging-and-lemmatisation](https://www.clarin.eu/resource-families/tools-part-speech-tagging-and-lemmatisation)
 - En OpenNLP (Java): [https://opennlp.apache.org/docs/](https://opennlp.apache.org/docs/)
 
-y muchos más
-
+y muchos más...
 
 ## Análisis sintáctico.
 
-Sintaxis: agrupación y relaciones de las palabras dentro de una oración.
+La sintaxis es el área de la lingüística que estudia cómo se relacionan las palabras dentro de una oración: cómo se agrupan y qué tipo de relación establecen entre ellas.
 
-Análisis automático: *parser*
+En Procesamiento del Lenguaje Natural, a la herramienta encargada de realizar el análisis sintático se le da el nombre genérico de *parser* y a la tarea *parsing* (como en los compiladores de lenguajes de programación). En el proceso de interpretación automática de un texto, es necesario conocer las relaciones sintáticas porque de ellas dependen diversos aspectos semánticos. Si te fijas en el siguiente ejemeplo, verás dos oraciones con las mismas palabras ("subir", "tender" y "a") y la misma categoría gramatica (verbo infinitivo, verbo infinitivo y preposción), pero con sentido totalmente diferente. Son las relaciones sitnáticas las que nos indican la interpretación correcta de cada una:
+
+> No es lo mismo "subir a tender" que "tender a subir".
+
+En minería de textos, sin embargo, no es realmente una tarea de PLN que se utilice mucho: requiere tiempo de procesamiento (que aumenta cuanto más grande es el corpus) y no aporta la suficiente informatión como para que valga la pena ese gasto computacional. La sintaxis es necesaria, sobre todo, para cuando se necesitan análisis de precisión.
+
+En esta sección se exponen los fundamento del análisis sintáctico computacional, y se da pie a profundizar en el análisis de dependencias. Se mostrarán, además, algunas herramientas disponibles para aplicar análisis sintático en minería de textos.
 
 ### Arquitectura estándar de un *parser*
 
+La siguiente imagen muestra la arquiectura básica de un *parser*:
+
 ![ArquitecturaParser](images/parser.png)
+
+Como se puede observar, la entrada del *parser* es la salida del analizador categorial. De hecho el *parser* necesita saber (en principio) la categoría gramatica de las palabras para poder establecer las relaciones sintáticas entre ellas. La salida suele ser en forma de árbol, donde las palabras están relacionadas entre sí mediante arcos. En la siguiente sección se mostrarán los principales tipos de árboles sintácticos.
+
+El *parser* necesita un recursos para realizar el análisis que se suele denominar "gramática". Esta contiene las reglas para establecer las relaciones. En los inicios del PLN, estas gramáticas se realizaban a mano: eran gramática pequeñas con muy poca cobertura. Hoy día, al igual que en el análisis categorial, las gramáticas se realizan con modelos de aprendizaje automático, y se aplican reglas manuales solo para ganar precisión en casos concretos. Las últimas propuestas etán basadas en modelos neuronales, que se ha demostrado son capaces de inferir relaciones sintácticas sin necesidad de una gramática previa.[^7]
+
+### Principal problema computacional
+
+Asignar relaciones a palabras a partir de categorías gramaticales es una tarea hasta cierto punto viable. El gran problema que debe resolver un *parser* es la ambigüedad estructural: cuando es posible derivar dos o más árboles sintáticos de la misma oración. La resolución de esta ambigüedad requiere en muchas ocasiones información semántica y conocimiento del mundo (para realizar una interpretación coherente), aspectos estos que salen fuera del análisis sintático propiamente dicho.
+
+A continuación se muestran dos casos de ambigüedad estructural. En este primera ejemplo (ya visto en el tema anterior), la ambigüedad viene producida por el sintgma preposicional "con los prismáticos", que puede ser tanto complemento de "hermano" como del sujeot "yo":
+
+> "Ayer vi a tu hermano con los prismáticos."
+
+En el siguiente ejemplo es la coordinación la que está generando la ambigüedad. El adjetivo "limpios puede ser complemento solo de "cubiertos" o de la coordinación completa "los platos y los cubiertos". En uno u otro caso, el árbol sintática cambia:
+
+> "Sirve los platos y los cubiertos limpios."
+
+El *parser* debe incluir, por tanto, algoritmos de desambiguación que decidan, en casos como estos, qué árbol sintático sería el más apropiado.
 
 ### Modelos de representación
 
@@ -320,15 +345,7 @@ Análisis basado en _dependencias_
 
 (Créditos de la imagen [aquí](http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias))
 
-### Principal problema computacional
 
-Ambigüedad estructural:
-
-    "Ayer vi a tu hermano con los prismáticos"
-
-Ambigüedad coordinación:
-
-    "Sirve los platos y los cubiertos limpios"
 
 ### Gramáticas formales
 
@@ -470,3 +487,6 @@ Representación vectorial (*embeddings*).
 Providence, Rhode Island.
 
 [^6]: Karlsson, Voutilainen, Heikkilä and Antilla (eds) 1995. *Constraint Grammar: A Language-Independent System for Parsing Unrestricted Text.* Mouton de Gruyter, Berlin and New York.
+
+[^7]: Ver, entre otros, Ethan A. Chi, John Hewitt, and Christopher D. Manning (2020) "Finding Universal Grammatical Relations in Multilingual BERT" In *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, pages 5564–5577. Association for Computational Linguistics. <https://aclanthology.org/2020.acl-main.493/>
+
