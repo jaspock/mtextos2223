@@ -335,9 +335,17 @@ El *parser* debe incluir, por tanto, algoritmos de desambiguación que decidan, 
 
 ### Modelos de representación
 
-Análisis basado en _constituyentes_
+En PLN hay dos modelos de representación sintática: los modelos basados en **constituyentes** y los modelos basados en **dependencias**. Cada uno representa algún aspectos concreto de la sintaxis y está motivado por diferentes teorías lingüísticas. Antes de utilizar un *parser* para hacer minería de textos, es necesario saber en qué modelo está basado para saber qué información nos va a dar.
+
+Lo que viene a continuación igual te recuerda las clases de bachillerato.
+
+El modelo basado en constituyentes realiza dos tareas: primero agrupa las palabras en unidades complejas llamados "sintagmas" (*phrases* en inglés). Un sintagma puede contener tanto palabras como otros sintagmas. Así, de abajo arriba, las palabras con relación sintática estrecha se agrupan en sintagmas, estos a su vez se agrupan en sintagmas complejos hasta llegar a la agrupación final que es toda la oración. Cada una de estas agrupaciones recibe el nombre de *constituyete oracional*. La segunda tarea es determinar el tipo de sintagma: nominal, verbal, preposicional, adjetivo, etc. El tipo de sintagma depende siempre de la palabra que actúa como núcleo sintagmático (un nombre, una preposición, un adjetivo). El sintagma que los agrupa a todos es la oración y su núcleo, normalmente, el verbo principal.
+
+La siguiente imagen es un ejemplo de análisis basado en constituyentes:
 
 ![Constituyentes](images/constituyentes.png)
+
+En este caso tenemos dos sintagmas nominales (SN), un sintagam verbal (SV) y la oración. En la herramientas de PLN lo normal es que te encuentres esos sintagmas con las siglas en inglés: "NP" para *nominal phrase", "PP" para "propositional phrase", "VP" para *verbal phrase*, etc.
 
 Análisis basado en _dependencias_
 
@@ -479,7 +487,7 @@ Representación vectorial (*embeddings*).
 
 [^1]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
 
-[^3]: Ver [capítulo 3](https://www.nltk.org/book/ch03.html) del libro [*Natural Language Processing with Python*](https://www.nltk.org/book/ch03.html) para una explicación sencialla.
+[^3]: Ver [capítulo 3](https://www.nltk.org/book/ch03.html) del libro [*Natural Language Processing with Python*](https://www.nltk.org/book/ch03.html) para una explicación sencilla.
 
 [^4]: Bender (2013) presenta una buena introducción a conceptos lingüísticos de uso común en Procesamiento del Lenguaje Natural.
 
