@@ -351,11 +351,10 @@ En este caso tenemos dos sintagmas nominales (SN), un sintagam verbal (SV) y la 
 
 El modelo basado en dependencias es diferente. No le interesa tanto mostrar cómo se agrupan las palabras según su relación sintática, como mostrar qué relación o dependencia tienen unas palabras con otras. La dependencia se produce siempre entre dos palabras: una actúa de núcleo (*head*) y otro que actúa de "dependiente" (*dependent*) o complemento. El análisis de dependencias también supone dos tareas: primer detectar de quién depende cada palabra de la oración, y segundo determinar el tipo de dependencia: sujeto, objeto, complemento, especificador... Los árboles de depencias suelen tener forma de grafo con nodos/hojas (las palabras) y arcos dirigidos (el tipo de dependencia entre dos nodos), como muestra la siguiente imagen:
 
-![Dependecias_Freeling](images/dependency_parsing_FreeLing.jpg)
+![Dependecias](images/arbol_dependencias.png)
 
-(Créditos de la imagen [aquí](http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias))
-
-
+<!-- ![Dependecias_Freeling](images/dependency_parsing_FreeLing.jpg)
+(Créditos de la imagen [aquí](http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias)) -->
 
 ### Gramáticas formales
 
