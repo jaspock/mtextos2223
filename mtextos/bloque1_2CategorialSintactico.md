@@ -356,6 +356,11 @@ El modelo basado en dependencias es diferente. No le interesa tanto mostrar cóm
 <!-- ![Dependecias_Freeling](images/dependency_parsing_FreeLing.jpg)
 (Créditos de la imagen [aquí](http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias)) -->
 
+En este ejemplo podemos ver que el núcleo oracinal (*root*) es el verbo "buscó". De este dependen tres palabras: "Inés" con una dependencia de *nsubj* (sujeto nominal), "llaves" con una dependencia de *obj* (lo que en la gramática escolar se denomina "complemento directo" u "objeto directo") y "cajón"
+con una dependencia de *obl* (de *oblique* o "adjunct*, que vendría a ser un complemento circustancial). A su vez, estas palabras hacen de núcleo de otras palabras, etc. Luego se expondrá cada una de estas etiquetas.
+
+Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintática más explícita.
+
 ### Gramáticas formales
 
 Conjunto de reglas formales de análisis sintático.
