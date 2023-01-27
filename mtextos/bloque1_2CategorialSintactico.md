@@ -339,15 +339,17 @@ En PLN hay dos modelos de representación sintática: los modelos basados en **c
 
 Lo que viene a continuación igual te recuerda las clases de bachillerato.
 
-El modelo basado en constituyentes realiza dos tareas: primero agrupa las palabras en unidades complejas llamados "sintagmas" (*phrases* en inglés). Un sintagma puede contener tanto palabras como otros sintagmas. Así, de abajo arriba, las palabras con relación sintática estrecha se agrupan en sintagmas, estos a su vez se agrupan en sintagmas complejos hasta llegar a la agrupación final que es toda la oración. Cada una de estas agrupaciones recibe el nombre de *constituyete oracional*. La segunda tarea es determinar el tipo de sintagma: nominal, verbal, preposicional, adjetivo, etc. El tipo de sintagma depende siempre de la palabra que actúa como núcleo sintagmático (un nombre, una preposición, un adjetivo). El sintagma que los agrupa a todos es la oración y su núcleo, normalmente, el verbo principal.
+El modelo basado en constituyentes realiza dos tareas: primero agrupa las palabras en unidades complejas llamados "sintagmas" (*phrases* en inglés). Un sintagma puede contener tanto palabras como otros sintagmas. Así, de abajo arriba, las palabras con relación sintática estrecha se agrupan en sintagmas, estos a su vez se agrupan en sintagmas complejos hasta llegar a la agrupación final que es toda la oración. Cada una de estas agrupaciones recibe el nombre de *constituyente oracional*.
 
-La siguiente imagen es un ejemplo de análisis basado en constituyentes:
+La segunda tarea es determinar el tipo de sintagma: nominal, verbal, preposicional, adjetivo, etc. El tipo de sintagma depende siempre de la palabra que actúa como núcleo sintagmático (un nombre, una preposición, un adjetivo...). El sintagma que los agrupa a todos es la oración y su núcleo, normalmente, un verbo.
+
+La siguiente imagen es un ejemplo de árbol de análisis basado en constituyentes:
 
 ![Constituyentes](images/constituyentes.png)
 
-En este caso tenemos dos sintagmas nominales (SN), un sintagam verbal (SV) y la oración. En la herramientas de PLN lo normal es que te encuentres esos sintagmas con las siglas en inglés: "NP" para *nominal phrase", "PP" para "propositional phrase", "VP" para *verbal phrase*, etc.
+En este caso tenemos dos sintagmas nominales (SN), un sintagam verbal (SV) y la oración. En la herramientas de PLN lo normal es que te encuentres esos sintagmas con las siglas en inglés: "NP" para *nominal phrase*, "PP" para *prepositional phrase*, "VP" para *verbal phrase*, etc.
 
-Análisis basado en _dependencias_
+El modelo basado en dependencias es diferente. No le interesa tanto mostrar cómo se agrupan las palabras según su relación sintática, como mostrar qué relación o dependencia tienen unas palabras con otras. La dependencia se produce siempre entre dos palabras: una actúa de núcleo (*head*) y otro que actúa de "dependiente" (*dependent*) o complemento. El análisis de dependencias también supone dos tareas: primer detectar de quién depende cada palabra de la oración, y segundo determinar el tipo de dependencia: sujeto, objeto, complemento, especificador... Los árboles de depencias suelen tener forma de grafo con nodos/hojas (las palabras) y arcos dirigidos (el tipo de dependencia entre dos nodos), como muestra la siguiente imagen:
 
 ![Dependecias_Freeling](images/dependency_parsing_FreeLing.jpg)
 
