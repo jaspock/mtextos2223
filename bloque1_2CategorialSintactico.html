@@ -1156,8 +1156,12 @@ etc.
 </section>
 <section id="modelos-de-representacion">
 <h3><span class="section-number">3.3.3. </span>Modelos de representación<a class="headerlink" href="#modelos-de-representacion" title="Permalink to this headline">#</a></h3>
-<p>Análisis basado en <em>constituyentes</em></p>
+<p>En PLN hay dos modelos de representación sintática: los modelos basados en <strong>constituyentes</strong> y los modelos basados en <strong>dependencias</strong>. Cada uno representa algún aspectos concreto de la sintaxis y está motivado por diferentes teorías lingüísticas. Antes de utilizar un <em>parser</em> para hacer minería de textos, es necesario saber en qué modelo está basado para saber qué información nos va a dar.</p>
+<p>Lo que viene a continuación igual te recuerda las clases de bachillerato.</p>
+<p>El modelo basado en constituyentes realiza dos tareas: primero agrupa las palabras en unidades complejas llamados “sintagmas” (<em>phrases</em> en inglés). Un sintagma puede contener tanto palabras como otros sintagmas. Así, de abajo arriba, las palabras con relación sintática estrecha se agrupan en sintagmas, estos a su vez se agrupan en sintagmas complejos hasta llegar a la agrupación final que es toda la oración. Cada una de estas agrupaciones recibe el nombre de <em>constituyete oracional</em>. La segunda tarea es determinar el tipo de sintagma: nominal, verbal, preposicional, adjetivo, etc. El tipo de sintagma depende siempre de la palabra que actúa como núcleo sintagmático (un nombre, una preposición, un adjetivo). El sintagma que los agrupa a todos es la oración y su núcleo, normalmente, el verbo principal.</p>
+<p>La siguiente imagen es un ejemplo de análisis basado en constituyentes:</p>
 <p><img alt="Constituyentes" src="_images/constituyentes.png" /></p>
+<p>En este caso tenemos dos sintagmas nominales (SN), un sintagam verbal (SV) y la oración. En la herramientas de PLN lo normal es que te encuentres esos sintagmas con las siglas en inglés: “NP” para *nominal phrase”, “PP” para “propositional phrase”, “VP” para <em>verbal phrase</em>, etc.</p>
 <p>Análisis basado en <em>dependencias</em></p>
 <p><img alt="Dependecias_Freeling" src="_images/dependency_parsing_FreeLing.jpg" /></p>
 <p>(Créditos de la imagen <a class="reference external" href="http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias">aquí</a>)</p>
@@ -1296,7 +1300,7 @@ nltk.app.srparser()
 <dd><p>“Token” se asimila en este caso a “occurrence”. Cfr. <a class="reference external" href="https://plato.stanford.edu/entries/types-tokens/#Occ">https://plato.stanford.edu/entries/types-tokens/#Occ</a></p>
 </dd>
 <dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
-<dd><p>Ver <a class="reference external" href="https://www.nltk.org/book/ch03.html">capítulo 3</a> del libro <a class="reference external" href="https://www.nltk.org/book/ch03.html"><em>Natural Language Processing with Python</em></a> para una explicación sencialla.</p>
+<dd><p>Ver <a class="reference external" href="https://www.nltk.org/book/ch03.html">capítulo 3</a> del libro <a class="reference external" href="https://www.nltk.org/book/ch03.html"><em>Natural Language Processing with Python</em></a> para una explicación sencilla.</p>
 </dd>
 <dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
 <dd><p>Bender (2013) presenta una buena introducción a conceptos lingüísticos de uso común en Procesamiento del Lenguaje Natural.</p>
