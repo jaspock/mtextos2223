@@ -399,21 +399,22 @@ Estas gramáticas son, por supuesto, muy limitadas. Sólo sirven para conjuntos 
 
 ![Unificación](images/unificacion.png)
 
-Si en vez de "La casa", la oración de entrada fuera "El casa", la regla $SN -> DET N$ no se aplicaría porque la estructura de rasgos sería incompatible. El género de "el" sería masculino y el de "casa" femenino. Este simple caso de concordancia se puede modelar bien con estructuras de rasgos.
+Si en vez de "La casa", la oración de entrada fuera "El casa", la regla $SN \to DET N$ no se aplicaría porque la estructura de rasgos sería incompatible. El género de "el" sería masculino y el de "casa" femenino. Este simple caso de concordancia se puede modelar bien con estructuras de rasgos.
 
 A partir de estos formalismos, en en lingüística se han desarrollado diferentes modelos completos com las *Head-driven phrase structure grammar* o las *Lexical-Functional Grammar* (que sigue siendo un modelo válido y objeto de investigación lingüística: [https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/](https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/)).
 
-#### *Probabilistic Context Free Grammar* y modelos probabilísticos
+#### Modelos probabilísticos
 
-Añaden peso estadístico a cada regla.
+Si bien estos formalismo son hoy válidos para el estudio lingüísitico por permitir una forma elegante de tratar los rasgos, no son útiles para Procesamiento del Lenguaje Natural. Entre otras cosas, no son capaces de dar solución a la ambigüedad estructura que se comentó antes.
+
+Una solución a este problema fuerons las gramáticas probabilísticas, como la *Probabilistic Context Free Grammar*. Este simplemente incluye un valor probabilístico de aplicación de al regla (que ha aprendido a partir de corpus anotados mediante aprendizaje supervisado). Este peso estadístico permite decidir qué regla aplicar en según qué casos:
 
     SV → V SP SP (0.5)
     SV → V SP (0.3)
     SV → V (0.2)
 
-Modelos de aprendizaje automático.
 
-Corpus de aprendizaje y evaluación: *treebanks*
+Con la aplicación del aprendizaje supervisado al análisis sintáctico se desarrollaron los *treebanks*: corpus de texto anotados a mano con árboles sintáticos. Estos se utilizan tanto como corpus de aprendizaje como corpus de evaluación para todo tipo de sistemas. Dos de los *treebanks* más conocidos, uno para para inglés y otro para español:
 
 - Penn Treebank:
     + [https://catalog.ldc.upenn.edu/LDC99T42](https://catalog.ldc.upenn.edu/LDC99T42)
@@ -422,34 +423,38 @@ Corpus de aprendizaje y evaluación: *treebanks*
 - Ancora (español, catalán):
     + [http://clic.ub.edu/corpus/en/ancora-descarregues](http://clic.ub.edu/corpus/en/ancora-descarregues)
 
-Y muchos otros
+Hay muchos más para diferentes idiomas.
 
 ### *Chunkers*
 
-En ocasiones el análisis sintáctico completo (*full parsing*) es complejo, consume mucho recurso y no suele obtener buenos resultados.
+HAsta ahora el análisis sintático se ha planteado como un análisis completo (*full parsing*): derivar el árbol entero en toda su profundidad. Dada la coplejidad que una oración real puede tener, este tipo de análisis resulta en muchas ocasiones muy complejo: consume mucho tiempo y recursos para obteer resultados no del todo buenos.
 
-Lo normal es realizar _análisis sintáctico parcial_ o *chunkers*: extraer agrupaciones sintáticas (*chunks*) sin llegar a derivar el árbol sintáctico completo (Abney 1991).
+En los años 90 se propuso una solución a este problema: el *chunkers* o análisis sintáctico parcial (Abney 1991). Un análisis sintáctico parcial no deriva el árbol sintáctico completo de una oración, sino solo deriva el árbol de aquellos componentes que se necesitan saber. De un oración se pueden dervar solo los sintagmas nominales y verbales, sin llegar a construir un único árbol completo. Cada uno de estos sub-árboles es un *chunk*. 
+
+En análisis de constituyentes lo normal es realizar análisis parcial. Con ello se gana en velocidad y recursos.
 
 ### Estrategias
 
-Descendente:
-Recursive Descendent:
+Hay dos tipos de estrategias de análisis: la descendente y la ascendente.
 
-(El siguiente código es Python y requiere tener instalado [NLTK](https://www.nltk.org/))
+La descendente comienza el análisis con el símbolo inicial $S$ y va derivando el árbol mediante la aplicación de las reglas en orden hasta llegar a analizar todos los símbolos terminales.
+
+Con la herramienta [NLTK](https://www.nltk.org/) instalada, puedes ver de manera gráfica cómo funciona un analizador descendente recursivo con el siguiente código:
 
     import nltk
     nltk.app.rdparser()
 
-Ascendente
-Shift Reduce:
+El ascentende parte de los símbolos terminales y, mediante las reglas, trata de llegar hasta el símbolo incial. El modelo *shift-reduce*, por ejemplo, va seleccionando *token* a *token* (*shift*), cuando estos responden a un símbolo no terminal, los agrupa (*reduce*), y repite con los no terminales hasta alcanzar el símbolo inicial. Por ejemplo, la regla $SN \to DET N$ agruparía un determinante con un nombre. Puedes ver una muestra grafica de este algoritmo con el siguiente código de NLTK:
 
     import nltk
     nltk.app.srparser()
 
 
+### Análisis de dependencias
+
 ### Formato CONLL
 
-Formato de salida estándar en análisis de dependencias. Además de la información morfológica, por cada palabra indica de quién depende y el tipo de dependencia.
+Si bien hay difernetes formatos para representar el análisis de dependencias, el más común hoy día es el formato CONLL. Aquí puede ver un ejemplo:
 
         Salida CoNLL-U
         # sent_id = 1
@@ -465,19 +470,27 @@ Formato de salida estándar en análisis de dependencias. Además de la informac
         9   canguro canguro NOUN    NOUN    Gender=Masc|Number=Sing 7   nmod    _   _
         10  .   .   PUNCT   PUNCT   PunctType=Peri  6   punct   _   _
 
+Cada línes es un *token*. La primera columna es un índice, y las siguientes corresponden a: *token*, lema, categoría gramatical, información morfológica (opcional). Las dos última columnas indican el número de identificación de la palabra de quien es núcleo y la relación de dependencia con éste. Así se determina la dependencia y con ello el árbol. El inicio del árbol lo marca simpre la etiqueta *root* (en la palabra 6 en este casio)
+
+#### Análisis
+
+El análisis de dependecia estándar es el análisis basado en transiciones: *transition-based dependency parsing* (Nivre 2014), que es un tipo de análisis *shift-reduce*.
+
+```{admonition} Lectura obligatoria
+:class: note
+Para completar este tema, lee con atención el apartado 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Juravsky y Martin (2022) *Speech and Language Processing*. El resto del capítulo es lectura opcional.
+```
 
 
 ### Situación actual
 
-*Transition-based dependency parsing* (Nivre 2014). Algoritmo shift-reduce.
+La situación actual del análisis sintático se caracteriza por:
 
-*Neural Network Dependency Parser*: [https://nlp.stanford.edu/software/nndep.shtml](https://nlp.stanford.edu/software/nndep.shtml)
+- la aplicación de modelos neuronales como el *Neural Network Dependency Parser* ([https://nlp.stanford.edu/software/nndep.shtml](https://nlp.stanford.edu/software/nndep.shtml)),
+- con ello, la representación de información sintática en *embeddings* com vectores (de lo que se hablará en los siguientes temas), y
+- la representación de la información sintática con un modelo universal denominado "Dependencias universales": [*Universal Dependencies*](https://universaldependencies.org/) (Nivre et al., 2016). Este modelo está bien motivado desde un punto de vista lingüístico, pero al mismo tiempo es útil desde el punto de vista computacional y es "multilingüe: se puede aplical el mismo modelo a gran cantidad de idiomas.
 
-Modelo de dependencias universal: [*Universal Dependencies*](https://universaldependencies.org/):
-
-> The Universal Dependencies project (Nivre et al., 2016) provides an inventory of dependency relations that arelinguistically motivated, computationally useful, and cross-linguistically applicable. (Juravsky y Martin 2020, cap. 14)
-
-Representación vectorial (*embeddings*).
+Ver:
 
 [http://nlpprogress.com/english/constituency_parsing.html](http://nlpprogress.com/english/constituency_parsing.html)
 
@@ -485,10 +498,14 @@ Representación vectorial (*embeddings*).
 
 ### Herramientas
 
+Hay multitud de herramientas para realizar análisis sintático. Aquí cuatro de las más conocidas:
+
 - SpaCy: [https://spacy.io/](https://spacy.io/)
 - STANZA: [https://stanfordnlp.github.io/stanza/](https://stanfordnlp.github.io/stanza/)
 - Freeling: [https://nlp.lsi.upc.edu/freeling/node/1](https://nlp.lsi.upc.edu/freeling/node/1)
 - UD-Pipe: [https://ufal.mff.cuni.cz/udpipe](https://ufal.mff.cuni.cz/udpipe)
+
+En la práctica se utilizará SpaCy.
 
 ## Bibliografía
 
