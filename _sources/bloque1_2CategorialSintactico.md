@@ -478,7 +478,7 @@ El análisis de dependecia estándar es el análisis basado en transiciones: *tr
 
 ```{admonition} Lectura obligatoria
 :class: note
-Para completar este tema, lee con atención el apartado 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Juravsky y Martin (2022) *Speech and Language Processing*. El resto del capítulo es lectura opcional.
+Para completar este tema, lee con atención los apartados 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Juravsky y Martin (2022) *Speech and Language Processing*. El resto del capítulo es lectura opcional.
 ```
 
 
