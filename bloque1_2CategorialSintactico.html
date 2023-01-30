@@ -566,12 +566,8 @@ title="Print to PDF"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos">
-       3.3.4.2.
-       <em>
-        Probabilistic Context Free Grammar
-       </em>
-       y modelos probabilísticos
+      <a class="reference internal nav-link" href="#modelos-probabilisticos">
+       3.3.4.2. Modelos probabilísticos
       </a>
      </li>
     </ul>
@@ -590,18 +586,30 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#formato-conll">
-     3.3.7. Formato CONLL
+    <a class="reference internal nav-link" href="#analisis-de-dependencias">
+     3.3.7. Análisis de dependencias
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formato-conll">
+     3.3.8. Formato CONLL
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analisis">
+       3.3.8.1. Análisis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id7">
-     3.3.8. Situación actual
+     3.3.9. Situación actual
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#herramientas">
-     3.3.9. Herramientas
+     3.3.10. Herramientas
     </a>
    </li>
   </ul>
@@ -782,12 +790,8 @@ title="Print to PDF"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos">
-       3.3.4.2.
-       <em>
-        Probabilistic Context Free Grammar
-       </em>
-       y modelos probabilísticos
+      <a class="reference internal nav-link" href="#modelos-probabilisticos">
+       3.3.4.2. Modelos probabilísticos
       </a>
      </li>
     </ul>
@@ -806,18 +810,30 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#formato-conll">
-     3.3.7. Formato CONLL
+    <a class="reference internal nav-link" href="#analisis-de-dependencias">
+     3.3.7. Análisis de dependencias
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formato-conll">
+     3.3.8. Formato CONLL
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analisis">
+       3.3.8.1. Análisis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id7">
-     3.3.8. Situación actual
+     3.3.9. Situación actual
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#herramientas">
-     3.3.9. Herramientas
+     3.3.10. Herramientas
     </a>
    </li>
   </ul>
@@ -1203,19 +1219,19 @@ P:
 <p><img alt="AnalisisConstituyentes" src="_images/constituyentes_2.png" /></p>
 <p>Estas gramáticas son, por supuesto, muy limitadas. Sólo sirven para conjuntos predefinidos de oraciones. En los años 80 fueron ampliadas con estructuras de rasgos y técnicas de unificación. Las estructuras de ragos son estructuras asociadas a cada símbolo (tanto terminal como no terminal) que permiten enriquecerlo con datos (pares atributo-valor). En el ejemplo siguiente se puede ver una estructura de rasgos con información morfológica. La unificación es una operación que permite comparar y, si son compatibles, unir dos estructuras de rasgos. La siguiente imagen muestra un caso de unificación porque las dos estructuras de rasgos con compatiles:</p>
 <p><img alt="Unificación" src="_images/unificacion.png" /></p>
-<p>Si en vez de “La casa”, la oración de entrada fuera “El casa”, la regla <span class="math notranslate nohighlight">\(SN -&gt; DET N\)</span> no se aplicaría porque la estructura de rasgos sería incompatible. El género de “el” sería masculino y el de “casa” femenino. Este simple caso de concordancia se puede modelar bien con estructuras de rasgos.</p>
+<p>Si en vez de “La casa”, la oración de entrada fuera “El casa”, la regla <span class="math notranslate nohighlight">\(SN \to DET N\)</span> no se aplicaría porque la estructura de rasgos sería incompatible. El género de “el” sería masculino y el de “casa” femenino. Este simple caso de concordancia se puede modelar bien con estructuras de rasgos.</p>
 <p>A partir de estos formalismos, en en lingüística se han desarrollado diferentes modelos completos com las <em>Head-driven phrase structure grammar</em> o las <em>Lexical-Functional Grammar</em> (que sigue siendo un modelo válido y objeto de investigación lingüística: <a class="reference external" href="https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/">https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/</a>).</p>
 </section>
-<section id="probabilistic-context-free-grammar-y-modelos-probabilisticos">
-<h4><span class="section-number">3.3.4.2. </span><em>Probabilistic Context Free Grammar</em> y modelos probabilísticos<a class="headerlink" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos" title="Permalink to this headline">#</a></h4>
-<p>Añaden peso estadístico a cada regla.</p>
+<section id="modelos-probabilisticos">
+<h4><span class="section-number">3.3.4.2. </span>Modelos probabilísticos<a class="headerlink" href="#modelos-probabilisticos" title="Permalink to this headline">#</a></h4>
+<p>Si bien estos formalismo son hoy válidos para el estudio lingüísitico por permitir una forma elegante de tratar los rasgos, no son útiles para Procesamiento del Lenguaje Natural. Entre otras cosas, no son capaces de dar solución a la ambigüedad estructura que se comentó antes.</p>
+<p>Una solución a este problema fuerons las gramáticas probabilísticas, como la <em>Probabilistic Context Free Grammar</em>. Este simplemente incluye un valor probabilístico de aplicación de al regla (que ha aprendido a partir de corpus anotados mediante aprendizaje supervisado). Este peso estadístico permite decidir qué regla aplicar en según qué casos:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SV → V SP SP (0.5)
 SV → V SP (0.3)
 SV → V (0.2)
 </pre></div>
 </div>
-<p>Modelos de aprendizaje automático.</p>
-<p>Corpus de aprendizaje y evaluación: <em>treebanks</em></p>
+<p>Con la aplicación del aprendizaje supervisado al análisis sintáctico se desarrollaron los <em>treebanks</em>: corpus de texto anotados a mano con árboles sintáticos. Estos se utilizan tanto como corpus de aprendizaje como corpus de evaluación para todo tipo de sistemas. Dos de los <em>treebanks</em> más conocidos, uno para para inglés y otro para español:</p>
 <ul class="simple">
 <li><p>Penn Treebank:</p>
 <ul>
@@ -1229,33 +1245,36 @@ SV → V (0.2)
 </ul>
 </li>
 </ul>
-<p>Y muchos otros</p>
+<p>Hay muchos más para diferentes idiomas.</p>
 </section>
 </section>
 <section id="chunkers">
 <h3><span class="section-number">3.3.5. </span><em>Chunkers</em><a class="headerlink" href="#chunkers" title="Permalink to this headline">#</a></h3>
-<p>En ocasiones el análisis sintáctico completo (<em>full parsing</em>) es complejo, consume mucho recurso y no suele obtener buenos resultados.</p>
-<p>Lo normal es realizar <em>análisis sintáctico parcial</em> o <em>chunkers</em>: extraer agrupaciones sintáticas (<em>chunks</em>) sin llegar a derivar el árbol sintáctico completo (Abney 1991).</p>
+<p>HAsta ahora el análisis sintático se ha planteado como un análisis completo (<em>full parsing</em>): derivar el árbol entero en toda su profundidad. Dada la coplejidad que una oración real puede tener, este tipo de análisis resulta en muchas ocasiones muy complejo: consume mucho tiempo y recursos para obteer resultados no del todo buenos.</p>
+<p>En los años 90 se propuso una solución a este problema: el <em>chunkers</em> o análisis sintáctico parcial (Abney 1991). Un análisis sintáctico parcial no deriva el árbol sintáctico completo de una oración, sino solo deriva el árbol de aquellos componentes que se necesitan saber. De un oración se pueden dervar solo los sintagmas nominales y verbales, sin llegar a construir un único árbol completo. Cada uno de estos sub-árboles es un <em>chunk</em>.</p>
+<p>En análisis de constituyentes lo normal es realizar análisis parcial. Con ello se gana en velocidad y recursos.</p>
 </section>
 <section id="estrategias">
 <h3><span class="section-number">3.3.6. </span>Estrategias<a class="headerlink" href="#estrategias" title="Permalink to this headline">#</a></h3>
-<p>Descendente:
-Recursive Descendent:</p>
-<p>(El siguiente código es Python y requiere tener instalado <a class="reference external" href="https://www.nltk.org/">NLTK</a>)</p>
+<p>Hay dos tipos de estrategias de análisis: la descendente y la ascendente.</p>
+<p>La descendente comienza el análisis con el símbolo inicial <span class="math notranslate nohighlight">\(S\)</span> y va derivando el árbol mediante la aplicación de las reglas en orden hasta llegar a analizar todos los símbolos terminales.</p>
+<p>Con la herramienta <a class="reference external" href="https://www.nltk.org/">NLTK</a> instalada, puedes ver de manera gráfica cómo funciona un analizador descendente recursivo con el siguiente código:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import nltk
 nltk.app.rdparser()
 </pre></div>
 </div>
-<p>Ascendente
-Shift Reduce:</p>
+<p>El ascentende parte de los símbolos terminales y, mediante las reglas, trata de llegar hasta el símbolo incial. El modelo <em>shift-reduce</em>, por ejemplo, va seleccionando <em>token</em> a <em>token</em> (<em>shift</em>), cuando estos responden a un símbolo no terminal, los agrupa (<em>reduce</em>), y repite con los no terminales hasta alcanzar el símbolo inicial. Por ejemplo, la regla <span class="math notranslate nohighlight">\(SN \to DET N\)</span> agruparía un determinante con un nombre. Puedes ver una muestra grafica de este algoritmo con el siguiente código de NLTK:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import nltk
 nltk.app.srparser()
 </pre></div>
 </div>
 </section>
+<section id="analisis-de-dependencias">
+<h3><span class="section-number">3.3.7. </span>Análisis de dependencias<a class="headerlink" href="#analisis-de-dependencias" title="Permalink to this headline">#</a></h3>
+</section>
 <section id="formato-conll">
-<h3><span class="section-number">3.3.7. </span>Formato CONLL<a class="headerlink" href="#formato-conll" title="Permalink to this headline">#</a></h3>
-<p>Formato de salida estándar en análisis de dependencias. Además de la información morfológica, por cada palabra indica de quién depende y el tipo de dependencia.</p>
+<h3><span class="section-number">3.3.8. </span>Formato CONLL<a class="headerlink" href="#formato-conll" title="Permalink to this headline">#</a></h3>
+<p>Si bien hay difernetes formatos para representar el análisis de dependencias, el más común hoy día es el formato CONLL. Aquí puede ver un ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Salida CoNLL-U
     # sent_id = 1
     # text = Los hombres que fuman puro tienen cara de canguro .
@@ -1271,27 +1290,38 @@ nltk.app.srparser()
     10  .   .   PUNCT   PUNCT   PunctType=Peri  6   punct   _   _
 </pre></div>
 </div>
+<p>Cada línes es un <em>token</em>. La primera columna es un índice, y las siguientes corresponden a: <em>token</em>, lema, categoría gramatical, información morfológica (opcional). Las dos última columnas indican el número de identificación de la palabra de quien es núcleo y la relación de dependencia con éste. Así se determina la dependencia y con ello el árbol. El inicio del árbol lo marca simpre la etiqueta <em>root</em> (en la palabra 6 en este casio)</p>
+<section id="analisis">
+<h4><span class="section-number">3.3.8.1. </span>Análisis<a class="headerlink" href="#analisis" title="Permalink to this headline">#</a></h4>
+<p>El análisis de dependecia estándar es el análisis basado en transiciones: <em>transition-based dependency parsing</em> (Nivre 2014), que es un tipo de análisis <em>shift-reduce</em>.</p>
+<div class="note admonition">
+<p class="admonition-title">Lectura obligatoria</p>
+<p>Para completar este tema, lee con atención el apartado 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/18.pdf">“18 Dependency Parsing”</a> del libro de Juravsky y Martin (2022) <em>Speech and Language Processing</em>. El resto del capítulo es lectura opcional.</p>
+</div>
+</section>
 </section>
 <section id="id7">
-<h3><span class="section-number">3.3.8. </span>Situación actual<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
-<p><em>Transition-based dependency parsing</em> (Nivre 2014). Algoritmo shift-reduce.</p>
-<p><em>Neural Network Dependency Parser</em>: <a class="reference external" href="https://nlp.stanford.edu/software/nndep.shtml">https://nlp.stanford.edu/software/nndep.shtml</a></p>
-<p>Modelo de dependencias universal: <a class="reference external" href="https://universaldependencies.org/"><em>Universal Dependencies</em></a>:</p>
-<blockquote>
-<div><p>The Universal Dependencies project (Nivre et al., 2016) provides an inventory of dependency relations that arelinguistically motivated, computationally useful, and cross-linguistically applicable. (Juravsky y Martin 2020, cap. 14)</p>
-</div></blockquote>
-<p>Representación vectorial (<em>embeddings</em>).</p>
+<h3><span class="section-number">3.3.9. </span>Situación actual<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>La situación actual del análisis sintático se caracteriza por:</p>
+<ul class="simple">
+<li><p>la aplicación de modelos neuronales como el <em>Neural Network Dependency Parser</em> (<a class="reference external" href="https://nlp.stanford.edu/software/nndep.shtml">https://nlp.stanford.edu/software/nndep.shtml</a>),</p></li>
+<li><p>con ello, la representación de información sintática en <em>embeddings</em> com vectores (de lo que se hablará en los siguientes temas), y</p></li>
+<li><p>la representación de la información sintática con un modelo universal denominado “Dependencias universales”: <a class="reference external" href="https://universaldependencies.org/"><em>Universal Dependencies</em></a> (Nivre et al., 2016). Este modelo está bien motivado desde un punto de vista lingüístico, pero al mismo tiempo es útil desde el punto de vista computacional y es “multilingüe: se puede aplical el mismo modelo a gran cantidad de idiomas.</p></li>
+</ul>
+<p>Ver:</p>
 <p><a class="reference external" href="http://nlpprogress.com/english/constituency_parsing.html">http://nlpprogress.com/english/constituency_parsing.html</a></p>
 <p><a class="reference external" href="http://nlpprogress.com/english/constituency_parsing.html">http://nlpprogress.com/english/dependency_parsing.html</a></p>
 </section>
 <section id="herramientas">
-<h3><span class="section-number">3.3.9. </span>Herramientas<a class="headerlink" href="#herramientas" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.10. </span>Herramientas<a class="headerlink" href="#herramientas" title="Permalink to this headline">#</a></h3>
+<p>Hay multitud de herramientas para realizar análisis sintático. Aquí cuatro de las más conocidas:</p>
 <ul class="simple">
 <li><p>SpaCy: <a class="reference external" href="https://spacy.io/">https://spacy.io/</a></p></li>
 <li><p>STANZA: <a class="reference external" href="https://stanfordnlp.github.io/stanza/">https://stanfordnlp.github.io/stanza/</a></p></li>
 <li><p>Freeling: <a class="reference external" href="https://nlp.lsi.upc.edu/freeling/node/1">https://nlp.lsi.upc.edu/freeling/node/1</a></p></li>
 <li><p>UD-Pipe: <a class="reference external" href="https://ufal.mff.cuni.cz/udpipe">https://ufal.mff.cuni.cz/udpipe</a></p></li>
 </ul>
+<p>En la práctica se utilizará SpaCy.</p>
 </section>
 </section>
 <section id="bibliografia">
