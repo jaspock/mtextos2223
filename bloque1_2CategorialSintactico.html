@@ -1169,13 +1169,14 @@ etc.
 (Créditos de la imagen [aquí](http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias)) -->
 <p>En este ejemplo podemos ver que el núcleo oracinal (<em>root</em>) es el verbo “buscó”. De este dependen tres palabras: “Inés” con una dependencia de <em>nsubj</em> (sujeto nominal), “llaves” con una dependencia de <em>obj</em> (lo que en la gramática escolar se denomina “complemento directo” u “objeto directo”) y “cajón”
 con una dependencia de <a class="reference external" href="https://universaldependencies.org/u/dep/obl.html"><em>obl</em></a> (de <em>oblique</em> o <em>adjunct</em>, que vendría a ser un complemento circustancial). A su vez, “laves” y “cajón” son núcleo de otras palabras, etc. Luego se expondrá cada una de estas etiquetas.</p>
-<p>Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintática más explícita.</p>
+<p>Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintática más explícita. Pero antes de profundizar en él, y para entender bien cómo funciona un <em>parser</em>, vamos a ver los modelos de constituyentes.</p>
 </section>
 <section id="gramaticas-formales">
 <h3><span class="section-number">3.3.4. </span>Gramáticas formales<a class="headerlink" href="#gramaticas-formales" title="Permalink to this headline">#</a></h3>
-<p>Conjunto de reglas formales de análisis sintático.</p>
+<p>La parte principal del un <em>parser</em> es la gramática: el conjunto de reglas que, dado una secuencia de <em>tokenes</em> (y en su caso también categorías gramaticales) derivan un árbol sintático. Estas deben ser reglas formales que la máquina puede entender y procesar.</p>
 <section id="context-free-grammars">
 <h4><span class="section-number">3.3.4.1. </span>Context free grammars<a class="headerlink" href="#context-free-grammars" title="Permalink to this headline">#</a></h4>
+<p>Las gramáticas independients del contexto (CFG: <em>Context free grammars</em>) es el formalismo base de toda una familia de gramáticas formales que se desarrollaron después. La definición formal es la siguiente:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>G = (NT, T, S, P)
 NT: {no terminales},
 T: {terminales},
@@ -1185,9 +1186,11 @@ P: Reglas de producción A -&gt; w:
     W   (NT U T)*
 </pre></div>
 </div>
-<p>Tal que</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NT ={S,NP,VP,nprop,n,v,det}, 
-T ={Pepe,manzana, come,una},
+<p>Una CFG es una tupla de cuatro elementos: un conjunto de símbolos no terminales, un conjunto de símbolos terminales, un símbolo inicial, y una serie de reglas de producción con la forma <span class="math notranslate nohighlight">\(A -&gt; w\)</span>, en la que los símbolos de la izquierda (<span class="math notranslate nohighlight">\(A\)</span>) tienen que ser siempre no terminales, y los de la derecha <span class="math notranslate nohighlight">\(w\)</span> pueden ser tanto terminales como no terminales.</p>
+<p>Ejemplo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NT={S,NP,VP,nprop,n,v,det}, 
+T={Pepe,manzana, come,una},
+S=S,
 P:
     S -&gt; NP VP
     NP -&gt; nprop
@@ -1196,10 +1199,12 @@ P:
     VP -&gt; v NP
 </pre></div>
 </div>
+<p>En este caso los símbolos no terminales son las etiquetas sintáticas y categoriales (<span class="math notranslate nohighlight">\(S,NP,VP,nprop,n,v,det\)</span>), los símbolos terminales son los <em>tokens</em> (“Pepe,manzana, come,una”), el símbolo incial es <span class="math notranslate nohighlight">\(S\)</span> y las reglas de producción indica cómo cada símbolo no termina se puede transformar en otros símbolos. De esta gramática se podría derivar el siguiente árbol:</p>
 <p><img alt="AnalisisConstituyentes" src="_images/constituyentes_2.png" /></p>
-<p>Estas gramáticas eran muy limitadas y fueron ampliadas con estructuras de rasgos y técnicas de unificación.</p>
+<p>Estas gramáticas son, por supuesto, muy limitadas. Sólo sirven para conjuntos predefinidos de oraciones. En los años 80 fueron ampliadas con estructuras de rasgos y técnicas de unificación. Las estructuras de ragos son estructuras asociadas a cada símbolo (tanto terminal como no terminal) que permiten enriquecerlo con datos (pares atributo-valor). En el ejemplo siguiente se puede ver una estructura de rasgos con información morfológica. La unificación es una operación que permite comparar y, si son compatibles, unir dos estructuras de rasgos. La siguiente imagen muestra un caso de unificación porque las dos estructuras de rasgos con compatiles:</p>
 <p><img alt="Unificación" src="_images/unificacion.png" /></p>
-<p>En lingüística se han desarrollado diferentes modelos basados en estas técnicas las <em>Head-driven phrase structure grammar</em> o las <em>Lexical-Functional Grammar</em> (que sigue siendo un modelo válido: <a class="reference external" href="https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/">https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/</a> )</p>
+<p>Si en vez de “La casa”, la oración de entrada fuera “El casa”, la regla <span class="math notranslate nohighlight">\(SN -&gt; DET N\)</span> no se aplicaría porque la estructura de rasgos sería incompatible. El género de “el” sería masculino y el de “casa” femenino. Este simple caso de concordancia se puede modelar bien con estructuras de rasgos.</p>
+<p>A partir de estos formalismos, en en lingüística se han desarrollado diferentes modelos completos com las <em>Head-driven phrase structure grammar</em> o las <em>Lexical-Functional Grammar</em> (que sigue siendo un modelo válido y objeto de investigación lingüística: <a class="reference external" href="https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/">https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/</a>).</p>
 </section>
 <section id="probabilistic-context-free-grammar-y-modelos-probabilisticos">
 <h4><span class="section-number">3.3.4.2. </span><em>Probabilistic Context Free Grammar</em> y modelos probabilísticos<a class="headerlink" href="#probabilistic-context-free-grammar-y-modelos-probabilisticos" title="Permalink to this headline">#</a></h4>

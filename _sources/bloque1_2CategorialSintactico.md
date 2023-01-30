@@ -359,13 +359,15 @@ El modelo basado en dependencias es diferente. No le interesa tanto mostrar cóm
 En este ejemplo podemos ver que el núcleo oracinal (*root*) es el verbo "buscó". De este dependen tres palabras: "Inés" con una dependencia de *nsubj* (sujeto nominal), "llaves" con una dependencia de *obj* (lo que en la gramática escolar se denomina "complemento directo" u "objeto directo") y "cajón"
 con una dependencia de [*obl*](https://universaldependencies.org/u/dep/obl.html) (de *oblique* o *adjunct*, que vendría a ser un complemento circustancial). A su vez, "laves" y "cajón" son núcleo de otras palabras, etc. Luego se expondrá cada una de estas etiquetas.
 
-Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintática más explícita.
+Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintática más explícita. Pero antes de profundizar en él, y para entender bien cómo funciona un *parser*, vamos a ver los modelos de constituyentes.
 
 ### Gramáticas formales
 
-Conjunto de reglas formales de análisis sintático.
+La parte principal del un *parser* es la gramática: el conjunto de reglas que, dado una secuencia de *tokenes* (y en su caso también categorías gramaticales) derivan un árbol sintático. Estas deben ser reglas formales que la máquina puede entender y procesar.
 
 #### Context free grammars
+
+Las gramáticas independients del contexto (CFG: *Context free grammars*) es el formalismo base de toda una familia de gramáticas formales que se desarrollaron después. La definición formal es la siguiente:
 
     G = (NT, T, S, P)
     NT: {no terminales},
@@ -375,10 +377,13 @@ Conjunto de reglas formales de análisis sintático.
         A   NT
         W   (NT U T)*
 
-Tal que
+Una CFG es una tupla de cuatro elementos: un conjunto de símbolos no terminales, un conjunto de símbolos terminales, un símbolo inicial, y una serie de reglas de producción con la forma $A -> w$, en la que los símbolos de la izquierda ($A$) tienen que ser siempre no terminales, y los de la derecha $w$ pueden ser tanto terminales como no terminales.
 
-    NT ={S,NP,VP,nprop,n,v,det}, 
-    T ={Pepe,manzana, come,una},
+Ejemplo:
+
+    NT={S,NP,VP,nprop,n,v,det}, 
+    T={Pepe,manzana, come,una},
+    S=S,
     P:
         S -> NP VP
         NP -> nprop
@@ -386,13 +391,17 @@ Tal que
         VP -> v
         VP -> v NP
 
+En este caso los símbolos no terminales son las etiquetas sintáticas y categoriales ($S,NP,VP,nprop,n,v,det$), los símbolos terminales son los *tokens* ("Pepe,manzana, come,una"), el símbolo incial es $S$ y las reglas de producción indica cómo cada símbolo no termina se puede transformar en otros símbolos. De esta gramática se podría derivar el siguiente árbol:
+
 ![AnalisisConstituyentes](images/constituyentes_2.png)
 
-Estas gramáticas eran muy limitadas y fueron ampliadas con estructuras de rasgos y técnicas de unificación.
+Estas gramáticas son, por supuesto, muy limitadas. Sólo sirven para conjuntos predefinidos de oraciones. En los años 80 fueron ampliadas con estructuras de rasgos y técnicas de unificación. Las estructuras de ragos son estructuras asociadas a cada símbolo (tanto terminal como no terminal) que permiten enriquecerlo con datos (pares atributo-valor). En el ejemplo siguiente se puede ver una estructura de rasgos con información morfológica. La unificación es una operación que permite comparar y, si son compatibles, unir dos estructuras de rasgos. La siguiente imagen muestra un caso de unificación porque las dos estructuras de rasgos con compatiles:
 
 ![Unificación](images/unificacion.png)
 
-En lingüística se han desarrollado diferentes modelos basados en estas técnicas las *Head-driven phrase structure grammar* o las *Lexical-Functional Grammar* (que sigue siendo un modelo válido: [https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/](https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/) )
+Si en vez de "La casa", la oración de entrada fuera "El casa", la regla $SN -> DET N$ no se aplicaría porque la estructura de rasgos sería incompatible. El género de "el" sería masculino y el de "casa" femenino. Este simple caso de concordancia se puede modelar bien con estructuras de rasgos.
+
+A partir de estos formalismos, en en lingüística se han desarrollado diferentes modelos completos com las *Head-driven phrase structure grammar* o las *Lexical-Functional Grammar* (que sigue siendo un modelo válido y objeto de investigación lingüística: [https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/](https://ling.sprachwiss.uni-konstanz.de/pages/home/lfg/)).
 
 #### *Probabilistic Context Free Grammar* y modelos probabilísticos
 
