@@ -5,6 +5,7 @@ Análisis categorial y sintáctico
 ```{admonition} Nota
 :class: note
 Para preparar este tema, tras leer este documento, debes leer los capítulos 8 y 18 de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Durante la explicación a continuación se indica qué secciones son las más relevantes.
+Al final de esta página tienes el enlace para realizar el cuestionario de aprendizaje. Debéis realizarlo ANTES de la próxima clase).
 ```
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
@@ -528,6 +529,12 @@ En la práctica se utilizará SpaCy.
 - Steven Bird, Ewan Klein, and Edward Loper (2009) *Natural Language Processing with Python* <https://www.nltk.org/book/>
 - Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
 - Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. _Constraint Grammar. A language-independent system for parsing unrestricted text_. Berlin and New-York: Mouton de Gruyter
+
+## Cuestionario de aprendizaje
+
+Una vez realizadas las lecturas, contesta el siguiente cuestionario:
+
+[https://forms.gle/ncbWkFGCjSqXSTiX9](https://forms.gle/ncbWkFGCjSqXSTiX9)
 
 ---
 
