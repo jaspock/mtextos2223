@@ -5,6 +5,12 @@ Minería de textos y procesamiento del lenguaje natural.
 
 Borja Navarro Colorado
 
+
+```{admonition} Nota
+:class: note
+Lee con atención esta sección 2 y la siguiente sección 3. Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás al final de la sección 3. En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica 1. Las lecturas y el cuestionario debéis realizarlo ANTES de la clase presencial.
+```
+
 <!-- [Transparencias de clase](https://docs.google.com/presentation/d/1R049gfFDPNW0Y9VqmqgBuSioGRTLQ_YPzlOg7KUzJQc/edit?usp=sharing) -->
 
 *Minería de textos* es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.
