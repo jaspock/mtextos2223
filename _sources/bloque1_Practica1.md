@@ -63,7 +63,7 @@ Documentación:
 - [https://spacy.io/universe/project/spacy-conll](https://spacy.io/universe/project/spacy-conll)
 - [https://github.com/BramVanroy/spacy_conll](https://github.com/BramVanroy/spacy_conll)
 
-## Amplicación 2 - Análísis semántico con WordNet y NLTK
+## Amplicación 2 - Análisis semántico con WordNet y NLTK
 
 <font color=red>**Esta ampliación se debe realizar DESPUÉS de estudiar el Tema 5 del Bloque 1 *Análisis semántico***</font>
 
