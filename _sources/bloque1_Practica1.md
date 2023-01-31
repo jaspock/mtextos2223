@@ -65,7 +65,7 @@ Documentación:
 
 ## Amplicación 2 - Análísis semántico con WordNet y NLTK
 
-<font color=red>**Esta ampliación se debe realizar DESPUÉS de estudiar el Tema 4 del Bloque 1 *Análisis semántico***</font>
+<font color=red>**Esta ampliación se debe realizar DESPUÉS de estudiar el Tema 5 del Bloque 1 *Análisis semántico***</font>
 
 Dado un fragmento del corpus lematizado, extraer el *synset* más frecuente.
 
