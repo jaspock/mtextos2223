@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Análisis semántico &#8212; Minería de Textos</title>
+    <title>5. Análisis semántico &#8212; Minería de Textos</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Práctica 1." href="bloque1_Practica1.html" />
-    <link rel="prev" title="3. Análisis categorial y sintáctico" href="bloque1_2CategorialSintactico.html" />
+    <link rel="next" title="6. Análisis semántico vectorial" href="bloque1_4AnalisisSemanticoVectorial.html" />
+    <link rel="prev" title="4. Práctica 1." href="bloque1_Practica1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -135,14 +135,14 @@ const thebe_selector_output = ".output, .cell_output"
    3. Análisis categorial y sintáctico
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Análisis semántico
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque1_Practica1.html">
-   5. Práctica 1.
+   4. Práctica 1.
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Análisis semántico
   </a>
  </li>
  <li class="toctree-l1">
@@ -414,12 +414,12 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#la-semantica-tipos-de-significados">
-   4.1. La semántica. Tipos de significados.
+   5.1. La semántica. Tipos de significados.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#semantica-lexica-word-sense-disambiguation">
-   4.2. Semántica léxica.
+   5.2. Semántica léxica.
    <em>
     Word Sense Disambiguation
    </em>
@@ -428,12 +428,12 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#significado-lexico-como-unidad-discreta">
-     4.2.1. Significado léxico como unidad discreta
+     5.2.1. Significado léxico como unidad discreta
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#word-sense-disambiguation">
-     4.2.2.
+     5.2.2.
      <em>
       Word Sense Disambiguation
      </em>
@@ -441,27 +441,27 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#representacion-del-significado-lexico-wordnet">
-     4.2.3. Representación del significado léxico: WordNet.
+     5.2.3. Representación del significado léxico: WordNet.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmos-de-desambiguacion-lexico-semantica">
-     4.2.4. Algoritmos de desambiguación léxico-semántica.
+     5.2.4. Algoritmos de desambiguación léxico-semántica.
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estrategias-basadas-en-conocimiento">
-       4.2.4.1. Estrategias basadas en conocimiento
+       5.2.4.1. Estrategias basadas en conocimiento
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estrategias-basadas-en-aprendizaje-supervisado">
-       4.2.4.2. Estrategias basadas en aprendizaje supervisado
+       5.2.4.2. Estrategias basadas en aprendizaje supervisado
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#induccion-de-sentidos">
-       4.2.4.3. Inducción de sentidos
+       5.2.4.3. Inducción de sentidos
       </a>
      </li>
     </ul>
@@ -470,41 +470,41 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#semantica-oracional-roles-semanticos-y-semantica-eventiva">
-   4.3. Semántica oracional. Roles semánticos y semántica eventiva.
+   5.3. Semántica oracional. Roles semánticos y semántica eventiva.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#representacion-formal-de-los-roles-semanticos">
-     4.3.1. Representación formal de los roles semánticos.
+     5.3.1. Representación formal de los roles semánticos.
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#framenet">
-       4.3.1.1. FrameNet
+       5.3.1.1. FrameNet
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#propbank">
-       4.3.1.2. PropBank
+       5.3.1.2. PropBank
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmos">
-     4.3.2. Algoritmos
+     5.3.2. Algoritmos
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#otros-tipos-de-analisis">
-   4.4. Otros tipos de análisis.
+   5.4. Otros tipos de análisis.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   4.5. Bibliografía
+   5.5. Bibliografía
   </a>
  </li>
 </ul>
@@ -528,12 +528,12 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#la-semantica-tipos-de-significados">
-   4.1. La semántica. Tipos de significados.
+   5.1. La semántica. Tipos de significados.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#semantica-lexica-word-sense-disambiguation">
-   4.2. Semántica léxica.
+   5.2. Semántica léxica.
    <em>
     Word Sense Disambiguation
    </em>
@@ -542,12 +542,12 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#significado-lexico-como-unidad-discreta">
-     4.2.1. Significado léxico como unidad discreta
+     5.2.1. Significado léxico como unidad discreta
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#word-sense-disambiguation">
-     4.2.2.
+     5.2.2.
      <em>
       Word Sense Disambiguation
      </em>
@@ -555,27 +555,27 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#representacion-del-significado-lexico-wordnet">
-     4.2.3. Representación del significado léxico: WordNet.
+     5.2.3. Representación del significado léxico: WordNet.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmos-de-desambiguacion-lexico-semantica">
-     4.2.4. Algoritmos de desambiguación léxico-semántica.
+     5.2.4. Algoritmos de desambiguación léxico-semántica.
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estrategias-basadas-en-conocimiento">
-       4.2.4.1. Estrategias basadas en conocimiento
+       5.2.4.1. Estrategias basadas en conocimiento
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estrategias-basadas-en-aprendizaje-supervisado">
-       4.2.4.2. Estrategias basadas en aprendizaje supervisado
+       5.2.4.2. Estrategias basadas en aprendizaje supervisado
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#induccion-de-sentidos">
-       4.2.4.3. Inducción de sentidos
+       5.2.4.3. Inducción de sentidos
       </a>
      </li>
     </ul>
@@ -584,41 +584,41 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#semantica-oracional-roles-semanticos-y-semantica-eventiva">
-   4.3. Semántica oracional. Roles semánticos y semántica eventiva.
+   5.3. Semántica oracional. Roles semánticos y semántica eventiva.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#representacion-formal-de-los-roles-semanticos">
-     4.3.1. Representación formal de los roles semánticos.
+     5.3.1. Representación formal de los roles semánticos.
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#framenet">
-       4.3.1.1. FrameNet
+       5.3.1.1. FrameNet
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#propbank">
-       4.3.1.2. PropBank
+       5.3.1.2. PropBank
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmos">
-     4.3.2. Algoritmos
+     5.3.2. Algoritmos
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#otros-tipos-de-analisis">
-   4.4. Otros tipos de análisis.
+   5.4. Otros tipos de análisis.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   4.5. Bibliografía
+   5.5. Bibliografía
   </a>
  </li>
 </ul>
@@ -632,17 +632,17 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="analisis-semantico">
-<span id="label-semantica"></span><h1><span class="section-number">4. </span>Análisis semántico<a class="headerlink" href="#analisis-semantico" title="Permalink to this headline">#</a></h1>
+<span id="label-semantica"></span><h1><span class="section-number">5. </span>Análisis semántico<a class="headerlink" href="#analisis-semantico" title="Permalink to this headline">#</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Para preparar este tema, consulta los capítulos 18 y 19 de Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
 </div>
 <section id="la-semantica-tipos-de-significados">
-<h2><span class="section-number">4.1. </span>La semántica. Tipos de significados.<a class="headerlink" href="#la-semantica-tipos-de-significados" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>La semántica. Tipos de significados.<a class="headerlink" href="#la-semantica-tipos-de-significados" title="Permalink to this headline">#</a></h2>
 <p>La semántica estudia significado de los textos. El propio concepto de significado es, sin embargo, bastante vago. En este tema se presenta modelos de representación y procesamiento del significado lingüístico según el estándar actual en PLN: por un lado el significado léxico y el significado oracional por otro.</p>
 </section>
 <section id="semantica-lexica-word-sense-disambiguation">
-<h2><span class="section-number">4.2. </span>Semántica léxica. <em>Word Sense Disambiguation</em>.<a class="headerlink" href="#semantica-lexica-word-sense-disambiguation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Semántica léxica. <em>Word Sense Disambiguation</em>.<a class="headerlink" href="#semantica-lexica-word-sense-disambiguation" title="Permalink to this headline">#</a></h2>
 <p>La semántica léxica se refiere al significado de las palabras.</p>
 <p>En PLN hay actualmente dos modelos para tratar la semántica léxica:</p>
 <ul class="simple">
@@ -651,7 +651,7 @@ title="Print to PDF"
 </ul>
 <p>Este capítulo se centra en el primer modelo.</p>
 <section id="significado-lexico-como-unidad-discreta">
-<h3><span class="section-number">4.2.1. </span>Significado léxico como unidad discreta<a class="headerlink" href="#significado-lexico-como-unidad-discreta" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>Significado léxico como unidad discreta<a class="headerlink" href="#significado-lexico-como-unidad-discreta" title="Permalink to this headline">#</a></h3>
 <p>Según este modelo, por tanto, una palabra puede tener uno o más significados que además podemos especificar en un diccionario. Las palabras que tienen dos o más significados son palabras ambiguas. Se calcula que más del 60% de las palabras de un idioma son ambiguas: basta echar un vistazo a un diccionario para comprobarlo. En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser humano al interpretar el texto es capaz de determinar, a partir del conjunto de significado de una palabra, el sentido apropiado para ese contexto.</p>
 <blockquote>
 <div><p>mouse1:  …. a mouse controlling a computer system in 1968.</p>
@@ -669,12 +669,12 @@ title="Print to PDF"
 <p>Desde un punto de vista computacional, la polisemia es más compleja de procesar, pues esto significados nuevos siempre están relacionados con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.</p>
 </section>
 <section id="word-sense-disambiguation">
-<h3><span class="section-number">4.2.2. </span><em>Word Sense Disambiguation</em><a class="headerlink" href="#word-sense-disambiguation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.2. </span><em>Word Sense Disambiguation</em><a class="headerlink" href="#word-sense-disambiguation" title="Permalink to this headline">#</a></h3>
 <p>En PLN, este proceso de seleccionar el significado apropiado para un contexto a partir de los significados establecidos en un diccionario se denomina <em>Word Sense Disambiguation</em> (WSD). Es una de las tareas del PLN con más tradición, junto al análisis categorial o el análisis sintáctico que vimos en temas anteriores.</p>
 <p>Los sistemas de WSD están formados por dos componentes fundamentales: un diccionario en el que se representan todos los significados de las palabras y un algoritmo de desambiguación.</p>
 </section>
 <section id="representacion-del-significado-lexico-wordnet">
-<h3><span class="section-number">4.2.3. </span>Representación del significado léxico: WordNet.<a class="headerlink" href="#representacion-del-significado-lexico-wordnet" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.3. </span>Representación del significado léxico: WordNet.<a class="headerlink" href="#representacion-del-significado-lexico-wordnet" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://wordnet.princeton.edu/">WordNet</a> (Miller 1995,
 Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo (<a class="reference external" href="http://globalwordnet.org/">GlobalWordNet</a>) Ver también el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/">Open Multilingual Wordnet</a>.</p>
 <p>WordNet en inglés se puede consultar desde la <a class="reference external" href="http://wordnetweb.princeton.edu/perl/webwn">página oficial</a>.</p>
@@ -694,12 +694,12 @@ Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día e
 <p>En su concepción original, WordNet pretendía ser una representación computacional del lexicón humano. Finalmente se ha convertido en quizá el principal recurso para el análisis léxico-semántico. WordNet es el estándar <em>de facto</em> para la representación semántica léxica de un corpus.</p>
 </section>
 <section id="algoritmos-de-desambiguacion-lexico-semantica">
-<h3><span class="section-number">4.2.4. </span>Algoritmos de desambiguación léxico-semántica.<a class="headerlink" href="#algoritmos-de-desambiguacion-lexico-semantica" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.4. </span>Algoritmos de desambiguación léxico-semántica.<a class="headerlink" href="#algoritmos-de-desambiguacion-lexico-semantica" title="Permalink to this headline">#</a></h3>
 <p>WSD asume que los significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora.</p>
 <p>La complejidad es WSD es determinar, de los posibles synsets asociados a una palabra (nombre, verbo o adjetivo), cuál es el apropiado en un contexto dado. La heurística básica es seleccionar el sentido más frecuente.</p>
 <p>En los últimos 30 años se han propuesto diferentes algoritmos. En general, hay dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.</p>
 <section id="estrategias-basadas-en-conocimiento">
-<h4><span class="section-number">4.2.4.1. </span>Estrategias basadas en conocimiento<a class="headerlink" href="#estrategias-basadas-en-conocimiento" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.2.4.1. </span>Estrategias basadas en conocimiento<a class="headerlink" href="#estrategias-basadas-en-conocimiento" title="Permalink to this headline">#</a></h4>
 <p>Las estrategias basadas en conocimiento (<em>knowledge-based</em>) se caracterizan por explotar al máximo la información del recurso léxico (normalmente WordNet) y su comparación con el contexto donde aparece la palabra ambigua.</p>
 <p>El algoritmo de Lesk (Lesk 1986) es el método estándar de desambiguación basando en conocimiento. Para determinar el sentido apropiado de una palabra ambigua, compara las palabras del contexto donde aparece con la definición de cada sentido (la “glosa” en WordNet). Finalmente selecciona como sentido apropiado aquél cuya definición tiene más coincidencias con el contexto.</p>
 <p>Por ejemplo, según este uso de “banco”, quedaría claro que el sentido apropiado es el primero:</p>
@@ -717,7 +717,7 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 <p>En esta línea, el algoritmo UKB (Agirre y Soroa 2009, Padró et al. 2010) es un aproximación mucho más avanzada. El algoritmo es una adaptación del algoritmo Page Rank de Google. La idea principal de éste es que no todos los nodos de un grafo son iguales, sino que unos tienen más importancia que otros. Un nodo es importante si otros nodos apuntan a él, y si un nodo importante apunta a otro, este también se considera relativamente importante. Sin entrar en detalles técnicos, este algoritmo determina la pertinencia de un sentido en un contexto mediante las relaciones léxicas de cada palabra dentro de WordNet. Dada una palabra ambigua, aquel synset cuyas relaciones de hiperonimia, etc. mejor encaje con el resto de sentidos del contexto, será el apropiado (Agirre y Soroa 2009). Este es el algoritmo implementado en <a class="reference external" href="http://nlp.lsi.upc.edu/freeling/">Freeling</a>.</p>
 </section>
 <section id="estrategias-basadas-en-aprendizaje-supervisado">
-<h4><span class="section-number">4.2.4.2. </span>Estrategias basadas en aprendizaje supervisado<a class="headerlink" href="#estrategias-basadas-en-aprendizaje-supervisado" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.2.4.2. </span>Estrategias basadas en aprendizaje supervisado<a class="headerlink" href="#estrategias-basadas-en-aprendizaje-supervisado" title="Permalink to this headline">#</a></h4>
 <p>Estas estrategias (<em>features-based algorithms</em>) se caracterizan por aprender diferentes rasgos del contexto de las palabras y utilizarlos para clasificar usos ambiguos.</p>
 <p>Por ejemplo, una estrategia óptima sería crear un clasificador basado en SVM con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (<em>embedings</em>) de cada palabra del contexto (Juravki y Martin, cap. 18, pág. 12).</p>
 <p>Existen diferentes corpus anotados con sentidos desambiguados. El primero en ser desarrollado fue SemCor, con texto en inglés. Este corpus es el modelo a partir del cual se han desarrollado otros. El corpus se creó al mismo tiempo que WordNet y por las mismas personas. En SemCor, cada palabra tiene asignado el <em>synset</em> específico en WordNet. Y muchos sentidos de WordNet se han determinado a partir de los textos de SemCor. SemCor está disponible en diferentes páginas (como <a class="reference external" href="http://www.gabormelli.com/RKB/SemCor_Corpus">esta</a> y <a class="reference external" href="http://web.eecs.umich.edu/~mihalcea/downloads.html#semcor">esta</a>), así como en <a class="reference external" href="https://www.kaggle.com/nltkdata/semcor-corpus">Kaggle</a> o <a class="reference external" href="https://www.nltk.org/_modules/nltk/corpus/reader/semcor.html">NLTK</a>.</p>
@@ -725,7 +725,7 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 <p>La línea de trabajo acutal es aplicar <em>word embeddings</em> a la tarea de WSD. Un recurso muy utilizado es <a class="reference external" href="http://lcl.uniroma1.it/nasari/">Nasari</a>, que incluye representaciones vectoriales de los <em>synsets</em> de WordNet y de la Wikipedia (ambos integrados en el recurso BabelNet).</p>
 </section>
 <section id="induccion-de-sentidos">
-<h4><span class="section-number">4.2.4.3. </span>Inducción de sentidos<a class="headerlink" href="#induccion-de-sentidos" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.2.4.3. </span>Inducción de sentidos<a class="headerlink" href="#induccion-de-sentidos" title="Permalink to this headline">#</a></h4>
 <p>Junto a estas dos estrategias, hay una tercera basada en técnicas no supervisadas. En este caso, sin embargo, como no hay un recursos léxico de referencia con los sentidos, los sistemas no determinan significados sino que agrupan oraciones. Así, dado un conjunto de oraciones con una palabra ambigua en común, agrupan las oraciones en las que esa palabra se utiliza con un sentido determinado. Lo que no pueden determinar es cuál es ese sentido.</p>
 <p>En esta tareas se suelen aplicar modelos de semántica vectorial que se verán en la próxima sesión.</p>
 <p>La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN. Algunos de las últimas propuestas se pueden ver aquí:</p>
@@ -740,7 +740,7 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 </section>
 </section>
 <section id="semantica-oracional-roles-semanticos-y-semantica-eventiva">
-<h2><span class="section-number">4.3. </span>Semántica oracional. Roles semánticos y semántica eventiva.<a class="headerlink" href="#semantica-oracional-roles-semanticos-y-semantica-eventiva" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.3. </span>Semántica oracional. Roles semánticos y semántica eventiva.<a class="headerlink" href="#semantica-oracional-roles-semanticos-y-semantica-eventiva" title="Permalink to this headline">#</a></h2>
 <p>Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto (<strong>principio de composicionalidad</strong>).</p>
 <p>Así, la semántica oracional se centra en estudiar el significado de la oración en su conjunto. Dentro del PLN hay diferentes aproximaciones a la semántica oracional, de las que destaca sobre todo el análisis de <strong>roles semánticos</strong> (Gildea y Jurafsky 2002).</p>
 <p>Los roles semánticos se enmarcan dentro de la <strong>semántica eventiva</strong> (o semántica de eventos). El objeto de esta aproximación semántica es determinar los eventos y estados expresados en un texto junto con sus participantes y las relaciones entre ellos.</p>
@@ -752,11 +752,11 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 <p>expresa el evento “perseguir” que tiene una estructura argumental formada por la persona que persigue (“las fuerzas de seguridad”) y la persona perseguida (“los agresores”). El primer argumento se podría considerar como rol “agente” y el segundo como rol “tema”.</p>
 <p>El evento puede estar expresado por verbo (“luchar”) pero también por un nombre (“la guerra”). Los argumentos son los sintagmas que completan el significado del evento. La función semántica que pueden asumir los argumento es lo que se denomina “roles semánticos”.</p>
 <section id="representacion-formal-de-los-roles-semanticos">
-<h3><span class="section-number">4.3.1. </span>Representación formal de los roles semánticos.<a class="headerlink" href="#representacion-formal-de-los-roles-semanticos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Representación formal de los roles semánticos.<a class="headerlink" href="#representacion-formal-de-los-roles-semanticos" title="Permalink to this headline">#</a></h3>
 <p>La teoría de los roles semánticos proviene de la Teoría de Casos de Ch. Fillmore y ha tenido diferentes desarrollos en lingüística teórica. El problema principal que tienen estas teorías es que, por un lado, no se ha podido consensuar una única lista de roles semánticos y, por otro, no hay una clara distinción entre los roles. Así, al hablar de roles semánticos nos podemos encontrar roles como <em>agente</em> (el argumento que realiza el evento), <em>paciente</em> o <em>tema</em> (el argumento sobre el que actúa el evento), experimentante, proto-agente, proto-paciente (ambos generalizaciones de agente y paciente), etc.</p>
 <p>Esta falta de definición ha propiciado el desarrollo de dos modelos de representación de roles semántico en lingüística computacional: el modelo de FrameNet y el modelo de PropBank.</p>
 <section id="framenet">
-<h4><span class="section-number">4.3.1.1. </span>FrameNet<a class="headerlink" href="#framenet" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.3.1.1. </span>FrameNet<a class="headerlink" href="#framenet" title="Permalink to this headline">#</a></h4>
 <p>FrameNet (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido como un marco estructural conceptual (<em>frame</em>) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (<em>frame elements</em>).</p>
 <p>Por ejemplo, la unidad léxica “comer” pertenece al marco semántico <em>Ingestion</em>. En este marco semántico se han definido hasta siete elementos, entre los que se encuentran:</p>
 <ul>
@@ -782,7 +782,7 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 </div>
 </section>
 <section id="propbank">
-<h4><span class="section-number">4.3.1.2. </span>PropBank<a class="headerlink" href="#propbank" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.3.1.2. </span>PropBank<a class="headerlink" href="#propbank" title="Permalink to this headline">#</a></h4>
 <p>La propuesta de PropBank (acrónimo de <em>Proposition Bank</em> (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Arg0 | Arg1 | Arg2 | Arg3 | Arg4
 </pre></div>
@@ -811,7 +811,7 @@ la disponible en el <a class="reference external" href="https://www.nltk.org/how
 </section>
 </section>
 <section id="algoritmos">
-<h3><span class="section-number">4.3.2. </span>Algoritmos<a class="headerlink" href="#algoritmos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>Algoritmos<a class="headerlink" href="#algoritmos" title="Permalink to this headline">#</a></h3>
 <p>Los sistema de análisis de roles semánticos (<em>semantic role labeling</em>) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.</p>
 <p>Los principales algoritmos de <em>semantic roles labeling</em> suelen estar basados en <strong>técnicas de aprendizaje supervisado</strong>. A partir de corpus anotados con roles (como el propio corpus <a class="reference external" href="https://propbank.github.io/">PropBank</a>), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.</p>
 <p>El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los
@@ -825,11 +825,11 @@ partir de estos rasgos.</p>
 </section>
 </section>
 <section id="otros-tipos-de-analisis">
-<h2><span class="section-number">4.4. </span>Otros tipos de análisis.<a class="headerlink" href="#otros-tipos-de-analisis" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.4. </span>Otros tipos de análisis.<a class="headerlink" href="#otros-tipos-de-analisis" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://nlpprogress.com/english/semantic_parsing.html">http://nlpprogress.com/english/semantic_parsing.html</a></p>
 </section>
 <section id="bibliografia">
-<h2><span class="section-number">4.5. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.5. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
 <p>Fellbau, C. (ed) 1998. <em>WordNet: An Electronic Lexical Database</em>. Cambridge, MA: MIT Press.</p>
 <p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a> (Caps 18-19)</p>
 <p>Miller, G. A. 1995. “WordNet: A Lexical Database for English”. <em>Communications of the ACM</em>, 38(11), 39-41.</p>
@@ -864,17 +864,17 @@ partir de estos rasgos.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="bloque1_2CategorialSintactico.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="bloque1_Practica1.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3. </span>Análisis categorial y sintáctico</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Práctica 1.</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bloque1_Practica1.html" title="next page">
+    <a class='right-next' id="next-link" href="bloque1_4AnalisisSemanticoVectorial.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Práctica 1.</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Análisis semántico vectorial</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
