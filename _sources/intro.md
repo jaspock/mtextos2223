@@ -39,6 +39,7 @@ Para obtener información sobre la evaluación de la asignatura puedes consultar
 [guía]: https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=43459&scaca=2022-23
 
 - Las prácticas se realizan individualmente o en parejas, según se indique en el enunciado de cada una de ellas. Cada uno de los tres bloques de la asignatura tendrá uno o más trabajos prácticos. Los trabajos del primer bloque contarán un 15% en la nota final de las prácticas, los del segundo un 50% y un 35% los del tercero.
+- La asistencia a prácticas es obligatoria. Se pasará lista en cada sesión presencial. Se puede tener un máximo de 3 faltas sin justificar.  
 
 El [código fuente][fuente] de estas páginas, escrito en MyST para Jupyter Book, está disponible en Github.
 
@@ -61,7 +62,7 @@ La asignatura se centra en presentar los fundamentos, características y aplicac
 [tareas]: https://super.gluebenchmark.com/tasks/
 [superglue]: https://www.microsoft.com/en-us/research/blog/microsoft-deberta-surpasses-human-performance-on-the-superglue-benchmark/
 
-La asignatura tiene tres bloques: el primero ("{ref}`label_introduccion`") introduce los fundamentos de la lingüística computacional; en el segundo ("{ref}`label_tecnicas`") se estudia con cierto nivel de detalle las arquitecturas neuronales más empleadas en el área del procesamiento del lenguaje natural; por último, el tercer bloque ("{ref}`label_aplicaciones`") discute algunas de las aplicaciones más importantes, apoyándose para ello en lo estudiado en los dos bloques anteriores. 
+La asignatura tiene tres bloques: el primero ("{ref}`label_introduccion`") introduce los fundamentos de la lingüística computacional; en el segundo ("{ref}`label_aplicaciones`") se discuten algunas de las aplicaciones más importantes del procesamiento del lenguaje natural; por último, el tercer bloque ("{ref}`label_tecnicas`") estudia con cierto nivel de detalle las arquitecturas neuronales más empleadas en el área. 
 
 ### Para saber más 
 
