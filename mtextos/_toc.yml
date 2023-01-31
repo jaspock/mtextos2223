@@ -10,8 +10,8 @@ parts:
   - file: bloque1
   - file: bloque1_1Introduccion
   - file: bloque1_2CategorialSintactico
-  - file: bloque1_3AnalisisSemantico
   - file: bloque1_Practica1
+  - file: bloque1_3AnalisisSemantico
   - file: bloque1_4AnalisisSemanticoVectorial
   - file: bloque1_Practica2
 - caption: Bloque 2
