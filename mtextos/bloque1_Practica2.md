@@ -3,6 +3,7 @@
 
 Borja Navarro Colorado
 
+<font color=red>Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
 
 ## Objeto
 
