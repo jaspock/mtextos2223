@@ -4,7 +4,10 @@ Análisis semántico
 
 ```{admonition} Nota
 :class: note
-Para preparar este tema, consulta los capítulos 18 y 19 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+
+<font color=red>Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
+
+Para preparar este tema, consulta los capítulos 18 y 19 de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
 ```
 
 
