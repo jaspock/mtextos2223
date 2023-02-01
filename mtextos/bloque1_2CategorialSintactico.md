@@ -4,8 +4,8 @@ Análisis categorial y sintáctico
 
 ```{admonition} Nota
 :class: note
-Para preparar este tema, tras leer este documento, debes leer los capítulos 8 y 18 de Juravsky y Martin (2022) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Durante la explicación a continuación se indica qué secciones son las más relevantes.
-Al final de esta página tienes el enlace para realizar el cuestionario de aprendizaje. Debéis realizarlo **ANTES de la próxima clase**.
+Para preparar este tema, tras leer este documento, debes leer los capítulos 8 y 18 de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Durante la explicación a continuación se indica qué secciones son las más relevantes.
+Al final de esta página tienes el enlace para realizar el cuestionario de aprendizaje. Recordad que debéis realizarlo **ANTES de la próxima clase**: tenéis de plazo hasta las 23:59 del 07/02/2023 (el día anterior a la clase presencial).
 ```
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
