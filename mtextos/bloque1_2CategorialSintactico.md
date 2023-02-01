@@ -261,12 +261,12 @@ Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pe
 
 ```{admonition} Lectura obligatoria
 :class: note
-Lee con atención el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+Lee con atención el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Jurafsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
 ```
 
 ##### *Conditional Random Fields* y otros.
 
-Si bien con modelos ocultos de Markov un *PoS_tagger* puede tener una precisión superior al 90%, aún hay aspectos en los que no funciona bien, como por ejemplo cómo analizar palabras que no ha visto antes (y por tanto no tiene probabilidad de emisión). Estos problemas se superaron con un modelo matemático también secuencial pero con más relevancia en cuanto al modelado del contexto: ***conditional random field*** (CRF o ["campo aleatorio condicional"](https://es.wikipedia.org/wiki/Campo_aleatorio_condicional)). Este permite un tratamiento más rico del contexto. Lee el apartado ["8.5 Conditional Random Fields (CRFs)"] (https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Juravsky y Martin (2022) *Speech and Language Processing* para más detalles.
+Si bien con modelos ocultos de Markov un *PoS_tagger* puede tener una precisión superior al 90%, aún hay aspectos en los que no funciona bien, como por ejemplo cómo analizar palabras que no ha visto antes (y por tanto no tiene probabilidad de emisión). Estos problemas se superaron con un modelo matemático también secuencial pero con más relevancia en cuanto al modelado del contexto: ***conditional random field*** (CRF o ["campo aleatorio condicional"](https://es.wikipedia.org/wiki/Campo_aleatorio_condicional)). Este permite un tratamiento más rico del contexto. Lee el apartado ["8.5 Conditional Random Fields (CRFs)"] (https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Jurafsky y Martin (2022) *Speech and Language Processing* para más detalles.
 
 Modelos ocultos de Markov y *Conditional Random Fields* son las dos principales aproximaciones al análisis categorial, pero no las únicas. Se han aplicado otro modelos de aprendizaje, tanto supervisados como no supervisados, como árboles de decisión o máquinas de vectores soporte (*support vector machine* SVM), etc. Un ejemplo que tuvo impacto en su momento fue el "Transformation-based Tagger" de Brill (1995), que aplicaba un modelo iterativo de aprendizaje de reglas con refinado manual.
 
@@ -494,7 +494,7 @@ El análisis de dependecia estándar es el análisis basado en transiciones: *tr
 
 ```{admonition} Lectura obligatoria
 :class: note
-Para completar este tema, lee con atención los apartados 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Juravsky y Martin (2022) *Speech and Language Processing*. El resto del capítulo es lectura opcional.
+Para completar este tema, lee con atención los apartados 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Jurafsky y Martin (2022) *Speech and Language Processing*. El resto del capítulo es lectura opcional.
 ```
 
 ### Situación actual
@@ -527,7 +527,7 @@ En la práctica se utilizará SpaCy.
 - Abney S.P. (1991) "Parsing By Chunks". In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3474-3_10
 - Emily M. Bender (2013) *Linguistic Fundamentals for Natural Language Processing. 100 Essentials from Morphology and Syntax*, Synthesis Lectures on Human Language Technologies DOI: <https://doi.org/10.1007/978-3-031-02150-3>
 - Steven Bird, Ewan Klein, and Edward Loper (2009) *Natural Language Processing with Python* <https://www.nltk.org/book/>
-- Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
+- Jurafsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
 - Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. _Constraint Grammar. A language-independent system for parsing unrestricted text_. Berlin and New-York: Mouton de Gruyter
 
 ## Cuestionario de aprendizaje
