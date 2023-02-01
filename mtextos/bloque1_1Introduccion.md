@@ -8,7 +8,7 @@ Borja Navarro Colorado
 
 ```{admonition} Nota
 :class: note
-Lee con atención esta sección 2 y la siguiente sección 3. Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás al final de la sección 3. En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica 1. Las lecturas y el cuestionario debéis realizarlo ANTES de la clase presencial.
+Lee con atención esta sección 2 y la siguiente sección 3. Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás al final de la sección 3. En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica 1. **El plazo para realizar las lecturas y el cuestionario finaliza a las 23:59 del 07/02/2023** (el día anterior a la clase presencial).
 ```
 
 <!-- [Transparencias de clase](https://docs.google.com/presentation/d/1R049gfFDPNW0Y9VqmqgBuSioGRTLQ_YPzlOg7KUzJQc/edit?usp=sharing) -->
