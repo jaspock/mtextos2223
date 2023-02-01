@@ -88,7 +88,7 @@ Ej. "leasinvergüenza"
 
 El proceso contrario, del texto a habla, son los sistemas de síntesis de voz.
 
-Esta tarea no será tratada en este curso. Si quieres más información, consulta el capítulo 16 del libro de Juravsky y Martin (2022) *Speech and Language Processing*, disponible en línea: <https://web.stanford.edu/~jurafsky/slp3/16.pdf> (lectura de ampliacón OPCIONAL. No entra en evaluación).
+Esta tarea no será tratada en este curso. Si quieres más información, consulta el capítulo 16 del libro de Jurafsky y Martin (2022) *Speech and Language Processing*, disponible en línea: <https://web.stanford.edu/~jurafsky/slp3/16.pdf> (lectura de ampliacón OPCIONAL. No entra en evaluación).
 
 ### Nivel morfológico.
 
@@ -235,7 +235,7 @@ En este primer tema veremos sobre todo métodos simbólicos y estadísticos; par
 
 En esta sesión se ha presentado una panorámica del Procesamiento del Lenguaje Natural. Se han enunciado los principales problemas que tiene procesar un texto y los principales métodos. En el resto de la asignatura se irá profundizando tanto en (algunos de) los problemas como en los métodos; con el objetivo simpre de saber cómo procesar un texto para la extracción de datos.
 
-El principal manual de PLN, que utilizaremos en varios temas de esta asignatura, es el libro de Juravsky y Martin (2022) *Speech and Language Processing*. <https://web.stanford.edu/~jurafsky/slp3/>.
+El principal manual de PLN, que utilizaremos en varios temas de esta asignatura, es el libro de Jurafsky y Martin (2022) *Speech and Language Processing*. <https://web.stanford.edu/~jurafsky/slp3/>.
 
 Una introducción más ligera al PLN, sobre todo para estudiantes sin conocimientos de informática, es el libro de Bird, Klein y Loper (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
 
