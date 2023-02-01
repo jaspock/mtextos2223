@@ -3,6 +3,9 @@
 Análisis semántico vectorial
 ============================
 
+<font color=red>Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
+
+
 ## Índice
 
 - Introducción a los modelos semánticos vectoriales.
