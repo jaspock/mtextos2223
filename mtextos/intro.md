@@ -31,7 +31,7 @@ Novedades
 Actividades previas
 -------------------
 
-- Antes de la clase del 08/02/2023: lee los apartados 1, 2 y 3 del bloque 1; a continuación, contesta este [test][test01] (plazo límite: 23:59 horas del 07/02/2023).
+- Antes de la clase del 08/02/2023: lee los [apartados 1, 2 y 3 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1.html); a continuación, contesta este [test][test01] (plazo límite: 23:59 horas del 07/02/2023).
 
 [test01]: https://forms.gle/ncbWkFGCjSqXSTiX9
 
