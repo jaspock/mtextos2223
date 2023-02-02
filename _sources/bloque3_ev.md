@@ -2,23 +2,25 @@
 Ev. Evaluación del bloque 2
 ====================================
 
-Para la evaluación de este bloque el estudiante deberá, para optar por una nota máxima de 9pts, realizar dos entregas con las siguientes condiciones:
+Para la evaluación de este bloque el estudiante deberá realizar **DOS entregas** con las siguientes condiciones:
 
-- Seleccionar **UNO** de los ejercicios relizados en las [Práctica 1][p1] y [2][p2], y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+### Entrega 1 (común)
 
-- Seleccionar **UNO** de los ejercicios relizados en las [Práctica 3][p3], [4][p4], [5][p5] y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+* Seleccionar **UNO** de los ejercicios relizados en las [Práctica 1][p1] y [2][p2], y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+
+### Entrega 2 (selectiva)
+
+* **Opción A** (*para optar por una nota máxima de 9pts*): Seleccionar **UNO** de los ejercicios relizados en las [Práctica 3][p3], [4][p4], [5][p5] y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+
+* **Opción B** (*para optar por una nota máxima de 10pts*): 
+  - Seleccionar un **problema propio** de su entorno profesional o de mayor interés personal. Se requerirá la aplicación de técnicas de PLN orientadas a **resolver tareas finales del mundo real**. Se debe ajustar a los criterios descritos al final de este documento.
+  - Se dispondrá de **al menos una interfaz** (i.e. función, procedimiento, o formulario visual etc.) que **permita probar en modo usuario la tecnología resultante**.
+  - Se **creará un cuaderno de trabajo** (la selección de la tecnología/lenguaje es indiferente) que resuelva el problema seleccionado.
 
 
-O **UNA entrega** , para optar por una nota máxima de 10pts, teniendo en cuenta las siguientes condiciones:
-
-- Seleccionar un **problema propio** de su entorno profesional o de mayor interés personal. Se requerirá la aplicación de técnicas de PLN orientadas a **resolver tareas finales del mundo real**. Se debe ajustar a los criterios descritos al final de este documento.
-- Se dispondrá de **al menos una interfaz** (i.e. función, procedimiento, o formulario visual etc.) que **permita probar en modo usuario la tecnología resultante**.
-- Se **creará un cuaderno de trabajo** (la selección de la tecnología/lenguaje es indiferente) que resuelva el problema seleccionado.
 
 
-
-
-## Criterios a tener en cuenta:
+## Criterios comunes a tener en cuenta:
 
 - El **cuaderno de trabajo** debe estar **bien documentado** en cada una de las etapas, procedimientos, variables, bloques de código, etc.  
 - Los **datos** que se procesarán y el **cuaderno de trabajo** deben estar **incluidos** en un  **paquete de trabajo**.
