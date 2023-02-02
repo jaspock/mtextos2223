@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Análisis semántico vectorial" href="bloque1_4AnalisisSemanticoVectorial.html" />
@@ -648,31 +650,29 @@ title="Print to PDF"
 </section>
 <section id="semantica-oracional-roles-semanticos-y-semantica-eventiva">
 <h2><span class="section-number">5.3. </span>Semántica oracional. Roles semánticos y semántica eventiva.<a class="headerlink" href="#semantica-oracional-roles-semanticos-y-semantica-eventiva" title="Permalink to this headline">#</a></h2>
-<p>Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto (<strong>principio de composicionalidad</strong>).</p>
-<p>Así, la semántica oracional se centra en estudiar el significado de la oración en su conjunto. Dentro del PLN hay diferentes aproximaciones a la semántica oracional, de las que destaca sobre todo el análisis de <strong>roles semánticos</strong> (Gildea y Jurafsky 2002).</p>
-<p>Los roles semánticos se enmarcan dentro de la <strong>semántica eventiva</strong> (o semántica de eventos). El objeto de esta aproximación semántica es determinar los eventos y estados expresados en un texto junto con sus participantes y las relaciones entre ellos.</p>
-<p>Dada, por ejemplo, una oración, el evento suele venir expresado por el verbo y los participantes por sus argumentos. Los roles semánticos representan la relación semántica de esos argumentos con el sentido verbal dentro del marco eventivo (Levin et al. 2005).</p>
-<p>Por ejemplo, la oración</p>
+<p>Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto. De aquí se establece el <strong>principio de composicionalidad</strong>, según el cual el significado global de una oración esta en función del significado de sus partes (las palabras) y las relaciones (sintácticas y semánticas) que se establecen entre ellas.</p>
+<p>Así, la semántica oracional se centra en estudiar el significado de la oración en su conjunto. Dentro del PLN hay diferentes aproximaciones a la semántica oracional, de las que destaca sobre todo el análisis de <strong>roles semánticos</strong> (Gildea y Jurafsky 2002). Ésta se enmarcan dentro de la <strong>semántica eventiva</strong> (o semántica de eventos), cuyo objetivo es determinar los eventos (hechos que se producen en el mundo real) y estados expresados en un texto junto con sus participantes y las relaciones entre ellos. Dada, por ejemplo, una oración, el evento suele venir expresado por el verbo y los participantes por sus argumentos. Los roles semánticos representan la relación semántica de esos argumentos con el sentido verbal dentro del marco eventivo (Levin et al. 2005).</p>
+<p>Por ejemplo, la oración:</p>
 <blockquote>
 <div><p>“Las fuerzas de seguridad persiguieron a los agresores”</p>
 </div></blockquote>
 <p>expresa el evento “perseguir” que tiene una estructura argumental formada por la persona que persigue (“las fuerzas de seguridad”) y la persona perseguida (“los agresores”). El primer argumento se podría considerar como rol “agente” y el segundo como rol “tema”.</p>
-<p>El evento puede estar expresado por verbo (“luchar”) pero también por un nombre (“la guerra”). Los argumentos son los sintagmas que completan el significado del evento. La función semántica que pueden asumir los argumento es lo que se denomina “roles semánticos”.</p>
+<p>El evento puede estar expresado por verbo (“luchar”) pero también por un nombre (“la guerra”). Los argumentos son los sintagmas que completan el significado del evento. La función semántica que pueden asumir los argumento es lo que se denomina “roles semánticos”: agente, tema, paciente, instrumentante, etc.</p>
 <section id="representacion-formal-de-los-roles-semanticos">
 <h3><span class="section-number">5.3.1. </span>Representación formal de los roles semánticos.<a class="headerlink" href="#representacion-formal-de-los-roles-semanticos" title="Permalink to this headline">#</a></h3>
 <p>La teoría de los roles semánticos proviene de la Teoría de Casos de Ch. Fillmore y ha tenido diferentes desarrollos en lingüística teórica. El problema principal que tienen estas teorías es que, por un lado, no se ha podido consensuar una única lista de roles semánticos y, por otro, no hay una clara distinción entre los roles. Así, al hablar de roles semánticos nos podemos encontrar roles como <em>agente</em> (el argumento que realiza el evento), <em>paciente</em> o <em>tema</em> (el argumento sobre el que actúa el evento), experimentante, proto-agente, proto-paciente (ambos generalizaciones de agente y paciente), etc.</p>
 <p>Esta falta de definición ha propiciado el desarrollo de dos modelos de representación de roles semántico en lingüística computacional: el modelo de FrameNet y el modelo de PropBank.</p>
 <section id="framenet">
 <h4><span class="section-number">5.3.1.1. </span>FrameNet<a class="headerlink" href="#framenet" title="Permalink to this headline">#</a></h4>
-<p>FrameNet (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido como un marco estructural conceptual (<em>frame</em>) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (<em>frame elements</em>).</p>
-<p>Por ejemplo, la unidad léxica “comer” pertenece al marco semántico <em>Ingestion</em>. En este marco semántico se han definido hasta siete elementos, entre los que se encuentran:</p>
+<p><a class="reference external" href="https://framenet.icsi.berkeley.edu/fndrupal/">FrameNet</a> (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido como un marco estructural conceptual (<em>frame</em>) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (<em>frame elements</em>).</p>
+<p>Por ejemplo, la unidad léxica “comer” pertenece al marco semántico <em>Ingestion</em>. En este marco semántico se han definido hasta siete elementos o roles, entre los que se encuentran:</p>
 <ul>
 <li><p><em>ingestor</em> (“comensal”),</p></li>
-<li><p><em>ingestibles</em> (“comida” o “digeribles”),</p></li>
+<li><p><em>ingestibles</em> (“comida” u “objetos digeribles”),</p></li>
 <li><p><em>place</em> (“lugar” donde se come),</p></li>
 <li><p><em>manner</em> (“manera” de comer)</p></li>
 <li><p>o <em>degree</em> (“cantidad”).</p>
-<p>[_Ingestor Alba] aprendió a COMER_Target [_Ingestibles verduras hervidas y arroz quemado]</p>
+<p><span class="math notranslate nohighlight">\([_Ingestor Alba] aprendió a COMER_Target [_Ingestibles verduras hervidas y arroz quemado]\)</span></p>
 </li>
 </ul>
 <p>En general, hay tres tipos de <em>frame elements</em>:</p>
