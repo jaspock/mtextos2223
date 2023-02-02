@@ -11,7 +11,6 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 ### Teoría
 
 - [T1. Aplicaciones generales del PLN (areas generales)][t1]
-  - [T1.C1. Cuestionario de evaluación]()
 - [T2. Aplicaciones específicas y Benchmacks][t2]
 - [T2.1. Caso de estudio Análisis de Sentimientos][t2.1]
 - [T3. Métricas de Evaluación][t3]
@@ -31,6 +30,14 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 ### Evaluación
 
+### Teoría
+ - [T1.C1. Cuestionario de evaluación]()
+ - [T2.C1. Cuestionario de evaluación]()  
+ - [T3.C1. Cuestionario de evaluación]()
+ - [T4.C1. Cuestionario de evaluación]()
+ - [T5.C1. Cuestionario de evaluación]()
+
+### Prácticas
 - [Ev1. Actividades de evaluación del bloque 2][ev1]
 
 
