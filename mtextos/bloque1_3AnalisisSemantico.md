@@ -235,7 +235,7 @@ El análisis semántico oracional no se agota con los roles semánticos. Hay má
 
 [http://nlpprogress.com/english/semantic_parsing.html](http://nlpprogress.com/english/semantic_parsing.html)
 
-En la base de todas ellas está tanto la semántica oracional y los roles semánticos aquí expuestos. Puede completar esta sección con la lectura (opcional) del [capítulo 24](https://web.stanford.edu/~jurafsky/slp3/24.pdf) del libro de Jurafsky y Martin (2023).
+En la base de todas ellas está la semántica léxica y los roles semánticos aquí expuestos. Puede completar esta sección con la lectura (**opcional**) del [capítulo 24](https://web.stanford.edu/~jurafsky/slp3/24.pdf) del libro de Jurafsky y Martin (2023).
 
 ## Bibliografía
 
