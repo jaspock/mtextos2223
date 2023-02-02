@@ -565,7 +565,7 @@ title="Print to PDF"
 <p>(Ejemplo tomado de <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/18.pdf">Juravsky y Martin 2020, cap. 18, pág. 2</a>)</p>
 <p>Este es el modelo de semántica léxica que conocemos desde el colegio, en el que ente una palabra desconocida buscamos en el diccionario el significado que mejor se ajusta al contexto.</p>
 <p>Que una palabra tenga dos o más significados puede parecer en un principio ilógico. Este hecho se debe a dos fenómenos lingüísticos: la homonimia y la polisemia.</p>
-<p>La <em>homonimia</em> se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como “bota”, que puede ser el odre para beber (la bota de vino), procedente del latín “buttis”; o la bota de calzado, procedente del francés “botte”.<a class="footnote-reference brackets" href="#id2" id="id1">1</a> Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homnimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras difernetes.</p>
+<p>La <em>homonimia</em> se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como “bota”, que puede ser el odre para beber (la bota de vino), procedente del latín “buttis”; o la bota de calzado, procedente del francés “botte”.<a class="footnote-reference brackets" href="#id3" id="id1">1</a> Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homnimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras difernetes.</p>
 <p>La <em>polisemia</em>, por su parte, se produce por la evolución del propio significado de una palabra. Dado una palabra, el uso diario puede producir que se genere un nuevo significado. Por ejemplo, mediante procesos de metaforización (“ratón”), metonimia (“pluma”), especificación (“banco entidad” vs. “banco edificio”), etc. Desde un punto de vista computacional, la polisemia suele ser más compleja de procesar, pues esto significados nuevos siempre están relacionados de alguna manera con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.</p>
 </section>
 <section id="word-sense-disambiguation">
@@ -575,29 +575,25 @@ title="Print to PDF"
 </section>
 <section id="representacion-del-significado-lexico-wordnet">
 <h3><span class="section-number">5.2.3. </span>Representación del significado léxico: WordNet.<a class="headerlink" href="#representacion-del-significado-lexico-wordnet" title="Permalink to this headline">#</a></h3>
-<p><a class="reference external" href="https://wordnet.princeton.edu/">WordNet</a> (Miller 1995,
-Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo (<a class="reference external" href="http://globalwordnet.org/">GlobalWordNet</a>) Ver también el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/">Open Multilingual Wordnet</a>.</p>
-<p>WordNet en inglés se puede consultar desde la <a class="reference external" href="http://wordnetweb.princeton.edu/perl/webwn">página oficial</a>.</p>
-<p>WordNet en otros idiomas se puede consultar desde el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?gridmode=grid">proyecto Open Multilingual WordNet</a>.</p>
+<p>En PLN se han desarrollado (y se siguen desarrollando) diversos diccionarios electrónicos. Pero de todos ellos uno ha tenido especial relevancia: <a class="reference external" href="https://wordnet.princeton.edu/">WordNet</a> (Miller 1995, Fellbau 1998). Hoy día sigue siendo el principal recurso léxico utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo.<a class="footnote-reference brackets" href="#id4" id="id2">2</a></p>
+<p>WordNet en inglés se puede consultar desde la <a class="reference external" href="http://wordnetweb.princeton.edu/perl/webwn">página oficial</a>. WordNet en otros idiomas se puede consultar desde el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?gridmode=grid">proyecto Open Multilingual WordNet</a>.</p>
 <p>Las características principales de WordNet, que están presentes en el resto de proyectos, son:</p>
 <ul class="simple">
-<li><p>WordNet es una red de sentidos. La unidad básica (cada nodo) es el sentido (y no la palabra como los diccionarios manuales).</p></li>
-<li><p>Cada sentido se representa mediante el conjunto de palabras sinónimas en un idioma, denominado “<em>synset</em>”.</p></li>
-<li><p>Cada <em>synset</em>, además del conjunto de sinónimos, dispon de de información léxica como un ID único de sentido, ejemplos, glosas (definiciones), conceptos de dominio, etc. Excepto el ID, el resto de información es opcional.</p></li>
-<li><p>La red se forma a partir de relaciones léxicas. La principal relación léxia es la sinonimia.</p></li>
-<li><p>Entre nombres, las relaciones principales son hiperonimia (“is_a”), hiponimia (inversa de “is_a”) y meronimia (“parte_de”).</p></li>
+<li><p>WordNet se define como una red de sentidos: la unidad básica (cada nodo de la red) es el sentido. Esto lo diferencia del diccionario tradicional y del manual, en el que la unidad principal es la palabra y no el sentido.</p></li>
+<li><p>Cada sentido se representa mediante el conjunto de palabras sinónimas en un idioma, denominado “synset” (<em>set of synonyms</em>).</p></li>
+<li><p>Cada <em>synset</em>, además del conjunto de sinónimos, dispon de información léxica como: un ID único de sentido, ejemplos de uso del sentido en oraciones reales, glosas o definiciones, dominio semántico en el que se utiliza, etc. Excepto el ID (que es único porque identidica el nodo en la red), el resto de información es opcional.</p></li>
+<li><p>La red se forma a partir de relaciones léxicas entre sentidos. La principal relación léxia es la sinonimia en la que se basa la idea del <em>synset</em>. Aparte de esto hay otras según la categoría gramatical de las palabras.</p></li>
+<li><p>Entre nombres, las relaciones principales son hiperonimia (relación tipo “is_a”), hiponimia (la inversa del “is_a”) y meronimia (o relación “parte_de”).</p></li>
 <li><p>Para los adjetivos, la relaciones principales son la antonimia y “similar a”.</p></li>
-<li><p>Para los verbos, las principales relaciones son la “pseudo-hiperonimia” (en sentido estricto, esta relación solo es aplicable a nombres) y la troponima (manera).</p></li>
+<li><p>Para los verbos, las principales relaciones son la “pseudo-hiperonimia” (relación “is_a” similar a la de los nombres, pero es “pseudo” porque la hiperonimia en sentido estricto solo es aplicable a relaciones nominales, no a acciones) y la troponima (la manera de realizar una acción. Por ejemplo “pasear” es una forma de “andar”, por lo que entre “pasear” y “andar” se establece una relación de troponimia).</p></li>
 </ul>
-<p>En las últimas versiones se pueden encontrar otros tipos de relaciones.</p>
-<p>Así, WordNet tiene unos nodos raíz con sentidos muy abstractos (“entidad”) de las cuales van derivando por relación léxica el resto de sentidos hasta los más concretos.</p>
-<p>En su concepción original, WordNet pretendía ser una representación computacional del lexicón humano. Finalmente se ha convertido en quizá el principal recurso para el análisis léxico-semántico. WordNet es el estándar <em>de facto</em> para la representación semántica léxica de un corpus.</p>
+<p>En las últimas versiones se pueden encontrar otros tipos de relaciones. Dado que los sentidos de nombres se relacionan sobre todo con relaciones tipo “is_a”, en WordNet se han determinado unos nodos raíz con sentidos nominales muy abstractos (como “entidad”) de las cuales van derivando por relación léxica de hiperonimia/hiponima el resto de sentidos hasta los sentidos más concretos.</p>
+<p>En su concepción original, WordNet pretendía ser una representación computacional del lexicón mental humano. Finalmente se ha convertido en quizá el principal recurso para el análisis léxico-semántico. Hasta el desarrollo de los <em>word embeddings</em>, WordNet era (y aún es) el estándar <em>de facto</em> para la representación del significado de las palabras de un corpus.</p>
 </section>
 <section id="algoritmos-de-desambiguacion-lexico-semantica">
 <h3><span class="section-number">5.2.4. </span>Algoritmos de desambiguación léxico-semántica.<a class="headerlink" href="#algoritmos-de-desambiguacion-lexico-semantica" title="Permalink to this headline">#</a></h3>
-<p>WSD asume que los significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora.</p>
-<p>La complejidad es WSD es determinar, de los posibles synsets asociados a una palabra (nombre, verbo o adjetivo), cuál es el apropiado en un contexto dado. La heurística básica es seleccionar el sentido más frecuente.</p>
-<p>En los últimos 30 años se han propuesto diferentes algoritmos. En general, hay dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.</p>
+<p>WSD asume que los posibles significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora o sentido novedosos. El objetivo de un sistema de WSD es, así, determinar, de los posibles <em>synsets</em> asociados a una palabra (solo nombres, verbos o adjetivos), cuál es el apropiado en un contexto dado.</p>
+<p>La heurística básica es seleccionar siempre el sentido más frecuente. Esto ya da buenos resutlados. Pero no es suficiente. En los últimos 30 años se han propuesto diferentes algoritmos para mejorar este <em>baseline</em>. Las diferentes propuetas se pueden agrupar, en general, en dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.</p>
 <section id="estrategias-basadas-en-conocimiento">
 <h4><span class="section-number">5.2.4.1. </span>Estrategias basadas en conocimiento<a class="headerlink" href="#estrategias-basadas-en-conocimiento" title="Permalink to this headline">#</a></h4>
 <p>Las estrategias basadas en conocimiento (<em>knowledge-based</em>) se caracterizan por explotar al máximo la información del recurso léxico (normalmente WordNet) y su comparación con el contexto donde aparece la palabra ambigua.</p>
@@ -736,8 +732,11 @@ partir de estos rasgos.</p>
 <p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Ver <a class="reference external" href="http://www.wikilengua.org/index.php/Homonimia">http://www.wikilengua.org/index.php/Homonimia</a></p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Ver <a class="reference external" href="http://globalwordnet.org/">GlobalWordNet</a> y el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/">Open Multilingual Wordnet</a>.</p>
 </dd>
 </dl>
 </section>
