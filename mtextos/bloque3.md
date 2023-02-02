@@ -25,6 +25,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 - [P2. Transformer fine tunnig. Caso de uso Clasificación de Documentos][p3]
 - [P3. Composición de características auxiliándose de transformers y otras tecnicas de extracción de  características. Caso de uso Clasificación de Documentos][p4]
 - [P4. Ensembler de classificadores, entre ellos trasnformers, SMV, etc.  Caso de uso Clasificación  de Documentos][p5]
+
 % - [P5. Utilización de técnicas de AutoML, libreria AutoGOAL.  Caso de uso Clasificación de Documentos][p6]
 
 ### Evaluación
