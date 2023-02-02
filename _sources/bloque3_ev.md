@@ -32,8 +32,8 @@ O **UNA entrega** , para optar por una nota máxima de 10pts, teniendo en cuenta
 Se entragará la tarea (paquete de trabajo) mediante una **entrega en UAcloud** que se habilitará para ello. El paquete deberá comprimirse en un ``.zip`` y tener la siguiente estructura: ``[nombreEstudiante]-mtextos-bloque3-20-21.zip``. Además entregar el enlace de Colab donde se encuentra el cuaderno.
 
 
-[p1]: https://jaspock.github.io/mtextos2122/bloque3_p1_SA-Pipeline-Reviews.html
-[p2]: https://jaspock.github.io/mtextos2122/bloque3_p2_SA-Transformers-Basic.html
-[p3]: https://jaspock.github.io/mtextos2122/bloque3_p3_SA-Transformers-Training-FineTuning.html
-[p4]: https://jaspock.github.io/mtextos2122/bloque3_p4_SA-Transformers-Training-Custom.html
-[p5]: https://jaspock.github.io/mtextos2122/bloque3_p5-SA-Ensemble.html
+[p1]: https://jaspock.github.io/mtextos2223/bloque3_p1_SA-Pipeline-Reviews.html
+[p2]: https://jaspock.github.io/mtextos2223/bloque3_p2_SA-Transformers-Basic.html
+[p3]: https://jaspock.github.io/mtextos2223/bloque3_p3_SA-Transformers-Training-FineTuning.html
+[p4]: https://jaspock.github.io/mtextos2223/bloque3_p4_SA-Transformers-Training-Custom.html
+[p5]: https://jaspock.github.io/mtextos2223/bloque3_p5-SA-Ensemble.html
