@@ -54,36 +54,29 @@ Los sistemas de WSD están formados por dos componentes fundamentales: un diccio
 
 ### Representación del significado léxico: WordNet.
 
-[WordNet](https://wordnet.princeton.edu/) (Miller 1995,
-Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo ([GlobalWordNet](http://globalwordnet.org/)) Ver también el [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/).
+En PLN se han desarrollado (y se siguen desarrollando) diversos diccionarios electrónicos. Pero de todos ellos uno ha tenido especial relevancia: [WordNet](https://wordnet.princeton.edu/) (Miller 1995, Fellbau 1998). Hoy día sigue siendo el principal recurso léxico utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo.[^2]
 
-WordNet en inglés se puede consultar desde la [página oficial](http://wordnetweb.princeton.edu/perl/webwn).
-
-WordNet en otros idiomas se puede consultar desde el [proyecto Open Multilingual WordNet](http://compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?gridmode=grid).
+WordNet en inglés se puede consultar desde la [página oficial](http://wordnetweb.princeton.edu/perl/webwn). WordNet en otros idiomas se puede consultar desde el [proyecto Open Multilingual WordNet](http://compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?gridmode=grid).
 
 Las características principales de WordNet, que están presentes en el resto de proyectos, son:
 
-- WordNet es una red de sentidos. La unidad básica (cada nodo) es el sentido (y no la palabra como los diccionarios manuales).
-- Cada sentido se representa mediante el conjunto de palabras sinónimas en un idioma, denominado "*synset*".
-- Cada *synset*, además del conjunto de sinónimos, dispon de de información léxica como un ID único de sentido, ejemplos, glosas (definiciones), conceptos de dominio, etc. Excepto el ID, el resto de información es opcional.
-- La red se forma a partir de relaciones léxicas. La principal relación léxia es la sinonimia.
-- Entre nombres, las relaciones principales son hiperonimia ("is_a"), hiponimia (inversa de "is_a") y meronimia ("parte_de").
+- WordNet se define como una red de sentidos: la unidad básica (cada nodo de la red) es el sentido. Esto lo diferencia del diccionario tradicional y del manual, en el que la unidad principal es la palabra y no el sentido.
+- Cada sentido se representa mediante el conjunto de palabras sinónimas en un idioma, denominado "synset" (*set of synonyms*).
+- Cada *synset*, además del conjunto de sinónimos, dispon de información léxica como: un ID único de sentido, ejemplos de uso del sentido en oraciones reales, glosas o definiciones, dominio semántico en el que se utiliza, etc. Excepto el ID (que es único porque identidica el nodo en la red), el resto de información es opcional.
+- La red se forma a partir de relaciones léxicas entre sentidos. La principal relación léxia es la sinonimia en la que se basa la idea del *synset*. Aparte de esto hay otras según la categoría gramatical de las palabras.
+- Entre nombres, las relaciones principales son hiperonimia (relación tipo "is_a"), hiponimia (la inversa del "is_a") y meronimia (o relación "parte_de").
 - Para los adjetivos, la relaciones principales son la antonimia y "similar a".
-- Para los verbos, las principales relaciones son la "pseudo-hiperonimia" (en sentido estricto, esta relación solo es aplicable a nombres) y la troponima (manera).
+- Para los verbos, las principales relaciones son la "pseudo-hiperonimia" (relación "is_a" similar a la de los nombres, pero es "pseudo" porque la hiperonimia en sentido estricto solo es aplicable a relaciones nominales, no a acciones) y la troponima (la manera de realizar una acción. Por ejemplo "pasear" es una forma de "andar", por lo que entre "pasear" y "andar" se establece una relación de troponimia).
 
-En las últimas versiones se pueden encontrar otros tipos de relaciones.
+En las últimas versiones se pueden encontrar otros tipos de relaciones. Dado que los sentidos de nombres se relacionan sobre todo con relaciones tipo "is_a", en WordNet se han determinado unos nodos raíz con sentidos nominales muy abstractos (como "entidad") de las cuales van derivando por relación léxica de hiperonimia/hiponima el resto de sentidos hasta los sentidos más concretos.
 
-Así, WordNet tiene unos nodos raíz con sentidos muy abstractos ("entidad") de las cuales van derivando por relación léxica el resto de sentidos hasta los más concretos.
-
-En su concepción original, WordNet pretendía ser una representación computacional del lexicón humano. Finalmente se ha convertido en quizá el principal recurso para el análisis léxico-semántico. WordNet es el estándar *de facto* para la representación semántica léxica de un corpus.
+En su concepción original, WordNet pretendía ser una representación computacional del lexicón mental humano. Finalmente se ha convertido en quizá el principal recurso para el análisis léxico-semántico. Hasta el desarrollo de los *word embeddings*, WordNet era (y aún es) el estándar *de facto* para la representación del significado de las palabras de un corpus.
 
 ### Algoritmos de desambiguación léxico-semántica.
 
-WSD asume que los significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora.
+WSD asume que los posibles significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora o sentido novedosos. El objetivo de un sistema de WSD es, así, determinar, de los posibles *synsets* asociados a una palabra (solo nombres, verbos o adjetivos), cuál es el apropiado en un contexto dado.
 
-La complejidad es WSD es determinar, de los posibles synsets asociados a una palabra (nombre, verbo o adjetivo), cuál es el apropiado en un contexto dado. La heurística básica es seleccionar el sentido más frecuente.
-
-En los últimos 30 años se han propuesto diferentes algoritmos. En general, hay dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.
+La heurística básica es seleccionar siempre el sentido más frecuente. Esto ya da buenos resutlados. Pero no es suficiente. En los últimos 30 años se han propuesto diferentes algoritmos para mejorar este *baseline*. Las diferentes propuetas se pueden agrupar, en general, en dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.
 
 #### Estrategias basadas en conocimiento
 
@@ -255,3 +248,5 @@ Miller, G. A. 1995. “WordNet: A Lexical Database for English”. *Communicatio
 Navarro Colorado, Borja (2021) "Sistemas de anotación semántica para corpus de español" en Giovanni Parodi, Pascual Cantos & Lewis Howe (Editores) *The Routledge Handbook of Spanish Corpus Linguistics* Routledge.
 
 [^1]: Ver <http://www.wikilengua.org/index.php/Homonimia>
+
+[^2]: Ver [GlobalWordNet](http://globalwordnet.org/) y el [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/).
