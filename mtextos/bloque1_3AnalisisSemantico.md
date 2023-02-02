@@ -7,13 +7,13 @@ Análisis semántico
 
 <font color=red>Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
 
-Para preparar este tema, consulta los capítulos 18 y 19 de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+Para completar este tema, debe leer el [capítulo 23 "Word Senses and WordNet"](https://web.stanford.edu/~jurafsky/slp3/23.pdf) de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
 ```
 
 
 ## La semántica. Tipos de significados.
 
-La semántica estudia significado de los textos. El propio concepto de significado es, sin embargo, bastante vago. En este tema se presenta modelos de representación y procesamiento del significado lingüístico según el estándar actual en PLN: por un lado el significado léxico y el significado oracional por otro.
+La semántica estudia significado de los textos. El propio concepto de significado es, sin embargo, bastante vago. En este tema se presenta modelos de representación y procesamiento del significado lingüístico según el estándar actual en PLN: por un lado el significado léxico y por otro el significado oracional.
 
 ## Semántica léxica. *Word Sense Disambiguation*.
 
@@ -21,14 +21,16 @@ La semántica léxica se refiere al significado de las palabras.
 
 En PLN hay actualmente dos modelos para tratar la semántica léxica:
 
-- La consideración del sentido de la palabra como una representación discreta, es decir, un conjunto de definiciones (una o más) en un diccionario.
-- La consideración del sentido a partir de las relaciones contextuales (distribucionales) entre las palabras en su uso real (en un corpus, por ejemplo). Este modelo es la base de la semántica vectorial, de la cual surgen los *word embeddings* que se verán en el próximo tema.
+- La consideración del sentido de la palabra como una representación discreta, es decir, un conjunto de significados (una o más por palabra) que puede ser representado en un diccionario mediante, por ejemplo, definiciones.
+- La consideración del sentido a partir de las relaciones contextuales entre las palabras en su uso comunicativo real. Este es el modelo ditribucional en el que se basan los *word embeddings* que veremos en próximos temas.
 
 Este capítulo se centra en el primer modelo.
 
 ### Significado léxico como unidad discreta
 
-Según este modelo, por tanto, una palabra puede tener uno o más significados que además podemos especificar en un diccionario. Las palabras que tienen dos o más significados son palabras ambiguas. Se calcula que más del 60% de las palabras de un idioma son ambiguas: basta echar un vistazo a un diccionario para comprobarlo. En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser humano al interpretar el texto es capaz de determinar, a partir del conjunto de significado de una palabra, el sentido apropiado para ese contexto.
+Según este modelo, por tanto, una palabra puede tener uno o más significados que además podemos especificar en un diccionario. Las palabras que tienen dos o más significados son palabras ambiguas. Se calcula que más del 60% de las palabras de un idioma son ambiguas: basta echar un vistazo a un diccionario para comprobarlo.
+
+En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser humano al interpretar el texto es capaz de determinar, a partir del conjunto de significado de una palabra, el sentido apropiado para ese contexto.
 
 > mouse1:  .... a mouse controlling a computer system in 1968.
 
@@ -36,23 +38,17 @@ Según este modelo, por tanto, una palabra puede tener uno o más significados q
 
 (Ejemplo tomado de [Juravsky y Martin 2020, cap. 18, pág. 2](https://web.stanford.edu/~jurafsky/slp3/18.pdf))
 
-Este es el modelo de semántica léxica que conocemos desde el colegio, en el que nos pedían buscar palabras en un diccionario y determinar cuál era el significado apropiado según el texto.
+Este es el modelo de semántica léxica que conocemos desde el colegio, en el que ente una palabra desconocida buscamos en el diccionario el significado que mejor se ajusta al contexto.
 
 Que una palabra tenga dos o más significados puede parecer en un principio ilógico. Este hecho se debe a dos fenómenos lingüísticos: la homonimia y la polisemia.
 
-La _homonimia_ se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales.
+La _homonimia_ se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como "bota", que puede ser el odre para beber (la bota de vino), procedente del latín "buttis"; o la bota de calzado, procedente del francés "botte".[^1] Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homnimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras difernetes.
 
-Así ocurre por ejemplo con palabras como "bota", que puede ser el odre para beber (la bota de vino), procedente del latín "buttis"; o la bota de calzado, procedente del francés ("botte") (Ejemplo tomado de la [Wikilengua](http://www.wikilengua.org/index.php/Homonimia)).
-
-Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Las diferencias semánticas en los casos de homonimia son muy grandes por ser palabras diferentes.
-
-La _polisemia_ se produce por la evolución del propio significado de una palabra. Dado una palabra, el uso diario puede producir que genere un nuevo significado por procesos de metaforización ("ratón"), metonimia ("pluma"), especificación ("banco entidad" vs. "banco edificio"), etc.
-
-Desde un punto de vista computacional, la polisemia es más compleja de procesar, pues esto significados nuevos siempre están relacionados con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.
+La _polisemia_, por su parte, se produce por la evolución del propio significado de una palabra. Dado una palabra, el uso diario puede producir que se genere un nuevo significado. Por ejemplo, mediante procesos de metaforización ("ratón"), metonimia ("pluma"), especificación ("banco entidad" vs. "banco edificio"), etc. Desde un punto de vista computacional, la polisemia suele ser más compleja de procesar, pues esto significados nuevos siempre están relacionados de alguna manera con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.
 
 ### *Word Sense Disambiguation*
 
-En PLN, este proceso de seleccionar el significado apropiado para un contexto a partir de los significados establecidos en un diccionario se denomina *Word Sense Disambiguation* (WSD). Es una de las tareas del PLN con más tradición, junto al análisis categorial o el análisis sintáctico que vimos en temas anteriores.
+En PLN, el proceso de seleccionar el significado apropiado de una palabra en un contexto concreto, a partir de los significados establecidos en un diccionario, se denomina *Word Sense Disambiguation* (WSD). Es una de las tareas del PLN con larga tradición, junto al análisis categorial o el análisis sintáctico que vimos en temas anteriores.
 
 Los sistemas de WSD están formados por dos componentes fundamentales: un diccionario en el que se representan todos los significados de las palabras y un algoritmo de desambiguación.
 
@@ -257,3 +253,5 @@ Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford
 Miller, G. A. 1995. “WordNet: A Lexical Database for English”. *Communications of the ACM*, 38(11), 39-41.
 
 Navarro Colorado, Borja (2021) "Sistemas de anotación semántica para corpus de español" en Giovanni Parodi, Pascual Cantos & Lewis Howe (Editores) *The Routledge Handbook of Spanish Corpus Linguistics* Routledge.
+
+[^1]: Ver <http://www.wikilengua.org/index.php/Homonimia>
