@@ -4,9 +4,9 @@ Ev. Evaluación del bloque 2
 
 Para la evaluación de este bloque el estudiante deberá, para optar por una nota máxima de 9pts, realizar dos entregas con las siguientes condiciones:
 
-- Seleccionar **UNO** de los ejericios relizados en las [Práctica 1][p1] y [2][p2], y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+- Seleccionar **UNO** de los ejercicios relizados en las [Práctica 1][p1] y [2][p2], y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
 
-- Seleccionar **UNO** de los ejericios relizados en las [Práctica 3][p3], [4][p4], [5][p5] y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+- Seleccionar **UNO** de los ejercicios relizados en las [Práctica 3][p3], [4][p4], [5][p5] y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
 
 
 O **UNA entrega** , para optar por una nota máxima de 10pts, teniendo en cuenta las siguientes condiciones:
