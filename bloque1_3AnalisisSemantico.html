@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Análisis semántico vectorial" href="bloque1_4AnalisisSemanticoVectorial.html" />
@@ -403,6 +401,11 @@ title="Print to PDF"
      5.3.2. Algoritmos
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     5.3.3. Situación actual
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -522,6 +525,11 @@ title="Print to PDF"
      5.3.2. Algoritmos
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     5.3.3. Situación actual
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -577,7 +585,7 @@ title="Print to PDF"
 <p>(Ejemplo tomado de <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/18.pdf">Juravsky y Martin 2020, cap. 18, pág. 2</a>)</p>
 <p>Este es el modelo de semántica léxica que conocemos desde el colegio, en el que ente una palabra desconocida buscamos en el diccionario el significado que mejor se ajusta al contexto.</p>
 <p>Que una palabra tenga dos o más significados puede parecer en un principio ilógico. Este hecho se debe a dos fenómenos lingüísticos: la homonimia y la polisemia.</p>
-<p>La <em>homonimia</em> se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como “bota”, que puede ser el odre para beber (la bota de vino), procedente del latín “buttis”; o la bota de calzado, procedente del francés “botte”.<a class="footnote-reference brackets" href="#id3" id="id1">1</a> Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homnimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras difernetes.</p>
+<p>La <em>homonimia</em> se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como “bota”, que puede ser el odre para beber (la bota de vino), procedente del latín “buttis”; o la bota de calzado, procedente del francés “botte”.<a class="footnote-reference brackets" href="#id4" id="id1">1</a> Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homnimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras difernetes.</p>
 <p>La <em>polisemia</em>, por su parte, se produce por la evolución del propio significado de una palabra. Dado una palabra, el uso diario puede producir que se genere un nuevo significado. Por ejemplo, mediante procesos de metaforización (“ratón”), metonimia (“pluma”), especificación (“banco entidad” vs. “banco edificio”), etc. Desde un punto de vista computacional, la polisemia suele ser más compleja de procesar, pues esto significados nuevos siempre están relacionados de alguna manera con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.</p>
 </section>
 <section id="word-sense-disambiguation">
@@ -587,7 +595,7 @@ title="Print to PDF"
 </section>
 <section id="representacion-del-significado-lexico-wordnet">
 <h3><span class="section-number">5.2.3. </span>Representación del significado léxico: WordNet.<a class="headerlink" href="#representacion-del-significado-lexico-wordnet" title="Permalink to this headline">#</a></h3>
-<p>En PLN se han desarrollado (y se siguen desarrollando) diversos diccionarios electrónicos. Pero de todos ellos uno ha tenido especial relevancia: <a class="reference external" href="https://wordnet.princeton.edu/">WordNet</a> (Miller 1995, Fellbau 1998). Hoy día sigue siendo el principal recurso léxico utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo.<a class="footnote-reference brackets" href="#id4" id="id2">2</a></p>
+<p>En PLN se han desarrollado (y se siguen desarrollando) diversos diccionarios electrónicos. Pero de todos ellos uno ha tenido especial relevancia: <a class="reference external" href="https://wordnet.princeton.edu/">WordNet</a> (Miller 1995, Fellbau 1998). Hoy día sigue siendo el principal recurso léxico utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo.<a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
 <p>WordNet en inglés se puede consultar desde la <a class="reference external" href="http://wordnetweb.princeton.edu/perl/webwn">página oficial</a>. WordNet en otros idiomas se puede consultar desde el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?gridmode=grid">proyecto Open Multilingual WordNet</a>.</p>
 <p>Las características principales de WordNet, que están presentes en el resto de proyectos, son:</p>
 <ul class="simple">
@@ -666,15 +674,16 @@ title="Print to PDF"
 <h4><span class="section-number">5.3.1.1. </span>FrameNet<a class="headerlink" href="#framenet" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://framenet.icsi.berkeley.edu/fndrupal/">FrameNet</a> (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido como un marco estructural conceptual (<em>frame</em>) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (<em>frame elements</em>).</p>
 <p>Por ejemplo, la unidad léxica “comer” pertenece al marco semántico <em>Ingestion</em>. En este marco semántico se han definido hasta siete elementos o roles, entre los que se encuentran:</p>
-<ul>
+<ul class="simple">
 <li><p><em>ingestor</em> (“comensal”),</p></li>
 <li><p><em>ingestibles</em> (“comida” u “objetos digeribles”),</p></li>
 <li><p><em>place</em> (“lugar” donde se come),</p></li>
 <li><p><em>manner</em> (“manera” de comer)</p></li>
-<li><p>o <em>degree</em> (“cantidad”).</p>
-<p><span class="math notranslate nohighlight">\([_Ingestor Alba] aprendió a COMER_Target [_Ingestibles verduras hervidas y arroz quemado]\)</span></p>
-</li>
+<li><p>o <em>degree</em> (“cantidad”).</p></li>
 </ul>
+<blockquote>
+<div><p>[_Ingestor Alba] aprendió a COMER_Target [_Ingestibles verduras hervidas y arroz quemado]</p>
+</div></blockquote>
 <p>En general, hay tres tipos de <em>frame elements</em>:</p>
 <ol class="simple">
 <li><p><em>core</em>: aquellos que son específicos del evento y conceptualmente necesarios para que el marco tenga sentido completo;</p></li>
@@ -684,13 +693,13 @@ title="Print to PDF"
 <p>En el caso del marco <em>Ingestion</em>, los dos elementos <em>core</em> son <em>ingestor</em> e <em>ingestibles</em>; elementos periféricos son <em>instrument</em> o <em>source</em>, y el resto actuarían como extra-temáticos.</p>
 <div class="note admonition">
 <p class="admonition-title">Actividad</p>
-<p>Consulta este y otros <em>frame elements</em> en la BD de FrameNET:</p>
-<p><a class="reference external" href="https://framenet.icsi.berkeley.edu/fndrupal/">https://framenet.icsi.berkeley.edu/fndrupal/</a></p>
+<p>Consulta este y otros <em>frame elements</em> en la base de datos de FrameNET:</p>
+<p><a class="reference external" href="https://framenet.icsi.berkeley.edu/fndrupal/luIndex">https://framenet.icsi.berkeley.edu/fndrupal/luIndex</a></p>
 </div>
 </section>
 <section id="propbank">
 <h4><span class="section-number">5.3.1.2. </span>PropBank<a class="headerlink" href="#propbank" title="Permalink to this headline">#</a></h4>
-<p>La propuesta de PropBank (acrónimo de <em>Proposition Bank</em> (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:</p>
+<p>La propuesta de PropBank (acrónimo de <em>Proposition Bank</em> (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. Y en vez de dar a los roles un nombre significativo, representa cada rol con un simple identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Arg0 | Arg1 | Arg2 | Arg3 | Arg4
 </pre></div>
 </div>
@@ -699,33 +708,33 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Cada rol se define por su relación con el verbo. Los dos argumentos que tienen una relación más estrecha con el sentido del verbo son <em>Arg0</em> y <em>Arg1</em>. Para verbos transitivos, por ejemplo, el primero se suele identificar con el rol Agente y el segundo con el rol Tema/Paciente, pero esta relación no siempre se cumple.</p>
-<p>Lo importante es que la alternancia de diátesis no afecte a los roles. Así, independientemente de que la estructura verbal se exprese en activa o en pasiva, los roles Arg0 y Arg1 serán los mismos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Arg0 La policía militar] arrestó [Arg1 a tres personas]
-[Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]
-</pre></div>
-</div>
+<p>Lo importante es que la alternancia de diátesis no afecte a los roles. Así, independientemente de que la estructura verbal se exprese en activa o en pasiva, los roles Arg0 y Arg1 serán los mismos, como en el siguiente ejemplo:</p>
+<blockquote>
+<div><p>[Arg0 La policía militar] arrestó [Arg1 a tres personas]
+[Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]</p>
+</div></blockquote>
+<p>En este caso es la misma oración, una en forma activa y la otra en forma pasiva. Independientemente del sintagma y la función sintática de cada argumento en cada oración, su rol semántico es el mismo. Así, en el primer caso el Arg0 es el sujeto, mientras que en el segundo caso el Arg0 es un complemento agente.</p>
 <p>Este modelo ha sido adaptado al español en el <a class="reference external" href="http://clic.ub.edu/corpus/es/ancora">corpus AnCora</a> (Taulé et al. 2008), que también incluye anotación de textos en catalán (AnCora-Es y AnCora-Cat respectivamente).</p>
 <p>De ambas propuestas de representación de roles semánticos, la más utilizada hoy día en PLN es la propuesta de PropBank.</p>
 <div class="note admonition">
 <p class="admonition-title">Actividad</p>
-<p>Consulta los roles de PropBank en su BD unificada (<em>Unified Verb Index</em>):</p>
+<p>Consulta los roles de PropBank en su bas de datos unificada (<em>Unified Verb Index</em>):</p>
 <p><a class="reference external" href="https://verbs.colorado.edu/verb-index/vn3.3/">https://verbs.colorado.edu/verb-index/vn3.3/</a></p>
 </div>
-<ul class="simple">
-<li><p>Para descargar PropBank: <a class="reference external" href="https://github.com/propbank/propbank-frames/">https://github.com/propbank/propbank-frames/</a></p></li>
-<li><p>Página del proyecto: <a class="reference external" href="https://propbank.github.io/">https://propbank.github.io/</a></p></li>
-</ul>
+<p>Puedes obtener más información sobre PropBank desde la <a class="reference external" href="https://propbank.github.io/">página del proyecto</a>. Está ademas disponbiel para su descarga aquí: <a class="reference external" href="https://github.com/propbank/propbank-frames/">https://github.com/propbank/propbank-frames/</a>.</p>
 </section>
 </section>
 <section id="algoritmos">
 <h3><span class="section-number">5.3.2. </span>Algoritmos<a class="headerlink" href="#algoritmos" title="Permalink to this headline">#</a></h3>
-<p>Los sistema de análisis de roles semánticos (<em>semantic role labeling</em>) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.</p>
-<p>Los principales algoritmos de <em>semantic roles labeling</em> suelen estar basados en <strong>técnicas de aprendizaje supervisado</strong>. A partir de corpus anotados con roles (como el propio corpus <a class="reference external" href="https://propbank.github.io/">PropBank</a>), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.</p>
-<p>El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los
-rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a
+<p>Los sistema de análisis de roles semánticos (<em>semantic role labeling</em>) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento de la oración expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.</p>
+<p>Los principales algoritmos de <em>semantic roles labeling</em> (SRL) suelen estar basados en <strong>técnicas de aprendizaje supervisado</strong>. A partir de corpus anotados con roles (como el propio corpus <a class="reference external" href="https://propbank.github.io/">PropBank</a>), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.</p>
+<p>El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a
 partir de estos rasgos.</p>
-<p>El modelo de Freeling, para español y otros idiomas, es similar. En el caso del español está entrenado con el corpus AnCora y entre los rasgos de aprendizaje utiliza, además de los establecidos en Gildea y Jurafsky (2002) otros como las relaciones de dependencia o la voz verbal (Lluís et al. 2013).</p>
-<p>Los sistemas actuales, como el resto de tareas, están basados en vectores y <em>word embeddings</em>:</p>
+<p>La herramienta Freeling cuenta con un sistema de SRL similar a este para español y otros idiomas. En el caso del español está entrenado con el <a class="reference external" href="http://clic.ub.edu/corpus/es/ancora">corpus AnCora</a> y entre los rasgos de aprendizaje utiliza, además de los establecidos en Gildea y Jurafsky (2002), otros como las relaciones de dependencia o la voz verbal (Lluís et al. 2013).</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">5.3.3. </span>Situación actual<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Los sistemas actuales, como en el resto de tareas, están basados en vectores y <em>word embeddings</em>:</p>
 <p><a class="reference external" href="http://nlpprogress.com/english/semantic_role_labeling.html">http://nlpprogress.com/english/semantic_role_labeling.html</a></p>
 <p>También hay interés en sistemas multi- y cross-lingües:</p>
 <p><a class="reference external" href="https://www.aclweb.org/anthology/2020.acl-main.627/">https://www.aclweb.org/anthology/2020.acl-main.627/</a></p>
@@ -733,7 +742,9 @@ partir de estos rasgos.</p>
 </section>
 <section id="otros-tipos-de-analisis">
 <h2><span class="section-number">5.4. </span>Otros tipos de análisis.<a class="headerlink" href="#otros-tipos-de-analisis" title="Permalink to this headline">#</a></h2>
+<p>El análisis semántico oracional no se agota con los roles semánticos. Hay más propuestas, como el <em>Abstract Meaning Representation</em> o las dependencias semánticas:</p>
 <p><a class="reference external" href="http://nlpprogress.com/english/semantic_parsing.html">http://nlpprogress.com/english/semantic_parsing.html</a></p>
+<p>En la base de todas ellas está tanto la semántica oracional y los roles semánticos aquí expuestos.</p>
 </section>
 <section id="bibliografia">
 <h2><span class="section-number">5.5. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
@@ -743,10 +754,10 @@ partir de estos rasgos.</p>
 <p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Ver <a class="reference external" href="http://www.wikilengua.org/index.php/Homonimia">http://www.wikilengua.org/index.php/Homonimia</a></p>
 </dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>Ver <a class="reference external" href="http://globalwordnet.org/">GlobalWordNet</a> y el <a class="reference external" href="http://compling.hss.ntu.edu.sg/omw/">Open Multilingual Wordnet</a>.</p>
 </dd>
 </dl>
