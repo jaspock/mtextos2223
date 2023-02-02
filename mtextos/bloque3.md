@@ -39,7 +39,9 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
  - [T5.C1. Cuestionario de evaluación]()
 
 ### Prácticas
-- [Ev1. Actividades de evaluación del bloque 2][ev1]
+- P.Ev1. [Evaluación 1](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun)
+- P.Ev2. [Evaluación 2](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva)
+
 
 
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
