@@ -157,7 +157,7 @@ Por ejemplo, la unidad léxica “comer” pertenece al marco semántico *Ingest
 - *manner* (“manera” de comer)
 - o *degree* (“cantidad”).
 
-    $[_Ingestor Alba] aprendió a COMER_Target [_Ingestibles verduras hervidas y arroz quemado]$
+> [_Ingestor Alba] aprendió a COMER_Target [_Ingestibles verduras hervidas y arroz quemado]
 
 En general, hay tres tipos de *frame elements*:
 
@@ -169,16 +169,16 @@ En el caso del marco *Ingestion*, los dos elementos *core* son *ingestor* e *ing
 
 ```{admonition} Actividad
 :class: note
-Consulta este y otros *frame elements* en la BD de FrameNET:
+Consulta este y otros *frame elements* en la base de datos de FrameNET:
 
-[https://framenet.icsi.berkeley.edu/fndrupal/](https://framenet.icsi.berkeley.edu/fndrupal/)
+[https://framenet.icsi.berkeley.edu/fndrupal/luIndex](https://framenet.icsi.berkeley.edu/fndrupal/luIndex)
 
 ```
 
 
 #### PropBank
 
-La propuesta de PropBank (acrónimo de *Proposition Bank* (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:
+La propuesta de PropBank (acrónimo de *Proposition Bank* (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. Y en vez de dar a los roles un nombre significativo, representa cada rol con un simple identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:
 
     Arg0 | Arg1 | Arg2 | Arg3 | Arg4
 
@@ -188,10 +188,12 @@ y además se establece un número indefinido de adjuntos:
 
 Cada rol se define por su relación con el verbo. Los dos argumentos que tienen una relación más estrecha con el sentido del verbo son _Arg0_ y _Arg1_. Para verbos transitivos, por ejemplo, el primero se suele identificar con el rol Agente y el segundo con el rol Tema/Paciente, pero esta relación no siempre se cumple.
 
-Lo importante es que la alternancia de diátesis no afecte a los roles. Así, independientemente de que la estructura verbal se exprese en activa o en pasiva, los roles Arg0 y Arg1 serán los mismos:
+Lo importante es que la alternancia de diátesis no afecte a los roles. Así, independientemente de que la estructura verbal se exprese en activa o en pasiva, los roles Arg0 y Arg1 serán los mismos, como en el siguiente ejemplo:
 
-    [Arg0 La policía militar] arrestó [Arg1 a tres personas]
-    [Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]
+> [Arg0 La policía militar] arrestó [Arg1 a tres personas]
+> [Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]
+
+En este caso es la misma oración, una en forma activa y la otra en forma pasiva. Independientemente del sintagma y la función sintática de cada argumento en cada oración, su rol semántico es el mismo. Así, en el primer caso el Arg0 es el sujeto, mientras que en el segundo caso el Arg0 es un complemento agente.
 
 Este modelo ha sido adaptado al español en el [corpus AnCora](http://clic.ub.edu/corpus/es/ancora) (Taulé et al. 2008), que también incluye anotación de textos en catalán (AnCora-Es y AnCora-Cat respectivamente).
 
@@ -199,28 +201,29 @@ De ambas propuestas de representación de roles semánticos, la más utilizada h
 
 ```{admonition} Actividad
 :class: note
-Consulta los roles de PropBank en su BD unificada (*Unified Verb Index*):
+Consulta los roles de PropBank en su bas de datos unificada (*Unified Verb Index*):
 
 [https://verbs.colorado.edu/verb-index/vn3.3/](https://verbs.colorado.edu/verb-index/vn3.3/)
 
 ```
 
-- Para descargar PropBank: [https://github.com/propbank/propbank-frames/](https://github.com/propbank/propbank-frames/)
-- Página del proyecto: [https://propbank.github.io/](https://propbank.github.io/)
+Puedes obtener más información sobre PropBank desde la [página del proyecto](https://propbank.github.io/). Está ademas disponbiel para su descarga aquí: [https://github.com/propbank/propbank-frames/](https://github.com/propbank/propbank-frames/).
+ 
 
 ### Algoritmos
 
-Los sistema de análisis de roles semánticos (*semantic role labeling*) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.
+Los sistema de análisis de roles semánticos (*semantic role labeling*) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento de la oración expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.
 
-Los principales algoritmos de *semantic roles labeling* suelen estar basados en __técnicas de aprendizaje supervisado__. A partir de corpus anotados con roles (como el propio corpus [PropBank](https://propbank.github.io/)), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.
+Los principales algoritmos de *semantic roles labeling* (SRL) suelen estar basados en __técnicas de aprendizaje supervisado__. A partir de corpus anotados con roles (como el propio corpus [PropBank](https://propbank.github.io/)), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.
 
-El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los
-rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a
+El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a
 partir de estos rasgos.
 
-El modelo de Freeling, para español y otros idiomas, es similar. En el caso del español está entrenado con el corpus AnCora y entre los rasgos de aprendizaje utiliza, además de los establecidos en Gildea y Jurafsky (2002) otros como las relaciones de dependencia o la voz verbal (Lluís et al. 2013).
+La herramienta Freeling cuenta con un sistema de SRL similar a este para español y otros idiomas. En el caso del español está entrenado con el [corpus AnCora](http://clic.ub.edu/corpus/es/ancora) y entre los rasgos de aprendizaje utiliza, además de los establecidos en Gildea y Jurafsky (2002), otros como las relaciones de dependencia o la voz verbal (Lluís et al. 2013).
 
-Los sistemas actuales, como el resto de tareas, están basados en vectores y *word embeddings*:
+### Situación actual
+
+Los sistemas actuales, como en el resto de tareas, están basados en vectores y *word embeddings*:
 
 [http://nlpprogress.com/english/semantic_role_labeling.html](http://nlpprogress.com/english/semantic_role_labeling.html)
 
@@ -230,7 +233,11 @@ También hay interés en sistemas multi- y cross-lingües:
 
 ## Otros tipos de análisis.
 
+El análisis semántico oracional no se agota con los roles semánticos. Hay más propuestas, como el *Abstract Meaning Representation* o las dependencias semánticas:
+
 [http://nlpprogress.com/english/semantic_parsing.html](http://nlpprogress.com/english/semantic_parsing.html)
+
+En la base de todas ellas está tanto la semántica oracional y los roles semánticos aquí expuestos.
 
 ## Bibliografía
 
