@@ -38,8 +38,8 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
  
 
 ### Prácticas
-- P.Ev1. [Evaluación 1](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun)
-- P.Ev2. [Evaluación 2](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva)
+- P.Ev1. [Evaluación 1 (común)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun)
+- P.Ev2. [Evaluación 2 (selectiva)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva)
 
 
 
