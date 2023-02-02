@@ -32,11 +32,10 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 ## Evaluación
 
 ### Teoría
- - [T1.C1. Cuestionario de evaluación]()
- - [T2.C1. Cuestionario de evaluación]()  
+ - [T1-2.C1. Cuestionario de evaluación]()
  - [T3.C1. Cuestionario de evaluación]()
- - [T4.C1. Cuestionario de evaluación]()
- - [T5.C1. Cuestionario de evaluación]()
+ - [T4-5.C1. Cuestionario de evaluación]()
+ 
 
 ### Prácticas
 - P.Ev1. [Evaluación 1](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun)
