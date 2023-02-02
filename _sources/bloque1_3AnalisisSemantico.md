@@ -5,9 +5,7 @@ Análisis semántico
 ```{admonition} Nota
 :class: note
 
-<font color=red>Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
-
-Para completar este tema, debe leer el [capítulo 23 "Word Senses and WordNet"](https://web.stanford.edu/~jurafsky/slp3/23.pdf) de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+Para completar este tema, debe leer el [capítulo 23 "Word Senses and WordNet"](https://web.stanford.edu/~jurafsky/slp3/23.pdf) de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Los "contextual word embeddings" serán tratados en próximos temas, por lo que puedes hacer una lectura oblicua (es decir, sin entrar en detalles: solo las ideas principales) del apartado 23.4.2, y también desde el apartado 23.5.3 hasta el final.  
 ```
 
 
