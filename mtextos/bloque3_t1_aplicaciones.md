@@ -2,6 +2,13 @@
 T1. Aplicaciones generales
 ====================================
 
+
+```{admonition} Nota
+:class: note
+Lee con atención el tema 1 y 2 del bloque 3. Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás en la sección de evaluación. En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica 1. **El plazo para realizar las lecturas y el cuestionario finaliza a las 23:59 del 14/02/2023** (el día anterior a la clase presencial).
+```
+
+
 Contenidos:
 
 - [Introducción](#introduccion)
