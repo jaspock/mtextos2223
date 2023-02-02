@@ -74,56 +74,55 @@ En su concepción original, WordNet pretendía ser una representación computaci
 
 ### Algoritmos de desambiguación léxico-semántica.
 
-WSD asume que los posibles significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora o sentido novedosos. El objetivo de un sistema de WSD es, así, determinar, de los posibles *synsets* asociados a una palabra (solo nombres, verbos o adjetivos), cuál es el apropiado en un contexto dado.
+En al tarea de WSD se asume que los posibles significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora o sentido novedosos. El objetivo de un sistema de WSD es, así, determinar, de los posibles *synsets* asociados a una palabra (solo nombres, verbos o adjetivos), cuál es el apropiado en un contexto dado.
 
 La heurística básica es seleccionar siempre el sentido más frecuente. Esto ya da buenos resutlados. Pero no es suficiente. En los últimos 30 años se han propuesto diferentes algoritmos para mejorar este *baseline*. Las diferentes propuetas se pueden agrupar, en general, en dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.
 
 #### Estrategias basadas en conocimiento
 
-Las estrategias basadas en conocimiento (*knowledge-based*) se caracterizan por explotar al máximo la información del recurso léxico (normalmente WordNet) y su comparación con el contexto donde aparece la palabra ambigua.
+Las estrategias basadas en conocimiento (*knowledge-based*) se caracterizan por explotar al máximo la información del recurso léxico (WordNet). Esta se compara con el contexto donde aparece la palabra ambigua hasta hallar el significado más coherente.
 
 El algoritmo de Lesk (Lesk 1986) es el método estándar de desambiguación basando en conocimiento. Para determinar el sentido apropiado de una palabra ambigua, compara las palabras del contexto donde aparece con la definición de cada sentido (la “glosa” en WordNet). Finalmente selecciona como sentido apropiado aquél cuya definición tiene más coincidencias con el contexto.
 
-Por ejemplo, según este uso de "banco", quedaría claro que el sentido apropiado es el primero:
+Por ejemplo, en la siguiente oración, la glosa 1 sería la más apropiada para "banco":
 
 > "Ingresé el _dinero_ en el *banco* ayer tarde"
->1. Entidad financiera que acepta _dinero_ en depósito y
-ofrece préstamos con intereses.
+>1. Entidad financiera que acepta _dinero_ en depósito y ofrece préstamos con intereses.
 >2. Asiento largo y estrecho para varias personas
 
-Así, siempre y cuando se disponga de una buena definición, este algoritmo funciona bien para casos de homonimia, pero no tanto para casos de polisemia.
+Siempre y cuando se disponga de una buena definición, este algoritmo funciona bien para casos de homonimia. Para casos de polisemia, en los que las diferencias semánticas entre significados son más sutiles, no suele funcionar tan bien.
 
-Existen diferentes implementaciones de este algoritmo, como por ejemplo
-la disponible en el [*Natural Language Toolkit*](https://www.nltk.org/howto/wordnet.html) (NLTK) (Bird et al. 2009), pero solo funciona para inglés.
+Existen diferentes implementaciones de este algoritmo, como por ejemplo la disponible en el [*Natural Language Toolkit*](https://www.nltk.org/howto/wordnet.html) (NLTK) (Bird et al. 2009), pero solo funciona para inglés.
 
-En esta línea, el algoritmo UKB (Agirre y Soroa 2009, Padró et al. 2010) es un aproximación mucho más avanzada. El algoritmo es una adaptación del algoritmo Page Rank de Google. La idea principal de éste es que no todos los nodos de un grafo son iguales, sino que unos tienen más importancia que otros. Un nodo es importante si otros nodos apuntan a él, y si un nodo importante apunta a otro, este también se considera relativamente importante. Sin entrar en detalles técnicos, este algoritmo determina la pertinencia de un sentido en un contexto mediante las relaciones léxicas de cada palabra dentro de WordNet. Dada una palabra ambigua, aquel synset cuyas relaciones de hiperonimia, etc. mejor encaje con el resto de sentidos del contexto, será el apropiado (Agirre y Soroa 2009). Este es el algoritmo implementado en [Freeling](http://nlp.lsi.upc.edu/freeling/).
+En esta línea, el algoritmo UKB (Agirre y Soroa 2009, Padró et al. 2010) es un aproximación mucho más avanzada. El algoritmo es una adaptación del algoritmo Page Rank de Google. La idea principal de éste es que no todos los nodos de un grafo son iguales, sino que unos tienen más importancia que otros. Un nodo es importante si otros nodos apuntan a él, y si un nodo importante apunta a otro, este también se considera relativamente importante. Sin entrar en detalles técnicos, este algoritmo determina la pertinencia de un sentido en un contexto mediante las relaciones léxicas de cada palabra dentro de WordNet. Dada una palabra ambigua, aquel *synset* cuyas relaciones de hiperonimia, etc. mejor encaje con el resto de sentidos del contexto, será el apropiado (Agirre y Soroa 2009). Este es el algoritmo implementado en [Freeling](http://nlp.lsi.upc.edu/freeling/).
 
 #### Estrategias basadas en aprendizaje supervisado
 
-Estas estrategias (*features-based algorithms*) se caracterizan por aprender diferentes rasgos del contexto de las palabras y utilizarlos para clasificar usos ambiguos.
+Estas estrategias (*features-based algorithms*) se caracterizan por aprender diferentes rasgos del contexto de las palabras con técnicas de *machine learning* y utilizarlos para clasificar usos ambiguos.
 
-Por ejemplo, una estrategia óptima sería crear un clasificador basado en SVM con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (*embedings*) de cada palabra del contexto (Juravki y Martin, cap. 18, pág. 12).
+Por ejemplo, una estrategia óptima sería entrenar un clasificador  _Support Vector Machines_ (que ha dado buenos resultados en WSD) con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (*embedings*) de cada palabra del contexto (Ver Jurafki y Martin (2023), cap. 23, pág. 12).
 
-Existen diferentes corpus anotados con sentidos desambiguados. El primero en ser desarrollado fue SemCor, con texto en inglés. Este corpus es el modelo a partir del cual se han desarrollado otros. El corpus se creó al mismo tiempo que WordNet y por las mismas personas. En SemCor, cada palabra tiene asignado el *synset* específico en WordNet. Y muchos sentidos de WordNet se han determinado a partir de los textos de SemCor. SemCor está disponible en diferentes páginas (como [esta](http://www.gabormelli.com/RKB/SemCor_Corpus) y [esta](http://web.eecs.umich.edu/~mihalcea/downloads.html#semcor)), así como en [Kaggle](https://www.kaggle.com/nltkdata/semcor-corpus) o [NLTK](https://www.nltk.org/_modules/nltk/corpus/reader/semcor.html).
+Existen diferentes corpus anotados con sentidos desambiguados. El primero corpus anotado con sentido, que estableció el modelo a partir del cual se han desarrollado otros, fue SemCor, con texto en inglés. Este corpus se creó al mismo tiempo que WordNet y por los mismos desarrolladores. En SemCor, cada palabra tiene asignado el *synset* específico en WordNet. Y muchos sentidos de WordNet se han determinado a partir de los textos de SemCor. SemCor está disponible en diferentes páginas (como [esta](http://www.gabormelli.com/RKB/SemCor_Corpus) y [esta](http://web.eecs.umich.edu/~mihalcea/downloads.html#semcor)), así como en [Kaggle](https://www.kaggle.com/nltkdata/semcor-corpus) o [NLTK](https://www.nltk.org/_modules/nltk/corpus/reader/semcor.html).
 
-Corpus similares a SemCor para otros idiomas. Para español se creó el corpus Cast3LB, hoy enriquecido con más información y renombrado como [Ancora Corpus](http://clic.ub.edu/corpus/es/ancora).
+A partir de SemCor se crearon corpus similares para otros idiomas. Para español se creó el corpus Cast3LB, hoy enriquecido con más información y renombrado como [Ancora Corpus](http://clic.ub.edu/corpus/es/ancora).
 
-La línea de trabajo acutal es aplicar *word embeddings* a la tarea de WSD. Un recurso muy utilizado es [Nasari](http://lcl.uniroma1.it/nasari/), que incluye representaciones vectoriales de los *synsets* de WordNet y de la Wikipedia (ambos integrados en el recurso BabelNet).
+La línea de trabajo actual es aplicar *word embeddings* a la tarea de WSD. Un recurso muy utilizado es [Nasari](http://lcl.uniroma1.it/nasari/), que incluye representaciones vectoriales de los *synsets* de WordNet y de la Wikipedia (ambos integrados en el recurso BabelNet).
 
 #### Inducción de sentidos
 
-Junto a estas dos estrategias, hay una tercera basada en técnicas no supervisadas. En este caso, sin embargo, como no hay un recursos léxico de referencia con los sentidos, los sistemas no determinan significados sino que agrupan oraciones. Así, dado un conjunto de oraciones con una palabra ambigua en común, agrupan las oraciones en las que esa palabra se utiliza con un sentido determinado. Lo que no pueden determinar es cuál es ese sentido.
+Junto a estas dos estrategias, hay una tercera basada en técnicas no supervisadas. En este caso, sin embargo, como no hay un recursos léxico de referencia con los sentidos, los sistemas no determinan significados sino que agrupan oraciones. Así, dado un conjunto de oraciones con una palabra ambigua en común, agrupan las oraciones en las que esa palabra se utiliza con un sentido determinado. Lo que no pueden determinar es cuál es ese sentido. Por ello se considera una taread de inducción de sentidos, más que de desambiguacinó
 
 En esta tareas se suelen aplicar modelos de semántica vectorial que se verán en la próxima sesión.
 
+### Situación actual
 
-La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN. Algunos de las últimas propuestas se pueden ver aquí:
+La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN, ya que determinar el sentido exacto puede llegar a ser muy complejo. Además de la propia selección del sentido, entran en juego otros factores como la denotación o la metaforización. Algunos de las últimas propuestas se pueden ver aquí:
 
 - [http://nlpprogress.com/english/word_sense_disambiguation.html](http://nlpprogress.com/english/word_sense_disambiguation.html)
 
 ```{admonition} Actividad
 :class: note
-Para probar la anotación de sentidos con WordNet, puedes utilizar NLTK. Prueba a hacer la ampliación 2 de la práctica 1.
+Para probar la anotación de sentidos con WordNet, puedes utilizar la herramienta [NLTK](https://www.nltk.org/). Haz ahora la ampliación 2 de la práctica 1, donde verás cómo acceder a WordNet a través de SpaCy y desambiguar así el significado de las palabras.
 ```
 
 ## Semántica oracional. Roles semánticos y semántica eventiva.
