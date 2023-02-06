@@ -149,7 +149,7 @@ Por otro lado, además de la matriz término-documento que hemos visto (donde la
     book    3       6        0
   ------ ----- ---------- ------
 
-Según esta matriz, la palabra "car" aparece el mismo contexto de la palabra "red" en cinco ocasiones, no coincide nunca con la palabra "readable" y solo en una ocación con la palabra "blue". "book", por su parte, aparece tres veces en el mismo contexto de "red", sies en el mismo contexto de "readable" y ninguna con "blue". En ocasiones estas matrices son cuadradas porque tienen los mismo términos en las filas y en las columnas.
+Según esta matriz, la palabra "car" aparece el mismo contexto de la palabra "red" en cinco ocasiones (de un total de $N$ contextos), no coincide nunca con la palabra "readable" en ningún contexto y solo en uno con la palabra "blue". "book", por su parte, aparece tres veces en el mismo contexto de "red", seis en el mismo contexto de "readable" y ninguna con "blue". En ocasiones estas matrices son cuadradas porque tienen los mismo términos en las filas y en las columnas.
 
 Se pueden plantear otros tipos de matrices. Turne y Pantel (2010), por ejemplo, plantean una matriz *Pair-Pattern* donde las filas son parejas de palabras $X:Y$ ("carpenter:wood") y las columnas son relaciones entre palabras co-ocurrentes ("X cut Y").
 
@@ -157,33 +157,30 @@ Sea como sea el tipo de matriz, es muy relevente dónde se sitúa el límite del
 
 ### Representación de las palabras
 
-Hasta ahora hemos estado
+Hasta ahora hemos estado hablando de "palabra" o "término", pero como ya se vio en temas anteriores, el concepto de "palabra" es muy vago. Una matriz será más o menos representativa según se defina la palabra. Algunas opciones son (según vimos en sesiones anteriores):
 
-Según vimos en sesiones anteriores:
-
-- Token
-- Raíz (stem)
-- Lemas
-- Lema + Categoría Gramatical
-- Filtro *stopwords*
-- Sólo nombres (o sólo verbos, o sólo adjetivos, etc.)
-- Lema + Función sintáctica
+- el token,
+- la raíz (o *stem*),
+- el lemas,
+- el lema más la categoría gramatical,
+- los token pero elminando *stopwords*,
+- solo nombres (o solo verbos, o solo adjetivos, etc.)
+- el lema más su dependencia sintática, 
 - etc.
 
-Requieren pre-proceso del corpus con técnicas de PLN vistas con anterioridad.
+Algunos de estos casos, como imagino ya sabrás, requieren pre-procesar el corpus con técnicas de PLN. Cuando son colecciones muy amplias, se suele trabar con el *token* o solo con la raíz de las palabras.
 
 ### Cálculo de los valores o pesos
 
-Representación cuantitativa de la relevancia (peso) que tiene la palabra en cada contexto.
+Finalmente, el modelo semántico vectorial puede ser más o menos representativo según se calcule la relevancia (o peso) de la palabra en cada contexto.
 
-Frecuencias simples y relativas: número de veces que la palabra aparece en el contexto, normalizado por el tamaño del contexto.
+El caso más simple para medir la relevancia de una palabra en un contexto es la calcular la frecuencia pondearada: número de veces que la palabra aparece en el contexto, normalizado por el tamaño del contexto. Este modelo tiene, sin embargo, diversos problemas:
 
-Problemas:
+1. Es muy dependiente del tamaño del contexto, que como hemos visto antes no está claro cómo limitarlo. En contexto pequeños se trabajaría con valores muy bajos (ceros y unos prácticamente).
+2. No discrimina la importancia real de cada palabra en el contexto, dado que hay palabra que siempre tienen frecuncias muy alta (como palabras de categorías cerradas, o nombres de uso muy común) frente a otras que siempre tienen bajas frecuencias.
+3. sobre estas últimas, el caso extremos es el fenómeno del *[hapax legomenon]*(https://en.wikipedia.org/wiki/Hapax_legomenon): la mayoría de las palabras de una colección de documntos aparece solo una vez (o con una frecuencia muy baja).
 
-- Depende del tamaño del contexto.
-- No discrimina la importancia real de cada palabra en el contexto.
-- El *[hapax legomenon]*(https://en.wikipedia.org/wiki/Hapax_legomenon)
-
+Una solución elegante para determinar la relevancia de una palabra por su frecuencia sin caer en estos problemas es el famoso valor TF/IDF que pasamos a explicar a continuación.
 
 #### TF/IDF: *term frequency / inverse document frequency* (Sparck Jones, 1972)
 
