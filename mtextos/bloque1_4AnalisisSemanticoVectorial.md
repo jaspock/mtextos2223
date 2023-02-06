@@ -50,9 +50,31 @@ doc2 $= \{papel, rama, madera\}$
     rama      0       1   
   -------- ------- ------- 
 
+De esta tabla se obtiene la siguiente matriz:
+
+$$\begin{pmatrix}
+  1 & 0 \\
+  1 & 1 \\
+  1 & 0 \\
+  0 & 1 \\
+  0 & 1 
+\end{pmatrix}$$
+
 De esta manera, los documentos ahora está representado como dos vectores:
 
 $\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$
+
+$\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$
+
+Y cada palabra o término está representado con su vector contextual:
+
+$$
+    \vec{casa} = \begin{bmatrix}1 0\end{bmatrix}
+    \vec{madera} = \begin{bmatrix}1 1\end{bmatrix}
+    \vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}
+    \vec{papel} = \begin{bmatrix}0 1\end{bmatrix}   
+    \vec{rama} = \begin{bmatrix}0 1\end{bmatrix}
+$$
 
 ## Fundamentos lingüísticos
 
