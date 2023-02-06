@@ -336,8 +336,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#origen">
-   6.5. Origen
+  <a class="reference internal nav-link" href="#origen-computacional">
+   6.5. Origen computacional
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -455,8 +455,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#origen">
-   6.5. Origen
+  <a class="reference internal nav-link" href="#origen-computacional">
+   6.5. Origen computacional
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -562,62 +562,27 @@ title="Print to PDF"
 </section>
 <section id="objetivos">
 <h2><span class="section-number">6.3. </span>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Definir semántica distribucional.</p></li>
-<li><p>Comprender cómo se representa el significado mediante vectores.</p></li>
-<li><p>Conocer los principales factores que determinan la representación vectorial.</p></li>
-<li><p>Conocer los conceptos de distancia y similitud, y medidas básicas.</p></li>
-</ul>
+<p>En este tema se expone la semántica distribucional, modelo semántico en el que se basan los actuales sistemas de <em>deep learning</em>. Tras definir la semántica distribucional, se mostrará cómo se puede representar el significado mediante vectores, los principales factores que determinan la representación vectorial y finalmente los conceptos de distancia y similitud textual.</p>
 </section>
 <section id="introduccion">
 <h2><span class="section-number">6.4. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">#</a></h2>
-<p>Semántica vectorial: Nueva aproximación <strong>formal</strong> a la <strong>semántica</strong> de las lenguas naturales.</p>
-<ul class="simple">
-<li><p>Formalismo:</p>
-<ul>
-<li><p>Espacios vectoriales y álgebra lineal.</p></li>
-<li><p><em>Quantum semantics</em>: similar al caso de la mecánica cuántica matricial de
-<a class="reference external" href="https://es.wikipedia.org/wiki/Werner_Heisenberg">Heisenberg</a>.</p></li>
-<li><p>Geometría: relaciones de <em>similitud semántica</em> basadas en
-<em>distancias</em> (Widdows 2004).</p></li>
-</ul>
-</li>
-<li><p>Semántica contextual y distribucional (basada en el uso).</p>
-<ul>
-<li><p>vs. unidad atómica (lógica formal): “casa”</p></li>
-<li><p>vs. definición (semántica léxica).</p></li>
-<li><p>vs. relaciones léxicas paradigmáticas (WordNet <em>synset</em>).</p></li>
-</ul>
-</li>
-</ul>
+<p>La semántica vectorial es un aproximación <strong>formal</strong> a la <strong>semántica</strong> de las lenguas naturales. A diferencia de otros modelos computacionales, el formalismo está basado en espacios vectoriales y álgebra linea; y la interpretación de un texto se expresa en términos geométricos de distancia y similitud (Widdows 2004).</p>
+<p>Desde un punto de vista lingüístico, el modelo semántico vectorial representa el significado distrubucional de las palabras. Como se comentará luego, el significado distrubucional es aquél que podemos derivar a partir del contexto en el que una palabra es utilizada. En este modelo, el signficado no es una unidad atómica como en lógica forma ni está definido en un diccionario, sino que es el propio uso de cada palabra en los diferentes contextos donde suele aparecer.</p>
 </section>
-<section id="origen">
-<h2><span class="section-number">6.5. </span>Origen<a class="headerlink" href="#origen" title="Permalink to this headline">#</a></h2>
-<p><strong>Recuperación de información</strong> (<em>Information Retrieval</em>): ej.
-buscadores de internet.</p>
-<ul class="simple">
-<li><p>Tarea: dada una <em>query</em> (uno o más términos), obtener una lista de
-documentos ordenada por relevancia.</p></li>
-<li><p>Matriz Término - Documento.</p></li>
-<li><p>Cada documento se representa como una “bolsa de palabras” (<em>bag of
-words</em>): conjunto de palabras sin relación entre ellas.</p></li>
-</ul>
-<p>Matriz Término - Documento</p>
-<ul class="simple">
-<li><p>Columnas: documentos.</p></li>
-<li><p>Líneas: términos</p></li>
-<li><p>Valores: frecuencia del término en cada documento.</p></li>
-</ul>
-<p>Con dos documentos:</p>
+<section id="origen-computacional">
+<h2><span class="section-number">6.5. </span>Origen computacional<a class="headerlink" href="#origen-computacional" title="Permalink to this headline">#</a></h2>
+<p>La aplicación de modelos vectoriales para procesar texto proviene del área llamada <strong>Recuperación de información</strong> (<em>Information Retrieval</em>). En esta área se desarrollan sistemas que, dada una consulta, recupera un conjunto de documentos ordenados de mayor a menor relevancia. El producto más conocido desarrollado en esta área son los buscadores de internet.</p>
+<p>Para determinar la relación de la consulta (conjunto de palabras) con los documentos, éstos se representan mediante una matriz término-documento. En este matriz, cada palabra está representada por su relevancia en cada documento (por ejemplo, mediante su frecuencia). Así, dada una palabra (en la cosultad), se pude derivar en qué documentos esa palabra es más relevante. Estos modelos se llaman tambien ``modelos de bolsa de palabras’’ (<em>bag of words</em>) porque las palabras se tratan como un conjunto sin orden ni relación entre ellas. En su estado mas básico se ignora la información categorial, sintátictca, etc. del texto.</p>
+<p>En esta matriz, por tanto, cada columna representa un documento y cada línea una palabra o término. El valor de cada celda es la relevancia del término o palabra en el documento. Aquí se pueden aplicar varios fórmulas para determinar esa relevancia, que se verán después. La más básica sería la frecuencia relativa del término en el documento. De esta manera, cada columna es un vector que representa un texto, y cada línea es un vector que representa los contextos de aparición de una palabra (cada documento es aquí un contexto de uso). La siguiente matriz representa las frecuencias absolutas de las palabras de dos documentos (doc1 y doc2), cada uno con tres palabras.</p>
 <p>doc1 <span class="math notranslate nohighlight">\(= \{casa, madera, mesa\}\)</span></p>
 <p>doc2 <span class="math notranslate nohighlight">\(= \{papel, rama, madera\}\)</span></p>
 <hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        Doc 1   Doc 2   \...   Doc $n$
-casa      1       0     \...    \...
-madera    1       1     \...    \...
-mesa      1       0     \...    \...
-papel     0       1     \...    \...
-rama      0       1     \...    \...
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        Doc 1   Doc 2 
+casa      1       0   
+madera    1       1   
+mesa      1       0   
+papel     0       1   
+rama      0       1   
 </pre></div>
 </div>
 <hr class="docutils" />
