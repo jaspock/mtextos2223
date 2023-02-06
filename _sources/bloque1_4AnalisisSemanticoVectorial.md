@@ -121,42 +121,27 @@ Esto se puede representar en un espacio euclídeo (plano o lineal) mediante coor
 Esto en un plano cartesiano de dos dimensiones. Si la colección está formada por $n-$ documentos, obtendríamos un espacio $n$-dimesionales o multidimensionales en el que cada dimensión es un posible contexto.
 
 
-
-
-
-
-
 ----------------
 
-La representación del significado varía según se diseñe el espacio vectorial.
+Para que este modelo vectorial represente el significado real de las palabras, hay que modelar bien:
 
-Factores relevantes:
-
-- Representación del contexto (dimensiones)
-- Representación de las palabras (filas)
-- Valores o pesos de cada palabra en cada contexto.
-
+- la representación del contexto (columnas o dimensiones),
+- la representación de las palabras (filas de la matriz)
+- los valores o pesos de cada palabra en cada contexto.
 
 ### Representación del contexto
 
-Cada uno de los contextos donde pueda aparece una palabra será una
-dimensión.
+Cada contexto de la palabra será una dimensión de la matriz. El problema es cómo deliminar este contexto: ¿cuántas palabras forman el contexto?, ¿dónde está el límite del contexto?
 
-¿Cómo delimitar el contexto?
+En el modelo de matriz término-documento que se utiliza en recuperación de información el contexto es todo el documento porque son documentos lo que quieren recuperar, pero se puede limiar a recuperación de pasajes, párrafos, etc. Otras opciones con motivación lingüística podrían ser:
 
-Matriz Término-Documento. Modelo de representación propio de Recuperación de Información. El contexto es todo el texto o documento donde aparece la palabra. El concepto de contexto muy laxo, pero es eficiente. No tiene en cuenta las relaciones entre palabras y puede haber contextos de difererente tamaño.
-
-Esta idea se puede llevar a contextos con una mayor motivación lingüística:
-
-- oración,
-- párrafo u otra unidad textual,
-- capítulos,
+- la oración,
+- una ventana deslizante (un cojunto de $n$ palabras delante y detrás de la término),
+- el párrafo o cualquier otra unidad textual,
+- el capítulo,
 - etc.
 
-
-Matriz de co-ocurrencias: Matriz Término-Término: número de veces que dos palabras aparecen en los mismos contexto.
-
-Contexto más pequeño y motivado lingüísticamente: oración, relación sintáctica, ventana de palabras u oraciones (párrafo deslizante), etc.
+Por otro lado, además de la matriz término-documento que hemos visto (donde las columnas representan documentos y las filas palabras), se puede crear otro tipo de matriz: la llamad **matriz de co-ocurrencias** o **matriz término-término**. En estas matrices (normalmente cuadradas), tanto las columnas como las filas representan palabra, y los valores la relación entre esas dos palabras. Por ejemplo, en cuántos contextos aparecen esas dos papalabras, como en el siguiente caso:
 
   ------ ----- ---------- ------
            red   readable   blue
@@ -164,11 +149,15 @@ Contexto más pequeño y motivado lingüísticamente: oración, relación sintá
     book    3       6        0
   ------ ----- ---------- ------
 
-Ejemplo de matriz con motivación lingüística fuerte: matriz *Pair-Pattern* (TurneyPantel 2010): Las filas son parejas de palabras ("carpenter:wood"), las columnas son relaciones entre palabras co-ocurrentes ("X cut Y").
+Según esta matriz, la palabra "car" aparece el mismo contexto de la palabra "red" en cinco ocasiones, no coincide nunca con la palabra "readable" y solo en una ocación con la palabra "blue". "book", por su parte, aparece tres veces en el mismo contexto de "red", sies en el mismo contexto de "readable" y ninguna con "blue". En ocasiones estas matrices son cuadradas porque tienen los mismo términos en las filas y en las columnas.
 
-Y por aquí se pueden definir variantes. En todos estos casos, lo que cambia es cómo se representa el contexto.
+Se pueden plantear otros tipos de matrices. Turne y Pantel (2010), por ejemplo, plantean una matriz *Pair-Pattern* donde las filas son parejas de palabras $X:Y$ ("carpenter:wood") y las columnas son relaciones entre palabras co-ocurrentes ("X cut Y").
+
+Sea como sea el tipo de matriz, es muy relevente dónde se sitúa el límite del contexto (el documento, el párrafo, la oración...)
 
 ### Representación de las palabras
+
+Hasta ahora hemos estado
 
 Según vimos en sesiones anteriores:
 

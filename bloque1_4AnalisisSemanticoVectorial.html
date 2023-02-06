@@ -649,28 +649,24 @@ train   6      1
 <p><img alt="cartesanio2" src="_images/cartesiano_2.png" /></p>
 <p>Esto en un plano cartesiano de dos dimensiones. Si la colección está formada por <span class="math notranslate nohighlight">\(n-\)</span> documentos, obtendríamos un espacio <span class="math notranslate nohighlight">\(n\)</span>-dimesionales o multidimensionales en el que cada dimensión es un posible contexto.</p>
 <hr class="docutils" />
-<p>La representación del significado varía según se diseñe el espacio vectorial.</p>
-<p>Factores relevantes:</p>
+<p>Para que este modelo vectorial represente el significado real de las palabras, hay que modelar bien:</p>
 <ul class="simple">
-<li><p>Representación del contexto (dimensiones)</p></li>
-<li><p>Representación de las palabras (filas)</p></li>
-<li><p>Valores o pesos de cada palabra en cada contexto.</p></li>
+<li><p>la representación del contexto (columnas o dimensiones),</p></li>
+<li><p>la representación de las palabras (filas de la matriz)</p></li>
+<li><p>los valores o pesos de cada palabra en cada contexto.</p></li>
 </ul>
 <section id="representacion-del-contexto">
 <h3><span class="section-number">6.7.1. </span>Representación del contexto<a class="headerlink" href="#representacion-del-contexto" title="Permalink to this headline">#</a></h3>
-<p>Cada uno de los contextos donde pueda aparece una palabra será una
-dimensión.</p>
-<p>¿Cómo delimitar el contexto?</p>
-<p>Matriz Término-Documento. Modelo de representación propio de Recuperación de Información. El contexto es todo el texto o documento donde aparece la palabra. El concepto de contexto muy laxo, pero es eficiente. No tiene en cuenta las relaciones entre palabras y puede haber contextos de difererente tamaño.</p>
-<p>Esta idea se puede llevar a contextos con una mayor motivación lingüística:</p>
+<p>Cada contexto de la palabra será una dimensión de la matriz. El problema es cómo deliminar este contexto: ¿cuántas palabras forman el contexto?, ¿dónde está el límite del contexto?</p>
+<p>En el modelo de matriz término-documento que se utiliza en recuperación de información el contexto es todo el documento porque son documentos lo que quieren recuperar, pero se puede limiar a recuperación de pasajes, párrafos, etc. Otras opciones con motivación lingüística podrían ser:</p>
 <ul class="simple">
-<li><p>oración,</p></li>
-<li><p>párrafo u otra unidad textual,</p></li>
-<li><p>capítulos,</p></li>
+<li><p>la oración,</p></li>
+<li><p>una ventana deslizante (un cojunto de <span class="math notranslate nohighlight">\(n\)</span> palabras delante y detrás de la término),</p></li>
+<li><p>el párrafo o cualquier otra unidad textual,</p></li>
+<li><p>el capítulo,</p></li>
 <li><p>etc.</p></li>
 </ul>
-<p>Matriz de co-ocurrencias: Matriz Término-Término: número de veces que dos palabras aparecen en los mismos contexto.</p>
-<p>Contexto más pequeño y motivado lingüísticamente: oración, relación sintáctica, ventana de palabras u oraciones (párrafo deslizante), etc.</p>
+<p>Por otro lado, además de la matriz término-documento que hemos visto (donde las columnas representan documentos y las filas palabras), se puede crear otro tipo de matriz: la llamad <strong>matriz de co-ocurrencias</strong> o <strong>matriz término-término</strong>. En estas matrices (normalmente cuadradas), tanto las columnas como las filas representan palabra, y los valores la relación entre esas dos palabras. Por ejemplo, en cuántos contextos aparecen esas dos papalabras, como en el siguiente caso:</p>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       red   readable   blue
 car     5       0        1
@@ -678,11 +674,13 @@ book    3       6        0
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>Ejemplo de matriz con motivación lingüística fuerte: matriz <em>Pair-Pattern</em> (TurneyPantel 2010): Las filas son parejas de palabras (“carpenter:wood”), las columnas son relaciones entre palabras co-ocurrentes (“X cut Y”).</p>
-<p>Y por aquí se pueden definir variantes. En todos estos casos, lo que cambia es cómo se representa el contexto.</p>
+<p>Según esta matriz, la palabra “car” aparece el mismo contexto de la palabra “red” en cinco ocasiones, no coincide nunca con la palabra “readable” y solo en una ocación con la palabra “blue”. “book”, por su parte, aparece tres veces en el mismo contexto de “red”, sies en el mismo contexto de “readable” y ninguna con “blue”. En ocasiones estas matrices son cuadradas porque tienen los mismo términos en las filas y en las columnas.</p>
+<p>Se pueden plantear otros tipos de matrices. Turne y Pantel (2010), por ejemplo, plantean una matriz <em>Pair-Pattern</em> donde las filas son parejas de palabras <span class="math notranslate nohighlight">\(X:Y\)</span> (“carpenter:wood”) y las columnas son relaciones entre palabras co-ocurrentes (“X cut Y”).</p>
+<p>Sea como sea el tipo de matriz, es muy relevente dónde se sitúa el límite del contexto (el documento, el párrafo, la oración…)</p>
 </section>
 <section id="representacion-de-las-palabras">
 <h3><span class="section-number">6.7.2. </span>Representación de las palabras<a class="headerlink" href="#representacion-de-las-palabras" title="Permalink to this headline">#</a></h3>
+<p>Hasta ahora hemos estado</p>
 <p>Según vimos en sesiones anteriores:</p>
 <ul class="simple">
 <li><p>Token</p></li>
