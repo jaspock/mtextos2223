@@ -50,7 +50,7 @@ doc2 $= \{papel, rama, madera\}$
     rama      0       1   
   -------- ------- ------- 
 
-De esta tabla se obtiene la siguiente matriz:
+De esta tabla se obtiene la siguiente matriz D:
 
 $$D = \begin{pmatrix}
   1 & 0 \\
@@ -62,16 +62,16 @@ $$D = \begin{pmatrix}
 
 De esta manera, los documentos ahora está representado como dos vectores:
 
-$\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$
+$\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$\
 $\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$
 
 Y cada palabra o término está representado con su vector contextual:
 
-$\vec{casa} = \begin{bmatrix}1 0\end{bmatrix}$
-$\vec{madera} = \begin{bmatrix}1 1\end{bmatrix}$
-$\vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}$
-$\vec{papel} = \begin{bmatrix}0 1\end{bmatrix}$   
-$\vec{rama} = \begin{bmatrix}0 1\end{bmatrix}$
+$\vec{casa} = \begin{bmatrix}1 0\end{bmatrix}$\
+$\vec{madera} = \begin{bmatrix}1 1\end{bmatrix}$\
+$\vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}$\
+$\vec{papel} = \begin{bmatrix}0 1\end{bmatrix}$\   
+$\vec{rama} = \begin{bmatrix}0 1\end{bmatrix}$\
 
 ## Fundamentos lingüísticos
 
@@ -79,8 +79,7 @@ Los modelos semánticos vectoriales asumen básicamente tres propuestas teórica
 
 1.  La idea de Wittgenstein (1953) de que "meaning just is use" (Wittgenstein 1953);
 
-2.  El concepto de *collocation* de Firth (1957) y su idea
-    de que
+2.  El concepto de *collocation* de Firth (1957) y su idea de que
 
     > "you shall know a word by the company it keeps";
 
@@ -88,14 +87,15 @@ Los modelos semánticos vectoriales asumen básicamente tres propuestas teórica
 
     > "words will occur in similar contexts if and only if they have similar meanings".
 
-Todo ello se engloba dentro del concepto de "significado distribucional". Este, por tanto, es el significado que una palabra asume cuando se usa en un contexto concreto a partir de las palabras de ese contexto con las que aparece. Este inferencia semántica (determinar el significado de una palabra a partide su contexto) es algo que hacemos constantemente. Mira las siguientes oraciones, ¿qué significado tiene *XXX* en cada una?
+Todo ello se engloba dentro del concepto de "significado distribucional". Este, por tanto, es el significado que una palabra asume cuando se usa en un contexto concreto y queda determinado a partir de las palabras de ese contexto con las que aparece. Esta inferencia semántica (determinar el significado de una palabra a partir de las palabras del contexto) es algo que hacemos constantemente. Mira las siguientes oraciones, ¿qué significado tiene *XXX* en cada una?
 
 > Mañana iré al *XXX* a firmar la hipoteca, y ya de paso sacaré dinero del cajero.
+
 > He intentado ponerme los *XXX* de mi hermano pero me vienen pequeños: mis pies son muy grandes y necesito una talla más.
 
 ## Representación vectorial del significado
 
-Un vector captura la semántica contextual/distribucional de la palabra (token o lema) al representar el número de veces (frecuencia) que la palabra aparece en cada contexto (documento).
+El vector de una palabra como se ha mostrado antes representa el significado distribucional de una palabra ya que captura la relevancia de esa palabra (o término o token o lema) en cada uno de los contextos (en este caso documentos) que forman la colección. Así, en la siquiente matriz término - documento:
 
   ------- ------ ------
            doc1   doc2
@@ -103,6 +103,8 @@ Un vector captura la semántica contextual/distribucional de la palabra (token o
     taxi    5      6
     train   6      1
   ------- ------ ------
+
+El significado de cada palabra sería el vector contextual:
 
 $car = (7,6)$\
 $taxi = (5,6)$\
