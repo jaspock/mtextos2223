@@ -50,7 +50,9 @@ doc2 $= \{papel, rama, madera\}$
     rama      0       1   
   -------- ------- ------- 
 
-Matriz Término-Documento
+De esta manera, los documentos ahora está representado como dos vectores:
+
+$\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$
 
 ## Fundamentos lingüísticos
 
