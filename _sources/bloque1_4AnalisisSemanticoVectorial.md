@@ -68,7 +68,7 @@ $\vec{doc2} = \{0 1 0 1 1\}$
 Y cada palabra o término está representado con su vector contextual:
 
 $\vec{casa} = \{1 0\}$\
-$\vec{madera} = \{1 1\e}$\
+$\vec{madera} = \{1 1\}$\
 $\vec{mesa} = \{1 0\}$\
 $\vec{papel} = \{0 1\}$\   
 $\vec{rama} = \{0 1\}$
@@ -96,7 +96,7 @@ Todo ello se engloba dentro del concepto de "significado distribucional". Este, 
 
 ## Representación vectorial del significado
 
-El vector de una palabra como se ha mostrado antes representa el significado distribucional de una palabra ya que captura la relevancia de esa palabra (o término o token o lema) en cada uno de los contextos (en este caso documentos) que forman la colección. Así, en la siquiente matriz término - documento:
+El vector de una palabra como se ha mostrado antes representa el significado distribucional de una palabra ya que captura la relevancia de esa palabra (o término o token o lema, según se quiera llamar) en cada uno de los contextos (en este caso documentos) que forman la colección. Así, en la siquiente matriz término - documento:
 
   ------- ------ ------
            doc1   doc2
@@ -105,21 +105,26 @@ El vector de una palabra como se ha mostrado antes representa el significado dis
     train   6      1
   ------- ------ ------
 
-El significado de cada palabra sería el vector contextual:
+el significado de cada palabra sería el vector contextual:
 
 $car = (7,6)$\
 $taxi = (5,6)$\
 $train = (6,1)$
 
-Representación en un espacio euclídeo (plano o lineal). Representación mediante coordenadas cartesianas. Los valores del vector se proyecta en los ejes de coordenadas.
-
-Espacios $n$-dimesionales o multidimensionales: para representar el significado de una palabra, las dimensiones (coordenadas) son los contextos en los aparece la palabra (en este caso, documentos).
-
-Plano cartesiano (dos dimensiones):
+Esto se puede representar en un espacio euclídeo (plano o lineal) mediante coordenadas cartesiana: los valores del vector se proyectan en los ejes de coordenadas, siendo la abscisa $x$ el documento 1 la ordenada $y$ el documento 2.
 
 ![cartesanio1](images/cartesiano_1.png)
 
 ![cartesanio2](images/cartesiano_2.png)
+
+
+Esto en un plano cartesiano de dos dimensiones. Si la colección está formada por $n-$ documentos, obtendríamos un espacio $n$-dimesionales o multidimensionales en el que cada dimensión es un posible contexto.
+
+
+
+
+
+
 
 ----------------
 

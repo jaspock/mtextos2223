@@ -600,7 +600,7 @@ rama      0       1
 <span class="math notranslate nohighlight">\(\vec{doc2} = \{0 1 0 1 1\}\)</span></p>
 <p>Y cada palabra o término está representado con su vector contextual:</p>
 <p><span class="math notranslate nohighlight">\(\vec{casa} = \{1 0\}\)</span><br />
-<span class="math notranslate nohighlight">\(\vec{madera} = \{1 1\e}\)</span><br />
+<span class="math notranslate nohighlight">\(\vec{madera} = \{1 1\}\)</span><br />
 <span class="math notranslate nohighlight">\(\vec{mesa} = \{1 0\}\)</span><br />
 <span class="math notranslate nohighlight">\(\vec{papel} = \{0 1\}\)</span>\<br />
 <span class="math notranslate nohighlight">\(\vec{rama} = \{0 1\}\)</span></p>
@@ -631,7 +631,7 @@ rama      0       1
 </section>
 <section id="representacion-vectorial-del-significado">
 <h2><span class="section-number">6.7. </span>Representación vectorial del significado<a class="headerlink" href="#representacion-vectorial-del-significado" title="Permalink to this headline">#</a></h2>
-<p>El vector de una palabra como se ha mostrado antes representa el significado distribucional de una palabra ya que captura la relevancia de esa palabra (o término o token o lema) en cada uno de los contextos (en este caso documentos) que forman la colección. Así, en la siquiente matriz término - documento:</p>
+<p>El vector de una palabra como se ha mostrado antes representa el significado distribucional de una palabra ya que captura la relevancia de esa palabra (o término o token o lema, según se quiera llamar) en cada uno de los contextos (en este caso documentos) que forman la colección. Así, en la siquiente matriz término - documento:</p>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       doc1   doc2
 car     7      6
@@ -640,15 +640,14 @@ train   6      1
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>El significado de cada palabra sería el vector contextual:</p>
+<p>el significado de cada palabra sería el vector contextual:</p>
 <p><span class="math notranslate nohighlight">\(car = (7,6)\)</span><br />
 <span class="math notranslate nohighlight">\(taxi = (5,6)\)</span><br />
 <span class="math notranslate nohighlight">\(train = (6,1)\)</span></p>
-<p>Representación en un espacio euclídeo (plano o lineal). Representación mediante coordenadas cartesianas. Los valores del vector se proyecta en los ejes de coordenadas.</p>
-<p>Espacios <span class="math notranslate nohighlight">\(n\)</span>-dimesionales o multidimensionales: para representar el significado de una palabra, las dimensiones (coordenadas) son los contextos en los aparece la palabra (en este caso, documentos).</p>
-<p>Plano cartesiano (dos dimensiones):</p>
+<p>Esto se puede representar en un espacio euclídeo (plano o lineal) mediante coordenadas cartesiana: los valores del vector se proyectan en los ejes de coordenadas, siendo la abscisa <span class="math notranslate nohighlight">\(x\)</span> el documento 1 la ordenada <span class="math notranslate nohighlight">\(y\)</span> el documento 2.</p>
 <p><img alt="cartesanio1" src="_images/cartesiano_1.png" /></p>
 <p><img alt="cartesanio2" src="_images/cartesiano_2.png" /></p>
+<p>Esto en un plano cartesiano de dos dimensiones. Si la colección está formada por <span class="math notranslate nohighlight">\(n-\)</span> documentos, obtendríamos un espacio <span class="math notranslate nohighlight">\(n\)</span>-dimesionales o multidimensionales en el que cada dimensión es un posible contexto.</p>
 <hr class="docutils" />
 <p>La representación del significado varía según se diseñe el espacio vectorial.</p>
 <p>Factores relevantes:</p>
