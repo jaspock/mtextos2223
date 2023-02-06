@@ -62,16 +62,17 @@ $$D = \begin{pmatrix}
 
 De esta manera, los documentos ahora está representado como dos vectores:
 
-$\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$\
-$\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}$
+$\vec{doc1} = \{1 1 1 0 0\}$\
+$\vec{doc2} = \{0 1 0 1 1\}$
 
 Y cada palabra o término está representado con su vector contextual:
 
-$\vec{casa} = \begin{bmatrix}1 0\end{bmatrix}$\
-$\vec{madera} = \begin{bmatrix}1 1\end{bmatrix}$\
-$\vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}$\
-$\vec{papel} = \begin{bmatrix}0 1\end{bmatrix}$\   
-$\vec{rama} = \begin{bmatrix}0 1\end{bmatrix}$\
+$\vec{casa} = \{1 0\}$\
+$\vec{madera} = \{1 1\e}$\
+$\vec{mesa} = \{1 0\}$\
+$\vec{papel} = \{0 1\}$\   
+$\vec{rama} = \{0 1\}$
+
 
 ## Fundamentos lingüísticos
 
