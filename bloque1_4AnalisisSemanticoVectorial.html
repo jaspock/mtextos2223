@@ -674,36 +674,35 @@ book    3       6        0
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>Según esta matriz, la palabra “car” aparece el mismo contexto de la palabra “red” en cinco ocasiones, no coincide nunca con la palabra “readable” y solo en una ocación con la palabra “blue”. “book”, por su parte, aparece tres veces en el mismo contexto de “red”, sies en el mismo contexto de “readable” y ninguna con “blue”. En ocasiones estas matrices son cuadradas porque tienen los mismo términos en las filas y en las columnas.</p>
+<p>Según esta matriz, la palabra “car” aparece el mismo contexto de la palabra “red” en cinco ocasiones (de un total de <span class="math notranslate nohighlight">\(N\)</span> contextos), no coincide nunca con la palabra “readable” en ningún contexto y solo en uno con la palabra “blue”. “book”, por su parte, aparece tres veces en el mismo contexto de “red”, seis en el mismo contexto de “readable” y ninguna con “blue”. En ocasiones estas matrices son cuadradas porque tienen los mismo términos en las filas y en las columnas.</p>
 <p>Se pueden plantear otros tipos de matrices. Turne y Pantel (2010), por ejemplo, plantean una matriz <em>Pair-Pattern</em> donde las filas son parejas de palabras <span class="math notranslate nohighlight">\(X:Y\)</span> (“carpenter:wood”) y las columnas son relaciones entre palabras co-ocurrentes (“X cut Y”).</p>
 <p>Sea como sea el tipo de matriz, es muy relevente dónde se sitúa el límite del contexto (el documento, el párrafo, la oración…)</p>
 </section>
 <section id="representacion-de-las-palabras">
 <h3><span class="section-number">6.7.2. </span>Representación de las palabras<a class="headerlink" href="#representacion-de-las-palabras" title="Permalink to this headline">#</a></h3>
-<p>Hasta ahora hemos estado</p>
-<p>Según vimos en sesiones anteriores:</p>
+<p>Hasta ahora hemos estado hablando de “palabra” o “término”, pero como ya se vio en temas anteriores, el concepto de “palabra” es muy vago. Una matriz será más o menos representativa según se defina la palabra. Algunas opciones son (según vimos en sesiones anteriores):</p>
 <ul class="simple">
-<li><p>Token</p></li>
-<li><p>Raíz (stem)</p></li>
-<li><p>Lemas</p></li>
-<li><p>Lema + Categoría Gramatical</p></li>
-<li><p>Filtro <em>stopwords</em></p></li>
-<li><p>Sólo nombres (o sólo verbos, o sólo adjetivos, etc.)</p></li>
-<li><p>Lema + Función sintáctica</p></li>
+<li><p>el token,</p></li>
+<li><p>la raíz (o <em>stem</em>),</p></li>
+<li><p>el lemas,</p></li>
+<li><p>el lema más la categoría gramatical,</p></li>
+<li><p>los token pero elminando <em>stopwords</em>,</p></li>
+<li><p>solo nombres (o solo verbos, o solo adjetivos, etc.)</p></li>
+<li><p>el lema más su dependencia sintática,</p></li>
 <li><p>etc.</p></li>
 </ul>
-<p>Requieren pre-proceso del corpus con técnicas de PLN vistas con anterioridad.</p>
+<p>Algunos de estos casos, como imagino ya sabrás, requieren pre-procesar el corpus con técnicas de PLN. Cuando son colecciones muy amplias, se suele trabar con el <em>token</em> o solo con la raíz de las palabras.</p>
 </section>
 <section id="calculo-de-los-valores-o-pesos">
 <h3><span class="section-number">6.7.3. </span>Cálculo de los valores o pesos<a class="headerlink" href="#calculo-de-los-valores-o-pesos" title="Permalink to this headline">#</a></h3>
-<p>Representación cuantitativa de la relevancia (peso) que tiene la palabra en cada contexto.</p>
-<p>Frecuencias simples y relativas: número de veces que la palabra aparece en el contexto, normalizado por el tamaño del contexto.</p>
-<p>Problemas:</p>
-<ul class="simple">
-<li><p>Depende del tamaño del contexto.</p></li>
-<li><p>No discrimina la importancia real de cada palabra en el contexto.</p></li>
-<li><p>El <em>[hapax legomenon]</em>(<a class="reference external" href="https://en.wikipedia.org/wiki/Hapax_legomenon">https://en.wikipedia.org/wiki/Hapax_legomenon</a>)</p></li>
-</ul>
+<p>Finalmente, el modelo semántico vectorial puede ser más o menos representativo según se calcule la relevancia (o peso) de la palabra en cada contexto.</p>
+<p>El caso más simple para medir la relevancia de una palabra en un contexto es la calcular la frecuencia pondearada: número de veces que la palabra aparece en el contexto, normalizado por el tamaño del contexto. Este modelo tiene, sin embargo, diversos problemas:</p>
+<ol class="simple">
+<li><p>Es muy dependiente del tamaño del contexto, que como hemos visto antes no está claro cómo limitarlo. En contexto pequeños se trabajaría con valores muy bajos (ceros y unos prácticamente).</p></li>
+<li><p>No discrimina la importancia real de cada palabra en el contexto, dado que hay palabra que siempre tienen frecuncias muy alta (como palabras de categorías cerradas, o nombres de uso muy común) frente a otras que siempre tienen bajas frecuencias.</p></li>
+<li><p>sobre estas últimas, el caso extremos es el fenómeno del <em>[hapax legomenon]</em>(<a class="reference external" href="https://en.wikipedia.org/wiki/Hapax_legomenon">https://en.wikipedia.org/wiki/Hapax_legomenon</a>): la mayoría de las palabras de una colección de documntos aparece solo una vez (o con una frecuencia muy baja).</p></li>
+</ol>
+<p>Una solución elegante para determinar la relevancia de una palabra por su frecuencia sin caer en estos problemas es el famoso valor TF/IDF que pasamos a explicar a continuación.</p>
 <section id="tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972">
 <h4><span class="section-number">6.7.3.1. </span>TF/IDF: <em>term frequency / inverse document frequency</em> (Sparck Jones, 1972)<a class="headerlink" href="#tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972" title="Permalink to this headline">#</a></h4>
 <p>Idea intuitiva: palabras de uso común que aparecen con alta frecuencia en muchos contextos no son discriminativas ni relevantes. TF/IDF intenta dar más peso a las palabras específicas de cada documento.</p>
