@@ -588,7 +588,7 @@ rama      0       1
 <hr class="docutils" />
 <p>De esta tabla se obtiene la siguiente matriz:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{pmatrix}
+\[\begin{split}D = \begin{pmatrix}
   1 &amp; 0 \\
   1 &amp; 1 \\
   1 &amp; 0 \\
@@ -596,38 +596,37 @@ rama      0       1
   0 &amp; 1 
 \end{pmatrix}\end{split}\]</div>
 <p>De esta manera, los documentos ahora está representado como dos vectores:</p>
-<p><span class="math notranslate nohighlight">\(\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}\)</span></p>
-<p><span class="math notranslate nohighlight">\(\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}\)</span>
+<span class="math notranslate nohighlight">\(\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}\)</span></p>
 <p>Y cada palabra o término está representado con su vector contextual:</p>
-<div class="math notranslate nohighlight">
-\[
-    \vec{casa} = \begin{bmatrix}1 0\end{bmatrix}
-    \vec{madera} = \begin{bmatrix}1 1\end{bmatrix}
-    \vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}
-    \vec{papel} = \begin{bmatrix}0 1\end{bmatrix}   
-    \vec{rama} = \begin{bmatrix}0 1\end{bmatrix}
-\]</div>
+<p><span class="math notranslate nohighlight">\(\vec{casa} = \begin{bmatrix}1 0\end{bmatrix}\)</span>
+<span class="math notranslate nohighlight">\(\vec{madera} = \begin{bmatrix}1 1\end{bmatrix}\)</span>
+<span class="math notranslate nohighlight">\(\vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}\)</span>
+<span class="math notranslate nohighlight">\(\vec{papel} = \begin{bmatrix}0 1\end{bmatrix}\)</span><br />
+<span class="math notranslate nohighlight">\(\vec{rama} = \begin{bmatrix}0 1\end{bmatrix}\)</span></p>
 </section>
 <section id="fundamentos-linguisticos">
 <h2><span class="section-number">6.6. </span>Fundamentos lingüísticos<a class="headerlink" href="#fundamentos-linguisticos" title="Permalink to this headline">#</a></h2>
 <p>Los modelos semánticos vectoriales asumen básicamente tres propuestas teóricas (Clarke 2011):</p>
 <ol>
-<li><p>La idea de Wittgenstein (1953) de “meaning just is use”
-(Wittgenstein 1953);</p></li>
+<li><p>La idea de Wittgenstein (1953) de que “meaning just is use” (Wittgenstein 1953);</p></li>
 <li><p>El concepto de <em>collocation</em> de Firth (1957) y su idea
 de que</p>
 <blockquote>
 <div><p>“you shall know a word by the company it keeps”;</p>
 </div></blockquote>
 </li>
-<li><p>La hipótesis distribucional de Harris (1968):</p>
+<li><p>La hipótesis distribucional de Harris (1968), según la cual:</p>
 <blockquote>
 <div><p>“words will occur in similar contexts if and only if they have similar meanings”.</p>
 </div></blockquote>
 </li>
 </ol>
-<p>Todo ello se engloba dentro del concepto de “significado
-distribucional”.</p>
+<p>Todo ello se engloba dentro del concepto de “significado distribucional”. Este, por tanto, es el significado que una palabra asume cuando se usa en un contexto concreto a partir de las palabras de ese contexto con las que aparece. Este inferencia semántica (determinar el significado de una palabra a partide su contexto) es algo que hacemos constantemente. Mira las siguientes oraciones, ¿qué significado tiene <em>XXX</em> en cada una?</p>
+<blockquote>
+<div><p>Mañana iré al <em>XXX</em> a firmar la hipoteca, y ya de paso sacaré dinero del cajero.
+He intentado ponerme los <em>XXX</em> de mi hermano pero me vienen pequeños: mis pies son muy grandes y necesito una talla más.</p>
+</div></blockquote>
 </section>
 <section id="representacion-vectorial-del-significado">
 <h2><span class="section-number">6.7. </span>Representación vectorial del significado<a class="headerlink" href="#representacion-vectorial-del-significado" title="Permalink to this headline">#</a></h2>
