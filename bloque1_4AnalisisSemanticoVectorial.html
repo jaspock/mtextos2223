@@ -586,8 +586,27 @@ rama      0       1
 </pre></div>
 </div>
 <hr class="docutils" />
+<p>De esta tabla se obtiene la siguiente matriz:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+  1 &amp; 0 \\
+  1 &amp; 1 \\
+  1 &amp; 0 \\
+  0 &amp; 1 \\
+  0 &amp; 1 
+\end{pmatrix}\end{split}\]</div>
 <p>De esta manera, los documentos ahora está representado como dos vectores:</p>
 <p><span class="math notranslate nohighlight">\(\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{doc1} = \begin{bmatrix}1 1 1 0 0\end{bmatrix}\)</span></p>
+<p>Y cada palabra o término está representado con su vector contextual:</p>
+<div class="math notranslate nohighlight">
+\[
+    \vec{casa} = \begin{bmatrix}1 0\end{bmatrix}
+    \vec{madera} = \begin{bmatrix}1 1\end{bmatrix}
+    \vec{mesa} = \begin{bmatrix}1 0\end{bmatrix}
+    \vec{papel} = \begin{bmatrix}0 1\end{bmatrix}   
+    \vec{rama} = \begin{bmatrix}0 1\end{bmatrix}
+\]</div>
 </section>
 <section id="fundamentos-linguisticos">
 <h2><span class="section-number">6.6. </span>Fundamentos lingüísticos<a class="headerlink" href="#fundamentos-linguisticos" title="Permalink to this headline">#</a></h2>
