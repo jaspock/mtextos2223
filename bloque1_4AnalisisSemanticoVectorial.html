@@ -705,15 +705,18 @@ book    3       6        0
 <p>Una solución elegante para determinar la relevancia de una palabra por su frecuencia sin caer en estos problemas es el famoso valor TF/IDF que pasamos a explicar a continuación.</p>
 <section id="tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972">
 <h4><span class="section-number">6.7.3.1. </span>TF/IDF: <em>term frequency / inverse document frequency</em> (Sparck Jones, 1972)<a class="headerlink" href="#tf-idf-term-frequency-inverse-document-frequency-sparck-jones-1972" title="Permalink to this headline">#</a></h4>
-<p>Idea intuitiva: palabras de uso común que aparecen con alta frecuencia en muchos contextos no son discriminativas ni relevantes. TF/IDF intenta dar más peso a las palabras específicas de cada documento.</p>
+<p>La idea intuitiva que subyace a este valor es que las palabras de uso muy común (aquellas que aparecen con alta frecuencia en prácticamente todos los documentos) no son discriminativas para determinar la importancia del documento. Tienen por tanto poca relevancia en su documento y por tanto su valor debe ser bajo. Las palabras que realmente son relevantes en un documento, las que lo caracterizan, son aquellas que tiene una frecuencia relativamente alta en un documento pero, al mismo tiempo, tiene una frecuenca relativamente baja o nula en el resto de documentos. Esto es lo que intenta modelar TF/IDF: dar más peso a las palabras con frecuencia relevante en unos documentos pero no en la totalidad de la colección de textos.</p>
+<p>TF/IDF son las siglas de “frecuencia del término por la frecuencia inversa del documento”. Así, en la fórmual nos encontramos con:</p>
 <ul class="simple">
-<li><p><em>Term frequency</em> (tf): frecuencia de una palabra en un documento dado.</p></li>
-<li><p><em>Document frequency</em> (df): cantidad de documentos donde aparece una determinada palabra.</p></li>
-<li><p><em>Inverse document frequency</em> (idf): <span class="math notranslate nohighlight">\(N/df\)</span> donde N = cantidad total de documentos.</p></li>
+<li><p><em>Term frequency</em> (<span class="math notranslate nohighlight">\(tf(w,d)\)</span>): frecuencia relativa de una palabra <span class="math notranslate nohighlight">\(w\)</span> en un documento <span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+<li><p><em>Document frequency</em> (<span class="math notranslate nohighlight">\(df(t)\)</span>): cantidad de documentos donde aparece una determinada palabra <span class="math notranslate nohighlight">\(w\)</span>.</p></li>
+<li><p><em>Inverse document frequency</em> (<span class="math notranslate nohighlight">\(idf(d,D)\)</span>): el valor determinante para saber la relevancia del documento no es la inversa de la frecuencia de documentos donde aparece. Por tanto, se divide la cantidad toda de documentos en la colección <span class="math notranslate nohighlight">\(D\)</span> entre la frecuencia del documento <span class="math notranslate nohighlight">\(df(t)\)</span>. Hay varias formas de obtener este valor. La más sencilla es logarítmica, tal que <span class="math notranslate nohighlight">\(idf(d,D)=log\frac{N/df}\)</span></p></li>
 </ul>
-<p>Así, el valor tf-idf (<span class="math notranslate nohighlight">\(w\)</span>) de una palabra <span class="math notranslate nohighlight">\(t\)</span> en un documento <span class="math notranslate nohighlight">\(d\)</span> es:</p>
+<p>Así, el valor tf-idf de la palabra <span class="math notranslate nohighlight">\(w\)</span> en un documento <span class="math notranslate nohighlight">\(d\)</span> en una colección de documentos <span class="math notranslate nohighlight">\(D\)</span> es:</p>
 <div class="math notranslate nohighlight">
 \[w_t,_d = tf_t,_d · idf_t\]</div>
+<div class="math notranslate nohighlight">
+\[tf-idf_w = tf_w,_d · idf_t\]</div>
 </section>
 <section id="matriz-dispersa-y-matriz-densa">
 <h4><span class="section-number">6.7.3.2. </span>Matriz dispersa y matriz densa<a class="headerlink" href="#matriz-dispersa-y-matriz-densa" title="Permalink to this headline">#</a></h4>

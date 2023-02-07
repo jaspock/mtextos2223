@@ -120,7 +120,6 @@ Esto se puede representar en un espacio euclídeo (plano o lineal) mediante coor
 
 Esto en un plano cartesiano de dos dimensiones. Si la colección está formada por $n-$ documentos, obtendríamos un espacio $n$-dimesionales o multidimensionales en el que cada dimensión es un posible contexto.
 
-
 ----------------
 
 Para que este modelo vectorial represente el significado real de las palabras, hay que modelar bien:
@@ -184,15 +183,20 @@ Una solución elegante para determinar la relevancia de una palabra por su frecu
 
 #### TF/IDF: *term frequency / inverse document frequency* (Sparck Jones, 1972)
 
-Idea intuitiva: palabras de uso común que aparecen con alta frecuencia en muchos contextos no son discriminativas ni relevantes. TF/IDF intenta dar más peso a las palabras específicas de cada documento.
+La idea intuitiva que subyace a este valor es que las palabras de uso muy común (aquellas que aparecen con alta frecuencia en prácticamente todos los documentos) no son discriminativas para determinar la importancia del documento. Tienen por tanto poca relevancia en su documento y por tanto su valor debe ser bajo. Las palabras que realmente son relevantes en un documento, las que lo caracterizan, son aquellas que tiene una frecuencia relativamente alta en un documento pero, al mismo tiempo, tiene una frecuenca relativamente baja o nula en el resto de documentos. Esto es lo que intenta modelar TF/IDF: dar más peso a las palabras con frecuencia relevante en unos documentos pero no en la totalidad de la colección de textos.
 
-- *Term frequency* (tf): frecuencia de una palabra en un documento dado.
-- *Document frequency* (df): cantidad de documentos donde aparece una determinada palabra.
-- *Inverse document frequency* (idf): $N/df$ donde N = cantidad total de documentos.
+TF/IDF son las siglas de "frecuencia del término por la frecuencia inversa del documento". Así, en la fórmual nos encontramos con:
 
-Así, el valor tf-idf ($w$) de una palabra $t$ en un documento $d$ es:
+- *Term frequency* ($tf(w,d)$): frecuencia relativa de una palabra $w$ en un documento $d$.
+- *Document frequency* ($df(t)$): cantidad de documentos donde aparece una determinada palabra $w$.
+- *Inverse document frequency* ($idf(d,D)$): el valor determinante para saber la relevancia del documento no es la inversa de la frecuencia de documentos donde aparece. Por tanto, se divide la cantidad toda de documentos en la colección $D$ entre la frecuencia del documento $df(t)$. Hay varias formas de obtener este valor. La más sencilla es logarítmica, tal que $idf(d,D)=log\frac{N/df}$
+
+Así, el valor tf-idf de la palabra $w$ en un documento $d$ en una colección de documentos $D$ es:
 
 $$w_t,_d = tf_t,_d · idf_t$$
+
+$$tf-idf_w = tf_w,_d · idf_t$$
+
 
 
 #### Matriz dispersa y matriz densa
