@@ -197,13 +197,17 @@ Así, el valor tf-idf de la palabra $w$ en un documento $d$ en una colección de
 
 $$tf-idf_w = tf_w,_d · idf_t$$ -->
 
-$$tfidf(t,d,D)=tf(t,d) \cdot idf(t,D)$$
+$$tfidf(w,d,D)=tf(t,d) \cdot idf(t,D)$$
 
-#### Matriz dispersa y matriz densa
+Hoy tf-idf es un estándar para la representación vectorial del significado. Luego se verán otras propuestas para determinar la relevancia de cada palabra en el contexto donde aparece; pero antes hay que tratar el gran problema de los modelos semánticos vectoriales: la matriz dispersa.
 
-Dadas las caracterísiticas de los idiomas, este tipo de matrices son siempre muy dispersas, en las que la mayoría de los valores con cero.
+### Matriz dispersa y matriz densa
+
+Dada las características de los idiomas, este tipo de matrices de coocurrencias (bien sean término-término o término-documento) que miden las relaciones contextuales entre palabras son siempre son matrices muy dispersas, es decir, son matrices en las que la mayoría de los valores con cero. Lo normal en un idioma es que dos palabras no compartan contexto. Las palabras que comparten contexto entre ellas son pocas, por lo que lo normal es que el valor entre dos palabras sea cero. Esto es un problema tanto desde punto de vista matemático como computacional: se generan estructuras muy grandes pero muy poco informativas.
 
 > *Sparse matrix*: la mayoría de los valores son ceros.
+
+
 
 Para solucionar esto se reduce la dimensionalidad de la matriz, generando así  matrices densas (*dense matrix*) donde la mayoría de los valores no son ceros pero manteniendo las relaciones semánticas entre las palabras (los valores semánticos).
 
