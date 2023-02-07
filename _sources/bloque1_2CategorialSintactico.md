@@ -266,7 +266,7 @@ Lee con atención el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.sta
 
 ##### *Conditional Random Fields* y otros.
 
-Si bien con modelos ocultos de Markov un *PoS_tagger* puede tener una precisión superior al 90%, aún hay aspectos en los que no funciona bien, como por ejemplo cómo analizar palabras que no ha visto antes (y por tanto no tiene probabilidad de emisión). Estos problemas se superaron con un modelo matemático también secuencial pero con más relevancia en cuanto al modelado del contexto: ***conditional random field*** (CRF o ["campo aleatorio condicional"](https://es.wikipedia.org/wiki/Campo_aleatorio_condicional)). Este permite un tratamiento más rico del contexto. Lee el apartado ["8.5 Conditional Random Fields (CRFs)"] (https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Jurafsky y Martin (2022) *Speech and Language Processing* para más detalles.
+Si bien con modelos ocultos de Markov un *PoS_tagger* puede tener una precisión superior al 90%, aún hay aspectos en los que no funciona bien, como por ejemplo cómo analizar palabras que no ha visto antes (y por tanto no tiene probabilidad de emisión). Estos problemas se superaron con un modelo matemático también secuencial pero con más relevancia en cuanto al modelado del contexto: ***conditional random field*** (CRF o ["campo aleatorio condicional"](https://es.wikipedia.org/wiki/Campo_aleatorio_condicional)). Este permite un tratamiento más rico del contexto. Lee el apartado ["8.5 Conditional Random Fields (CRFs)"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Jurafsky y Martin (2022) *Speech and Language Processing* para más detalles. 
 
 Modelos ocultos de Markov y *Conditional Random Fields* son las dos principales aproximaciones al análisis categorial, pero no las únicas. Se han aplicado otro modelos de aprendizaje, tanto supervisados como no supervisados, como árboles de decisión o máquinas de vectores soporte (*support vector machine* SVM), etc. Un ejemplo que tuvo impacto en su momento fue el "Transformation-based Tagger" de Brill (1995), que aplicaba un modelo iterativo de aprendizaje de reglas con refinado manual.
 
@@ -494,7 +494,7 @@ El análisis de dependecia estándar es el análisis basado en transiciones: *tr
 
 ```{admonition} Lectura obligatoria
 :class: note
-Para completar este tema, lee con atención los apartados 18.1 y 18.2 (exceptuando 18.2.4.) del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Jurafsky y Martin (2022) *Speech and Language Processing*. El resto del capítulo es lectura opcional.
+Para completar este tema, lee con atención la introducción y el apartado 18.1 del capítulo ["18 Dependency Parsing"](https://web.stanford.edu/~jurafsky/slp3/18.pdf) del libro de Jurafsky y Martin (2022) *Speech and Language Processing*. Lee también el partado 18.2 "Transition-Based Dependency Parsing", pero sin entrar en detalles. El objetivo es que tengas una idea general de este algoritmo. El resto del capítulo es lectura opcional.
 ```
 
 ### Situación actual
