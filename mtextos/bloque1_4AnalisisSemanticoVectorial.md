@@ -199,7 +199,19 @@ $$tf-idf_w = tf_w,_d · idf_t$$ -->
 
 $$tfidf(w,d,D)=tf(t,d) \cdot idf(t,D)$$
 
-Hoy tf-idf es un estándar para la representación vectorial del significado. Luego se verán otras propuestas para determinar la relevancia de cada palabra en el contexto donde aparece; pero antes hay que tratar el gran problema de los modelos semánticos vectoriales: la matriz dispersa.
+#### PPMI: Point Wise Mutual Information (Church y Hanks 1990)
+
+Otra alternativa para medir el peso contextual de una palabra muy utilizada en PLN es el *Point Wise Mutual Information* o PPMI. Así como tf-idf es le estándar para medir la relevancia de las palabras en matrices término-documento, PMMI es la medida que se suele utilizar en matrices de coocurrencia término-término.
+
+La intuición detrás de PPMI es que la coocurrencia de dos palabras en el mismo contexto es relevante en la medida que podamos saber la posibilidad de que ambas palabras coocurran por casualidad. Si no coocurren en el mismo contexto por casualidad, es que esa coocurrencia es motivada y por tanto relevante.
+
+Así, PMMI mide la probabilidad de que dos palabras aparezcan en el mismo contexto, y lo divide por la probablidad de aparición de cada palabra por separado:
+
+$$PPMI(w,c)=log_2\frac{P(w,c)}{P(w)P(c)}$$
+
+---------------------
+
+Hoy día tf-idf y PPMI son medidas estándar para la representación vectorial del significado. Luego se verán otras propuestas para determinar la relevancia de cada palabra en el contexto donde aparece; pero antes hay que tratar el gran problema de los modelos semánticos vectoriales: la matriz dispersa.
 
 ### Matriz dispersa y matriz densa
 
@@ -262,11 +274,12 @@ Extracción de *topics* con *Topic Modeling*.
 
 ## Bibliografía
 
+Church, K. W. and P. Hanks. 1990. Word association norms, mutual information, and lexicography. *Computational Linguistics*, 16(1):22–29.
+
 David M. Blei (2012) "Probabilistic topic models" en *Communications of the ACM* vol. 55 (4), April 2012. Doi:10.1145/2133806.2133826
 [https://dl.acm.org/doi/10.1145/2133806.2133826](https://dl.acm.org/doi/10.1145/2133806.2133826)
 
 Juravsky y Martin (2020) *Speech and Language Processing*. https://web.stanford.edu/~jurafsky/slp3/ 
-(Caps. 12-14)
 
 Landauer, T. K. & Dumais, S. T. (1997). "A solution to Plato's problem: The Latent Semantic Analysis theory of the acquisition, induction, and representation of knowledge", *Psychological Review*, 104, 211-140
 
