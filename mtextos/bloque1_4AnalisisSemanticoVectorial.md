@@ -5,15 +5,13 @@ Análisis semántico vectorial
 
 <font color="red">Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
 
+## Lecturas
 
-## Índice
+Para completar este tema debes leer el capítulo 6 "Vector Semantics and Embeddings" del libro de Jurafsky y Martin (2023) *Speech and language processing*, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.8. El resto no es necesario.
 
-- Introducción a los modelos semánticos vectoriales.
-- Estudio de caso: *topic modeling*.
+Como **lectura opcional** para profundizar en cómo un vector puede representar el significado de palabras y oraciones, os recomiendo este artículo:
 
-## Lectura obligatoria:
-
-Peter D. Turney y Patrick Pantel (2010) "From Frequency to Meaning: Vector Space Models of Semantics" en *Journal of Artificial Intelligence  Research*, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934
+- Peter D. Turney y Patrick Pantel (2010) "From Frequency to Meaning: Vector Space Models of Semantics" en *Journal of Artificial Intelligence  Research*, 37, págs. 141-188.  DOI: https://doi.org/10.1613/jair.2934
 
 [https://www.jair.org/index.php/jair/article/view/10640](https://www.jair.org/index.php/jair/article/view/10640)
 
@@ -227,10 +225,14 @@ Años más tarde se propuso [Latent Dirichlet Allocation](https://en.wikipedia.o
 
 Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los *skip gramms*, que es la base de los *word embeddings* y los modelos neuronales actuales.
 
-
 ## Interpretación semántica: distancia y similitud.
 
-La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de similitud entre palabras o documentos. La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica.
+El vecto de una palabra en sí mismo no tiene un significado nominal como podría tenerlo, por ejemplo, una defición. Decir que *casa* es $\{1, 4, 0, 0, 1\}$ no es nada: ese vector sólo indica la relevancia de la palabra en cada contexto.
+
+¿Cómo se realiza, entonces, la interpretación de una palabra y oración en el modelo semántico vectorial? La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de **similitud** entre palabras, oraciones, fragmentos o documentos. Dos palabras con vectore contextuales similares implica que ambas palabras tienden a aparecer en los mismos contexto, y por tanto su significado está relacionado. Dos palabras cuyos vectores contextual sean muy diferentes implica que son palabras con significado dispar.
+
+
+La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica.
 
 Así, desde un punto de vista lingüístico, dos vectores (de palabras) serán similares en la medida que tengan valores relevantes en los mismos contextos.
 
