@@ -189,15 +189,15 @@ TF/IDF son las siglas de "frecuencia del término por la frecuencia inversa del 
 
 - *Term frequency* ($tf(w,d)$): frecuencia relativa de una palabra $w$ en un documento $d$.
 - *Document frequency* ($df(t)$): cantidad de documentos donde aparece una determinada palabra $w$.
-- *Inverse document frequency* ($idf(d,D)$): el valor determinante para saber la relevancia del documento no es la inversa de la frecuencia de documentos donde aparece. Por tanto, se divide la cantidad toda de documentos en la colección $D$ entre la frecuencia del documento $df(t)$. Hay varias formas de obtener este valor. La más sencilla es logarítmica, tal que $idf(d,D)=log\frac{N}{df}$
+- *Inverse document frequency* ($idf(d,D)$): el valor determinante para saber la relevancia del documento no es la inversa de la frecuencia de documentos donde aparece. Por tanto, se divide la cantidad toda de documentos $N$ en la colección $D$ entre la frecuencia del documento $df(t)$. Hay varias formas de obtener este valor. La más sencilla es logarítmica, tal que $idf(d,D)=log\frac{N}{df}$
 
 Así, el valor tf-idf de la palabra $w$ en un documento $d$ en una colección de documentos $D$ es:
 
-$$w_t,_d = tf_t,_d · idf_t$$
+<!-- $$w_t,_d = tf_t,_d · idf_t$$
 
-$$tf-idf_w = tf_w,_d · idf_t$$
+$$tf-idf_w = tf_w,_d · idf_t$$ -->
 
-
+$$tfidf(t,d,D)=tf(t,d) \cdot idf(t,D)}$$
 
 #### Matriz dispersa y matriz densa
 
