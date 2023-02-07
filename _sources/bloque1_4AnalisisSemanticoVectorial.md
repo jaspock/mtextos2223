@@ -207,11 +207,13 @@ Dada las características de los idiomas, este tipo de matrices de coocurrencias
 
 > *Sparse matrix*: la mayoría de los valores son ceros.
 
+La solución a este problema es transformar la matriz dispersa en una matriz densa (*dense matrix*), es decir, una matriz sin ceros donde todas las relaciones entre palabras tienen valor superior a 0. Este problema ha sido el principal interés en la investigación en los últimos treinta año. Vamos a comentar tres soluciones que han tenido especial relevancia. 
 
+Una primera solución fue [*Latent semantic analysis*](https://en.wikipedia.org/wiki/Latent_semantic_analysis) o LSA (Landauer y Dumais 1997). Esta aproximación consigue reducir una matriz dispera en una matriz densa de 300 dimensiones mediante su descomposición en valores singulares ([*singular value decomposition*](https://en.wikipedia.org/wiki/Singular_value_decomposition)). Lo interesante de la matriz resultante no es solo que sea una matriz densa; sino que esa matriz densa, además de mantener las relaciones contextuales entre palabras, muetra relaciones semánticas "latentes": relaciones semnáticas entre palabras que ha simple vista no se detectan. LSA, así, supuso un avance en semántica vectorial en las tres áreas de conocimiento implicadas: matemática, computación y lingsüística. 
 
-Para solucionar esto se reduce la dimensionalidad de la matriz, generando así  matrices densas (*dense matrix*) donde la mayoría de los valores no son ceros pero manteniendo las relaciones semánticas entre las palabras (los valores semánticos).
+Años más tarde se propuso [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) o LDA, que veremos en la segunda parte de la Práctica 1.
 
-[*Latent semantic analysis*](https://en.wikipedia.org/wiki/Latent_semantic_analysis): descomposición de la matriz dispesar en valores singulares ([*singular value decomposition*](https://en.wikipedia.org/wiki/Singular_value_decomposition)), generando una matriz densa de 300 dimensiones. Se considera que mantiene relaciones semánticas "latentes". Origen de los *word embeddings* que veréis en próximos temas.
+Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los *skip gramms*, que es la base de los *word embeddings* y los modelos neuronales actuales.
 
 
 ## Interpretación semántica: distancia y similitud.
@@ -266,10 +268,12 @@ David M. Blei (2012) "Probabilistic topic models" en *Communications of the ACM*
 Juravsky y Martin (2020) *Speech and Language Processing*. https://web.stanford.edu/~jurafsky/slp3/ 
 (Caps. 12-14)
 
-Ferrone Lorenzo y Zanzotto Fabio Massimo (2020) "Symbolic, Distributed, and Distributional Representations for Natural Language Processing in the Era of Deep Learning: A Survey" en *Frontiers in Robotics and AI*, pags, 153. DOI 10.3389/frobt.2019.00153
+Landauer, T. K. & Dumais, S. T. (1997). "A solution to Plato's problem: The Latent Semantic Analysis theory of the acquisition, induction, and representation of knowledge", *Psychological Review*, 104, 211-140
+
+Lorenzo, Ferrone  y Zanzotto Fabio Massimo (2020) "Symbolic, Distributed, and Distributional Representations for Natural Language Processing in the Era of Deep Learning: A Survey" en *Frontiers in Robotics and AI*, pags, 153. DOI 10.3389/frobt.2019.00153
 [https://www.frontiersin.org/article/10.3389/frobt.2019.00153](https://www.frontiersin.org/article/10.3389/frobt.2019.00153)
 
 Navarro Colorado, Borja (2021) "Sistemas de anotación semántica para corpus de español" en Giovanni Parodi, Pascual Cantos & Lewis Howe (Editores) *The Routledge Handbook of Spanish Corpus Linguistics* Routledge (en prensa).
 
-D. Widdows (2004) *Geometry and meaning*, CSLI.
+Widdows, D. (2004) *Geometry and meaning*, CSLI.
 

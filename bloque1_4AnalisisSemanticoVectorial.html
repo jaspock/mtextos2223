@@ -727,8 +727,10 @@ $$tf-idf_w = tf_w,_d · idf_t$$ -->
 <blockquote>
 <div><p><em>Sparse matrix</em>: la mayoría de los valores son ceros.</p>
 </div></blockquote>
-<p>Para solucionar esto se reduce la dimensionalidad de la matriz, generando así  matrices densas (<em>dense matrix</em>) donde la mayoría de los valores no son ceros pero manteniendo las relaciones semánticas entre las palabras (los valores semánticos).</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Latent_semantic_analysis"><em>Latent semantic analysis</em></a>: descomposición de la matriz dispesar en valores singulares (<a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition"><em>singular value decomposition</em></a>), generando una matriz densa de 300 dimensiones. Se considera que mantiene relaciones semánticas “latentes”. Origen de los <em>word embeddings</em> que veréis en próximos temas.</p>
+<p>La solución a este problema es transformar la matriz dispersa en una matriz densa (<em>dense matrix</em>), es decir, una matriz sin ceros donde todas las relaciones entre palabras tienen valor superior a 0. Este problema ha sido el principal interés en la investigación en los últimos treinta año. Vamos a comentar tres soluciones que han tenido especial relevancia.</p>
+<p>Una primera solución fue <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_semantic_analysis"><em>Latent semantic analysis</em></a> o LSA (Landauer y Dumais 1997). Esta aproximación consigue reducir una matriz dispera en una matriz densa de 300 dimensiones mediante su descomposición en valores singulares (<a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition"><em>singular value decomposition</em></a>). Lo interesante de la matriz resultante no es solo que sea una matriz densa; sino que esa matriz densa, además de mantener las relaciones contextuales entre palabras, muetra relaciones semánticas “latentes”: relaciones semnáticas entre palabras que ha simple vista no se detectan. LSA, así, supuso un avance en semántica vectorial en las tres áreas de conocimiento implicadas: matemática, computación y lingsüística.</p>
+<p>Años más tarde se propuso <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet Allocation</a> o LDA, que veremos en la segunda parte de la Práctica 1.</p>
+<p>Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los <em>skip gramms</em>, que es la base de los <em>word embeddings</em> y los modelos neuronales actuales.</p>
 </section>
 </section>
 <section id="interpretacion-semantica-distancia-y-similitud">
@@ -776,10 +778,11 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <a class="reference external" href="https://dl.acm.org/doi/10.1145/2133806.2133826">https://dl.acm.org/doi/10.1145/2133806.2133826</a></p>
 <p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>
 (Caps. 12-14)</p>
-<p>Ferrone Lorenzo y Zanzotto Fabio Massimo (2020) “Symbolic, Distributed, and Distributional Representations for Natural Language Processing in the Era of Deep Learning: A Survey” en <em>Frontiers in Robotics and AI</em>, pags, 153. DOI 10.3389/frobt.2019.00153
+<p>Landauer, T. K. &amp; Dumais, S. T. (1997). “A solution to Plato’s problem: The Latent Semantic Analysis theory of the acquisition, induction, and representation of knowledge”, <em>Psychological Review</em>, 104, 211-140</p>
+<p>Lorenzo, Ferrone  y Zanzotto Fabio Massimo (2020) “Symbolic, Distributed, and Distributional Representations for Natural Language Processing in the Era of Deep Learning: A Survey” en <em>Frontiers in Robotics and AI</em>, pags, 153. DOI 10.3389/frobt.2019.00153
 <a class="reference external" href="https://www.frontiersin.org/article/10.3389/frobt.2019.00153">https://www.frontiersin.org/article/10.3389/frobt.2019.00153</a></p>
 <p>Navarro Colorado, Borja (2021) “Sistemas de anotación semántica para corpus de español” en Giovanni Parodi, Pascual Cantos &amp; Lewis Howe (Editores) <em>The Routledge Handbook of Spanish Corpus Linguistics</em> Routledge (en prensa).</p>
-<p>D. Widdows (2004) <em>Geometry and meaning</em>, CSLI.</p>
+<p>Widdows, D. (2004) <em>Geometry and meaning</em>, CSLI.</p>
 </section>
 </section>
 
