@@ -396,23 +396,13 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#situacion-actual">
-   6.8. Situación actual
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#herramientas-y-recursos">
-   6.9. Herramientas y recursos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apendice-estudio-de-caso">
-   6.10. Apéndice. Estudio de caso.
+   6.8. Herramientas y recursos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   6.11. Bibliografía
+   6.9. Bibliografía
   </a>
  </li>
 </ul>
@@ -515,23 +505,13 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#situacion-actual">
-   6.8. Situación actual
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#herramientas-y-recursos">
-   6.9. Herramientas y recursos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apendice-estudio-de-caso">
-   6.10. Apéndice. Estudio de caso.
+   6.8. Herramientas y recursos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliografia">
-   6.11. Bibliografía
+   6.9. Bibliografía
   </a>
  </li>
 </ul>
@@ -549,7 +529,7 @@ title="Print to PDF"
 <p><font color="red">Esta sección es todavía un <strong>borrador</strong>. En unos días tendréis el texto definitivo.</color></p>
 <section id="lecturas">
 <h2><span class="section-number">6.1. </span>Lecturas<a class="headerlink" href="#lecturas" title="Permalink to this headline">#</a></h2>
-<p>Para completar este tema debes leer el capítulo 6 “Vector Semantics and Embeddings” del libro de Jurafsky y Martin (2023) <em>Speech and language processing</em>, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.8. El resto no es necesario.</p>
+<p>Para completar este tema debes leer el capítulo 6 “Vector Semantics and Embeddings” del libro de Jurafsky y Martin (2023) <em>Speech and language processing</em>, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.6. Lee también la sección 6.8 (“word2vec”), pero no te preocupes si algún concepto no queda claro porque en temas siguientes se volverá a esto. El resto del capítulo es lectura opcional.</p>
 <p>Como <strong>lectura opcional</strong> para profundizar en cómo un vector puede representar el significado de palabras y oraciones, os recomiendo este artículo:</p>
 <ul class="simple">
 <li><p>Peter D. Turney y Patrick Pantel (2010) “From Frequency to Meaning: Vector Space Models of Semantics” en <em>Journal of Artificial Intelligence  Research</em>, 37, págs. 141-188.  DOI: <a class="reference external" href="https://doi.org/10.1613/jair.2934">https://doi.org/10.1613/jair.2934</a></p></li>
@@ -736,37 +716,29 @@ $$tf-idf_w = tf_w,_d · idf_t$$ -->
 <p>La solución a este problema es transformar la matriz dispersa en una matriz densa (<em>dense matrix</em>), es decir, una matriz sin ceros donde todas las relaciones entre palabras tienen valor superior a 0. Este problema ha sido el principal interés en la investigación en los últimos treinta año. Vamos a comentar tres soluciones que han tenido especial relevancia.</p>
 <p>Una primera solución fue <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_semantic_analysis"><em>Latent semantic analysis</em></a> o LSA (Landauer y Dumais 1997). Esta aproximación consigue reducir una matriz dispera en una matriz densa de 300 dimensiones mediante su descomposición en valores singulares (<a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition"><em>singular value decomposition</em></a>). Lo interesante de la matriz resultante no es solo que sea una matriz densa; sino que esa matriz densa, además de mantener las relaciones contextuales entre palabras, muetra relaciones semánticas “latentes”: relaciones semnáticas entre palabras que ha simple vista no se detectan. LSA, así, supuso un avance en semántica vectorial en las tres áreas de conocimiento implicadas: matemática, computación y lingsüística.</p>
 <p>Años más tarde se propuso <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet Allocation</a> o LDA, que veremos en la segunda parte de la Práctica 1.</p>
-<p>Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los <em>skip gramms</em>, que es la base de los <em>word embeddings</em> y los modelos neuronales actuales.</p>
+<p>Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los <em>skip gramms</em>, que es la base de <em>Word2Vec</em> y de donde derivan los <em>word embeddings</em> y los modelos neuronales actuales. Para determinar la relevancia contextual entre dos palabras, la idea principal de los <em>skip gramms</em> es entrenar un clasificador con un regresión logística que aprenda si una palabra formar parte o no del contexto de otra palabra. Como solo aprende si dos palabras comparten o no contexto, ese entrenamiento no necesita un corpus anotado a mano: basta con una amplia colección de documentos (cuanto más grande mejor). Y al final lo de menos es el clasificador: lo importante son los pesos que ha aprendido para cada palabra. Ese es su vector contextual que ha demostrado tener gran capacidad de representación semántica. Esto es el inicio del <em>deep learning</em> se verá en próximos temas.</p>
 </section>
 </section>
 <section id="interpretacion-semantica-distancia-y-similitud">
 <h2><span class="section-number">6.7. </span>Interpretación semántica: distancia y similitud.<a class="headerlink" href="#interpretacion-semantica-distancia-y-similitud" title="Permalink to this headline">#</a></h2>
 <p>El vecto de una palabra en sí mismo no tiene un significado nominal como podría tenerlo, por ejemplo, una defición. Decir que <em>casa</em> es <span class="math notranslate nohighlight">\(\{1, 4, 0, 0, 1\}\)</span> no es nada: ese vector sólo indica la relevancia de la palabra en cada contexto.</p>
-<p>¿Cómo se realiza, entonces, la interpretación de una palabra y oración en el modelo semántico vectorial? La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de <strong>similitud</strong> entre palabras, oraciones, fragmentos o documentos. Dos palabras con vectore contextuales similares implica que ambas palabras tienden a aparecer en los mismos contexto, y por tanto su significado está relacionado. Dos palabras cuyos vectores contextual sean muy diferentes implica que son palabras con significado dispar.</p>
-<p>La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica.</p>
-<p>Así, desde un punto de vista lingüístico, dos vectores (de palabras) serán similares en la medida que tengan valores relevantes en los mismos contextos.</p>
-<p>Cualquier aplicación de semántica vectorial debe pensarse en términos de
-similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
-<p>Hay diferentes medidas. Las más utilizada es la similitud del coseno, que mide el ángulo entre dos vectores ambos con origen en 0,0.</p>
+<p>¿Cómo se realiza, entonces, la interpretación de una palabra y oración en el modelo semántico vectorial? La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de <strong>similitud</strong> entre palabras, oraciones, fragmentos o documentos. Dos palabras con vectore contextuales similares implica que ambas palabras tienden a aparecer en los mismos contexto, y por tanto su significado está relacionado. Dos palabras cuyos vectores contextual sean muy diferentes implica que son palabras con significado dispar. Cualquier aplicación de semántica vectorial debe pensarse en términos de similitud entre palabras, grupos de palabras, textos, etc. y no tanto como una interpretación sustancial.</p>
+<p>La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica. Si bien hay diferentes medidas para calcular la distancia entre vectores, las más utilizada es la distancia del coseno, que mide el ángulo entre dos vectores ambos con origen en <span class="math notranslate nohighlight">\(0,0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[cos(a,b) = \frac{a · b}{||a|| ||b||}\]</div>
-<p><img alt="cartesanio2" src="_images/cartesiano_2.png" />{height=”10cm”}</p>
+<p><img alt="cartesanio2" src="_images/cartesiano_2.png" /><!--{height="10cm"}--></p>
 <section id="conclusiones">
 <h3><span class="section-number">6.7.1. </span>Conclusiones<a class="headerlink" href="#conclusiones" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Representación formal del significado distribucional.</p></li>
 <li><p>El significado se represente mediante vectores dentro de un espacio semántica vectorial.</p></li>
-<li><p>El vector está formado por el peso de la palabra en cada uno de los contextos (documentos, oraciones, etc.)</p></li>
+<li><p>El vector está formado por el peso de la palabra en cada uno de los contextos (documentos, oraciones, etc.). Modelos de representación.</p></li>
 <li><p>El proceso de interpretación se basa en la distancia entre vectores: similitud.</p></li>
 </ul>
 </section>
 </section>
-<section id="situacion-actual">
-<h2><span class="section-number">6.8. </span>Situación actual<a class="headerlink" href="#situacion-actual" title="Permalink to this headline">#</a></h2>
-<p>De aquí derivan los <em>word embeddings</em> que, junto con las redes neuronales, han revolucionado el campo del PLN. De todo esto os hablará el prof. Juan Antonio Pérez Ortiz en las próximas sesiones.</p>
-</section>
 <section id="herramientas-y-recursos">
-<h2><span class="section-number">6.9. </span>Herramientas y recursos<a class="headerlink" href="#herramientas-y-recursos" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.8. </span>Herramientas y recursos<a class="headerlink" href="#herramientas-y-recursos" title="Permalink to this headline">#</a></h2>
 <p>Para crear espacios vectoriales y calcular similitudes:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://radimrehurek.com/gensim/">GENSIM</a></p></li>
@@ -774,14 +746,14 @@ similitudes (entre palabras, grupos de palabras, textos, etc.).</p>
 <li><p><a class="reference external" href="http://www.clips.ua.ac.be/pattern">Pattern</a></p></li>
 <li><p><a class="reference external" href="https://spacy.io/">SpaCy</a></p></li>
 </ul>
-</section>
-<section id="apendice-estudio-de-caso">
-<h2><span class="section-number">6.10. </span>Apéndice. Estudio de caso.<a class="headerlink" href="#apendice-estudio-de-caso" title="Permalink to this headline">#</a></h2>
-<p>Extracción de <em>topics</em> con <em>Topic Modeling</em>.</p>
-<p><a class="reference external" href="https://docs.google.com/presentation/d/e/2PACX-1vRhjksmebwfZ8CfMNCqp7ucPr0i--fPNCa6dqb0NH3jiMOQV1lSvnlnF7qptbtqEsA5O4IzpcJa-F9r/pub?start=false&amp;loop=false&amp;delayms=60000">Acceso a la presentación</a></p>
+<!--## Apéndice. Estudio de caso.
+
+Extracción de *topics* con *Topic Modeling*.
+
+[Acceso a la presentación](https://docs.google.com/presentation/d/e/2PACX-1vRhjksmebwfZ8CfMNCqp7ucPr0i--fPNCa6dqb0NH3jiMOQV1lSvnlnF7qptbtqEsA5O4IzpcJa-F9r/pub?start=false&loop=false&delayms=60000)-->
 </section>
 <section id="bibliografia">
-<h2><span class="section-number">6.11. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.9. </span>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
 <p>Church, K. W. and P. Hanks. 1990. Word association norms, mutual information, and lexicography. <em>Computational Linguistics</em>, 16(1):22–29.</p>
 <p>David M. Blei (2012) “Probabilistic topic models” en <em>Communications of the ACM</em> vol. 55 (4), April 2012. Doi:10.1145/2133806.2133826
 <a class="reference external" href="https://dl.acm.org/doi/10.1145/2133806.2133826">https://dl.acm.org/doi/10.1145/2133806.2133826</a></p>

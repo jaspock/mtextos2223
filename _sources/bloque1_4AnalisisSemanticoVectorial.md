@@ -7,7 +7,7 @@ Análisis semántico vectorial
 
 ## Lecturas
 
-Para completar este tema debes leer el capítulo 6 "Vector Semantics and Embeddings" del libro de Jurafsky y Martin (2023) *Speech and language processing*, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.8. El resto no es necesario.
+Para completar este tema debes leer el capítulo 6 "Vector Semantics and Embeddings" del libro de Jurafsky y Martin (2023) *Speech and language processing*, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.6. Lee también la sección 6.8 ("word2vec"), pero no te preocupes si algún concepto no queda claro porque en temas siguientes se volverá a esto. El resto del capítulo es lectura opcional.
 
 Como **lectura opcional** para profundizar en cómo un vector puede representar el significado de palabras y oraciones, os recomiendo este artículo:
 
@@ -223,41 +223,27 @@ Una primera solución fue [*Latent semantic analysis*](https://en.wikipedia.org/
 
 Años más tarde se propuso [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) o LDA, que veremos en la segunda parte de la Práctica 1.
 
-Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los *skip gramms*, que es la base de los *word embeddings* y los modelos neuronales actuales.
+Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los *skip gramms*, que es la base de *Word2Vec* y de donde derivan los *word embeddings* y los modelos neuronales actuales. Para determinar la relevancia contextual entre dos palabras, la idea principal de los *skip gramms* es entrenar un clasificador con un regresión logística que aprenda si una palabra formar parte o no del contexto de otra palabra. Como solo aprende si dos palabras comparten o no contexto, ese entrenamiento no necesita un corpus anotado a mano: basta con una amplia colección de documentos (cuanto más grande mejor). Y al final lo de menos es el clasificador: lo importante son los pesos que ha aprendido para cada palabra. Ese es su vector contextual que ha demostrado tener gran capacidad de representación semántica. Esto es el inicio del *deep learning* se verá en próximos temas.
 
 ## Interpretación semántica: distancia y similitud.
 
 El vecto de una palabra en sí mismo no tiene un significado nominal como podría tenerlo, por ejemplo, una defición. Decir que *casa* es $\{1, 4, 0, 0, 1\}$ no es nada: ese vector sólo indica la relevancia de la palabra en cada contexto.
 
-¿Cómo se realiza, entonces, la interpretación de una palabra y oración en el modelo semántico vectorial? La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de **similitud** entre palabras, oraciones, fragmentos o documentos. Dos palabras con vectore contextuales similares implica que ambas palabras tienden a aparecer en los mismos contexto, y por tanto su significado está relacionado. Dos palabras cuyos vectores contextual sean muy diferentes implica que son palabras con significado dispar.
+¿Cómo se realiza, entonces, la interpretación de una palabra y oración en el modelo semántico vectorial? La interpretación en esta aproximación vectorial a la semántica distribucional se realiza por relaciones de **similitud** entre palabras, oraciones, fragmentos o documentos. Dos palabras con vectore contextuales similares implica que ambas palabras tienden a aparecer en los mismos contexto, y por tanto su significado está relacionado. Dos palabras cuyos vectores contextual sean muy diferentes implica que son palabras con significado dispar. Cualquier aplicación de semántica vectorial debe pensarse en términos de similitud entre palabras, grupos de palabras, textos, etc. y no tanto como una interpretación sustancial.
 
-
-La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica.
-
-Así, desde un punto de vista lingüístico, dos vectores (de palabras) serán similares en la medida que tengan valores relevantes en los mismos contextos.
-
-Cualquier aplicación de semántica vectorial debe pensarse en términos de
-similitudes (entre palabras, grupos de palabras, textos, etc.).
-
-Hay diferentes medidas. Las más utilizada es la similitud del coseno, que mide el ángulo entre dos vectores ambos con origen en 0,0.
+La similitud se calcular según la distancia entre los vectores en el espacio vectorial: a menor distancia entre vectores, mayor similitud semántica. Si bien hay diferentes medidas para calcular la distancia entre vectores, las más utilizada es la distancia del coseno, que mide el ángulo entre dos vectores ambos con origen en $0,0$:
 
 $$cos(a,b) = \frac{a · b}{||a|| ||b||}$$
 
-
-![cartesanio2](images/cartesiano_2.png){height="10cm"}
-
+![cartesanio2](images/cartesiano_2.png)<!--{height="10cm"}-->
 
 
 ### Conclusiones
 
 - Representación formal del significado distribucional.
 - El significado se represente mediante vectores dentro de un espacio semántica vectorial.
-- El vector está formado por el peso de la palabra en cada uno de los contextos (documentos, oraciones, etc.)
+- El vector está formado por el peso de la palabra en cada uno de los contextos (documentos, oraciones, etc.). Modelos de representación.
 - El proceso de interpretación se basa en la distancia entre vectores: similitud.
-
-## Situación actual
-
-De aquí derivan los *word embeddings* que, junto con las redes neuronales, han revolucionado el campo del PLN. De todo esto os hablará el prof. Juan Antonio Pérez Ortiz en las próximas sesiones.
 
 ## Herramientas y recursos
 
@@ -268,11 +254,11 @@ Para crear espacios vectoriales y calcular similitudes:
 - [Pattern](http://www.clips.ua.ac.be/pattern)
 - [SpaCy](https://spacy.io/)
 
-## Apéndice. Estudio de caso.
+<!--## Apéndice. Estudio de caso.
 
 Extracción de *topics* con *Topic Modeling*.
 
-[Acceso a la presentación](https://docs.google.com/presentation/d/e/2PACX-1vRhjksmebwfZ8CfMNCqp7ucPr0i--fPNCa6dqb0NH3jiMOQV1lSvnlnF7qptbtqEsA5O4IzpcJa-F9r/pub?start=false&loop=false&delayms=60000)
+[Acceso a la presentación](https://docs.google.com/presentation/d/e/2PACX-1vRhjksmebwfZ8CfMNCqp7ucPr0i--fPNCa6dqb0NH3jiMOQV1lSvnlnF7qptbtqEsA5O4IzpcJa-F9r/pub?start=false&loop=false&delayms=60000)-->
 
 ## Bibliografía
 
