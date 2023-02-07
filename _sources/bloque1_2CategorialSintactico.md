@@ -261,7 +261,7 @@ Un modelo oculto de Markov puede ser entrenado a partir de un corpus anotado, pe
 
 ```{admonition} Lectura obligatoria
 :class: note
-Lee con atención el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Jurafsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
+Lee el apartado ["8.4 HMM Part-of-Speech Tagging"](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del capítulo 8 del libro de Jurafsky y Martin (2022) *Speech and Language Processing*, donde aprenderás los detalles matemáticos y  computacionales del análisis categorial basado en modelos ocultos de Markov.
 ```
 
 ##### *Conditional Random Fields* y otros.
