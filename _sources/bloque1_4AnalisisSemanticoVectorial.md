@@ -197,7 +197,7 @@ Así, el valor tf-idf de la palabra $w$ en un documento $d$ en una colección de
 
 $$tf-idf_w = tf_w,_d · idf_t$$ -->
 
-$$tfidf(t,d,D)=tf(t,d) \cdot idf(t,D)}$$
+$$tfidf(t,d,D)=tf(t,d) \cdot idf(t,D)$$
 
 #### Matriz dispersa y matriz densa
 
