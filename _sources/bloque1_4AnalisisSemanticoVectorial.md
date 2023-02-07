@@ -3,11 +3,10 @@
 Análisis semántico vectorial
 ============================
 
-<font color="red">Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
+```{admonition} Nota
+:class: note
 
-## Lecturas
-
-Para completar este tema debes leer el capítulo 6 "Vector Semantics and Embeddings" del libro de Jurafsky y Martin (2023) *Speech and language processing*, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.6. Lee también la sección 6.8 ("word2vec"), pero no te preocupes si algún concepto no queda claro porque en temas siguientes se volverá a esto. El resto del capítulo es lectura opcional.
+Para completar este tema debéis leer el capítulo 6 "Vector Semantics and Embeddings" del libro de Jurafsky y Martin (2023) *Speech and language processing*, donde se amplía y se dan detalles (sobre todo matemáticos) de las ideas aquí expustas. Debes leer hasta la sección 6.6. Lee también la sección 6.8 ("word2vec"), pero no te preocupes si algún concepto no queda claro porque en temas siguientes se volverá a esto. El resto del capítulo es lectura opcional.
 
 Como **lectura opcional** para profundizar en cómo un vector puede representar el significado de palabras y oraciones, os recomiendo este artículo:
 
@@ -16,6 +15,7 @@ Como **lectura opcional** para profundizar en cómo un vector puede representar 
 [https://www.jair.org/index.php/jair/article/view/10640](https://www.jair.org/index.php/jair/article/view/10640)
 
 [https://www.jair.org/index.php/jair/article/view/10640/25440](https://www.jair.org/index.php/jair/article/view/10640/25440)
+```
 
 ## Objetivos
 
