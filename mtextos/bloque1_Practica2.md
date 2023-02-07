@@ -9,6 +9,7 @@ Borja Navarro Colorado
 
 El objetivo de este ejercicio es practicar la conversión de un corpus en una representación semántica vectorial. Para ello se utilizará el modelo LDA _topic modeling_. Este modelo extrae temas recurrentes de un corpus a partir de su representación vectorial de las palabras. La herramienta para realizar la práctica es [Gensim](https://radimrehurek.com/gensim/index.html), y el corpus el corpus de noticias LexEsp. De nuevo se utilizará COLAB para facilitar el trabajo.
 
+Breve explicación de LDA-Topic Modeling: [explicación inicial](https://docs.google.com/presentation/d/e/2PACX-1vRhjksmebwfZ8CfMNCqp7ucPr0i--fPNCa6dqb0NH3jiMOQV1lSvnlnF7qptbtqEsA5O4IzpcJa-F9r/pub?start=false&loop=false&delayms=60000)
 
 ## Proceso y entrega
 
