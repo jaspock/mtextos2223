@@ -296,6 +296,12 @@ Cualquier sistema de PLN parte de un PoS tagger. Es el análisis básico. Hay mu
 
 y muchos más...
 
+```{admonition} Lectura obligatoria
+:class: note
+Para completar esta sección, lee la introducción y los apartados 8.1 y 8.2 del [capítulo 8](https://web.stanford.edu/~jurafsky/slp3/8.pdf) del libro de Jurafsky y Martin (2022) *Speech and Language Processing*.
+```
+
+
 ## Análisis sintáctico.
 
 La sintaxis es el área de la lingüística que estudia cómo se relacionan las palabras dentro de una oración: cómo se agrupan y qué tipo de relación establecen entre ellas.
