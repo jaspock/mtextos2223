@@ -5,7 +5,7 @@ T1. Aplicaciones generales
 
 ```{admonition} Nota
 :class: note
-Lee con atención el [tema 1 del bloque 2](/bloque3_t1_aplicaciones.html). Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás en la [sección de evaluación](/bloque3.html). En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica correspondoente a la sesión. **El plazo para realizar las lecturas y el cuestionario finaliza a las 23:59 del 28/02/2023** (el día anterior a la clase presencial).
+Lee con atención el tema 1 del bloque 2. Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás en la sección de evaluación el cual se encuentra en el índice del bloque 2. En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica correspondoente a la sesión. **El plazo para realizar las lecturas y el cuestionario finaliza a las 23:59 del 28/02/2023** (el día anterior a la clase presencial).
 ```
 
 
