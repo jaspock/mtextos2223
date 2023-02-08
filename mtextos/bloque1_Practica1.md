@@ -1,4 +1,5 @@
-﻿# Práctica 1.
+﻿# Práctica 1a: PLN con SpaCy.
+
 Borja Navarro Colorado
 
 ## Objeto
