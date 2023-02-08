@@ -3,6 +3,8 @@
 Análisis semántico vectorial
 ============================
 
+Borja Navarro Colorado
+
 ```{admonition} Nota
 :class: note
 
