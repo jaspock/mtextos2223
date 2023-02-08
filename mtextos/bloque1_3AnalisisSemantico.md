@@ -2,6 +2,8 @@
 Análisis semántico
 ==================
 
+Borja Navarro Colorado
+
 ```{admonition} Nota
 :class: note
 
