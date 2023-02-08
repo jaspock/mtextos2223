@@ -2,6 +2,8 @@
 Análisis categorial y sintáctico
 =================================
 
+Borja Navarro Colorado
+
 ```{admonition} Nota
 :class: note
 Para preparar este tema, tras leer este documento, debes leer los capítulos 8 y 18 de Jurafsky y Martin (2023) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Durante la explicación a continuación se indica qué secciones son las más relevantes.
