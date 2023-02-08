@@ -17,7 +17,7 @@ Para ello, se utilizará el *pipeline* básico de la herramienta de PLN [SpaCy](
 
 - Cuaderno COLAB para crear el código: [https://colab.research.google.com](https://colab.research.google.com) y cuenta gCloud.
 - Python (ya instalado en COLAB)
-- SpaCy: [https://spacy.io/](https://spacy.io/)
+- SpaCy: [https://spacy.io/](https://spacy.io/). Está ya instalado en COLAB, solo hay que importarlo. 
 
 ## Corpus
 
