@@ -41,8 +41,8 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
  
 
 ### Prácticas
-- P.Ev1. [Evaluación 1 (común)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun)
-- P.Ev2. [Evaluación 2 (selectiva)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva)
+- P.Ev1. [Evaluación 1 (común)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun). Apertura el 22/02/2023 - Cierre 23:59 del 01/03/2023 - Fuera de plazo hasta 08/03/23.
+- P.Ev2. [Evaluación 2 (selectiva)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva). Apertura el 08/03/23 - Cierre 23:59 del 29/04/2023 - Fuera de plazo hasta 05/04/23.
 
 
 
