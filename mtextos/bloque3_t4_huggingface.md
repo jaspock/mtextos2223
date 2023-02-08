@@ -86,7 +86,8 @@ Para más detalles sobre las distintas funciones y parámetros permitidos para m
 
 ### Categorías, tareas e idiomas de datasets
 
-**9 Categorías:**
+**Categorías:**
+En este repositorio podemos encontrar un amplio catalogo de categorías por las cuales filtrar y y especificar el tipo de dateset que estamos buscando. Hemos de resaltar que estos datasets existen originalmente en diferentes formatos, nos obstante en una vez incluido en este repositorio, el formato es estandar. Por tal motivo, a través de las librías de manipulación (las mencionadas enteriormente) que ofrece Huggingface, podemos acceder a ellos y gestionarlos.
 
 ```{image} /images/bloque3/t4/hf_dataset_categoria.jpg
 :alt: comic xkcd 2421
@@ -123,6 +124,8 @@ A groso modo listamos los modelos que nos podemos encontrar
 Tomado de https://huggingface.co/transformers/quicktour.html
 
 **Listado de tareas tal y como las podemos encontrar en el repositorio:**
+El listado de tareas, como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets. 
+
 
 ```{image} /images/bloque3/t4/hf_modelos_tareas.jpg
 :alt: comic xkcd 2421
@@ -133,7 +136,8 @@ Tomado de https://huggingface.co/transformers/quicktour.html
 
 Figura 3. Tareas filtro modelos
  
-**Idiomas para los que se han entrenado los modelos:**
+**Idiomas para los que se han entrenado los modelos:** 
+El listado de idiomas,como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets.
  
 ```{image} /images/bloque3/t4/hf_modelos_idiomas.jpg
 :alt: comic xkcd 2421
@@ -145,6 +149,24 @@ Figura 4. Idiomas filtro modelos
 
 Una explicación detallada sobre cada una de estas tareas y ejemplos de uso con Huggingface Transformer la podemos encontrar en el siguiente enlace: 
 - <https://huggingface.co/transformers/task_summary.html>
+
+
+**Huggingface a partir de 2022**
+A mediados de 2022 esta plataforma federativa da un paso agigantado expandiendo datasets y modelos preentrenados de solo ofrecer recursos para la modalidad de Procesamiento del Lenguaje Natural, a ofrecer recursos Multimodales, Visión por Computadora, Procesamiento de Audio, Procesamiento de datos Tabulares y  para Aprendisaje por reforzamiento.
+
+En la mayoría de los casos se ofrece una ejemplo de uso y documentación. Poner en marcha cualquiera de estas tareas, reajustando o no los modelos prentrenados que se ofrecen en esta plataforma, se encuentra bien documentado y ejemplificado en ella: Ver Categorías <https://huggingface.co/tasks>
+
+
+```{image} /images/bloque3/t4/doc-tareas-hf.jpg
+:alt: comic xkcd 2421
+:class: bg-primary mb-1
+:width: 300px
+:align: center
+```
+Figura 5. Categorías de documentaciones agrupadas por tareas y modalidades 
+
+
+!!!!!!!!!!!!!!!!!HASTA AQUI!!!!!!!!!!!!!!!!!
 
 Ejemplo de Análisis de Sentimientos con Huggingface Transformer:
 
