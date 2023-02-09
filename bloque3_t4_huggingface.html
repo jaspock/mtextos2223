@@ -558,7 +558,8 @@ Para la <strong>instalación</strong> de la librería de manipulación de datase
 </section>
 <section id="categorias-tareas-e-idiomas-de-datasets">
 <h3>Categorías, tareas e idiomas de datasets<a class="headerlink" href="#categorias-tareas-e-idiomas-de-datasets" title="Permalink to this headline">#</a></h3>
-<p><strong>9 Categorías:</strong></p>
+<p><strong>Categorías:</strong>
+En este repositorio podemos encontrar un amplio catalogo de categorías por las cuales filtrar y y especificar el tipo de dateset que estamos buscando. Hemos de resaltar que estos datasets existen originalmente en diferentes formatos, nos obstante en una vez incluido en este repositorio, el formato es estandar. Por tal motivo, a través de las librías de manipulación (las mencionadas enteriormente) que ofrece Huggingface, podemos acceder a ellos y gestionarlos.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_dataset_categoria.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_dataset_categoria.jpg" style="width: 300px;" /></a>
 <p>Figura 1. Categorías filtro de datasets</p>
 <p><strong>Más de 134 tareas y más de 194 idiomas:</strong></p>
@@ -581,16 +582,24 @@ A groso modo listamos los modelos que nos podemos encontrar</p>
 <li><p><strong>Extracción de características</strong>: Obtener una representación tensorial del texto.
 Tomado de <a class="reference external" href="https://huggingface.co/transformers/quicktour.html">https://huggingface.co/transformers/quicktour.html</a></p></li>
 </ul>
-<p><strong>Listado de tareas tal y como las podemos encontrar en el repositorio:</strong></p>
+<p><strong>Listado de tareas tal y como las podemos encontrar en el repositorio:</strong>
+El listado de tareas, como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_modelos_tareas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_modelos_tareas.jpg" style="width: 300px;" /></a>
 <p>Figura 3. Tareas filtro modelos</p>
-<p><strong>Idiomas para los que se han entrenado los modelos:</strong></p>
-<a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_modelos_idiomas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_modelos_idiomas.jpg" style="width: 300px;" /></a>
+<p><strong>Idiomas para los que se han entrenado los modelos:</strong>
+El listado de idiomas,como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="images/bloque3/t4/hf_modelos_idiomas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="images/bloque3/t4/hf_modelos_idiomas.jpg" style="width: 300px;" /></a>
 <p>Figura 4. Idiomas filtro modelos</p>
 <p>Una explicación detallada sobre cada una de estas tareas y ejemplos de uso con Huggingface Transformer la podemos encontrar en el siguiente enlace:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://huggingface.co/transformers/task_summary.html">https://huggingface.co/transformers/task_summary.html</a></p></li>
 </ul>
+<p><strong>Huggingface a partir de 2022</strong>
+A mediados de 2022 esta plataforma federativa da un paso agigantado expandiendo datasets y modelos preentrenados de solo ofrecer recursos para la modalidad de Procesamiento del Lenguaje Natural, a ofrecer recursos Multimodales, Visión por Computadora, Procesamiento de Audio, Procesamiento de datos Tabulares y  para Aprendisaje por reforzamiento.</p>
+<p>En la mayoría de los casos se ofrece una ejemplo de uso y documentación. Poner en marcha cualquiera de estas tareas, reajustando o no los modelos prentrenados que se ofrecen en esta plataforma, se encuentra bien documentado y ejemplificado en ella: Ver Categorías <a class="reference external" href="https://huggingface.co/tasks">https://huggingface.co/tasks</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/doc-tareas-hf.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/doc-tareas-hf.jpg" style="width: 300px;" /></a>
+<p>Figura 5. Categorías de documentaciones agrupadas por tareas y modalidades</p>
+<p>!!!!!!!!!!!!!!!!!HASTA AQUI!!!!!!!!!!!!!!!!!</p>
 <p>Ejemplo de Análisis de Sentimientos con Huggingface Transformer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;sentiment-analysis&#39;</span><span class="p">)</span>
