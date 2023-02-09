@@ -25,7 +25,7 @@ En este tema se expone la semántica distribucional, modelo semántico en el que
 
 ## Introducción
 
-La semántica vectorial es un aproximación **formal** a la **semántica** de las lenguas naturales. A diferencia de otros modelos computacionales, el formalismo está basado en espacios vectoriales y álgebra linea; y la interpretación de un texto se expresa en términos geométricos de distancia y similitud (Widdows 2004).
+La semántica vectorial es un aproximación **formal** a la **semántica** de las lenguas naturales. A diferencia de otros modelos computacionales, el formalismo está basado en espacios vectoriales y álgebra lineal; y la interpretación de un texto se expresa en términos geométricos de distancia y similitud (Widdows 2004).
 
 Desde un punto de vista lingüístico, el modelo semántico vectorial representa el significado distribucional de las palabras. Como se comentará luego, el significado distribucional es aquél que podemos derivar a partir del contexto en el que una palabra es utilizada. En este modelo, el significado no es una unidad atómica como en lógica forma ni está definido en un diccionario, sino que es el propio uso de cada palabra en los diferentes contextos donde suele aparecer.
 
