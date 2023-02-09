@@ -42,7 +42,7 @@ Este es el modelo de semántica léxica que conocemos desde el colegio, en el qu
 
 Que una palabra tenga dos o más significados puede parecer en un principio ilógico. Este hecho se debe a dos fenómenos lingüísticos: la homonimia y la polisemia.
 
-La _homonimia_ se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como "bota", que puede ser el odre para beber (la bota de vino), procedente del latín "buttis"; o la bota de calzado, procedente del francés "botte".[^1] Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homnimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras difernetes.
+La _homonimia_ se produce cuando dos palabras, en un principio diferentes en significante y significado, han evolucionado de tal manera que sus significantes (es decir, la forma de la palabra, cómo se pronuncia o escribe) se han hecho iguales. Así ocurre por ejemplo con palabras como "bota", que puede ser el odre para beber (la bota de vino), procedente del latín "buttis"; o la bota de calzado, procedente del francés "botte".[^1] Son por tanto dos palabras distintas que, por evolución, ahora se pronuncian igual. Lo característico de la homonimia es que los significados de la palabra suelen ser muy diferentes dado que provienen de palabras diferentes.
 
 La _polisemia_, por su parte, se produce por la evolución del propio significado de una palabra. Dado una palabra, el uso diario puede producir que se genere un nuevo significado. Por ejemplo, mediante procesos de metaforización ("ratón"), metonimia ("pluma"), especificación ("banco entidad" vs. "banco edificio"), etc. Desde un punto de vista computacional, la polisemia suele ser más compleja de procesar, pues esto significados nuevos siempre están relacionados de alguna manera con el significado original. Hay casos que la diferencia en la polisemia es muy sutil.
 
@@ -62,8 +62,8 @@ Las características principales de WordNet, que están presentes en el resto de
 
 - WordNet se define como una red de sentidos: la unidad básica (cada nodo de la red) es el sentido. Esto lo diferencia del diccionario tradicional y del manual, en el que la unidad principal es la palabra y no el sentido.
 - Cada sentido se representa mediante el conjunto de palabras sinónimas en un idioma, denominado "synset" (*set of synonyms*).
-- Cada *synset*, además del conjunto de sinónimos, dispon de información léxica como: un ID único de sentido, ejemplos de uso del sentido en oraciones reales, glosas o definiciones, dominio semántico en el que se utiliza, etc. Excepto el ID (que es único porque identidica el nodo en la red), el resto de información es opcional.
-- La red se forma a partir de relaciones léxicas entre sentidos. La principal relación léxia es la sinonimia en la que se basa la idea del *synset*. Aparte de esto hay otras según la categoría gramatical de las palabras.
+- Cada *synset*, además del conjunto de sinónimos, dispone de información léxica como: un ID único de sentido, ejemplos de uso del sentido en oraciones reales, glosas o definiciones, dominio semántico en el que se utiliza, etc. Excepto el ID (que es único porque identifica el nodo en la red), el resto de información es opcional.
+- La red se forma a partir de relaciones léxicas entre sentidos. La principal relación léxica es la sinonimia en la que se basa la idea del *synset*. Aparte de esto hay otras según la categoría gramatical de las palabras.
 - Entre nombres, las relaciones principales son hiperonimia (relación tipo "is_a"), hiponimia (la inversa del "is_a") y meronimia (o relación "parte_de").
 - Para los adjetivos, la relaciones principales son la antonimia y "similar a".
 - Para los verbos, las principales relaciones son la "pseudo-hiperonimia" (relación "is_a" similar a la de los nombres, pero es "pseudo" porque la hiperonimia en sentido estricto solo es aplicable a relaciones nominales, no a acciones) y la troponima (la manera de realizar una acción. Por ejemplo "pasear" es una forma de "andar", por lo que entre "pasear" y "andar" se establece una relación de troponimia).
@@ -76,7 +76,7 @@ En su concepción original, WordNet pretendía ser una representación computaci
 
 En al tarea de WSD se asume que los posibles significados de una palabra son únicamente aquellos establecidos en un diccionario (WordNet en este caso). No se plantean otras formas de significación como la metáfora o sentido novedosos. El objetivo de un sistema de WSD es, así, determinar, de los posibles *synsets* asociados a una palabra (solo nombres, verbos o adjetivos), cuál es el apropiado en un contexto dado.
 
-La heurística básica es seleccionar siempre el sentido más frecuente. Esto ya da buenos resutlados. Pero no es suficiente. En los últimos 30 años se han propuesto diferentes algoritmos para mejorar este *baseline*. Las diferentes propuetas se pueden agrupar, en general, en dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.
+La heurística básica es seleccionar siempre el sentido más frecuente. Esto ya da buenos resutlados. Pero no es suficiente. En los últimos 30 años se han propuesto diferentes algoritmos para mejorar este *baseline*. Las diferentes propuestas se pueden agrupar, en general, en dos aproximaciones básicas: algoritmos basados en conocimiento y algoritmos basados en aprendizaje supervisado.
 
 #### Estrategias basadas en conocimiento
 
@@ -110,9 +110,9 @@ La línea de trabajo actual es aplicar *word embeddings* a la tarea de WSD. Un r
 
 #### Inducción de sentidos
 
-Junto a estas dos estrategias, hay una tercera basada en técnicas no supervisadas. En este caso, sin embargo, como no hay un recursos léxico de referencia con los sentidos, los sistemas no determinan significados sino que agrupan oraciones. Así, dado un conjunto de oraciones con una palabra ambigua en común, agrupan las oraciones en las que esa palabra se utiliza con un sentido determinado. Lo que no pueden determinar es cuál es ese sentido. Por ello se considera una taread de inducción de sentidos, más que de desambiguacinó
+Junto a estas dos estrategias, hay una tercera basada en técnicas no supervisadas. En este caso, sin embargo, como no hay un recursos léxico de referencia con los sentidos, los sistemas no determinan significados sino que agrupan oraciones. Así, dado un conjunto de oraciones con una palabra ambigua en común, agrupan las oraciones en las que esa palabra se utiliza con un sentido determinado. Lo que no pueden determinar es cuál es ese sentido. Por ello se considera una tarea de inducción de sentidos, más que de desambiguación propiamente dicha.
 
-En esta tareas se suelen aplicar modelos de semántica vectorial que se verán en la próxima sesión.
+En esta tareas se suelen aplicar modelos de semántica vectorial que se verán en la próxima sección.
 
 ### Situación actual
 
@@ -175,7 +175,6 @@ Consulta este y otros *frame elements* en la base de datos de FrameNET:
 
 ```
 
-
 #### PropBank
 
 La propuesta de PropBank (acrónimo de *Proposition Bank* (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. Y en vez de dar a los roles un nombre significativo, representa cada rol con un simple identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:
@@ -193,7 +192,7 @@ Lo importante es que la alternancia de diátesis no afecte a los roles. Así, in
 > [Arg0 La policía militar] arrestó [Arg1 a tres personas]
 > [Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]
 
-En este caso es la misma oración, una en forma activa y la otra en forma pasiva. Independientemente del sintagma y la función sintática de cada argumento en cada oración, su rol semántico es el mismo. Así, en el primer caso el Arg0 es el sujeto, mientras que en el segundo caso el Arg0 es un complemento agente.
+En este caso es la misma oración, una en forma activa y la otra en forma pasiva. Independientemente del sintagma y la función sintáctica de cada argumento en cada oración, su rol semántico es el mismo. Así, en el primer caso Arg0 es el sujeto, mientras que en el segundo caso Arg0 es un complemento agente y Arg1 el sujeto.
 
 Este modelo ha sido adaptado al español en el [corpus AnCora](http://clic.ub.edu/corpus/es/ancora) (Taulé et al. 2008), que también incluye anotación de textos en catalán (AnCora-Es y AnCora-Cat respectivamente).
 
@@ -207,7 +206,7 @@ Consulta los roles de PropBank en su bas de datos unificada (*Unified Verb Index
 
 ```
 
-Puedes obtener más información sobre PropBank desde la [página del proyecto](https://propbank.github.io/). Está ademas disponbiel para su descarga aquí: [https://github.com/propbank/propbank-frames/](https://github.com/propbank/propbank-frames/).
+Puedes obtener más información sobre PropBank desde la [página del proyecto](https://propbank.github.io/). Está ademas disponible para su descarga aquí: [https://github.com/propbank/propbank-frames/](https://github.com/propbank/propbank-frames/).
  
 
 ### Algoritmos
@@ -216,8 +215,7 @@ Los sistema de análisis de roles semánticos (*semantic role labeling*) toman c
 
 Los principales algoritmos de *semantic roles labeling* (SRL) suelen estar basados en __técnicas de aprendizaje supervisado__. A partir de corpus anotados con roles (como el propio corpus [PropBank](https://propbank.github.io/)), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.
 
-El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a
-partir de estos rasgos.
+El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a partir de estos rasgos.
 
 La herramienta Freeling cuenta con un sistema de SRL similar a este para español y otros idiomas. En el caso del español está entrenado con el [corpus AnCora](http://clic.ub.edu/corpus/es/ancora) y entre los rasgos de aprendizaje utiliza, además de los establecidos en Gildea y Jurafsky (2002), otros como las relaciones de dependencia o la voz verbal (Lluís et al. 2013).
 
