@@ -189,7 +189,7 @@ TF/IDF son las siglas de "frecuencia del término por la frecuencia inversa del 
 
 - *Term frequency* ($tf(w,d)$): frecuencia relativa de una palabra $w$ en un documento $d$.
 - *Document frequency* ($df(t)$): cantidad de documentos donde aparece una determinada palabra $w$.
-- *Inverse document frequency* ($idf(d,D)$): el valor determinante para saber la relevancia del documento no es la inversa de la frecuencia de documentos donde aparece. Por tanto, se divide la cantidad toda de documentos $N$ en la colección $D$ entre la frecuencia del documento $df(t)$. Hay varias formas de obtener este valor. La más sencilla es logarítmica, tal que $idf(d,D)=log\frac{N}{df}$
+- *Inverse document frequency* ($idf(d,D)$): el valor determinante para saber la relevancia del documento es la inversa de la frecuencia de documentos donde aparece. Por tanto, se divide la cantidad toda de documentos $N$ en la colección $D$ entre la frecuencia del documento $df(t)$. Hay varias formas de obtener este valor. La más sencilla es logarítmica, tal que $idf(d,D)=log\frac{N}{df}$
 
 Así, el valor tf-idf de la palabra $w$ en un documento $d$ en una colección de documentos $D$ es:
 
@@ -225,7 +225,7 @@ Una primera solución fue [*Latent semantic analysis*](https://en.wikipedia.org/
 
 Años más tarde se propuso [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) o LDA, que veremos en la segunda parte de la Práctica 1.
 
-Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores a llevado a los *skip gramms*, que es la base de *Word2Vec* y de donde derivan los *word embeddings* y los modelos neuronales actuales. Para determinar la relevancia contextual entre dos palabras, la idea principal de los *skip gramms* es entrenar un clasificador con un regresión logística que aprenda si una palabra formar parte o no del contexto de otra palabra. Como solo aprende si dos palabras comparten o no contexto, ese entrenamiento no necesita un corpus anotado a mano: basta con una amplia colección de documentos (cuanto más grande mejor). Y al final lo de menos es el clasificador: lo importante son los pesos que ha aprendido para cada palabra. Ese es su vector contextual que ha demostrado tener gran capacidad de representación semántica. Esto es el inicio del *deep learning* se verá en próximos temas.
+Finalmente, la búsqueda de matrices densas y la optimización de la representación contextual mediante vectores ha llevado a los *skip gramms*, que es la base de *Word2Vec* y de donde derivan los *word embeddings* y los modelos neuronales actuales. Para determinar la relevancia contextual entre dos palabras, la idea principal de los *skip gramms* es entrenar un clasificador con regresión logística que aprenda si una palabra formar parte o no del contexto de otra palabra. Como solo aprende si dos palabras comparten o no contexto, ese entrenamiento no necesita un corpus anotado a mano: basta con una amplia colección de documentos (cuanto más grande mejor). Y al final lo de menos es el clasificador: lo importante son los pesos que ha aprendido para cada palabra. Ese es su vector contextual, que ha demostrado tener gran capacidad de representación semántica. Esto es el inicio del *deep learning* que se verá en próximos temas.
 
 ## Interpretación semántica: distancia y similitud.
 
