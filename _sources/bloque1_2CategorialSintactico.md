@@ -49,9 +49,9 @@ En esta línea, **el tamaño de un corpus siempre se mide en cantidad de *tokens
 
 El primer paso a la hora de procesar un texto es, por tanto, hallar los *tokens* y, con ello, los *types* que forman el texto. A este proceso se le denomina **tokenización**.
 
-El método de tokenización más simple es separar cada token por espacio en blaco. *Token* quedaría así definido como la secunencia de caracteres separada por un espacio en blanco. Desde un punto de vista lingüístico, esta aproximación presenta algunas limitaciones:
+El método de tokenización más simple es separar cada token por espacio en blanco. *Token* quedaría así definido como la secuencia de caracteres separada por un espacio en blanco. Desde un punto de vista lingüístico, esta aproximación presenta algunas limitaciones:
 
-1. Los signos de puntuación son un *type* diferente, pero aparecen pegados a la palabra anterior o posterio. Es necesario algún tipo de regla más allá del espacio en blanco que separe los signos de puntuación.
+1. Los signos de puntuación son un *type* diferente, pero aparecen pegados a la palabra anterior o posterior. Es necesario algún tipo de regla más allá del espacio en blanco que separe los signos de puntuación.
 2. Hay unidades lingüísticas que están formadas por más de un *type*. Me refiero a las llamadas "unidades multipalabra", como por ejemplo las formas complejas de los verbos: "he comido", "había creídos", "fue resuelto", etc. 
 3. La situación contraria se produce con las contracciones como "del" o "al" y en general formas aglutinantes ("dáselo"). En este caso se podría considerar *types* diferentes porque responde a diferentes palabras y habría que separarlas. 
 
@@ -84,13 +84,13 @@ El objetivo principal de una analizador categorial es asignar a cada *token* de 
 - la categoría gramatical ("nombre, verbo, adjetivo, ..."),
 - rasgos morfológicos (género, número, voz, tiempo, etc.).
 
-El mayor problema que resuelve un analizador categorial es la *ambigüedad categorial* que vimos anteriormente: aquellos *tokens* que pueden pertencer a dos o más categorías gramaticales.
+El mayor problema que resuelve un analizador categorial es la *ambigüedad categorial* que vimos anteriormente: aquellos *tokens* que pueden pertenecer a dos o más categorías gramaticales.
 
 ### Algunos conceptos lingüísticos.
 
 A modo de recordatorio, en esta sección se repasan algunos conceptos lingüísticos que se deben tener claros para trabajar con *PoS_taggers*.[^3]
 
-Las palabras de un idioma se clasifican en categorías gramaticales o "clases de palabras". Cada categoría agrupas palabras que tienen un corportamiento lingüístico similar: palabras con rasgos distributivos y morfológicos similares, y en algunos casos también rasgos semánticos parecidos.
+Las palabras de un idioma se clasifican en categorías gramaticales o "clases de palabras". Cada categoría agrupas palabras que tienen un comportamiento lingüístico similar: palabras con rasgos distributivos y morfológicos similares, y en algunos casos también rasgos semánticos parecidos.
 
 Si bien no hay una lista fija de categorías gramaticales (las diferentes teorías suelen presentar pequeñas variantes), en español las categorías gramaticales suelen ser: determinantes (incluyendo aquí artículos, demostrativos, posesivos, numerales e indefinidos), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.
 
@@ -99,7 +99,7 @@ Estas clases se agrupan en dos grandes grupos: las categorías abiertas y cerrad
 Este diferencia es relevante desde el punto de vista computacional por dos hechos:
 
 1. Todo sistema de PLN debe estar preparado para analizar palabras nuevas. En una clase abierta el sistema de PLN se puede encontrar con palabras que no ha visto nunca antes (bien porque no está en el diccionario, bien porque no está en los corpus de aprendizaje, o bien simplemente porque es un neologismo) y debe ser capaz de analizarla. Este problema se da sobre todo con los nombres. Los sistemas neuronales actuales han mostrado ser muy eficaces para tratar este problema.
-2. Las clases cerradas suelene estar formadas por pocas palabras. Esto provoca que la frecuencia de uso de las palabras de clases cerradas (preposiciones, conjunciones, pronombres, etc.) sea muy alta. Así, al extraer las frecuencias de cualquier texto encontramos pocas palabras con frecuencias muy altas (las palabras de categorías cerradas) y muchas palabras con frecuencias muy bajas (el llamado [*hápax legómena*](https://es.wikipedia.org/wiki/H%C3%A1pax), que se produce por la gran cantidad de palabras de categorías abiertas que aparecen solo una vez). Esto complica los análisis de frecuencia. Para evitar esta situación, las palabras de categoras cerradas se suelen filtrar antes de extraer frecuencias: son las llamadas *stop words*.
+2. Las clases cerradas suelen estar formadas por pocas palabras. Esto provoca que la frecuencia de uso de las palabras de clases cerradas (preposiciones, conjunciones, pronombres, etc.) sea muy alta. Así, al extraer las frecuencias de cualquier texto encontramos pocas palabras con frecuencias muy altas (las palabras de categorías cerradas) y muchas palabras con frecuencias muy bajas (el llamado [*hápax legómena*](https://es.wikipedia.org/wiki/H%C3%A1pax), que se produce por la gran cantidad de palabras de categorías abiertas que aparecen solo una vez). Esto complica los análisis de frecuencia. Para evitar esta situación, las palabras de categorías cerradas se suelen filtrar antes de extraer frecuencias: son las llamadas *stop words*.
 
 Por su flexión, hay categorías cuyas palabras son variables o "flexivas" y categorías de palabras invariables. Son categorías variables los nombres (con flexión de género y número), verbos (con flexión en tiempo, modo, voz, aspectos, número y persona), adjetivos (género, número y grado), pronombres y algunos adverbios y determinantes. La flexión tiene implicaciones semánticas, por lo que su análisis es más complejo. Esta es la razón de ser del análisis morfológico completo, donde de cada *token* se especifica automáticamente no solo su categoría gramatical, sino también sus rasgos flexivos. 
 
@@ -109,9 +109,9 @@ Finalmente, por su función en el texto, se diferencia entre clases de palabras 
 
 Así como un proceso de tokenización es un paso inleduble para realizar minería de textos, el análisis categorial no siempre es necesario. Éste es un proceso que requiere recursos computacionales y, si el corpus es muy amplio, también mucho tiempo de procesamiento. Por ello se debe tener claro qué se necesita para valorar si es necesario utilizar un *pos tagger* o no.
 
-Un análisis categorial es en muchas ocasiones la base del sistema de PLN, porque los análisis sintáticos y muchos de los análisis semánticos y pragmáticos dependen de las clases de palabras: necesitan saber el lema de cada *token*, la clase de palabra a la que pertenecen y/o sus rasgos morfológicos. 
+Un análisis categorial es en muchas ocasiones la base del sistema de PLN, porque los análisis sintácticos y muchos de los análisis semánticos y pragmáticos dependen de las clases de palabras: necesitan saber el lema de cada *token*, la clase de palabra a la que pertenecen y/o sus rasgos morfológicos. 
 
-Un proceso muy común en minería de texto y de poco coste computacional es realizar un filtro de "stop words": elimiar todas aquellas palabras que pertenecen a categorías cerradas y que no tienen significado léxico (preposiones, conjunciones, artículos, etc.). Este filtrado NO necesita realizar el análisis categorial completo: como son categorías cerradas (es, por tanto, un conjunto finito de palabras), se pueden listar en un fichero y filtrar con un simple *pattern matching*. También un proceso de *stemming* requiere poco tiempo de proceso (no es necesario realizar todo el ánalisis categorial) y permitiría tratar *token* de categorías flexivas como un solo *type*.
+Un proceso muy común en minería de texto y de poco coste computacional es realizar un filtro de "stop words": eliminar todas aquellas palabras que pertenecen a categorías cerradas y que no tienen significado léxico (preposiciones, conjunciones, artículos, etc.). Este filtrado NO necesita realizar el análisis categorial completo: como son categorías cerradas (es, por tanto, un conjunto finito de palabras), se pueden listar en un fichero y filtrar con un simple *pattern matching*. También un proceso de *stemming* requiere poco tiempo de proceso (no es necesario realizar todo el análisis categorial) y permitiría tratar *token* de categorías flexivas como un solo *type*.
 
 Otras aplicaciones de minería de textos sí dependen de las categorías gramaticales y por tanto requieren realizar el análisis categorial y morfológico. Entre otras: 
 
@@ -158,7 +158,7 @@ La información categorial y morfológica se representa explícitamente mediante
         VMIP1S0 = verbo principal indicativo presente primera persona singular
         ...
     
-   - Este tipo de etiqueta es más complejo pero contiene bastante información. Cada posición es un rasgo morfológico. El primero (A, N, V, etc.) indica la categoría gramatical. El resto de posiciones, dependiendo de la categoría, aporta una información morfológica u otra. Así, para nombre, las posicones indican:
+   - Este tipo de etiqueta es más complejo pero contiene bastante información. Cada posición es un rasgo morfológico. El primero (A, N, V, etc.) indica la categoría gramatical. El resto de posiciones, dependiendo de la categoría, aporta una información morfológica u otra. Así, para nombre, las posiciones indican:
      - 1 categoría
      - 2: tipo: común o propio
      - 3: género
@@ -182,7 +182,7 @@ La entrada es un texto que ha sido previamente tokenizado. Los signos de puntuac
 
     token lema etiqueta_PoS
 
-Para poder determinar el lema y la categoría de cada *token*, así como la información morfológica, el *pos_tagger* necesita algún tipo de recurso. Básicamente dos: un diccionario que contenga la información morfológica de cada palabra; y un conjunto de reglas (gramática) que deriven la información morfológica según los rasgos de la palabra y de las palabas del contexto. Este puede haber sido creado a mano (reglas manuales) o  mediante aprendizaje automático. Esto es una analizador en dos fases (consulta diccionario y desambiguación), que es la arquitectura básica de un *PoS_tagger*.
+Para poder determinar el lema y la categoría de cada *token*, así como la información morfológica, el *pos_tagger* necesita algún tipo de recurso. Básicamente dos: un diccionario que contenga la información morfológica de cada palabra; y un conjunto de reglas (gramática) que deriven la información morfológica según los rasgos de la palabra y de las palabras del contexto. Este puede haber sido creado a mano (reglas manuales) o  mediante aprendizaje automático. Esto es una analizador en dos fases (consulta diccionario y desambiguación), que es la arquitectura básica de un *PoS_tagger*.
 
 Un ejemplo de *PoS_tagger* para español es *Freeling*. Antes de seguir, prueba su demo:
 
@@ -237,7 +237,7 @@ Este es un modelo de bigramas porque solo tiene en cuenta la palabra anterior y 
 
 ##### Modelo oculto de Markov
 
-Aplicado a cadena de *tokens* tendríamos un simple predictor de palabras como el que tenemos en el móvil. Lo característico de su aplicación para análisis categorial es que se aplica no a la secuencia de palabras (la cadena visible de *tokens*), sino a la secuencia de categorías gramaticales: la cadena **oculta** de *tags*. Se condiera una cadena oculta porque las categorías gramaticales no están explícitamente en el texto, sino que son inferidas. De ahí el nombre de **Modelo Oculto de Markov** o ***Hidden Markov Model*** (HMM).
+Aplicado a cadena de *tokens* tendríamos un simple predictor de palabras como el que tenemos en el móvil. Lo característico de su aplicación para análisis categorial es que se aplica no a la secuencia de palabras (la cadena visible de *tokens*), sino a la secuencia de categorías gramaticales: la cadena **oculta** de *tags*. Se considera una cadena oculta porque las categorías gramaticales no están explícitamente en el texto, sino que son inferidas. De ahí el nombre de **Modelo Oculto de Markov** o ***Hidden Markov Model*** (HMM).
 
 El modelo oculto de Markov necesita, así, en dos probabilidades: una probabilidad de transición de un estado a otro de la cadena (la probabilidad del modelo de Markov simple) y además una probabilidad de emisión del estado oculto al estado visible.
 
@@ -245,7 +245,7 @@ Aplicado al análisis categorial, la probabilidad de transición es la probabili
 
 $$P(t_i|t_{i-1})$$
 
-La probabildad de emisión es la probabilidad de que una palabra dada $w_i$ esté asociada a una etiqueta categorial $t_i$:
+La probabilidad de emisión es la probabilidad de que una palabra dada $w_i$ esté asociada a una etiqueta categorial $t_i$:
 
 $$P(w_i|t_i)$$
 
@@ -310,7 +310,7 @@ La sintaxis es el área de la lingüística que estudia cómo se relacionan las 
 
 En Procesamiento del Lenguaje Natural, a la herramienta encargada de realizar el análisis sintático se le da el nombre genérico de *parser* y a la tarea *parsing* (como en los compiladores de lenguajes de programación).
 
-En el proceso de interpretación automática de un texto, es necesario conocer las relaciones sintáticas porque de ellas dependen diversos aspectos semánticos. Si te fijas en el siguiente ejemplo, verás dos oraciones con las mismas palabras ("subir", "tender" y "a") y la misma categoría gramatica (verbo infinitivo, verbo infinitivo y preposción), pero con sentido totalmente diferente. Son las relaciones sitnáticas las que nos indican la interpretación correcta de cada una:
+En el proceso de interpretación automática de un texto, es necesario conocer las relaciones sintácticas porque de ellas dependen diversos aspectos semánticos. Si te fijas en el siguiente ejemplo, verás dos oraciones con las mismas palabras ("subir", "tender" y "a") y la misma categoría gramatical (verbo infinitivo, verbo infinitivo y preposición), pero con sentido totalmente diferente. Son las relaciones sintácticas las que nos indican la interpretación correcta de cada una:
 
 > No es lo mismo "subir a tender" que "tender a subir".
 
@@ -320,27 +320,27 @@ En esta sección se exponen los fundamento del análisis sintáctico computacion
 
 ### Arquitectura estándar de un *parser*
 
-La siguiente imagen muestra la arquiectura básica de un *parser*:
+La siguiente imagen muestra la arquitectura básica de un *parser*:
 
 ![ArquitecturaParser](images/parser.png)
 
-Como se puede observar, la entrada del *parser* es la salida del analizador categorial. De hecho el *parser* necesita saber (en principio) la categoría gramatical de las palabras para poder establecer las relaciones sintáticas entre ellas. La salida suele ser en forma de árbol, donde las palabras están relacionadas entre sí mediante arcos. En la siguiente sección se mostrarán los principales tipos de árboles sintácticos.
+Como se puede observar, la entrada del *parser* es la salida del analizador categorial. De hecho el *parser* necesita saber (en principio) la categoría gramatical de las palabras para poder establecer las relaciones sintácticas entre ellas. La salida suele ser en forma de árbol, donde las palabras están relacionadas entre sí mediante arcos. En la siguiente sección se mostrarán los principales tipos de árboles sintácticos.
 
 El *parser* necesita un recursos para realizar el análisis que se suele denominar "gramática". Esta contiene las reglas para establecer las relaciones. En los inicios del PLN, estas gramáticas se realizaban a mano: eran gramática pequeñas con muy poca cobertura. Hoy día, al igual que en el análisis categorial, las gramáticas se realizan con modelos de aprendizaje automático, y se aplican reglas manuales solo para ganar precisión en casos concretos. Las últimas propuestas están basadas en modelos neuronales, que se ha demostrado son capaces de inferir relaciones sintácticas sin necesidad de una gramática previa.[^6]
 
 ### Principal problema computacional
 
-Asignar relaciones a palabras a partir de categorías gramaticales es una tarea hasta cierto punto viable. El gran problema que debe resolver un *parser* es la ambigüedad estructural: cuando es posible derivar dos o más árboles sintáticos de la misma oración. La resolución de esta ambigüedad requiere en muchas ocasiones información semántica y conocimiento del mundo (para realizar una interpretación coherente), aspectos estos que salen fuera del análisis sintático propiamente dicho.
+Asignar relaciones a palabras a partir de categorías gramaticales es una tarea hasta cierto punto viable. El gran problema que debe resolver un *parser* es la ambigüedad estructural: cuando es posible derivar dos o más árboles sintácticos de la misma oración. La resolución de esta ambigüedad requiere en muchas ocasiones información semántica y conocimiento del mundo (para realizar una interpretación coherente), aspectos estos que salen fuera del análisis sintáctico propiamente dicho.
 
-A continuación se muestran dos casos de ambigüedad estructural. En este primer ejemplo (ya visto en el tema anterior), la ambigüedad viene producida por el sintgma preposicional "con los prismáticos", que puede ser tanto complemento de "hermano" como del sujeto "yo":
+A continuación se muestran dos casos de ambigüedad estructural. En este primer ejemplo (ya visto en el tema anterior), la ambigüedad viene producida por el sintagma preposicional "con los prismáticos", que puede ser tanto complemento de "hermano" como del sujeto "yo":
 
 > "Ayer vi a tu hermano con los prismáticos."
 
-En el siguiente ejemplo es la coordinación la que está generando la ambigüedad. El adjetivo "limpios" puede ser complemento solo de "cubiertos" o de la coordinación completa "los platos y los cubiertos". En uno u otro caso, el árbol sintático cambia:
+En el siguiente ejemplo es la coordinación la que está generando la ambigüedad. El adjetivo "limpios" puede ser complemento solo de "cubiertos" o de la coordinación completa "los platos y los cubiertos". En uno u otro caso, el árbol sintáctico cambia:
 
 > "Sirve los platos y los cubiertos limpios."
 
-El *parser* debe incluir, por tanto, algoritmos de desambiguación que decidan, en casos como estos, qué árbol sintático sería el más apropiado.
+El *parser* debe incluir, por tanto, algoritmos de desambiguación que decidan, en casos como estos, qué árbol sintáctico sería el más apropiado.
 
 ### Modelos de representación
 
@@ -348,7 +348,7 @@ En PLN hay dos modelos de representación sintáctica: los modelos basados en **
 
 Lo que viene a continuación igual te recuerda las clases de bachillerato.
 
-El modelo basado en constituyentes realiza dos tareas: primero agrupa las palabras en unidades complejas llamados "sintagmas" (*phrases* en inglés). Un sintagma puede contener tanto palabras como otros sintagmas. Así, de abajo arriba, las palabras con relación sintática estrecha se agrupan en sintagmas, estos a su vez se agrupan en sintagmas complejos hasta llegar a la agrupación final que es toda la oración. Cada una de estas agrupaciones recibe el nombre de *constituyente oracional*.
+El modelo basado en constituyentes realiza dos tareas: primero agrupa las palabras en unidades complejas llamados "sintagmas" (*phrases* en inglés). Un sintagma puede contener tanto palabras como otros sintagmas. Así, de abajo arriba, las palabras con relación sintáctica estrecha se agrupan en sintagmas, estos a su vez se agrupan en sintagmas complejos hasta llegar a la agrupación final que es toda la oración. Cada una de estas agrupaciones recibe el nombre de *constituyente oracional*.
 
 La segunda tarea es determinar el tipo de sintagma: nominal, verbal, preposicional, adjetivo, etc. El tipo de sintagma depende siempre de la palabra que actúa como núcleo sintagmático (un nombre, una preposición, un adjetivo...). El sintagma que los agrupa a todos es la oración y su núcleo, normalmente, un verbo.
 
@@ -356,27 +356,26 @@ La siguiente imagen es un ejemplo de árbol de análisis basado en constituyente
 
 ![Constituyentes](images/constituyentes.png)
 
-En este caso tenemos dos sintagmas nominales (SN), un sintagam verbal (SV) y la oración. En la herramientas de PLN lo normal es que te encuentres esos sintagmas con las siglas en inglés: "NP" para *nominal phrase*, "PP" para *prepositional phrase*, "VP" para *verbal phrase*, etc.
+En este caso tenemos dos sintagmas nominales (SN), un sintagma verbal (SV) y la oración. En la herramientas de PLN lo normal es que te encuentres esos sintagmas con las siglas en inglés: "NP" para *nominal phrase*, "PP" para *prepositional phrase*, "VP" para *verbal phrase*, etc.
 
-El modelo basado en dependencias es diferente. No le interesa tanto mostrar cómo se agrupan las palabras según su relación sintática, como mostrar qué relación o dependencia tienen unas palabras con otras. La dependencia se produce siempre entre dos palabras: una actúa de núcleo (*head*) y otro que actúa de "dependiente" (*dependent*) o complemento. El análisis de dependencias también supone dos tareas: primer detectar de quién depende cada palabra de la oración, y segundo determinar el tipo de dependencia: sujeto, objeto, complemento, especificador... Los árboles de depencias suelen tener forma de grafo con nodos/hojas (las palabras) y arcos dirigidos (el tipo de dependencia entre dos nodos), como muestra la siguiente imagen:
+El modelo basado en dependencias es diferente. No le interesa tanto mostrar cómo se agrupan las palabras según su relación sintáctica, como mostrar qué relación o dependencia tienen unas palabras con otras. La dependencia se produce siempre entre dos palabras: una actúa de núcleo (*head*) y otro que actúa de "dependiente" (*dependent*) o complemento. El análisis de dependencias también supone dos tareas: primer detectar de quién depende cada palabra de la oración, y segundo determinar el tipo de dependencia: sujeto, objeto, complemento, especificador... Los árboles de dependencias suelen tener forma de grafo con nodos/hojas (las palabras) y arcos dirigidos (el tipo de dependencia entre dos nodos), como muestra la siguiente imagen:
 
 ![Dependecias](images/arbol_dependencias.png)
 
 <!-- ![Dependecias_Freeling](images/dependency_parsing_FreeLing.jpg)
 (Créditos de la imagen [aquí](http://liceu.uab.cat/~joaquim/language_technology/NLP/PLN_analisis.html#An%C3%A1lisis_de_dependencias)) -->
 
-En este ejemplo podemos ver que el núcleo oracional (*root*) es el verbo "buscó". De este dependen tres palabras: "Inés" con una dependencia de *nsubj* (sujeto nominal), "llaves" con una dependencia de *obj* (lo que en la gramática escolar se denomina "complemento directo" u "objeto directo") y "cajón"
-con una dependencia de [*obl*](https://universaldependencies.org/u/dep/obl.html) (de *oblique* o *adjunct*, que vendría a ser un complemento circustancial). A su vez, "llaves" y "cajón" son núcleo de otras palabras, etc.
+En este ejemplo podemos ver que el núcleo oracional (*root*) es el verbo "buscó". De este dependen tres palabras: "Inés" con una dependencia de *nsubj* (sujeto nominal), "llaves" con una dependencia de *obj* (lo que en la gramática escolar se denomina "complemento directo" u "objeto directo") y "cajón" con una dependencia de [*obl*](https://universaldependencies.org/u/dep/obl.html) (de *oblique* o *adjunct*, que vendría a ser un complemento circunstancial). A su vez, "llaves" y "cajón" son núcleo de otras palabras, etc.
 
-Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintática más explícita. Pero antes de profundizar en él, y para entender bien cómo funciona un *parser*, vamos a ver los modelos de constituyentes.
+Hoy día el modelo más común es el de dependencias, sobre todo porque hace una representación de la relación sintáctica más explícita. Pero antes de profundizar en él, y para entender bien cómo funciona un *parser*, vamos a ver los modelos de constituyentes.
 
 ### Gramáticas formales
 
-La parte principal del un *parser* es la gramática: el conjunto de reglas que, dado una secuencia de *tokens* (y en su caso también categorías gramaticales) derivan un árbol sintático. Estas deben ser reglas formales que la máquina puede entender y procesar.
+La parte principal del un *parser* es la gramática: el conjunto de reglas que, dado una secuencia de *tokens* (y en su caso también categorías gramaticales) derivan un árbol sintáctico. Estas deben ser reglas formales que la máquina puede entender y procesar.
 
 #### Context free grammars
 
-Las gramáticas independients del contexto (CFG: *Context free grammars*) es el formalismo base de toda una familia de gramáticas formales que se desarrollaron después. La definición formal es la siguiente:
+Las gramáticas independientes del contexto (CFG: *Context free grammars*) es el formalismo base de toda una familia de gramáticas formales que se desarrollaron después. La definición formal es la siguiente:
 
     G = (NT, T, S, P)
     NT: {no terminales},
@@ -400,11 +399,11 @@ Ejemplo:
         VP -> v
         VP -> v NP
 
-En este caso los símbolos no terminales son las etiquetas sintáticas y categoriales (S, NP, VP, nprop, n, v, det), los símbolos terminales son los *tokens* ("Pepe,manzana, come,una"), el símbolo incial es $S$ y las reglas de producción indica cómo cada símbolo no terminal se puede transformar en otros símbolos. De esta gramática se podría derivar el siguiente árbol:
+En este caso los símbolos no terminales son las etiquetas sintácticas y categoriales (S, NP, VP, nprop, n, v, det), los símbolos terminales son los *tokens* ("Pepe,manzana, come,una"), el símbolo inicial es $S$ y las reglas de producción indica cómo cada símbolo no terminal se puede transformar en otros símbolos. De esta gramática se podría derivar el siguiente árbol:
 
 ![AnalisisConstituyentes](images/constituyentes_2.png)
 
-Estas gramáticas son, por supuesto, muy limitadas. Sólo sirven para conjuntos predefinidos de oraciones. En los años 80 fueron ampliadas con estructuras de rasgos y técnicas de unificación. Las estructuras de ragos son estructuras asociadas a cada símbolo (tanto terminal como no terminal) que permiten enriquecerlo con datos (pares atributo-valor). En el ejemplo siguiente se puede ver una estructura de rasgos con información morfológica. La unificación es una operación que permite comparar y, si son compatibles, unir dos estructuras de rasgos. La siguiente imagen muestra un caso de unificación porque las dos estructuras de rasgos son compatibles:
+Estas gramáticas son, por supuesto, muy limitadas. Sólo sirven para conjuntos predefinidos de oraciones. En los años 80 fueron ampliadas con estructuras de rasgos y técnicas de unificación. Las estructuras de rasgos son estructuras asociadas a cada símbolo (tanto terminal como no terminal) que permiten enriquecerlo con datos (pares atributo-valor). En el ejemplo siguiente se puede ver una estructura de rasgos con información morfológica. La unificación es una operación que permite comparar y, si son compatibles, unir dos estructuras de rasgos. La siguiente imagen muestra un caso de unificación porque las dos estructuras de rasgos son compatibles:
 
 ![Unificación](images/unificacion.png)
 
@@ -436,7 +435,7 @@ Hay muchos más para diferentes idiomas.
 
 ### *Chunkers*
 
-Hasta ahora el análisis sintático se ha planteado como un análisis completo (*full parsing*): derivar el árbol entero en toda su profundidad. Dada la coplejidad que una oración real puede tener, este tipo de análisis resulta en muchas ocasiones muy complejo o incluso imposible, además de consumir mucho tiempo y recursos para obtener resultados no del todo buenos.
+Hasta ahora el análisis sintáctico se ha planteado como un análisis completo (*full parsing*): derivar el árbol entero en toda su profundidad. Dada la complejidad que una oración real puede tener, este tipo de análisis resulta en muchas ocasiones muy complejo o incluso imposible, además de consumir mucho tiempo y recursos para obtener resultados no del todo buenos.
 
 En los años 90 se propuso una solución a este problema: el *chunkers* o análisis sintáctico parcial (Abney 1991). Un análisis sintáctico parcial no deriva el árbol sintáctico completo de una oración, sino solo deriva el árbol de algunos sub-árboles. De un oración se pueden derivar, por ejemplo, solo los sintagmas nominales y verbales, sin llegar a construir un único árbol completo. Cada uno de estos sub-árboles es un *chunk*. 
 
@@ -463,7 +462,7 @@ El ascendente parte de los símbolos terminales y, mediante las reglas, trata de
 
 #### Formato de representación: CONLL
 
-Si bien hay difernetes formatos para representar el análisis de dependencias, el más común hoy día es el formato CONLL. Aquí puede ver un ejemplo:
+Si bien hay diferentes formatos para representar el análisis de dependencias, el más común hoy día es el formato CONLL. Aquí puede ver un ejemplo:
 
         Salida CoNLL-U
         # sent_id = 1
@@ -479,13 +478,13 @@ Si bien hay difernetes formatos para representar el análisis de dependencias, e
         9   canguro canguro NOUN    NOUN    Gender=Masc|Number=Sing 7   nmod    _   _
         10  .   .   PUNCT   PUNCT   PunctType=Peri  6   punct   _   _
 
-Cada línes es un *token*. La primera columna es un índice, y las siguientes corresponden a: *token*, lema, categoría gramatical, información morfológica (opcional). Las dos última columnas indican el número de identificación de la palabra de quien es núcleo y la relación de dependencia con éste. Así se determina la dependencia y con ello el árbol. El inicio del árbol lo marca simpre la etiqueta *root* (en la palabra 6 en este caso).
+Cada línes es un *token*. La primera columna es un índice, y las siguientes corresponden a: *token*, lema, categoría gramatical, información morfológica (opcional). Las dos última columnas indican el número de identificación de la palabra de quien es núcleo y la relación de dependencia con éste. Así se determina la dependencia y con ello el árbol. El inicio del árbol lo marca siempre la etiqueta *root* (en la palabra 6 en este caso).
 
 #### Dependencias universales
 
-Esas etiquetas sintácticas responden al *tag set* de las dependencias universales o [*Universal Dependencies*](https://universaldependencies.org/) (Nivre et al., 2016). Este modelo es hoy el más utilizado por diversas razones. Entre otras cosas, está bien motivado desde un punto de vista lingüístico, pero al mismo tiempo es útil desde el punto de vista computacional y es "multilingüe, lo que permite tratar corpus con textos en diferentes idiomas con una representación sintática común.
+Esas etiquetas sintácticas responden al *tag set* de las dependencias universales o [*Universal Dependencies*](https://universaldependencies.org/) (Nivre et al., 2016). Este modelo es hoy el más utilizado por diversas razones. Entre otras cosas, está bien motivado desde un punto de vista lingüístico, pero al mismo tiempo es útil desde el punto de vista computacional y es "multilingüe, lo que permite tratar corpus con textos en diferentes idiomas con una representación sintáctica común.
 
-Sin entrar en detalles, las principales etiquetas sintáticas que pueden a aparecer en un análisis de dependencias con las dependencias universales son:
+Sin entrar en detalles, las principales etiquetas sintácticas que pueden a aparecer en un análisis de dependencias con las dependencias universales son:
 
 - nsubj (sujeto nominal): <https://universaldependencies.org/u/dep/nsubj.html>
 - obj (objecto directo): <https://universaldependencies.org/u/dep/obj.html>
@@ -498,7 +497,7 @@ Puedes consultar todas las relaciones aquí: https://universaldependencies.org/u
 
 #### Análisis
 
-El análisis de dependecia estándar es el análisis basado en transiciones: *transition-based dependency parsing* (Nivre 2014), que es un tipo de análisis *shift-reduce*.
+El análisis de dependencias estándar es el análisis basado en transiciones: *transition-based dependency parsing* (Nivre 2014), que es un tipo de análisis *shift-reduce*.
 
 ```{admonition} Lectura obligatoria
 :class: note
@@ -507,10 +506,10 @@ Para completar este tema, lee con atención la introducción y el apartado 18.1 
 
 ### Situación actual
 
-La situación actual del análisis sintático se caracteriza por:
+La situación actual del análisis sintáctico se caracteriza por:
 
 - la aplicación de modelos neuronales como el *Neural Network Dependency Parser* ([https://nlp.stanford.edu/software/nndep.shtml](https://nlp.stanford.edu/software/nndep.shtml)),
-- con ello, la representación de información sintática en *embeddings* com vectores (de lo que se hablará en los siguientes temas), y
+- con ello, la representación de información sintáctica en *embeddings* como vectores (de lo que se hablará en los siguientes temas), y
 - las dependencias universales.
 
 Ver:
@@ -521,7 +520,7 @@ Ver:
 
 ### Herramientas
 
-Hay multitud de herramientas para realizar análisis sintático. Aquí cuatro de las más conocidas:
+Hay multitud de herramientas para realizar análisis sintáctico. Aquí cuatro de las más conocidas:
 
 - SpaCy: [https://spacy.io/](https://spacy.io/)
 - STANZA: [https://stanfordnlp.github.io/stanza/](https://stanfordnlp.github.io/stanza/)
