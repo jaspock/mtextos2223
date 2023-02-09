@@ -22,7 +22,7 @@ La semántica léxica se refiere al significado de las palabras.
 En PLN hay actualmente dos modelos para tratar la semántica léxica:
 
 - La consideración del sentido de la palabra como una representación discreta, es decir, un conjunto de significados (una o más por palabra) que puede ser representado en un diccionario mediante, por ejemplo, definiciones.
-- La consideración del sentido a partir de las relaciones contextuales entre las palabras en su uso comunicativo real. Este es el modelo ditribucional en el que se basan los *word embeddings* que veremos en próximos temas.
+- La consideración del sentido a partir de las relaciones contextuales entre las palabras en su uso comunicativo real. Este es el modelo distribucional en el que se basan los *word embeddings* que veremos en próximos temas.
 
 Este capítulo se centra en el primer modelo.
 
@@ -38,7 +38,7 @@ En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser 
 
 (Ejemplo tomado de [Juravsky y Martin 2020, cap. 18, pág. 2](https://web.stanford.edu/~jurafsky/slp3/18.pdf))
 
-Este es el modelo de semántica léxica que conocemos desde el colegio, en el que ente una palabra desconocida buscamos en el diccionario el significado que mejor se ajusta al contexto.
+Este es el modelo de semántica léxica que conocemos desde el colegio, en el que ante una palabra desconocida buscamos en el diccionario el significado que mejor se ajusta al contexto.
 
 Que una palabra tenga dos o más significados puede parecer en un principio ilógico. Este hecho se debe a dos fenómenos lingüísticos: la homonimia y la polisemia.
 
@@ -100,7 +100,7 @@ En esta línea, el algoritmo UKB (Agirre y Soroa 2009, Padró et al. 2010) es un
 
 Estas estrategias (*features-based algorithms*) se caracterizan por aprender diferentes rasgos del contexto de las palabras con técnicas de *machine learning* y utilizarlos para clasificar usos ambiguos.
 
-Por ejemplo, una estrategia óptima sería entrenar un clasificador  _Support Vector Machines_ (que ha dado buenos resultados en WSD) con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (*embedings*) de cada palabra del contexto (Ver Jurafki y Martin (2023), cap. 23, pág. 12).
+Por ejemplo, una estrategia óptima sería entrenar un clasificador _Support Vector Machines_ (que ha dado buenos resultados en WSD) con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (*embedings*) de cada palabra del contexto (Ver Jurafki y Martin (2023), cap. 23, pág. 12).
 
 Existen diferentes corpus anotados con sentidos desambiguados. El primero corpus anotado con sentido, que estableció el modelo a partir del cual se han desarrollado otros, fue SemCor, con texto en inglés. Este corpus se creó al mismo tiempo que WordNet y por los mismos desarrolladores. En SemCor, cada palabra tiene asignado el *synset* específico en WordNet. Y muchos sentidos de WordNet se han determinado a partir de los textos de SemCor. SemCor está disponible en diferentes páginas (como [esta](http://www.gabormelli.com/RKB/SemCor_Corpus) y [esta](http://web.eecs.umich.edu/~mihalcea/downloads.html#semcor)), así como en [Kaggle](https://www.kaggle.com/nltkdata/semcor-corpus) o [NLTK](https://www.nltk.org/_modules/nltk/corpus/reader/semcor.html).
 
