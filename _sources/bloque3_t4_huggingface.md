@@ -247,7 +247,7 @@ model = AutoModelForSequenceClassification.from_pretrained("nlptown/bert-base-mu
 
 ### Configuraciones de modelos trasnformers
 Los **modelos pre-entrenados** que se brindan en el repositorio se **basan** en alguna de las **arquitecturas Transformers** descrita en la documentación del repositorio (<https://huggingface.co/docs>).
-Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](https://huggingface.co/transformers/model_doc/distilbert.html#overview) podemos conocer cómo **gestionar** los distintos **parámetros**, [**configuraciones de red neuronal**](https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig), [**tokenizador**](https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer) y **ejemplos** para cada tipo de tarea.
+Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](https://huggingface.co/transformers/model_doc/distilbert.html#overview) podemos conocer cómo **gestionar** los distintos **parámetros**, [**configuraciones de red neuronal**](https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig), [**tokenizador**](https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer) y **ejemplos documentados** para cada tipo de tarea, tal y como podemos encontrar en el siguiente enlace (<https://huggingface.co/course/chapter7/>).
 
 ````
 >>> # !pip install transformers
@@ -279,16 +279,194 @@ tensor([[[-1.8296e-01, -7.4054e-02,  5.0267e-02,  ..., -1.1261e-01,
 
 ````
 
-Es importante conocer que las **configuraciones** de modelos Transformer ya **cuentan** con **modelos base pre-entrenados**. En el caso de ``DistilBERT`` podemos encontrar ``distilbert-base-uncased``.
+Es importante conocer que las **configuraciones** de modelos Transformer ya **cuentan** con **modelos base pre-entrenados**. En el caso de ``DistilBERT`` podemos encontrar ``distilbert-base-uncased``. 
 
 
-## Tecnologías de generación de texto
+## Tecnologías de generación
+
+### GPT
+GPT significa "Generative Pretrained Transformer". Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual.
+
+
+- GPT-1: Es la primera versión de GPT, con solo 117 millones de parámetros. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.
+- GPT-2: Es la segunda versión de GPT, con solo 1.5 mil millones de parámetros. Es capaz de generar texto coherente y a menudo convincente.
+- GPT-3: Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de 175 mil millones de parámetros, lo que le permite generar texto muy convincente en una amplia variedad de contextos.
+
+Además de estas versiones, también existen variantes más pequeñas de GPT para diferentes usos, como GPT-3 Lite y GPT-2 Medium. Cada una de estas variantes tiene un tamaño y capacidad diferente, lo que las hace más adecuadas para diferentes aplicaciones y escenarios.
+
+A continuación se muestra un ejemplo de uso de GPT2:
+
+````
+import torch
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+# Inicializa el tokenizador
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+
+# Inicializa el modelo
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+
+# Define el prompt
+prompt = "Escribe un ensayo sobre la importancia de la tecnología en la educación"
+
+# Tokeniza el prompt
+input_ids = tokenizer.encode(prompt, return_tensors='pt')
+
+# Marca el fin de la entrada
+input_ids = input_ids[:, -1].unsqueeze(0)
+
+# Activamos el modelo en modo evaluación
+model.eval()
+
+# Generamos el texto
+with torch.no_grad():
+    outputs = model(input_ids, labels=input_ids)
+    loss, logits = outputs[:2]
+    logits = logits[0, -1, :]
+    probs = torch.nn.functional.softmax(logits, dim=-1)
+    next_token_id = torch.argmax(probs).unsqueeze(0)
+    input_ids = torch.cat([input_ids, next_token_id], dim=-1)
+
+# Convertimos los ids a texto
+generated_text = tokenizer.decode(input_ids[0].tolist())
+
+# Imprimimos el resultado
+print(generated_text)
+
+````
 
 ### Copilot
+Es asistente de inteligencia artificial diseñado para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más.
+
+Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y responder preguntas de forma eficiente y precisa. Algunos ejemplos de las tareas que puedes realizar con Copilot incluyen:
+
+- **Consultar información** sobre el clima, la hora actual y otras condiciones meteorológicas.
+- Obtener información sobre **eventos actuales, noticias y tendencias**.
+- Realizar **búsquedas en línea** y encontrar información sobre temas específicos.
+- **Programar recordatorios y citas**.
+- **Obtener recomendaciones** de restaurantes, películas y otras formas de entretenimiento.
+- **Traducir** palabras y frases a otros idiomas.
+- **Obtener información sobre la bolsa de valores**, la tasa de cambio y otras cotizaciones financieras.
+- **Resolver problemas** **matemáticos** y **responder preguntas** sobre **conceptos científicos** y **tecnológicos**.
+
+Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida.
 
 ### ChatGPT
 
+Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales. 
 
+Algunas de las funcionalidades más destacadas incluyen:
+
+- Responder preguntas: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo historia, geografía, ciencias, tecnología y mucho más.
+
+- Completar oraciones o fragmentos de texto: ChatGPT puede utilizar el contexto y la información previa para completar oraciones o fragmentos de texto de manera eficiente.
+
+- Generación de texto: ChatGPT puede generar texto en una variedad de formatos, como descripciones de productos, reseñas de películas y mucho más.
+
+- Traducción de idiomas: ChatGPT puede traducir palabras y frases a otros idiomas, lo que lo hace ideal para aquellos que desean comunicarse en un idioma distinto al suyo.
+
+- Resumen de texto: ChatGPT puede resumir grandes cantidades de texto en una forma concisa y fácil de entender.
+
+- Análisis de sentimientos: ChatGPT puede analizar el contenido de un texto para determinar el sentimiento que se expresa en él, como por ejemplo si es positivo, negativo o neutral.
+
+En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicaciones de esta tecnología:
+
+- Q&A
+  - Answer questions based on existing knowledge.
+Grammar correction
+Corrects sentences into standard English.
+Summarize for a 2nd grader
+Translates difficult text into simpler concepts.
+Natural language to OpenAI API
+Create code to call to the OpenAI API using a natural language instruction.
+Text to command
+Translate text into programmatic commands.
+English to other languages
+Translates English text into French, Spanish and Japanese.
+Natural language to Stripe API
+Create code to call the Stripe API using natural language.
+SQL translate
+Translate natural language to SQL queries.
+Parse unstructured data
+Create tables from long form text
+Classification
+Classify items into categories via example.
+Python to natural language
+Explain a piece of Python code in human understandable language.
+Movie to Emoji
+Convert movie titles into emoji.
+Calculate Time Complexity
+Find the time complexity of a function.
+Translate programming languages
+Translate from one programming language to another
+Advanced tweet classifier
+Advanced sentiment detection for a piece of text.
+Explain code
+Explain a complicated piece of code.
+Keywords
+Extract keywords from a block of text.
+Factual answering
+Guide the model towards factual answering by showing it how to respond to questions that fall outside its knowledge base. Using a '?' to indicate a response to words and phrases that it doesn't know provides a natural response that seems to work better than more abstract replies.
+Ad from product description
+Turn a product description into ad copy.
+Product name generator
+Create product names from examples words. Influenced by a community prompt.
+TL;DR summarization
+Summarize text by adding a 'tl;dr:' to the end of a text passage. It shows that the API understands how to perform a number of tasks with no instructions.
+Python bug fixer
+Find and fix bugs in source code.
+Spreadsheet creator
+Create spreadsheets of various kinds of data. It's a long prompt but very versatile. Output can be copy+pasted into a text file and saved as a .csv with pipe separators.
+JavaScript helper chatbot
+Message-style bot that answers JavaScript questions
+ML/AI language model tutor
+Bot that answers questions about language models
+Science fiction book list maker
+Create a list of items for a given topic.
+Tweet classifier
+Basic sentiment detection for a piece of text.
+Airport code extractor
+Extract airport codes from text.
+SQL request
+Create simple SQL queries.
+Extract contact information
+Extract contact information from a block of text.
+JavaScript to Python
+Convert simple JavaScript expressions into Python.
+Friend chat
+Emulate a text message conversation.
+Mood to color
+Turn a text description into a color.
+Write a Python docstring
+An example of how to create a docstring for a given Python function. We specify the Python version, paste in the code, and then ask within a comment for a docstring, and give a characteristic beginning of a docstring (""").
+Analogy maker
+Create analogies. Modified from a community prompt to require fewer examples.
+JavaScript one line function
+Turn a JavaScript function into a one liner.
+Micro horror story creator
+Creates two to three sentence short horror stories from a topic input.
+Third-person converter
+Converts first-person POV to the third-person. This is modified from a community prompt to use fewer examples.
+Notes to summary
+Turn meeting notes into a summary.
+VR fitness idea generator
+Create ideas for fitness and virtual reality games.
+Essay outline
+Generate an outline for a research topic.
+Recipe creator (eat at your own risk)
+Create a recipe from a list of ingredients.
+Chat
+Open ended conversation with an AI assistant.
+Marv the sarcastic chat bot
+Marv is a factual chatbot that is also sarcastic.
+Turn by turn directions
+Convert natural language to turn-by-turn directions.
+Restaurant review creator
+Turn a few words into a restaurant review.
+Create study notes
+Provide a topic and get study notes.
+Interview questions
+Create interview questions.
 
 ## Bibliografía
 
