@@ -20,6 +20,8 @@ Novedades
 :widths: 10 90
 :class: tablita
 
+* - 10 Feb 
+  - Ya tenéis disponibles en la sección "{ref}`label_actividades_previas`" las actividades a realizar esta semana antes de la siguiente clase presencial.
 * - 01 Feb 
   - En la sección "{ref}`label_actividades_previas`" podrás ir encontrando cada semana las actividades a realizar antes de la siguiente clase presencial. Habrá también un enlace a un pequeño cuestionario que tienes que rellenar antes de las 23.59 del día anterior con tu cuenta *gcloud.ua.es*. Recuerda que estos cuestionarios contribuyen a la nota final. Ya tienes disponible las actividades y el cuestionario a realizar antes de la clase del 8 de febrero de 2023.
 * - 25 Ene 
@@ -31,8 +33,11 @@ Novedades
 Actividades previas
 -------------------
 
+- Antes de la clase del 15/02/2023: lee los [apartados 5 y 6 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1_3AnalisisSemantico.html), y luego contesta la siguiente [cuestionario][test02] (plazo límite: 23:59 horas del 14/02/2023).
+
 - Antes de la clase del 08/02/2023: lee los [apartados 1, 2 y 3 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1.html); a continuación, contesta este [test][test01] (plazo límite: 23:59 horas del 07/02/2023).
 
+[test02]: https://docs.google.com/forms/d/e/1FAIpQLSec_eQ4ZecmSKNrPhNbuMkfhLko149ckC2qQzFxdmOapHvp8A/viewform?usp=sf_link
 [test01]: https://forms.gle/ncbWkFGCjSqXSTiX9
 
 
