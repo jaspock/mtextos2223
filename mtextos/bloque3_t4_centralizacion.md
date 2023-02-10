@@ -7,7 +7,7 @@ Contenidos:
 - [Introducción](#introduccion)
 - [Repositorio de Datasets](#repositorio-de-datasets)
 - [Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
-- [Tecnologías de Generción (Copilot, ChatGPT)](#)
+- [Tecnologías de Generación (GPT, Copilot, ChatGPT)](#)
 
 ## Introducción
 
@@ -247,7 +247,7 @@ model = AutoModelForSequenceClassification.from_pretrained("nlptown/bert-base-mu
 
 ### Configuraciones de modelos trasnformers
 Los **modelos pre-entrenados** que se brindan en el repositorio se **basan** en alguna de las **arquitecturas Transformers** descrita en la documentación del repositorio (<https://huggingface.co/docs>).
-Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](https://huggingface.co/transformers/model_doc/distilbert.html#overview) podemos conocer cómo **gestionar** los distintos **parámetros**, [**configuraciones de red neuronal**](https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig), [**tokenizador**](https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer) y **ejemplos** para cada tipo de tarea.
+Si tomamos como referencia la arquitectura de modelo Transformer [DistilBERT](https://huggingface.co/transformers/model_doc/distilbert.html#overview) podemos conocer cómo **gestionar** los distintos **parámetros**, [**configuraciones de red neuronal**](https://huggingface.co/transformers/model_doc/distilbert.html#distilbertconfig), [**tokenizador**](https://huggingface.co/transformers/model_doc/distilbert.html#distilberttokenizer) y **ejemplos documentados** para cada tipo de tarea, tal y como podemos encontrar en el siguiente enlace (<https://huggingface.co/course/chapter7/>).
 
 ````
 >>> # !pip install transformers
@@ -279,18 +279,221 @@ tensor([[[-1.8296e-01, -7.4054e-02,  5.0267e-02,  ..., -1.1261e-01,
 
 ````
 
-Es importante conocer que las **configuraciones** de modelos Transformer ya **cuentan** con **modelos base pre-entrenados**. En el caso de ``DistilBERT`` podemos encontrar ``distilbert-base-uncased``.
+Es importante conocer que las **configuraciones** de modelos Transformer ya **cuentan** con **modelos base pre-entrenados**. En el caso de ``DistilBERT`` podemos encontrar ``distilbert-base-uncased``. 
 
 
-## Tecnologías de generación de texto
+## Tecnologías de generación
+
+### GPT
+GPT significa "Generative Pretrained Transformer". Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual.
+
+
+- GPT-1: Es la primera versión de GPT, con solo 117 millones de parámetros. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.
+- GPT-2: Es la segunda versión de GPT, con solo 1.5 mil millones de parámetros. Es capaz de generar texto coherente y a menudo convincente.
+- GPT-3: Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de 175 mil millones de parámetros, lo que le permite generar texto muy convincente en una amplia variedad de contextos.
+
+Además de estas versiones, también existen variantes más pequeñas de GPT para diferentes usos, como GPT-3 Lite y GPT-2 Medium. Cada una de estas variantes tiene un tamaño y capacidad diferente, lo que las hace más adecuadas para diferentes aplicaciones y escenarios.
+
+A continuación se muestra un ejemplo de uso de GPT2:
+
+````
+import torch
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+# Inicializa el tokenizador
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+
+# Inicializa el modelo
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+
+# Define el prompt
+prompt = "Escribe un ejemplo sobre la importancia de la inteligencia artificial"
+
+# Tokeniza el prompt
+input_ids = tokenizer.encode(prompt, return_tensors='pt')
+
+# Marca el fin de la entrada
+input_ids = input_ids[:, -1].unsqueeze(0)
+
+# Activamos el modelo en modo evaluación
+model.eval()
+
+# Generamos el texto
+with torch.no_grad():
+    outputs = model(input_ids, labels=input_ids)
+    loss, logits = outputs[:2]
+    logits = logits[0, -1, :]
+    probs = torch.nn.functional.softmax(logits, dim=-1)
+    next_token_id = torch.argmax(probs).unsqueeze(0)
+    input_ids = torch.cat([input_ids, next_token_id], dim=-1)
+
+# Convertimos los ids a texto
+generated_text = tokenizer.decode(input_ids[0].tolist())
+
+# Imprimimos el resultado
+print(generated_text)
+
+````
+
+#### Ventajas
+
+- Alto rendimiento en tareas de lenguaje natural: GPT está entrenado en una gran cantidad de texto en internet, lo que le permite desarrollar una comprensión profunda del lenguaje natural y su uso en diferentes contextos. Esto hace que mejore la capacidad de rendimiento y calidad en tareas como la traducción automática, la generación de texto y la respuesta a preguntas.
+
+- Facilidad de uso: GPT es un modelo pre-entrenado, lo que significa que no es necesario entrenarlo desde cero para cada tarea específica. Esto significa que es más fácil de usar para los desarrolladores y requiere menos recursos de hardware y tiempo de entrenamiento.
+
+- Adaptabilidad: GPT puede ser finetuneado o adaptado a diferentes tareas y contextos específicos. Esto permite que el modelo se ajuste a los requisitos específicos de cada proyecto y mejore su rendimiento.
+
+- Capacidad generativa: GPT es un modelo generativo, lo que significa que es capaz de generar texto de forma autónoma. Esto es útil en una variedad de aplicaciones, como la generación de contenido, la creación de diálogos virtuales y la respuesta a preguntas.
+
+#### Desventajas
+- Bias y desigualdades: Al estar entrenado en una gran cantidad de texto en internet, GPT puede incorporar los sesgos y desigualdades presentes en la fuente de datos. 
+
+- Inseguridad: GPT es un modelo de aprendizaje automático, lo que significa que su rendimiento puede ser afectado por la calidad y la representatividad de la fuente de datos utilizada para su entrenamiento. Además, el modelo puede ser **vulnerable a ataques y manipulaciones**, como la generación de texto falsificado o la respuesta a preguntas inapropiadas.
+
+- Costos computacionales: GPT es un modelo grande y complejo que requiere una gran cantidad de recursos computacionales para su entrenamiento y uso. Esto puede resultar en costos elevados para el hardware y la energía, lo que puede ser un obstáculo para algunos usuarios.
+
+- Limitaciones en la comprensión del contexto: Aunque GPT ha sido entrenado en una gran cantidad de texto, todavía puede tener dificultades para comprender el contexto en el que se utiliza el lenguaje natural. Esto puede resultar en respuestas poco precisas o inapropiadas en ciertos contextos.
 
 ### Copilot
+Es asistente de inteligencia artificial diseñado, por OpenAI, para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más.
+
+Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y responder preguntas de forma eficiente y precisa. Algunos ejemplos de las tareas que puedes realizar con Copilot incluyen:
+
+- **Consultar información** sobre el clima, la hora actual y otras condiciones meteorológicas.
+- Obtener información sobre **eventos actuales, noticias y tendencias**.
+- Realizar **búsquedas en línea** y encontrar información sobre temas específicos.
+- **Programar recordatorios y citas**.
+- **Obtener recomendaciones** de restaurantes, películas y otras formas de entretenimiento.
+- **Traducir** palabras y frases a otros idiomas.
+- **Obtener información sobre la bolsa de valores**, la tasa de cambio y otras cotizaciones financieras.
+- **Resolver problemas** **matemáticos** y **responder preguntas** sobre **conceptos científicos** y **tecnológicos**.
+
+Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida.
+
+
+A continuación se muestra un fragmento de código utilizando la tecnología Copilot:
+
+````
+import requests
+import json
+
+# URL de la API de Copilot
+url = "https://api.openai.com/v1/engines/copilot/jobs"
+
+# Tu clave API
+api_key = "YOUR_API_KEY"
+
+# La pregunta que deseas hacerle a Copilot
+question = "What is the capital of France?"
+
+# Crea una solicitud HTTP POST con la pregunta y la clave API
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": f"Bearer {api_key}"
+}
+data = {
+  "prompt": question,
+  "max_tokens": 128,
+  "temperature": 0.5,
+}
+response = requests.post(url, headers=headers, data=json.dumps(data))
+
+# Verifica la respuesta de la API
+if response.status_code == 200:
+  # La respuesta de la API es un JSON
+  response_json = response.json()
+
+  # Imprime la respuesta de Copilot
+  print(response_json["choices"][0]["text"])
+else:
+  # La API ha devuelto un error
+  print(f"Error: {response.text}")
+  
+  ````
+
+
+#### Ventajas
+
+- Copilot utiliza una **interfaz de conversación natural** (Visual y API) para interactuar con los usuarios, lo que hace que sea fácil y agradable de usar.
+
+- Está entrenado en una amplia gama de información y puede **ayudar a los usuarios a encontrar y proporcionar información sobre una amplia variedad de temas**.
+
+- Puede ayudar a los usuarios a realizar tareas y **obtener información de manera más rápida y eficiente**, lo que les **permite ser más productivos**.
+
+- Está **diseñado para proporcionar una experiencia de usuario amigable y personalizada**, lo que puede mejorar la satisfacción del usuario y fidelización.
+
+- Puede **integrarse con otros servicios en línea** para proporcionar una experiencia de usuario más completa.
+
+#### Desventajas
+- Costo: Copilot es un producto de OpenAI(empresa privada) y puede ser costoso pagar el uso de servicios para algunos usuarios, especialmente para aquellos que requieren una gran cantidad de uso o integraciones.
+
+- Accesibilidad limitada: **Solo está disponible como una API**, por lo que solo puede ser utilizado por desarrolladores y no está disponible directamente para el público en general.
+
+- Capacidad limitada: Aunque Copilot está entrenado en una amplia gama de información, **todavía hay límites en su capacidad para comprender y responder** a todas las preguntas y tareas.
+
+- Confidencialidad y privacidad: Al usar Copilot, **debes compartir tus datos y preocuparte por la privacidad y seguridad de ellos**.
+
+- Requiere habilidades técnicas: Para **integrar esta tecnología** en tus aplicaciones y servicios, **debes tener habilidades** técnicas y conocimientos en programación.
 
 ### ChatGPT
+
+Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales. 
+
+Algunas de las funcionalidades más destacadas incluyen:
+
+- Responder preguntas: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo historia, geografía, ciencias, tecnología y mucho más.
+
+- Completar oraciones o fragmentos de texto: ChatGPT puede utilizar el contexto y la información previa para completar oraciones o fragmentos de texto de manera eficiente.
+
+- Generación de texto: ChatGPT puede generar texto en una variedad de formatos, como descripciones de productos, reseñas de películas y mucho más.
+
+- Traducción de idiomas: ChatGPT puede traducir palabras y frases a otros idiomas, lo que lo hace ideal para aquellos que desean comunicarse en un idioma distinto al suyo.
+
+- Resumen de texto: ChatGPT puede resumir grandes cantidades de texto en una forma concisa y fácil de entender.
+
+- Análisis de sentimientos: ChatGPT puede analizar el contenido de un texto para determinar el sentimiento que se expresa en él, como por ejemplo si es positivo, negativo o neutral.
+
+En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicaciones de esta tecnología:
+
+- Q&A
+- Corrección gramtical 
+- Resumir un texto
+- Traducir un texto complejo en un simple concepto.
+- Llamadas a APIs para usar técnicas de PLN 
+- Generar comandos de programación a partir de instrucciones en lenguaje natural
+- Traducción automática
+- Generar codificación de programación: para llamar APIs, sentencias SQL, estructuras de programación, etc., desde instrucciones en lenguaje natural
+- Crear tabulaciones a àrtir de texto
+- Separar contenido no estructurado
+- Tareas de clasificación. 
+  - Extracción de categorías implícitas en textos 
+- Generar descripciones y explicaciones a partir de códigos Python
+- Convertir el título de una película en un emoji
+- Hallar la complejidad computacional de una función
+- Traducir de un lenguaje de programación a otro
+- Detección de sentimientos para un fragmento de texto.
+- Explicar una pieza complicada de código.
+- Extraer palabras clave de un bloque de texto.
+- Convertir la descripción de un producto en un texto publicitario.
+- Generador de nombres de productos
+- Solucionar de errores de Python
+  - Encontrar y corregir errores en el código fuente.
+- Crear de hojas de cálculo
+- Responder preguntas de JavaScript
+- Responder preguntas sobre modelos de lenguaje
+- Crear una lista de elementos para un tema determinado.
+- Extracción de información
+- Crear  microhistorias
+- Convertir texto en de tercera persona
+- Generar esquemas para un tema.
+- Conversación abierta con un asistente de IA.
+
+
 
 
 
 ## Bibliografía
 
 [1] <https://huggingface.co/>
+[] <https://openai.com/blog/chatgpt/>
 
