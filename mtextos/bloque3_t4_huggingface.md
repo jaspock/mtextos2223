@@ -7,7 +7,7 @@ Contenidos:
 - [Introducción](#introduccion)
 - [Repositorio de Datasets](#repositorio-de-datasets)
 - [Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
-- [Tecnologías de Generción (Copilot, ChatGPT)](#)
+- [Tecnologías de Generación (GPT, Copilot, ChatGPT)](#)
 
 ## Introducción
 
@@ -335,8 +335,27 @@ print(generated_text)
 
 ````
 
+#### Ventajas
+
+- Alto rendimiento en tareas de lenguaje natural: GPT está entrenado en una gran cantidad de texto en internet, lo que le permite desarrollar una comprensión profunda del lenguaje natural y su uso en diferentes contextos. Esto hace que mejore la capacidad de rendimiento y calidad en tareas como la traducción automática, la generación de texto y la respuesta a preguntas.
+
+- Facilidad de uso: GPT es un modelo pre-entrenado, lo que significa que no es necesario entrenarlo desde cero para cada tarea específica. Esto significa que es más fácil de usar para los desarrolladores y requiere menos recursos de hardware y tiempo de entrenamiento.
+
+- Adaptabilidad: GPT puede ser finetuneado o adaptado a diferentes tareas y contextos específicos. Esto permite que el modelo se ajuste a los requisitos específicos de cada proyecto y mejore su rendimiento.
+
+- Capacidad generativa: GPT es un modelo generativo, lo que significa que es capaz de generar texto de forma autónoma. Esto es útil en una variedad de aplicaciones, como la generación de contenido, la creación de diálogos virtuales y la respuesta a preguntas.
+
+#### Desventajas
+- Bias y desigualdades: Al estar entrenado en una gran cantidad de texto en internet, GPT puede incorporar los sesgos y desigualdades presentes en la fuente de datos. 
+
+- Inseguridad: GPT es un modelo de aprendizaje automático, lo que significa que su rendimiento puede ser afectado por la calidad y la representatividad de la fuente de datos utilizada para su entrenamiento. Además, el modelo puede ser **vulnerable a ataques y manipulaciones**, como la generación de texto falsificado o la respuesta a preguntas inapropiadas.
+
+- Costos computacionales: GPT es un modelo grande y complejo que requiere una gran cantidad de recursos computacionales para su entrenamiento y uso. Esto puede resultar en costos elevados para el hardware y la energía, lo que puede ser un obstáculo para algunos usuarios.
+
+- Limitaciones en la comprensión del contexto: Aunque GPT ha sido entrenado en una gran cantidad de texto, todavía puede tener dificultades para comprender el contexto en el que se utiliza el lenguaje natural. Esto puede resultar en respuestas poco precisas o inapropiadas en ciertos contextos.
+
 ### Copilot
-Es asistente de inteligencia artificial diseñado para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más.
+Es asistente de inteligencia artificial diseñado, por OpenAI, para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más.
 
 Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y responder preguntas de forma eficiente y precisa. Algunos ejemplos de las tareas que puedes realizar con Copilot incluyen:
 
@@ -350,6 +369,71 @@ Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y res
 - **Resolver problemas** **matemáticos** y **responder preguntas** sobre **conceptos científicos** y **tecnológicos**.
 
 Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida.
+
+
+A continuación se muestra un fragmento de código utilizando la tecnología Copilot:
+
+````
+import requests
+import json
+
+# URL de la API de Copilot
+url = "https://api.openai.com/v1/engines/copilot/jobs"
+
+# Tu clave API
+api_key = "YOUR_API_KEY"
+
+# La pregunta que deseas hacerle a Copilot
+question = "What is the capital of France?"
+
+# Crea una solicitud HTTP POST con la pregunta y la clave API
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": f"Bearer {api_key}"
+}
+data = {
+  "prompt": question,
+  "max_tokens": 128,
+  "temperature": 0.5,
+}
+response = requests.post(url, headers=headers, data=json.dumps(data))
+
+# Verifica la respuesta de la API
+if response.status_code == 200:
+  # La respuesta de la API es un JSON
+  response_json = response.json()
+
+  # Imprime la respuesta de Copilot
+  print(response_json["choices"][0]["text"])
+else:
+  # La API ha devuelto un error
+  print(f"Error: {response.text}")
+  
+  ````
+
+
+#### Ventajas
+
+- Copilot utiliza una **interfaz de conversación natural** (Visual y API) para interactuar con los usuarios, lo que hace que sea fácil y agradable de usar.
+
+- Está entrenado en una amplia gama de información y puede **ayudar a los usuarios a encontrar y proporcionar información sobre una amplia variedad de temas**.
+
+- Puede ayudar a los usuarios a realizar tareas y **obtener información de manera más rápida y eficiente**, lo que les **permite ser más productivos**.
+
+- Está **diseñado para proporcionar una experiencia de usuario amigable y personalizada**, lo que puede mejorar la satisfacción del usuario y fidelización.
+
+- Puede **integrarse con otros servicios en línea** para proporcionar una experiencia de usuario más completa.
+
+#### Desventajas
+- Costo: Copilot es un producto de OpenAI(empresa privada) y puede ser costoso pagar el uso de servicios para algunos usuarios, especialmente para aquellos que requieren una gran cantidad de uso o integraciones.
+
+- Accesibilidad limitada: **Solo está disponible como una API**, por lo que solo puede ser utilizado por desarrolladores y no está disponible directamente para el público en general.
+
+- Capacidad limitada: Aunque Copilot está entrenado en una amplia gama de información, **todavía hay límites en su capacidad para comprender y responder** a todas las preguntas y tareas.
+
+- Confidencialidad y privacidad: Al usar Copilot, **debes compartir tus datos y preocuparte por la privacidad y seguridad de ellos**.
+
+- Requiere habilidades técnicas: Para **integrar esta tecnología** en tus aplicaciones y servicios, **debes tener habilidades** técnicas y conocimientos en programación.
 
 ### ChatGPT
 
