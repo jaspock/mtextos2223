@@ -177,7 +177,7 @@ Ejemplo de Análisis de Sentimientos con Huggingface Transformer:
 [{'label': 'POSITIVE', 'score': 0.9997795224189758}]
 ````
 
-Si os fijáis hemos cargado un modelo pre-entrenado a través del pipeline  ``sentiment-analysis`` para utilizarlo como clasificador. Este **modelo** se puede **reentrenar** a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para más detalles ver la clase práctica [``bloque3_p3_SA-Transformers-Training-FineTuning``](https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html)
+Si os fijáis hemos cargado un modelo pre-entrenado a través del pipeline  ``sentiment-analysis`` para utilizarlo como clasificador. Este **modelo** se puede **reentrenar** a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para **más detalles ver la clase práctica** [``bloque3_p3_SA-Transformers-Training-FineTuning``](https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html)
 
 
 Si queremos que el pipeline sea multilingue, podemos indicar el modelo exacto que contemple un diccionario de este tipo y el pipeline lo ensamblará internamente. Mirad el siguiente ejemplo:
@@ -285,7 +285,7 @@ Es importante conocer que las **configuraciones** de modelos Transformer ya **cu
 ## Tecnologías de generación
 
 ### GPT
-GPT significa "Generative Pretrained Transformer". Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual.
+GPT significa "Generative Pretrained Transformer". Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual. !Es **orientado a liberías**! Es decir, se puede incorporar el componente en tu propia aplicación.
 
 
 - GPT-1: Es la primera versión de GPT, con solo 117 millones de parámetros. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.
@@ -355,7 +355,7 @@ print(generated_text)
 - Limitaciones en la comprensión del contexto: Aunque GPT ha sido entrenado en una gran cantidad de texto, todavía puede tener dificultades para comprender el contexto en el que se utiliza el lenguaje natural. Esto puede resultar en respuestas poco precisas o inapropiadas en ciertos contextos.
 
 ### Copilot
-Es asistente de inteligencia artificial diseñado, por OpenAI, para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más.
+Es asistente de inteligencia artificial diseñado, por OpenAI, para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más. !Es **orientado a servicios en la nube**! Es decir, se se accede a los servicios online a través de una API.
 
 Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y responder preguntas de forma eficiente y precisa. Algunos ejemplos de las tareas que puedes realizar con Copilot incluyen:
 
@@ -435,9 +435,21 @@ else:
 
 - Requiere habilidades técnicas: Para **integrar esta tecnología** en tus aplicaciones y servicios, **debes tener habilidades** técnicas y conocimientos en programación.
 
+#### Alternativas a Copilot
+
+- **Dialogflow**: Una plataforma de Google que permite a los desarrolladores crear chatbots y aplicaciones de conversación.
+
+- **IBM Watson Assistant: Una plataforma de inteligencia artificial de IBM que permite a los desarrolladores crear chatbots y aplicaciones de conversación.
+
+- **Microsoft Bot Framework**: Un marco de trabajo de Microsoft que permite a los desarrolladores crear chatbots y aplicaciones de conversación para varias plataformas, incluidas las aplicaciones de mensajería, los sitios web y las aplicaciones de escritorio.
+
+- **Amazon Lex**: Un servicio de Amazon Web Services que permite a los desarrolladores crear chatbots y aplicaciones de conversación.
+
+- **Rasa**: Un marco de software de código abierto que permite a los desarrolladores crear chatbots y aplicaciones de conversación.
+
 ### ChatGPT
 
-Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales. 
+Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales. !Es **orientado a servicios en la nube**! Es decir, se se accede a los servicios online a través de una API.
 
 Algunas de las funcionalidades más destacadas incluyen:
 
@@ -488,9 +500,58 @@ En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicac
 - Generar esquemas para un tema.
 - Conversación abierta con un asistente de IA.
 
+#### Ejemplo de uso de la API 
+````
+import openai
+
+# Inicializar la API de OpenAI
+openai.api_key = "tu_api_key_aqui"
+
+# Hacer una pregunta a ChatGPT
+response = openai.Completion.create(
+    engine="text-davinci-002",
+    prompt="Qué es el sol?",
+    max_tokens=1024,
+    n=1,
+    stop=None,
+    temperature=0.5,
+)
+
+# Imprimir la respuesta
+print(response["choices"][0]["text"])
+````
 
 
+#### Ventajas
 
+- **Gran capacidad de comprensión del lenguaje natural**: ChatGPT ha sido entrenado en una amplia variedad de textos y ha desarrollado una comprensión profunda del lenguaje humano, lo que le permite responder de manera fluida y natural a las preguntas y comentarios de los usuarios.
+
+- **Personalización**: Puede ser personalizado para diferentes aplicaciones y usos, lo que lo hace ideal para una amplia variedad de industrias.
+
+- **Alta disponibilidad**: Está **disponible en la nube** y puede ser accedido desde cualquier lugar con una conexión a Internet, lo que lo hace muy accesible para los usuarios.
+
+- **Rapidez y eficiencia**: Es **capaz de procesar grandes cantidades de información** en un tiempo muy corto, lo que lo hace ideal para aplicaciones en tiempo real.
+
+- **Mejora continua**: Está en constante desarrollo y mejora por parte de OpenAI, lo que significa que sus capacidades y funciones continúan mejorando con el tiempo.
+
+#### Desventajas
+
+- **Limitaciones en la comprensión del contexto**: Aunque ChatGPT ha sido entrenado en una amplia variedad de textos, todavía puede tener dificultades para comprender el contexto completo de una conversación, especialmente en situaciones más complejas.
+
+- **Responsabilidad por la precisión de la información**: Puede proporcionar información que no sea precisa o que sea engañosa. Es responsabilidad del usuario verificar la información proporcionada por ChatGPT antes de tomar decisiones o acciones importantes.
+
+- **Requisitos de infraestructura**: Para utilizar ChatGPT, es **necesario tener acceso a la infraestructura** y los recursos necesarios para conectarse y comunicarse con el modelo. Esto **puede ser un obstáculo para algunos usuarios que no cuenten con la infraestructura adecuada**. **Acceso a internet obligatorio!!!**
+
+- **Costo**: Su uso **puede requerir una inversión significativa en términos de costos de licenciamiento** y recursos de infraestructura.
+
+#### Alternativas a ChatGPT
+Algunas alternativas son:
+
+- **Microsoft's XiaoIce**: un modelo de lenguaje desarrollado por Microsoft que se especializa en conversaciones en línea.
+
+- **Google's Meena**: un modelo de lenguaje desarrollado por Google que se ha entrenado en una amplia variedad de tareas y es conocido por su capacidad para responder a preguntas en contexto.
+
+- **OpenAI's GPT-3**: uno de los modelos de lenguaje más grandes y avanzados disponibles, con una amplia variedad de aplicaciones, desde la generación de texto hasta la resolución de problemas complejos.
 
 ## Bibliografía
 
