@@ -54,7 +54,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 [t2]: https://jaspock.github.io/mtextos2223/bloque3_t2_subaplicaciones-benchmarks.html
 [t2.1]: https://jaspock.github.io/mtextos2223/bloque3_t2.1_analisis_sentimientos.html
 [t3]: https://jaspock.github.io/mtextos2223/bloque3_t3.1_metricas.html
-[t4]: https://jaspock.github.io/mtextos2223/bloque3_t4_huggingface.html
+[t4]: https://jaspock.github.io/mtextos2223/bloque3_t4_centralizacion.html
 [t5]: https://jaspock.github.io/mtextos2223/bloque3_t5_automl.html
 [t5.1]: https://jaspock.github.io/mtextos2223/bloque3_t5.1_autogoal.html
 
