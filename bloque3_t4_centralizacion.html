@@ -397,12 +397,39 @@ title="Print to PDF"
        Desventajas
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternativas-a-copilot">
+       Alternativas a Copilot
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chatgpt">
      ChatGPT
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api">
+       Ejemplo de uso de la API
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Ventajas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Desventajas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternativas-a-chatgpt">
+       Alternativas a ChatGPT
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -516,12 +543,39 @@ title="Print to PDF"
        Desventajas
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternativas-a-copilot">
+       Alternativas a Copilot
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chatgpt">
      ChatGPT
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api">
+       Ejemplo de uso de la API
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Ventajas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Desventajas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternativas-a-chatgpt">
+       Alternativas a ChatGPT
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -665,7 +719,7 @@ A mediados de 2022 esta plataforma federativa da un paso agigantado expandiendo 
 <span class="go">[{&#39;label&#39;: &#39;POSITIVE&#39;, &#39;score&#39;: 0.9997795224189758}]</span>
 </pre></div>
 </div>
-<p>Si os fijáis hemos cargado un modelo pre-entrenado a través del pipeline  <code class="docutils literal notranslate"><span class="pre">sentiment-analysis</span></code> para utilizarlo como clasificador. Este <strong>modelo</strong> se puede <strong>reentrenar</strong> a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para más detalles ver la clase práctica <a class="reference external" href="https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html"><code class="docutils literal notranslate"><span class="pre">bloque3_p3_SA-Transformers-Training-FineTuning</span></code></a></p>
+<p>Si os fijáis hemos cargado un modelo pre-entrenado a través del pipeline  <code class="docutils literal notranslate"><span class="pre">sentiment-analysis</span></code> para utilizarlo como clasificador. Este <strong>modelo</strong> se puede <strong>reentrenar</strong> a escenarios específicos si queremos realizando un ajuste sobre un nuevo corpus. Para <strong>más detalles ver la clase práctica</strong> <a class="reference external" href="https://jaspock.github.io/mtextos/bloque3_p3_SA-Transformers-Training-FineTuning.html"><code class="docutils literal notranslate"><span class="pre">bloque3_p3_SA-Transformers-Training-FineTuning</span></code></a></p>
 <p>Si queremos que el pipeline sea multilingue, podemos indicar el modelo exacto que contemple un diccionario de este tipo y el pipeline lo ensamblará internamente. Mirad el siguiente ejemplo:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;sentiment-analysis&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;nlptown/bert-base-multilingual-uncased-sentiment&#39;</span> <span class="p">)</span>
@@ -768,7 +822,7 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <h2>Tecnologías de generación<a class="headerlink" href="#tecnologias-de-generacion" title="Permalink to this headline">#</a></h2>
 <section id="gpt">
 <h3>GPT<a class="headerlink" href="#gpt" title="Permalink to this headline">#</a></h3>
-<p>GPT significa “Generative Pretrained Transformer”. Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual.</p>
+<p>GPT significa “Generative Pretrained Transformer”. Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual. !Es <strong>orientado a liberías</strong>! Es decir, se puede incorporar el componente en tu propia aplicación.</p>
 <ul class="simple">
 <li><p>GPT-1: Es la primera versión de GPT, con solo 117 millones de parámetros. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.</p></li>
 <li><p>GPT-2: Es la segunda versión de GPT, con solo 1.5 mil millones de parámetros. Es capaz de generar texto coherente y a menudo convincente.</p></li>
@@ -835,7 +889,7 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 </section>
 <section id="copilot">
 <h3>Copilot<a class="headerlink" href="#copilot" title="Permalink to this headline">#</a></h3>
-<p>Es asistente de inteligencia artificial diseñado, por OpenAI, para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más.</p>
+<p>Es asistente de inteligencia artificial diseñado, por OpenAI, para ayudar enel completamiento de código mediante el uso de la conversación natural. Copilot utiliza modelos de lenguaje avanzados para comprender tus necesidades y brindarte la información y la ayuda que necesitas. Puedes interactuar con Copilot en una variedad de plataformas y dispositivos, incluyendo mensajería, aplicaciones de chat, aplicaciones de escritorio y más. !Es <strong>orientado a servicios en la nube</strong>! Es decir, se se accede a los servicios online a través de una API.</p>
 <p>Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y responder preguntas de forma eficiente y precisa. Algunos ejemplos de las tareas que puedes realizar con Copilot incluyen:</p>
 <ul class="simple">
 <li><p><strong>Consultar información</strong> sobre el clima, la hora actual y otras condiciones meteorológicas.</p></li>
@@ -906,10 +960,20 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p>Requiere habilidades técnicas: Para <strong>integrar esta tecnología</strong> en tus aplicaciones y servicios, <strong>debes tener habilidades</strong> técnicas y conocimientos en programación.</p></li>
 </ul>
 </section>
+<section id="alternativas-a-copilot">
+<h4>Alternativas a Copilot<a class="headerlink" href="#alternativas-a-copilot" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>Dialogflow</strong>: Una plataforma de Google que permite a los desarrolladores crear chatbots y aplicaciones de conversación.</p></li>
+<li><p>**IBM Watson Assistant: Una plataforma de inteligencia artificial de IBM que permite a los desarrolladores crear chatbots y aplicaciones de conversación.</p></li>
+<li><p><strong>Microsoft Bot Framework</strong>: Un marco de trabajo de Microsoft que permite a los desarrolladores crear chatbots y aplicaciones de conversación para varias plataformas, incluidas las aplicaciones de mensajería, los sitios web y las aplicaciones de escritorio.</p></li>
+<li><p><strong>Amazon Lex</strong>: Un servicio de Amazon Web Services que permite a los desarrolladores crear chatbots y aplicaciones de conversación.</p></li>
+<li><p><strong>Rasa</strong>: Un marco de software de código abierto que permite a los desarrolladores crear chatbots y aplicaciones de conversación.</p></li>
+</ul>
+</section>
 </section>
 <section id="chatgpt">
 <h3>ChatGPT<a class="headerlink" href="#chatgpt" title="Permalink to this headline">#</a></h3>
-<p>Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales.</p>
+<p>Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales. !Es <strong>orientado a servicios en la nube</strong>! Es decir, se se accede a los servicios online a través de una API.</p>
 <p>Algunas de las funcionalidades más destacadas incluyen:</p>
 <ul class="simple">
 <li><p>Responder preguntas: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo historia, geografía, ciencias, tecnología y mucho más.</p></li>
@@ -960,6 +1024,56 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p>Generar esquemas para un tema.</p></li>
 <li><p>Conversación abierta con un asistente de IA.</p></li>
 </ul>
+<section id="ejemplo-de-uso-de-la-api">
+<h4>Ejemplo de uso de la API<a class="headerlink" href="#ejemplo-de-uso-de-la-api" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
+
+<span class="c1"># Inicializar la API de OpenAI</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;tu_api_key_aqui&quot;</span>
+
+<span class="c1"># Hacer una pregunta a ChatGPT</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Qué es el sol?&quot;</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Imprimir la respuesta</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h4>Ventajas<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>Gran capacidad de comprensión del lenguaje natural</strong>: ChatGPT ha sido entrenado en una amplia variedad de textos y ha desarrollado una comprensión profunda del lenguaje humano, lo que le permite responder de manera fluida y natural a las preguntas y comentarios de los usuarios.</p></li>
+<li><p><strong>Personalización</strong>: Puede ser personalizado para diferentes aplicaciones y usos, lo que lo hace ideal para una amplia variedad de industrias.</p></li>
+<li><p><strong>Alta disponibilidad</strong>: Está <strong>disponible en la nube</strong> y puede ser accedido desde cualquier lugar con una conexión a Internet, lo que lo hace muy accesible para los usuarios.</p></li>
+<li><p><strong>Rapidez y eficiencia</strong>: Es <strong>capaz de procesar grandes cantidades de información</strong> en un tiempo muy corto, lo que lo hace ideal para aplicaciones en tiempo real.</p></li>
+<li><p><strong>Mejora continua</strong>: Está en constante desarrollo y mejora por parte de OpenAI, lo que significa que sus capacidades y funciones continúan mejorando con el tiempo.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>Desventajas<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><strong>Limitaciones en la comprensión del contexto</strong>: Aunque ChatGPT ha sido entrenado en una amplia variedad de textos, todavía puede tener dificultades para comprender el contexto completo de una conversación, especialmente en situaciones más complejas.</p></li>
+<li><p><strong>Responsabilidad por la precisión de la información</strong>: Puede proporcionar información que no sea precisa o que sea engañosa. Es responsabilidad del usuario verificar la información proporcionada por ChatGPT antes de tomar decisiones o acciones importantes.</p></li>
+<li><p><strong>Requisitos de infraestructura</strong>: Para utilizar ChatGPT, es <strong>necesario tener acceso a la infraestructura</strong> y los recursos necesarios para conectarse y comunicarse con el modelo. Esto <strong>puede ser un obstáculo para algunos usuarios que no cuenten con la infraestructura adecuada</strong>. <strong>Acceso a internet obligatorio!!!</strong></p></li>
+<li><p><strong>Costo</strong>: Su uso <strong>puede requerir una inversión significativa en términos de costos de licenciamiento</strong> y recursos de infraestructura.</p></li>
+</ul>
+</section>
+<section id="alternativas-a-chatgpt">
+<h4>Alternativas a ChatGPT<a class="headerlink" href="#alternativas-a-chatgpt" title="Permalink to this headline">#</a></h4>
+<p>Algunas alternativas son:</p>
+<ul class="simple">
+<li><p><strong>Microsoft’s XiaoIce</strong>: un modelo de lenguaje desarrollado por Microsoft que se especializa en conversaciones en línea.</p></li>
+<li><p><strong>Google’s Meena</strong>: un modelo de lenguaje desarrollado por Google que se ha entrenado en una amplia variedad de tareas y es conocido por su capacidad para responder a preguntas en contexto.</p></li>
+<li><p><strong>OpenAI’s GPT-3</strong>: uno de los modelos de lenguaje más grandes y avanzados disponibles, con una amplia variedad de aplicaciones, desde la generación de texto hasta la resolución de problemas complejos.</p></li>
+</ul>
+</section>
 </section>
 </section>
 <section id="bibliografia">
