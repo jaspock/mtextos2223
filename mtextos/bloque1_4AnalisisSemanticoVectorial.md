@@ -280,3 +280,7 @@ Navarro Colorado, Borja (2021) "Sistemas de anotación semántica para corpus de
 
 Widdows, D. (2004) *Geometry and meaning*, CSLI.
 
+## 3.5. Cuestionario de aprendizaje
+
+Una vez realizadas las lecturas, contesta las preguntas de este [cuestionario](https://docs.google.com/forms/d/e/1FAIpQLSec_eQ4ZecmSKNrPhNbuMkfhLko149ckC2qQzFxdmOapHvp8A/viewform?usp=sf_link).
+
