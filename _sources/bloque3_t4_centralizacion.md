@@ -294,44 +294,13 @@ GPT significa "Generative Pretrained Transformer". Es un modelo de lenguaje que 
 
 Además de estas versiones, también existen variantes más pequeñas de GPT para diferentes usos, como GPT-3 Lite y GPT-2 Medium. Cada una de estas variantes tiene un tamaño y capacidad diferente, lo que las hace más adecuadas para diferentes aplicaciones y escenarios.
 
-A continuación se muestra un ejemplo de uso de GPT2:
+A continuación se muestra un ejemplo de uso de GPT2 en un Pipeline:
 
 ````
-import torch
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
-
-# Inicializa el tokenizador
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-
-# Inicializa el modelo
-model = GPT2LMHeadModel.from_pretrained('gpt2')
-
-# Define el prompt
-prompt = "Escribe un ejemplo sobre la importancia de la inteligencia artificial"
-
-# Tokeniza el prompt
-input_ids = tokenizer.encode(prompt, return_tensors='pt')
-
-# Marca el fin de la entrada
-input_ids = input_ids[:, -1].unsqueeze(0)
-
-# Activamos el modelo en modo evaluación
-model.eval()
-
-# Generamos el texto
-with torch.no_grad():
-    outputs = model(input_ids, labels=input_ids)
-    loss, logits = outputs[:2]
-    logits = logits[0, -1, :]
-    probs = torch.nn.functional.softmax(logits, dim=-1)
-    next_token_id = torch.argmax(probs).unsqueeze(0)
-    input_ids = torch.cat([input_ids, next_token_id], dim=-1)
-
-# Convertimos los ids a texto
-generated_text = tokenizer.decode(input_ids[0].tolist())
-
-# Imprimimos el resultado
-print(generated_text)
+from transformers import pipeline, set_seed
+generator = pipeline('text-generation', model='gpt2')
+set_seed(42)
+generator("My name is", max_length=30, num_return_sequences=5)
 
 ````
 
@@ -368,48 +337,8 @@ Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y res
 - **Obtener información sobre la bolsa de valores**, la tasa de cambio y otras cotizaciones financieras.
 - **Resolver problemas** **matemáticos** y **responder preguntas** sobre **conceptos científicos** y **tecnológicos**.
 
-Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida.
+Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida. Ejemplo de ello, lo podemos encontrar en la integración de pluggins en [Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code) para la completación de códigos.
 
-
-A continuación se muestra un fragmento de código utilizando la tecnología Copilot:
-
-````
-import requests
-import json
-
-# URL de la API de Copilot
-url = "https://api.openai.com/v1/engines/copilot/jobs"
-
-# Tu clave API
-api_key = "YOUR_API_KEY"
-
-# La pregunta que deseas hacerle a Copilot
-question = "What is the capital of France?"
-
-# Crea una solicitud HTTP POST con la pregunta y la clave API
-headers = {
-  "Content-Type": "application/json",
-  "Authorization": f"Bearer {api_key}"
-}
-data = {
-  "prompt": question,
-  "max_tokens": 128,
-  "temperature": 0.5,
-}
-response = requests.post(url, headers=headers, data=json.dumps(data))
-
-# Verifica la respuesta de la API
-if response.status_code == 200:
-  # La respuesta de la API es un JSON
-  response_json = response.json()
-
-  # Imprime la respuesta de Copilot
-  print(response_json["choices"][0]["text"])
-else:
-  # La API ha devuelto un error
-  print(f"Error: {response.text}")
-  
-  ````
 
 
 #### Ventajas
@@ -453,17 +382,17 @@ Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en inte
 
 Algunas de las funcionalidades más destacadas incluyen:
 
-- Responder preguntas: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo historia, geografía, ciencias, tecnología y mucho más.
+- **Responder preguntas**: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo **historia, geografía, ciencias, tecnología, programación y mucho más**.
 
-- Completar oraciones o fragmentos de texto: ChatGPT puede utilizar el contexto y la información previa para completar oraciones o fragmentos de texto de manera eficiente.
+- **Completar oraciones o fragmentos de texto**: ChatGPT puede utilizar el contexto y la información previa para completar oraciones o fragmentos de texto de manera eficiente.
 
-- Generación de texto: ChatGPT puede generar texto en una variedad de formatos, como descripciones de productos, reseñas de películas y mucho más.
+- **Generar texto**: ChatGPT puede generar texto en una variedad de formatos, como descripciones de productos, reseñas de películas y mucho más.
 
-- Traducción de idiomas: ChatGPT puede traducir palabras y frases a otros idiomas, lo que lo hace ideal para aquellos que desean comunicarse en un idioma distinto al suyo.
+- **Traducción de idiomas**: ChatGPT puede traducir palabras y frases a otros idiomas, lo que lo hace ideal para aquellos que desean comunicarse en un idioma distinto al suyo.
 
-- Resumen de texto: ChatGPT puede resumir grandes cantidades de texto en una forma concisa y fácil de entender.
+- **Resumen de texto**: ChatGPT puede resumir grandes cantidades de texto en una forma concisa y fácil de entender.
 
-- Análisis de sentimientos: ChatGPT puede analizar el contenido de un texto para determinar el sentimiento que se expresa en él, como por ejemplo si es positivo, negativo o neutral.
+- **Análisis de sentimientos**: ChatGPT puede analizar el contenido de un texto para determinar el sentimiento que se expresa en él, como por ejemplo si es positivo, negativo o neutral.
 
 En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicaciones de esta tecnología:
 
@@ -500,7 +429,7 @@ En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicac
 - Generar esquemas para un tema.
 - Conversación abierta con un asistente de IA.
 
-#### Ejemplo de uso de la API 
+#### Ejemplo de uso de la API ChatGPT 
 ````
 import openai
 
@@ -547,14 +476,17 @@ print(response["choices"][0]["text"])
 #### Alternativas a ChatGPT
 Algunas alternativas son:
 
-- **Microsoft's XiaoIce**: un modelo de lenguaje desarrollado por Microsoft que se especializa en conversaciones en línea.
+- **Dialogflow**: Dialogflow es una plataforma de Google Cloud para desarrollar conversaciones automatizadas y chatbots. Puedes encontrar más información en: <https://dialogflow.com/>
 
-- **Google's Meena**: un modelo de lenguaje desarrollado por Google que se ha entrenado en una amplia variedad de tareas y es conocido por su capacidad para responder a preguntas en contexto.
+- **Amazon Lex**: Amazon Lex es un servicio de Amazon Web Services para crear chatbots y aplicaciones de voz. Puedes encontrar más información en: <https://aws.amazon.com/lex/>
 
-- **OpenAI's GPT-3**: uno de los modelos de lenguaje más grandes y avanzados disponibles, con una amplia variedad de aplicaciones, desde la generación de texto hasta la resolución de problemas complejos.
+- **Microsoft Bot Framework**: El Microsoft Bot Framework es un marco de trabajo para desarrollar chatbots y aplicaciones de conversación en Microsoft Azure. Puedes encontrar más información en: <https://azure.microsoft.com/es-es/products/bot-services>
+
+
 
 ## Bibliografía
 
 [1] <https://huggingface.co/>
-[] <https://openai.com/blog/chatgpt/>
+[2] <https://openai.com/blog/chatgpt/>
+[3] Zhang, Y., Sun, S., Galley, M., Chen, Y. C., Brockett, C., Gao, X., ... & Dolan, B. (2019). Dialogpt: Large-scale generative pre-training for conversational response generation. arXiv preprint arXiv:1911.00536.
 

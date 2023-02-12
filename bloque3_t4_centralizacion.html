@@ -410,8 +410,8 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api">
-       Ejemplo de uso de la API
+      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api-chatgpt">
+       Ejemplo de uso de la API ChatGPT
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -556,8 +556,8 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api">
-       Ejemplo de uso de la API
+      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api-chatgpt">
+       Ejemplo de uso de la API ChatGPT
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -829,42 +829,11 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p>GPT-3: Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de 175 mil millones de parámetros, lo que le permite generar texto muy convincente en una amplia variedad de contextos.</p></li>
 </ul>
 <p>Además de estas versiones, también existen variantes más pequeñas de GPT para diferentes usos, como GPT-3 Lite y GPT-2 Medium. Cada una de estas variantes tiene un tamaño y capacidad diferente, lo que las hace más adecuadas para diferentes aplicaciones y escenarios.</p>
-<p>A continuación se muestra un ejemplo de uso de GPT2:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">GPT2Tokenizer</span><span class="p">,</span> <span class="n">GPT2LMHeadModel</span>
-
-<span class="c1"># Inicializa el tokenizador</span>
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">GPT2Tokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;gpt2&#39;</span><span class="p">)</span>
-
-<span class="c1"># Inicializa el modelo</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">GPT2LMHeadModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;gpt2&#39;</span><span class="p">)</span>
-
-<span class="c1"># Define el prompt</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Escribe un ejemplo sobre la importancia de la inteligencia artificial&quot;</span>
-
-<span class="c1"># Tokeniza el prompt</span>
-<span class="n">input_ids</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
-
-<span class="c1"># Marca el fin de la entrada</span>
-<span class="n">input_ids</span> <span class="o">=</span> <span class="n">input_ids</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># Activamos el modelo en modo evaluación</span>
-<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-
-<span class="c1"># Generamos el texto</span>
-<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">input_ids</span><span class="p">)</span>
-    <span class="n">loss</span><span class="p">,</span> <span class="n">logits</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">logits</span> <span class="o">=</span> <span class="n">logits</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
-    <span class="n">probs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">next_token_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">next_token_id</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Convertimos los ids a texto</span>
-<span class="n">generated_text</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">input_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-
-<span class="c1"># Imprimimos el resultado</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">generated_text</span><span class="p">)</span>
+<p>A continuación se muestra un ejemplo de uso de GPT2 en un Pipeline:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">set_seed</span>
+<span class="n">generator</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;text-generation&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;gpt2&#39;</span><span class="p">)</span>
+<span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">generator</span><span class="p">(</span><span class="s2">&quot;My name is&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">num_return_sequences</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -901,45 +870,7 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p><strong>Obtener información sobre la bolsa de valores</strong>, la tasa de cambio y otras cotizaciones financieras.</p></li>
 <li><p><strong>Resolver problemas</strong> <strong>matemáticos</strong> y <strong>responder preguntas</strong> sobre <strong>conceptos científicos</strong> y <strong>tecnológicos</strong>.</p></li>
 </ul>
-<p>Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida.</p>
-<p>A continuación se muestra un fragmento de código utilizando la tecnología Copilot:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># URL de la API de Copilot</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.openai.com/v1/engines/copilot/jobs&quot;</span>
-
-<span class="c1"># Tu clave API</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY&quot;</span>
-
-<span class="c1"># La pregunta que deseas hacerle a Copilot</span>
-<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;What is the capital of France?&quot;</span>
-
-<span class="c1"># Crea una solicitud HTTP POST con la pregunta y la clave API</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">}</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">,</span>
-  <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
-  <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-
-<span class="c1"># Verifica la respuesta de la API</span>
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-  <span class="c1"># La respuesta de la API es un JSON</span>
-  <span class="n">response_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-  <span class="c1"># Imprime la respuesta de Copilot</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="c1"># La API ha devuelto un error</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-  
-</pre></div>
-</div>
+<p>Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida. Ejemplo de ello, lo podemos encontrar en la integración de pluggins en <a class="reference external" href="https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code">Visual Studio Code</a> para la completación de códigos.</p>
 <section id="id1">
 <h4>Ventajas<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
@@ -976,12 +907,12 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <p>Es un modelo de lenguaje entrenado utilizando una gran cantidad de texto en internet. Se trata de una tecnología de procesamiento del lenguaje natural que permite a los usuarios interactuar con el modelo mediante el uso de conversaciones naturales. !Es <strong>orientado a servicios en la nube</strong>! Es decir, se se accede a los servicios online a través de una API.</p>
 <p>Algunas de las funcionalidades más destacadas incluyen:</p>
 <ul class="simple">
-<li><p>Responder preguntas: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo historia, geografía, ciencias, tecnología y mucho más.</p></li>
-<li><p>Completar oraciones o fragmentos de texto: ChatGPT puede utilizar el contexto y la información previa para completar oraciones o fragmentos de texto de manera eficiente.</p></li>
-<li><p>Generación de texto: ChatGPT puede generar texto en una variedad de formatos, como descripciones de productos, reseñas de películas y mucho más.</p></li>
-<li><p>Traducción de idiomas: ChatGPT puede traducir palabras y frases a otros idiomas, lo que lo hace ideal para aquellos que desean comunicarse en un idioma distinto al suyo.</p></li>
-<li><p>Resumen de texto: ChatGPT puede resumir grandes cantidades de texto en una forma concisa y fácil de entender.</p></li>
-<li><p>Análisis de sentimientos: ChatGPT puede analizar el contenido de un texto para determinar el sentimiento que se expresa en él, como por ejemplo si es positivo, negativo o neutral.</p></li>
+<li><p><strong>Responder preguntas</strong>: ChatGPT puede responder preguntas sobre una amplia gama de temas, incluyendo <strong>historia, geografía, ciencias, tecnología, programación y mucho más</strong>.</p></li>
+<li><p><strong>Completar oraciones o fragmentos de texto</strong>: ChatGPT puede utilizar el contexto y la información previa para completar oraciones o fragmentos de texto de manera eficiente.</p></li>
+<li><p><strong>Generar texto</strong>: ChatGPT puede generar texto en una variedad de formatos, como descripciones de productos, reseñas de películas y mucho más.</p></li>
+<li><p><strong>Traducción de idiomas</strong>: ChatGPT puede traducir palabras y frases a otros idiomas, lo que lo hace ideal para aquellos que desean comunicarse en un idioma distinto al suyo.</p></li>
+<li><p><strong>Resumen de texto</strong>: ChatGPT puede resumir grandes cantidades de texto en una forma concisa y fácil de entender.</p></li>
+<li><p><strong>Análisis de sentimientos</strong>: ChatGPT puede analizar el contenido de un texto para determinar el sentimiento que se expresa en él, como por ejemplo si es positivo, negativo o neutral.</p></li>
 </ul>
 <p>En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicaciones de esta tecnología:</p>
 <ul class="simple">
@@ -1024,8 +955,8 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p>Generar esquemas para un tema.</p></li>
 <li><p>Conversación abierta con un asistente de IA.</p></li>
 </ul>
-<section id="ejemplo-de-uso-de-la-api">
-<h4>Ejemplo de uso de la API<a class="headerlink" href="#ejemplo-de-uso-de-la-api" title="Permalink to this headline">#</a></h4>
+<section id="ejemplo-de-uso-de-la-api-chatgpt">
+<h4>Ejemplo de uso de la API ChatGPT<a class="headerlink" href="#ejemplo-de-uso-de-la-api-chatgpt" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
 
 <span class="c1"># Inicializar la API de OpenAI</span>
@@ -1069,9 +1000,9 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <h4>Alternativas a ChatGPT<a class="headerlink" href="#alternativas-a-chatgpt" title="Permalink to this headline">#</a></h4>
 <p>Algunas alternativas son:</p>
 <ul class="simple">
-<li><p><strong>Microsoft’s XiaoIce</strong>: un modelo de lenguaje desarrollado por Microsoft que se especializa en conversaciones en línea.</p></li>
-<li><p><strong>Google’s Meena</strong>: un modelo de lenguaje desarrollado por Google que se ha entrenado en una amplia variedad de tareas y es conocido por su capacidad para responder a preguntas en contexto.</p></li>
-<li><p><strong>OpenAI’s GPT-3</strong>: uno de los modelos de lenguaje más grandes y avanzados disponibles, con una amplia variedad de aplicaciones, desde la generación de texto hasta la resolución de problemas complejos.</p></li>
+<li><p><strong>Dialogflow</strong>: Dialogflow es una plataforma de Google Cloud para desarrollar conversaciones automatizadas y chatbots. Puedes encontrar más información en: <a class="reference external" href="https://dialogflow.com/">https://dialogflow.com/</a></p></li>
+<li><p><strong>Amazon Lex</strong>: Amazon Lex es un servicio de Amazon Web Services para crear chatbots y aplicaciones de voz. Puedes encontrar más información en: <a class="reference external" href="https://aws.amazon.com/lex/">https://aws.amazon.com/lex/</a></p></li>
+<li><p><strong>Microsoft Bot Framework</strong>: El Microsoft Bot Framework es un marco de trabajo para desarrollar chatbots y aplicaciones de conversación en Microsoft Azure. Puedes encontrar más información en: <a class="reference external" href="https://azure.microsoft.com/es-es/products/bot-services">https://azure.microsoft.com/es-es/products/bot-services</a></p></li>
 </ul>
 </section>
 </section>
@@ -1079,7 +1010,8 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <section id="bibliografia">
 <h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">#</a></h2>
 <p>[1] <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a>
-[] <a class="reference external" href="https://openai.com/blog/chatgpt/">https://openai.com/blog/chatgpt/</a></p>
+[2] <a class="reference external" href="https://openai.com/blog/chatgpt/">https://openai.com/blog/chatgpt/</a>
+[3] Zhang, Y., Sun, S., Galley, M., Chen, Y. C., Brockett, C., Gao, X., … &amp; Dolan, B. (2019). Dialogpt: Large-scale generative pre-training for conversational response generation. arXiv preprint arXiv:1911.00536.</p>
 </section>
 </section>
 
