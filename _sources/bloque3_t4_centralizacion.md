@@ -452,7 +452,7 @@ En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicac
 
 A continuación se muestra la evaluación de modelos hasta lo que hoy conocemos como ChatGPT:
 
-```{image} /images/bloque3/t4/GPT-1-2-GPT-3_datasources.png
+```{image} /images/bloque3/t4/GPT-1-2-3_datasources.png
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
 :width: 600px
