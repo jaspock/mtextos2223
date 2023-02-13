@@ -124,7 +124,7 @@ A groso modo listamos los modelos que nos podemos encontrar
 Tomado de https://huggingface.co/transformers/quicktour.html
 
 **Listado de tareas tal y como las podemos encontrar en el repositorio:**
-El listado de tareas, como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets. 
+El listado de tareas, como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets. Como podemos observar, a partir de 2022 tal y como se describe más adelante, en el siguiente imagen este repositorio no solo ofrece modelos prentrenados para el modelado del lenguaje, sino también para desarrollar tareas de distintas modalidades: multimodal, lenguaje, audio, visión(imagen), datos estructurados(tabulados), y otros.
 
 
 ```{image} /images/bloque3/t4/hf_modelos_tareas.jpg
@@ -164,9 +164,6 @@ En la mayoría de los casos se ofrece una ejemplo de uso y documentación. Poner
 :align: center
 ```
 Figura 5. Categorías de documentaciones agrupadas por tareas y modalidades 
-
-
-!!!!!!!!!!!!!!!!!HASTA AQUI!!!!!!!!!!!!!!!!!
 
 Ejemplo de Análisis de Sentimientos con Huggingface Transformer:
 
@@ -340,7 +337,6 @@ Copilot está diseñado para ayudarte a realizar una amplia gama de tareas y res
 Copilot está diseñado para ayudarte a realizar muchas tareas cotidianas y responder preguntas de una manera conveniente y rápida. Ejemplo de ello, lo podemos encontrar en la integración de pluggins en [Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code) para la completación de códigos.
 
 
-
 #### Ventajas
 
 - Copilot utiliza una **interfaz de conversación natural** (Visual y API) para interactuar con los usuarios, lo que hace que sea fácil y agradable de usar.
@@ -429,7 +425,7 @@ En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicac
 - Generar esquemas para un tema.
 - Conversación abierta con un asistente de IA.
 
-#### Ejemplo de uso de la API ChatGPT 
+#### Ejemplo de uso de la API ChatGPT: 
 ````
 import openai
 
@@ -445,10 +441,12 @@ response = openai.Completion.create(
     stop=None,
     temperature=0.5,
 )
-
 # Imprimir la respuesta
 print(response["choices"][0]["text"])
+>>> "El sol es una estrella."
 ````
+
+Nótese que para poder utilizar esta librería se ha de emplear un servicio en la nube del cual se ha de requerir una clave de acceso. Las instruciones para conseguirlas las podéis encontrar en el siguiente enlace: <https://platform.openai.com/account/api-keys>
 
 
 #### Ventajas
