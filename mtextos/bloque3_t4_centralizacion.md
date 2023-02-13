@@ -509,11 +509,11 @@ Nótese que para poder utilizar esta librería se ha de emplear un servicio en l
 #### Alternativas a ChatGPT
 Algunas alternativas son:
 
-- **Dialogflow**: Dialogflow es una plataforma de Google Cloud para desarrollar conversaciones automatizadas y chatbots. Puedes encontrar más información en: <https://dialogflow.com/>
+- [**PEER de Meta AI**]([https://arxiv.org/pdf/2208.11663.pdf]): un lenguaje entrenado para **imitar el proceso de escritura**. Está entrenado en los [datos del historial de edición de Wikipedia](https://dumps.wikimedia.org/enwiki/). Se especializa en predecir ediciones y explicar las razones de esas ediciones. Es capaz de citar y citar documentos de referencia para respaldar las afirmaciones que genera. Es un transformador de 11 billones de parámetros con la arquitectura típica de codificador-decodificador, y está superando a GPT-3 en la tarea en la que se especializa.
 
-- **Amazon Lex**: Amazon Lex es un servicio de Amazon Web Services para crear chatbots y aplicaciones de voz. Puedes encontrar más información en: <https://aws.amazon.com/lex/>
+- [**LaMDA de Google AI**](https://arxiv.org/pdf/2201.08239.pdf): un modelo de lenguaje entrenado para **aplicaciones de diálogo**. Está pre-entrenado en de ~3 billones de documentos y ~1 billones de diálogos y ajustado en datos generados por humanos para mejorar la calidad, la seguridad y la veracidad del texto generado. También está ajustado para aprender a llamar a un sistema externo de recuperación de información, como la Búsqueda de Google, una calculadora y un traductor, lo que lo convierte en un candidato mucho más fuerte para reemplazar la Búsqueda de Google que ChatGPT. Es un decodificador de  135 billones parámetros solo el transformer.
 
-- **Microsoft Bot Framework**: El Microsoft Bot Framework es un marco de trabajo para desarrollar chatbots y aplicaciones de conversación en Microsoft Azure. Puedes encontrar más información en: <https://azure.microsoft.com/es-es/products/bot-services>
+- [**PaLM de Google AI**](https://arxiv.org/pdf/2204.02311.pdf) - El más grande de todos: ¡540 billlones de parámetros! Con capacidades innovadoras en aritmética y razonamiento de sentido común. Está entrenado en 780 mil millones de tokens provenientes de conversaciones en redes sociales multilingües, páginas web multilingües filtradas, libros, repositorios de GitHub, Wikipedia multilingüe y noticias.
 
 
 
