@@ -478,6 +478,8 @@ Algunas alternativas son:
 ## Bibliografía
 
 [1] <https://huggingface.co/>
+
 [2] <https://openai.com/blog/chatgpt/>
+
 [3] Zhang, Y., Sun, S., Galley, M., Chen, Y. C., Brockett, C., Gao, X., ... & Dolan, B. (2019). Dialogpt: Large-scale generative pre-training for conversational response generation. arXiv preprint arXiv:1911.00536.
 
