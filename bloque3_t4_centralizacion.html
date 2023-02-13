@@ -411,7 +411,7 @@ title="Print to PDF"
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api-chatgpt">
-       Ejemplo de uso de la API ChatGPT
+       Ejemplo de uso de la API ChatGPT:
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -557,7 +557,7 @@ title="Print to PDF"
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejemplo-de-uso-de-la-api-chatgpt">
-       Ejemplo de uso de la API ChatGPT
+       Ejemplo de uso de la API ChatGPT:
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -695,7 +695,7 @@ A groso modo listamos los modelos que nos podemos encontrar</p>
 Tomado de <a class="reference external" href="https://huggingface.co/transformers/quicktour.html">https://huggingface.co/transformers/quicktour.html</a></p></li>
 </ul>
 <p><strong>Listado de tareas tal y como las podemos encontrar en el repositorio:</strong>
-El listado de tareas, como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets.</p>
+El listado de tareas, como categorías, en las que podemos filtar los distintos modelos preentrenados que ofrece el repositorio Huggingface, es igual de amplio que el de los datasets. Como podemos observar, a partir de 2022 tal y como se describe más adelante, en el siguiente imagen este repositorio no solo ofrece modelos prentrenados para el modelado del lenguaje, sino también para desarrollar tareas de distintas modalidades: multimodal, lenguaje, audio, visión(imagen), datos estructurados(tabulados), y otros.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/hf_modelos_tareas.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/hf_modelos_tareas.jpg" style="width: 300px;" /></a>
 <p>Figura 3. Tareas filtro modelos</p>
 <p><strong>Idiomas para los que se han entrenado los modelos:</strong>
@@ -711,7 +711,6 @@ A mediados de 2022 esta plataforma federativa da un paso agigantado expandiendo 
 <p>En la mayoría de los casos se ofrece una ejemplo de uso y documentación. Poner en marcha cualquiera de estas tareas, reajustando o no los modelos prentrenados que se ofrecen en esta plataforma, se encuentra bien documentado y ejemplificado en ella: Ver Categorías <a class="reference external" href="https://huggingface.co/tasks">https://huggingface.co/tasks</a></p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/doc-tareas-hf.jpg"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/doc-tareas-hf.jpg" style="width: 300px;" /></a>
 <p>Figura 5. Categorías de documentaciones agrupadas por tareas y modalidades</p>
-<p>!!!!!!!!!!!!!!!!!HASTA AQUI!!!!!!!!!!!!!!!!!</p>
 <p>Ejemplo de Análisis de Sentimientos con Huggingface Transformer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;sentiment-analysis&#39;</span><span class="p">)</span>
@@ -956,7 +955,7 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p>Conversación abierta con un asistente de IA.</p></li>
 </ul>
 <section id="ejemplo-de-uso-de-la-api-chatgpt">
-<h4>Ejemplo de uso de la API ChatGPT<a class="headerlink" href="#ejemplo-de-uso-de-la-api-chatgpt" title="Permalink to this headline">#</a></h4>
+<h4>Ejemplo de uso de la API ChatGPT:<a class="headerlink" href="#ejemplo-de-uso-de-la-api-chatgpt" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
 
 <span class="c1"># Inicializar la API de OpenAI</span>
@@ -971,11 +970,12 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
     <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
 <span class="p">)</span>
-
 <span class="c1"># Imprimir la respuesta</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;El sol es una estrella.&quot;</span>
 </pre></div>
 </div>
+<p>Nótese que para poder utilizar esta librería se ha de emplear un servicio en la nube del cual se ha de requerir una clave de acceso. Las instruciones para conseguirlas las podéis encontrar en el siguiente enlace: <a class="reference external" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
 </section>
 <section id="id3">
 <h4>Ventajas<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
