@@ -153,7 +153,7 @@ En la mayoría de los casos se ofrece una ejemplo de uso y documentación. Poner
 ```{image} /images/bloque3/t4/doc-tareas-hf.jpg
 :alt: comic xkcd 2421
 :class: bg-primary mb-1
-:width: 300px
+:width: 600px
 :align: center
 ```
 Figura 4. Categorías de documentaciones agrupadas por tareas y modalidades 
