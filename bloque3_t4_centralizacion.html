@@ -371,6 +371,11 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#entrenamiento-del-gpt">
+       Entrenamiento del GPT
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ventajas">
        Ventajas
       </a>
@@ -516,6 +521,11 @@ title="Print to PDF"
      GPT
     </a>
     <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#entrenamiento-del-gpt">
+       Entrenamiento del GPT
+      </a>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ventajas">
        Ventajas
@@ -821,11 +831,27 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <h3>GPT<a class="headerlink" href="#gpt" title="Permalink to this headline">#</a></h3>
 <p>GPT significa “Generative Pretrained Transformer”. Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual. !Es <strong>orientado a liberías</strong>! Es decir, se puede incorporar el componente en tu propia aplicación.</p>
 <ul class="simple">
-<li><p>GPT-1: Es la primera versión de GPT, con solo 117 millones de parámetros. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.</p></li>
-<li><p>GPT-2: Es la segunda versión de GPT, con solo 1.5 mil millones de parámetros. Es capaz de generar texto coherente y a menudo convincente.</p></li>
-<li><p>GPT-3: Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de 175 mil millones de parámetros, lo que le permite generar texto muy convincente en una amplia variedad de contextos.</p></li>
+<li><p>GPT-1: Es la primera versión de GPT, <a class="reference external" href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">entrenado con 117 millones de parámetros</a>. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.
+La arquietectura de GPT-1 es principalmente un conjunto de 12 bloques de transformadores decodificadores colocados uno tras otro(ej. 12x ver la imagen). Los datos de texto se codifican mediante una <a class="reference external" href="https://arxiv.org/pdf/1508.07909.pdf">codificación de pares de bytes</a> adaptada a caracteres. La <a class="reference external" href="https://arxiv.org/pdf/1706.03762.pdf">incrustación de posición es aprendida, en lugar de la típica sinusoidal estática</a>. La longitud máxima para tokens consecutivos es 512. La capa superior es simplemente una capa softmax adaptada a la tarea de aprendizaje específica.</p></li>
+<li><p>GPT-2: Es la segunda versión de GPT, con solo <a class="reference external" href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">1.5 mil millones de parámetros</a>. Es capaz de generar texto coherente y a menudo convincente. GPT-2 tiene básicamente la misma arquitectura que GPT-1, pero el modelo más grande contiene 48 bloques(48x ver la imagen) de transformadores. La segunda capa de normalización se mueve a la primera posición en un bloque y el último bloque contiene una capa de normalización adicional. Los pesos se inicializan de forma ligeramente diferente y se aumenta el tamaño del vocabulario. El número de tokens consecutivos se incrementa a 1024.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2005.14165">GPT-3</a>: Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de <a class="reference external" href="https://arxiv.org/abs/2005.14165">175 mil millones de parámetros</a>, lo que le permite generar texto muy convincente en una amplia variedad de contextos. GPT-3 tiene la misma arquitectura que GPT-2, pero el número de bloques aumentó a 96 en el modelo más grande y el tamaño del contexto (número de tokens consecutivos) aumentó a 2048. Las <a class="reference external" href="https://arxiv.org/pdf/1904.10509.pdf">capas de autoatención de varios cabezales se alternan entre los típicos densos los escasos y los dispersos</a>.</p></li>
 </ul>
+<p>GPT-1 se entrena de manera autosupervisada (aprende a predecir la siguiente palabra en datos de texto) y se ajusta de manera de aprendizaje supervisado. GPT-2 se entrena de forma totalmente autosupervisada, centrándose en la transferencia de <em>zero-shot</em> y GPT-3 se entrena previamente de manera autosupervisada explorando un poco más <em>few-shots fine-tuning</em>.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/GPT-1-2-3_architecture.png"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="_images/GPT-1-2-3_architecture.png" style="width: 600px;" /></a>
+<p>Figura 4. Arquitecturas GPT. Fuente <a class="reference external" href="https://newsletter.theaiedge.io/p/the-chatgpt-models-family">https://newsletter.theaiedge.io/p/the-chatgpt-models-family</a></p>
 <p>Además de estas versiones, también existen variantes más pequeñas de GPT para diferentes usos, como GPT-3 Lite y GPT-2 Medium. Cada una de estas variantes tiene un tamaño y capacidad diferente, lo que las hace más adecuadas para diferentes aplicaciones y escenarios.</p>
+<section id="entrenamiento-del-gpt">
+<h4>Entrenamiento del GPT<a class="headerlink" href="#entrenamiento-del-gpt" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>GPT-1 está preentrenado en el conjunto de datos de BooksCorpus, que contiene ~7000 libros que suman ~5 GB de datos: <a class="reference external" href="https://huggingface.co/datasets/bookcorpus">https://huggingface.co/datasets/bookcorpus</a>.</p></li>
+<li><p>GPT-2 se entrena previamente con el conjunto de datos de WebText, que es un conjunto más diverso de datos de Internet que contiene ~8 millones de documentos para aproximadamente ~40 GB de datos: <a class="reference external" href="https://huggingface.co/datasets/openwebtext">https://huggingface.co/datasets/openwebtext</a></p></li>
+<li><p>GPT-3 utiliza una versión ampliada del conjunto de datos de WebText, dos corpus de libros basados en Internet que no se divulgan y la Wikipedia en inglés que constituyó ~600 GB de datos.</p></li>
+</ul>
+<p>La implementación de GPT-2 se puede encontrar en los siguientes repositorios:</p>
+<ul class="simple">
+<li><p>TensorFlow por OpenAI: <a class="reference external" href="https://github.com/openai/gpt-2/blob/master/src/model.py">https://github.com/openai/gpt-2/blob/master/src/model.py</a></p></li>
+<li><p>PyTorch por Andrej Karpathy: <a class="reference external" href="https://github.com/karpathy/minGPT/blob/master/mingpt/model.py">https://github.com/karpathy/minGPT/blob/master/mingpt/model.py</a></p></li>
+</ul>
 <p>A continuación se muestra un ejemplo de uso de GPT2 en un Pipeline:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">set_seed</span>
 <span class="n">generator</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;text-generation&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;gpt2&#39;</span><span class="p">)</span>
@@ -834,6 +860,8 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 
 </pre></div>
 </div>
+<p>GPT-3 API se encuentra disponible en el siguiente enlace: <a class="reference external" href="https://platform.openai.com/docs/introduction/overview">https://platform.openai.com/docs/introduction/overview</a></p>
+</section>
 <section id="ventajas">
 <h4>Ventajas<a class="headerlink" href="#ventajas" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
@@ -952,6 +980,9 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <li><p>Generar esquemas para un tema.</p></li>
 <li><p>Conversación abierta con un asistente de IA.</p></li>
 </ul>
+<p>A continuación se muestra la evaluación de modelos hasta lo que hoy conocemos como ChatGPT:</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="images/bloque3/t4/GPT-1-2-GPT-3_datasources.png"><img alt="comic xkcd 2421" class="bg-primary mb-1 align-center" src="images/bloque3/t4/GPT-1-2-GPT-3_datasources.png" style="width: 600px;" /></a>
+<p>Figura 5. Evolución de GPT hasta llegar a ChatGPT. Fuente <a class="reference external" href="https://newsletter.theaiedge.io/p/the-chatgpt-models-family">https://newsletter.theaiedge.io/p/the-chatgpt-models-family</a></p>
 <section id="ejemplo-de-uso-de-la-api-chatgpt">
 <h4>Ejemplo de uso de la API ChatGPT:<a class="headerlink" href="#ejemplo-de-uso-de-la-api-chatgpt" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
@@ -1010,6 +1041,7 @@ Si tomamos como referencia la arquitectura de modelo Transformer <a class="refer
 <p>[1] <a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a></p>
 <p>[2] <a class="reference external" href="https://openai.com/blog/chatgpt/">https://openai.com/blog/chatgpt/</a></p>
 <p>[3] Zhang, Y., Sun, S., Galley, M., Chen, Y. C., Brockett, C., Gao, X., … &amp; Dolan, B. (2019). Dialogpt: Large-scale generative pre-training for conversational response generation. arXiv preprint arXiv:1911.00536.</p>
+<p>[4] <a class="reference external" href="https://newsletter.theaiedge.io/p/the-chatgpt-models-family">https://newsletter.theaiedge.io/p/the-chatgpt-models-family</a></p>
 </section>
 </section>
 

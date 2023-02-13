@@ -278,11 +278,40 @@ Es importante conocer que las **configuraciones** de modelos Transformer ya **cu
 GPT significa "Generative Pretrained Transformer". Es un modelo de lenguaje que utiliza técnicas de deep learning para generar texto de manera autónoma. GPT ha sido entrenado en una amplia cantidad de contenido textual. !Es **orientado a liberías**! Es decir, se puede incorporar el componente en tu propia aplicación.
 
 
-- GPT-1: Es la primera versión de GPT, con solo 117 millones de parámetros. Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos.
-- GPT-2: Es la segunda versión de GPT, con solo 1.5 mil millones de parámetros. Es capaz de generar texto coherente y a menudo convincente.
-- GPT-3: Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de 175 mil millones de parámetros, lo que le permite generar texto muy convincente en una amplia variedad de contextos.
+- GPT-1: Es la primera versión de GPT, [entrenado con 117 millones de parámetros](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf). Aunque es significativamente más limitada que las versiones posteriores, aún es capaz de generar texto aceptable en muchos contextos. 
+La arquietectura de GPT-1 es principalmente un conjunto de 12 bloques de transformadores decodificadores colocados uno tras otro(ej. 12x ver la imagen). Los datos de texto se codifican mediante una [codificación de pares de bytes](https://arxiv.org/pdf/1508.07909.pdf) adaptada a caracteres. La [incrustación de posición es aprendida, en lugar de la típica sinusoidal estática](https://arxiv.org/pdf/1706.03762.pdf). La longitud máxima para tokens consecutivos es 512. La capa superior es simplemente una capa softmax adaptada a la tarea de aprendizaje específica.
+- GPT-2: Es la segunda versión de GPT, con solo [1.5 mil millones de parámetros](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf). Es capaz de generar texto coherente y a menudo convincente. GPT-2 tiene básicamente la misma arquitectura que GPT-1, pero el modelo más grande contiene 48 bloques(48x ver la imagen) de transformadores. La segunda capa de normalización se mueve a la primera posición en un bloque y el último bloque contiene una capa de normalización adicional. Los pesos se inicializan de forma ligeramente diferente y se aumenta el tamaño del vocabulario. El número de tokens consecutivos se incrementa a 1024.
+- [GPT-3](https://arxiv.org/abs/2005.14165): Es la tercera versión de GPT y es uno de los modelos de lenguaje más grandes y avanzados jamás entrenados. Tiene más de [175 mil millones de parámetros](https://arxiv.org/abs/2005.14165), lo que le permite generar texto muy convincente en una amplia variedad de contextos. GPT-3 tiene la misma arquitectura que GPT-2, pero el número de bloques aumentó a 96 en el modelo más grande y el tamaño del contexto (número de tokens consecutivos) aumentó a 2048. Las [capas de autoatención de varios cabezales se alternan entre los típicos densos los escasos y los dispersos](https://arxiv.org/pdf/1904.10509.pdf). 
+
+
+GPT-1 se entrena de manera autosupervisada (aprende a predecir la siguiente palabra en datos de texto) y se ajusta de manera de aprendizaje supervisado. GPT-2 se entrena de forma totalmente autosupervisada, centrándose en la transferencia de *zero-shot* y GPT-3 se entrena previamente de manera autosupervisada explorando un poco más *few-shots fine-tuning*.  
+
+```{image} /images/bloque3/t4/GPT-1-2-3_architecture.png
+:alt: comic xkcd 2421
+:class: bg-primary mb-1
+:width: 600px
+:align: center
+```
+Figura 4. Arquitecturas GPT. Fuente <https://newsletter.theaiedge.io/p/the-chatgpt-models-family> 
 
 Además de estas versiones, también existen variantes más pequeñas de GPT para diferentes usos, como GPT-3 Lite y GPT-2 Medium. Cada una de estas variantes tiene un tamaño y capacidad diferente, lo que las hace más adecuadas para diferentes aplicaciones y escenarios.
+
+
+
+#### Entrenamiento del GPT
+
+- GPT-1 está preentrenado en el conjunto de datos de BooksCorpus, que contiene ~7000 libros que suman ~5 GB de datos: <https://huggingface.co/datasets/bookcorpus>.
+
+- GPT-2 se entrena previamente con el conjunto de datos de WebText, que es un conjunto más diverso de datos de Internet que contiene ~8 millones de documentos para aproximadamente ~40 GB de datos: <https://huggingface.co/datasets/openwebtext>
+
+- GPT-3 utiliza una versión ampliada del conjunto de datos de WebText, dos corpus de libros basados en Internet que no se divulgan y la Wikipedia en inglés que constituyó ~600 GB de datos.
+
+
+La implementación de GPT-2 se puede encontrar en los siguientes repositorios:
+
+- TensorFlow por OpenAI: <https://github.com/openai/gpt-2/blob/master/src/model.py>
+
+- PyTorch por Andrej Karpathy: <https://github.com/karpathy/minGPT/blob/master/mingpt/model.py>
 
 A continuación se muestra un ejemplo de uso de GPT2 en un Pipeline:
 
@@ -293,6 +322,8 @@ set_seed(42)
 generator("My name is", max_length=30, num_return_sequences=5)
 
 ````
+
+GPT-3 API se encuentra disponible en el siguiente enlace: <https://platform.openai.com/docs/introduction/overview>
 
 #### Ventajas
 
@@ -418,6 +449,17 @@ En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicac
 - Generar esquemas para un tema.
 - Conversación abierta con un asistente de IA.
 
+
+A continuación se muestra la evaluación de modelos hasta lo que hoy conocemos como ChatGPT:
+
+```{image} /images/bloque3/t4/GPT-1-2-GPT-3_datasources.png
+:alt: comic xkcd 2421
+:class: bg-primary mb-1
+:width: 600px
+:align: center
+```
+Figura 5. Evolución de GPT hasta llegar a ChatGPT. Fuente <https://newsletter.theaiedge.io/p/the-chatgpt-models-family> 
+
 #### Ejemplo de uso de la API ChatGPT: 
 ````
 import openai
@@ -483,3 +525,4 @@ Algunas alternativas son:
 
 [3] Zhang, Y., Sun, S., Galley, M., Chen, Y. C., Brockett, C., Gao, X., ... & Dolan, B. (2019). Dialogpt: Large-scale generative pre-training for conversational response generation. arXiv preprint arXiv:1911.00536.
 
+[4] https://newsletter.theaiedge.io/p/the-chatgpt-models-family
