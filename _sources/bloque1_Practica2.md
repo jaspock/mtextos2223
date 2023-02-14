@@ -3,8 +3,6 @@
 
 Borja Navarro Colorado
 
-<font color=red>Esta sección es todavía un **borrador**. En unos días tendréis el texto definitivo.</color>
-
 ## Objeto
 
 El objetivo de este ejercicio es practicar la conversión de un corpus en una representación semántica vectorial. Para ello se utilizará el modelo LDA _topic modeling_. Este modelo extrae temas recurrentes de un corpus a partir de su representación vectorial de las palabras. La herramienta para realizar la práctica es [Gensim](https://radimrehurek.com/gensim/index.html), y el corpus el corpus de noticias LexEsp. De nuevo se utilizará COLAB para facilitar el trabajo.
@@ -52,6 +50,8 @@ Otras páginas útiles:
     + [https://pyldavis.readthedocs.io/en/latest/index.html](https://pyldavis.readthedocs.io/en/latest/index.html)
     + Ejemplo de uso y conexión con Gensim: [https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=](https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=)
 
+- Un trabajo mío (Borja Navarro Colorado) donde aplico *Topic Modeling* a poesía :-) :
+    + [On poetic topic modeling](https://www.frontiersin.org/articles/10.3389/fdigh.2018.00015/full)
 
 ## Otras herramientas
 
