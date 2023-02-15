@@ -421,15 +421,15 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py">https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py</a></p></li>
 </ul>
 <p>Otras páginas útiles:</p>
-<ul class="simple">
-<li><p>Introducción a Gensim:</p>
 <ul>
+<li><p>Introducción a Gensim:</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py">https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py</a></p></li>
 <li><p>Otros modelos en Gensim: <a class="reference external" href="https://radimrehurek.com/gensim/auto_examples/index.html#documentation">https://radimrehurek.com/gensim/auto_examples/index.html#documentation</a></p></li>
 </ul>
 </li>
 <li><p>Sobre <em>Topic modeling</em>:</p>
-<ul>
+<ul class="simple">
 <li><p><a class="reference external" href="http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf">http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf</a></p></li>
 <li><p><a class="reference external" href="http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf">http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf</a></p></li>
 <li><p><a class="reference external" href="http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/">http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/</a></p></li>
@@ -439,10 +439,20 @@ title="Print to PDF"
 <ul>
 <li><p><a class="reference external" href="https://pyldavis.readthedocs.io/en/latest/index.html">https://pyldavis.readthedocs.io/en/latest/index.html</a></p></li>
 <li><p>Ejemplo de uso y conexión con Gensim: <a class="reference external" href="https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&amp;lambda=1&amp;term=">https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&amp;lambda=1&amp;term=</a></p></li>
+<li><p>En la página anterior hay un módulo obsoleto. Si os da error, probad esto:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  import pyLDAvis
+  import pyLDAvis.gensim_models as gensimvis  
+  pyLDAvis.enable_notebook()
+
+  gensimvis.prepare(model, corpus, dictionary)
+</pre></div>
+</div>
+</li>
 </ul>
+<p><a class="reference external" href="https://stackoverflow.com/questions/66759852/no-module-named-pyldavis">Fuente</a></p>
 </li>
 <li><p>Un trabajo mío (Borja Navarro Colorado) donde aplico <em>Topic Modeling</em> a poesía :-) :</p>
-<ul>
+<ul class="simple">
 <li><p><a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fdigh.2018.00015/full">On poetic topic modeling</a></p></li>
 </ul>
 </li>

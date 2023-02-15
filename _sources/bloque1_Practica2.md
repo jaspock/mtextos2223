@@ -49,6 +49,15 @@ Otras páginas útiles:
 - Visualizador pyLDSvis:
     + [https://pyldavis.readthedocs.io/en/latest/index.html](https://pyldavis.readthedocs.io/en/latest/index.html)
     + Ejemplo de uso y conexión con Gensim: [https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=](https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=)
+    + En la página anterior hay un módulo obsoleto. Si os da error, probad esto:
+    
+            import pyLDAvis
+            import pyLDAvis.gensim_models as gensimvis  
+            pyLDAvis.enable_notebook()
+
+            gensimvis.prepare(model, corpus, dictionary)
+
+   [Fuente](https://stackoverflow.com/questions/66759852/no-module-named-pyldavis)
 
 - Un trabajo mío (Borja Navarro Colorado) donde aplico *Topic Modeling* a poesía :-) :
     + [On poetic topic modeling](https://www.frontiersin.org/articles/10.3389/fdigh.2018.00015/full)
