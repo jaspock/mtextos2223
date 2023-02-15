@@ -177,7 +177,7 @@ El caso más simple para medir la relevancia de una palabra en un contexto es la
 
 1. Es muy dependiente del tamaño del contexto, que como hemos visto antes no está claro cómo limitarlo. En contexto pequeños se trabajaría con valores muy bajos (ceros y unos prácticamente).
 2. No discrimina la importancia real de cada palabra en el contexto, dado que hay palabra que siempre tienen frecuencias muy alta (como palabras de categorías cerradas, o nombres de uso muy común) frente a otras que siempre tienen bajas frecuencias.
-3. sobre estas últimas, el caso extremos es el fenómeno del *[hapax legomenon]*(https://en.wikipedia.org/wiki/Hapax_legomenon): la mayoría de las palabras de una colección de documntos aparece solo una vez (o con una frecuencia muy baja).
+3. sobre estas últimas, el caso extremos es el fenómeno del [*hapax legomenon*](https://en.wikipedia.org/wiki/Hapax_legomenon): la mayoría de las palabras de una colección de documntos aparece solo una vez (o con una frecuencia muy baja).
 
 Una solución elegante para determinar la relevancia de una palabra por su frecuencia sin caer en estos problemas es el famoso valor TF/IDF que pasamos a explicar a continuación.
 
