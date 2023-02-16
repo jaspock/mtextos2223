@@ -1,13 +1,13 @@
 
-T4. Centralización de datasets y modelos: Huggingface
+T4. Centralización de datasets y modelos: Huggingface, OpenAI
 ====================================
 
 Contenidos:
 
-- [Introducción](#introduccion)
-- [Repositorio de Datasets](#repositorio-de-datasets)
-- [Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
-- [Tecnologías de Generación (GPT, Copilot, ChatGPT)](#Tecnologías-de-generación)
+- [Huggingface: Introducción](#introduccion)
+- [Huggingface: Repositorio de Datasets](#repositorio-de-datasets)
+- [Huggingface: Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
+- [OpenAI: Tecnologías de Generación (GPT, Copilot, ChatGPT)](#Tecnologías-de-generación)
 
 ## Introducción
 
