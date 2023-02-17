@@ -1,5 +1,5 @@
 
-T4. Centralización de datasets y modelos: Huggingface
+T4. Centralización de datasets y modelos: Huggingface, OpenAI
 ====================================
 
 ```{admonition} Nota
@@ -9,10 +9,10 @@ Lee con atención el tema 4 del bloque 2. Realiza las lecturas propuestas y fina
 
 Contenidos:
 
-- [Introducción](#introduccion)
-- [Repositorio de Datasets](#repositorio-de-datasets)
-- [Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
-- [Tecnologías de Generación (GPT, Copilot, ChatGPT)](#Tecnologías-de-generación)
+- [Huggingface: Introducción](#introduccion)
+- [Huggingface: Repositorio de Datasets](#repositorio-de-datasets)
+- [Huggingface: Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
+- [OpenAI: Tecnologías de Generación (GPT, Copilot, ChatGPT)](#Tecnologías-de-generación)
 
 ## Introducción
 
@@ -89,10 +89,10 @@ No obstante, la librería ``datasets`` permite además **cargar conjuntos de dat
 Para más detalles sobre las distintas funciones y parámetros permitidos para manipular datasets ver la siguiente documentación:
 - <https://huggingface.co/docs/datasets/quicktour.html>
 
-### Categorías, tareas e idiomas de datasets
+### Tareas, subtareas e idiomas de datasets
 
 **Categorías:**
-En este repositorio podemos encontrar un amplio catalogo de categorías por las cuales filtrar y y especificar el tipo de dateset que estamos buscando. Hemos de resaltar que estos datasets existen originalmente en diferentes formatos, nos obstante en una vez incluido en este repositorio, el formato es estandar. Por tal motivo, a través de las librías de manipulación (las mencionadas enteriormente) que ofrece Huggingface, podemos acceder a ellos y gestionarlos.
+En este repositorio podemos encontrar un amplio catalogo de tareas(categorías) por las cuales filtrar y y especificar el tipo de dateset que estamos buscando. Hemos de resaltar que estos datasets existen originalmente en diferentes formatos, nos obstante en una vez incluido en este repositorio, el formato es estandar. Por tal motivo, a través de las librías de manipulación (las mencionadas enteriormente) que ofrece Huggingface, podemos acceder a ellos y gestionarlos. Además, estos datasets se encuentran caracterizados por **idioma**, **subtarea** en la que se puede utilizar y la **licencia de uso**.
 
 ```{image} /images/bloque3/t4/hf_dataset_categoria.jpg
 :alt: comic xkcd 2421
@@ -101,7 +101,7 @@ En este repositorio podemos encontrar un amplio catalogo de categorías por las 
 :align: center
 ```
 
-Figura 1. Categorías filtro de datasets
+Figura 1. Categorías generales(o tareas) que permiten el filtro de datasets
 
 **Más de 134 tareas y más de 194 idiomas:**
 
@@ -112,7 +112,7 @@ Figura 1. Categorías filtro de datasets
 :align: center
 ```
 
-Figura 2. Tareas e idiomas filtro datasets
+Figura 2. Idiomas de los datasets
 
 ## Repositorio de Modelos pre-entrenados
 
