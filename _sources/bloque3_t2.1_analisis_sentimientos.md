@@ -2,6 +2,11 @@
 T2.1. Aplicaciones específicas. Análisis de Sentimientos
 ====================================
 
+```{admonition} Nota
+:class: note
+Lee con atención el tema 2.1 del bloque 2. Realiza las lecturas propuestas y finalmente contesta el cuestionario que encontrarás en la sección de evaluación relativo a este tema, el cual se encuentra en el índice del bloque 2. En la clase presencial repasaremos los conceptos teóricos principales y realizaremos la práctica correspondoente a la sesión. **El plazo para realizar las lecturas y el cuestionario es: Apertura el 01/03/2023- Cierre 23:59 del 07/03/2023**  (el día anterior a la clase presencial).
+```
+
 Para este tema se proporcionarán materiales ya elaborados, videos y transparencias, sobre el análisis sentimientos.
 Los materiales constan de las siguientes partes:
 - Introducción [**VIDEO**](https://drive.google.com/file/d/1ZHa884nnyJTwjkhDh7o69l1kM5w9J0vE/view?usp=sharing),  [**PDF**](https://drive.google.com/file/d/1CFkyCLRI-6RGWrIZCjRoNJelnbkMAGET/view?usp=sharing)
