@@ -1,5 +1,5 @@
 
-Ev. Evaluación del bloque 2
+Ev. Evaluación de prácticas del Bloque 2
 ====================================
 
 Para la evaluación de este bloque el estudiante deberá realizar **DOS entregas** con las siguientes condiciones:
@@ -10,7 +10,7 @@ Para la evaluación de este bloque el estudiante deberá realizar **DOS entregas
 
 ### Entrega 2 (selectiva)
 
-* **Opción A** (*para optar por una nota máxima de 9pts*): Seleccionar **UNO** de los ejercicios relizados en las [Práctica 3][p3], [4][p4], [5][p5] y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+* **Opción A** (*para optar por una nota máxima de 9pts*): Seleccionar **UNO** de los ejercicios relizados en las [Práctica 2][p3], [3][p4], [4][p5] y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
 
 * **Opción B** (*para optar por una nota máxima de 10pts*): 
   - Seleccionar un **problema propio** de su entorno profesional o de mayor interés personal. Se requerirá la aplicación de técnicas de PLN orientadas a **resolver tareas finales del mundo real**. Se debe ajustar a los criterios descritos al final de este documento.
