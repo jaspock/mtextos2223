@@ -6,7 +6,7 @@ Para la evaluación de este bloque el estudiante deberá realizar **DOS entregas
 
 ### Entrega 1 (común)
 
-* Seleccionar **UNO** de los ejercicios relizados en las [Práctica 1][p1] y [2][p2], y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
+* Seleccionar **UNO** de los ejercicios relizados en las [Práctica 1.1][p1] y [1.2][p2], y entregarlo. Ajustarse a los criterios de evaluación descritos al final de este documento.
 
 ### Entrega 2 (selectiva)
 
