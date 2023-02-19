@@ -55,7 +55,7 @@ Para obtener información sobre la evaluación de la asignatura puedes consultar
 [guía]: https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=43459&scaca=2022-23
 
 - Las prácticas se realizan individualmente o en parejas, según se indique en el enunciado de cada una de ellas. Cada uno de los tres bloques de la asignatura tendrá uno o más trabajos prácticos. Los trabajos del primer bloque contarán un 15% en la nota final de las prácticas, los del segundo un 50% y un 35% los del tercero.
-- La asistencia a prácticas es obligatoria. Se pasará lista en cada sesión presencial. Se puede tener un máximo de 3 faltas sin justificar.  
+- La asistencia a prácticas es obligatoria. Se pasará lista en cada sesión presencial. Se puede tener un máximo de 3 faltas sin justificar. Si se acumulan más faltas no justificadas, no se podrá superar la parte de prácticas en la primera convocatoria, pero sí en la segunda (si se realizan las entregas correspondientes antes del día del examen) o en las otras convocatorias extraordinarias.
 
 El [código fuente][fuente] de estas páginas, escrito en MyST para Jupyter Book, está disponible en Github.
 
