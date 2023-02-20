@@ -33,7 +33,7 @@ Novedades
 Actividades previas
 -------------------
 
-- Antes de la clase del 22/02/2023: lee el [Tema  1 del bloque 2](https://jaspock.github.io/mtextos2223/bloque3.html); a continuación, contesta este [test][test03] (plazo límite: 23:59 horas del 21/02/2023). **IMPORTANTE:** PARA ESTA SESION SE HARÁ UNA EXCEPCIÓN Y EL PLAZO LÍMITE SERÁ: 23:59 horas del 27/02/2023
+- Antes de la clase del 22/02/2023: lee el [Tema  1 del bloque 2](https://jaspock.github.io/mtextos2223/bloque3_t1_aplicaciones.html); a continuación, contesta este [test][test03] (plazo límite: 23:59 horas del 21/02/2023). **IMPORTANTE:** PARA ESTA SESION SE HARÁ UNA EXCEPCIÓN Y EL PLAZO LÍMITE SERÁ: 23:59 horas del 27/02/2023
 
 - Antes de la clase del 15/02/2023: lee los [apartados 5 y 6 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1_3AnalisisSemantico.html), y luego contesta el siguiente [cuestionario][test02] (plazo límite: 23:59 horas del 14/02/2023).
 
