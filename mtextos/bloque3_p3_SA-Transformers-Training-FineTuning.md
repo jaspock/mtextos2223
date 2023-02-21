@@ -1,6 +1,13 @@
 P2. Reajustar modelos Transformers
 ====================================
 
+```{admonition} Nota
+:class: note
+Lee con atención la práctica 2 del bloque 2. Realiza los ejercicios y una entrega unificada (práctica 2, 3 y 4), la cual se anunciará en la introducción de la asignatura y a través del uaCloud.
+
+Tiempo de dedicación: 3 horas (asíncrona) + 3 horas trabajo independiente
+```
+
 ## **Clase práctica.**
 
 ### Reajustar modelos Transformers: Caso de estudio de Análisis de Sentimientos

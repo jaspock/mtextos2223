@@ -1,6 +1,13 @@
 P1.2. APIs Transformers
 ====================================
 
+```{admonition} Nota
+:class: note
+Lee con atención la práctica 1.2 del bloque 2. Realiza los ejercicios y una entrega unificada (práctica 1.1 y 1.2), la cual se anunciará en la introducción de la asignatura y a través del uaCloud.
+
+Tiempo de dedicación: 1 hora y 30 minutos (asíncrona) + 1 hora y 30 minutos trabajo independiente
+```
+
 ## **Clase práctica.**
 
 ### Uso de APIs Transformers: Caso de estudio de Análisis de Sentimientos
