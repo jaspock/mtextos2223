@@ -436,6 +436,8 @@ URL: <https://semeval.github.io/>
 - ...
 - Semeval-2020 (2020)
 - Semeval-2021 (2021)
+- Semeval-2022 (2022)
+- Semeval-2023 (2023)
 
 Por qué **primero** SensEval (Sens de sentido o significado y Eval de evaluación) y luego SemEval (Sem de **semántica**). Pues porque Senseval-1 (1998) y Senseval-2 ( 2001) se centraron en **tareas de desambiguación semántica** y ya **luego** fueron **incorporándose** otros tipos de **tareas de PLN** lo que dió lugar a un cambio de nombre SemEval que pudiera ampliar el marco de representación de dicho nombre.
 
@@ -625,6 +627,8 @@ Su objetivo es alentar a la comunidad investigadora a **organizar tareas competi
 - Iberlef2019: <https://sites.google.com/view/iberlef-2019>
 - Iberlef2020:  <https://sites.google.com/view/iberlef2020/home>
 - Iberlef2021: <https://sites.google.com/view/iberlef2021>
+- Iberlef2022: <https://sites.google.com/view/iberlef2022>
+- Iberlef2023: <https://sites.google.com/view/iberlef-2023>
 
 
 ### Benchmarks e infraestructuras de evaluación
@@ -662,7 +666,7 @@ Las tareas recogidas en el marco de GLUE actualmente ofrecen **rendimientos cerc
 
 **SuperGLUE**, un **nuevo Benckmark** con el **estilo de GLUE** con un **nuevo conjunto de tareas** de comprensión del idioma **más difíciles**, **recursos mejorados** y **una nueva tabla de clasificación pública**.
 
-#### [Huggingface 🤗](https://huggingface.co/) [conjunto de datos, código fuente]
+#### [Huggingface 🤗](https://huggingface.co/) [conjunto de datos, código fuente, modelos]
 
 Hugging Face es una **empresa emergente líder en el PLN** con más de mil empresas que utilizan sus bibliotecas de código abierto (específicamente: la **biblioteca** **Transformers**) en producción. La biblioteca Transformer basada en Python expone las API para usar rápidamente **arquitecturas NLP** como: **BERT** (Google, 2018)
 
@@ -672,7 +676,7 @@ La librería Transformers **proporciona**:
 - **API para descargar y usar** rápidamente esos **modelos previamente entrenados**
 - está **respaldado/integrado** por librerías como [**PyTorch**](https://pytorch.org/) y [**TensorFlow**](https://www.tensorflow.org/)
 
-#### [Extreme](https://sites.research.google/xtreme) [tabla de rankings, conjunto de datos, códigos fuente. papers]
+#### [Extreme](https://sites.research.google/xtreme) [tabla de rankings, conjunto de datos, códigos fuente. papers, modelos]
 
 **TRansfer Evaluation of Multilingual Encoders** ([Extreme]) es un benckmark para la **evaluación** de la capacidad de **generalización** entre **idiomas de modelos multilingües** previamente entrenados. Cubre **40 idiomas** tipológicamente diversos (que abarcan 12 familias de idiomas) e incluye **nueve tareas** que colectivamente requieren razonamiento sobre diferentes niveles de sintaxis y semántica.
 [Extreme](https://github.com/google-research/xtreme)
