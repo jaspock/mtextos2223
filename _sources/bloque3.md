@@ -1,9 +1,11 @@
 
 (label_aplicaciones)=
-Bloque 2. Aplicaciones de la minería de textos
+Aplicaciones de la minería de textos
 ====================================
 
 Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamiento del lenguaje natural. El profesor encargado de este bloque es [Yoan Gutiérrez][yoan url]. Colaboradores: [José I. Abbreu Salas][abreu url]  y [Javier Fernández Martínez][javi url]
+
+<!--
 
 ## Temario
 
@@ -45,6 +47,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 % - P.Ev2. [Evaluación 2 (selectiva)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva). Apertura el 08/03/23 - Cierre 23:59 del 29/04/2023 - Fuera de plazo hasta 05/04/23.
 
 
+-->
 
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
 [javi url]: https://cvnet.cpd.ua.es/curriculum-breve/es/fernandez-martinez-javier/321
