@@ -18,7 +18,7 @@ parts:
   chapters:
   - file: bloque3
   - file: bloque3_t1_aplicaciones
-# - file: bloque3_t2_subaplicaciones-benchmarks
+  - file: bloque3_t2_subaplicaciones-benchmarks
 # - file: bloque3_t2.1_analisis_sentimientos
 # - file: bloque3_t3.1_metricas
 # - file: bloque3_t4_contralizacion
