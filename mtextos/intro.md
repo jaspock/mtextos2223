@@ -33,7 +33,7 @@ Novedades
 Actividades previas
 -------------------
 
-- Antes de la clase del 01/03/2023: lee el Tema 2 y 2.1; a continuación, contesta estos test [test1][test04] y [test2][test05] (plazo límite: 23:59 del 28/02/2023.)
+- Antes de la clase del 01/03/2023: lee el Tema 2 y 2.1; a continuación, contesta estos test [test1][test04] y [test2][test05] (**plazo límite: 23:59 del 28/02/2023**)
 
 - P.Ev1. [Evaluación 1 (común)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-1-comun). Apertura el 22/02/2023 - **Cierre 23:59 del 01/03/2023** - Fuera de plazo hasta 08/03/23.
 
