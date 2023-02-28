@@ -1039,9 +1039,9 @@ La arquietectura de GPT-1 es principalmente un conjunto de 12 bloques de transfo
 
 <span class="c1"># Hacer una pregunta a ChatGPT</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span>
-    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Qué es el sol?&quot;</span><span class="p">,</span>
-    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;text-davinci-002&quot;</span><span class="p">,</span> <span class="c1"># asignamos el nombre del modelo a utilizar. Ejemplo: &quot;text-davinci-003&quot;, &quot;text-davinci-002&quot;, &quot;text-davinci-001&quot;, &quot;code-davinci-002&quot;, ...</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Qué es el sol?&quot;</span><span class="p">,</span> <span class="c1"># Entrada</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="c1"># Dimensionalidad de la ventana </span>
     <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>

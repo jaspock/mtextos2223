@@ -476,9 +476,9 @@ openai.api_key = "tu_api_key_aqui"
 
 # Hacer una pregunta a ChatGPT
 response = openai.Completion.create(
-    engine="text-davinci-002",
-    prompt="Qué es el sol?",
-    max_tokens=1024,
+    engine="text-davinci-002", # asignamos el nombre del modelo a utilizar. Ejemplo: "text-davinci-003", "text-davinci-002", "text-davinci-001", "code-davinci-002", ...
+    prompt="Qué es el sol?", # Entrada
+    max_tokens=1024, # Dimensionalidad de la ventana 
     n=1,
     stop=None,
     temperature=0.5,
