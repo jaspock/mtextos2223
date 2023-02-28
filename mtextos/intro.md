@@ -32,6 +32,11 @@ Novedades
 (label_actividades_previas)=
 Actividades previas
 -------------------
+%- Antes de la clase del 22/03/2023: lee el Tema 5; a continuación, contesta el siguiente test: [test][test08]  (**plazo límite: 23:59 del 21/03/2023**)
+
+%- Antes de la clase del 015/03/2023: lee el Tema 4; a continuación, contesta el siguiente test: [test][test07]  (**plazo límite: 23:59 del 14/03/2023**)
+
+%- - Antes de la clase del 08/03/2023: lee el Tema 3; a continuación, contesta el siguiente test: [test][test06]  (**plazo límite: 23:59 del 07/03/2023**)
 
 - Antes de la clase del 01/03/2023: lee el Tema 2 y 2.1; a continuación, contesta estos tests: [test1][test04] y [test2][test05] (**plazo límite: 23:59 del 28/02/2023**)
 
@@ -43,7 +48,15 @@ Actividades previas
 
 - Antes de la clase del 08/02/2023: lee los [apartados 1, 2 y 3 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1.html); a continuación, contesta este [test][test01] (plazo límite: 23:59 horas del 07/02/2023).
 
+[test08]: autogoalURL
+
+[test07]: https://docs.google.com/forms/d/e/1FAIpQLScsfrSzeMWqsAwFrYpl5zEgLOlDt9OZ0D5p8A2fN6Pyh1V3WA/viewform
+
+[test06]: https://docs.google.com/forms/d/e/1FAIpQLScD2m7ZzwwJvkIDOVICuSy8mfE1wsvSeKaFQ3B23cftJyjYcQ/viewform
+
+
 [test05]: https://docs.google.com/forms/d/e/1FAIpQLSccvm-ZXHONuDGX_Q8R1PmNWcb5eSbFde4NyX25uxPkNh4zNw/viewform
+
 [test04]: https://docs.google.com/forms/d/e/1FAIpQLSe_n1zPl8FzhjXoF7E4ucGoOfjSm-D8HcQZ2N5dtcy-Nudsgw/viewform
 
 [test03]: https://docs.google.com/forms/d/e/1FAIpQLSdJOREB0q6HP95Ny9GkNiKpouKESLt5aZRNDzhjezqVfIBhHA/viewform
