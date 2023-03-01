@@ -27,7 +27,7 @@ parts:
   - file: bloque3_p1_SA-Pipeline-Reviews
   - file: bloque3_p2_SA-Transformers-Basic
   - file: bloque3_p3_SA-Transformers-Training-FineTuning
-# - file: bloque3_p4_SA-Transformers-Training-Custom
+  - file: bloque3_p4_SA-Transformers-Training-Custom
 #   - file: bloque3_p5-SA-Ensemble
 #   - file: bloque3_p6_SA-AutoGOAL
   - file: bloque3_ev
