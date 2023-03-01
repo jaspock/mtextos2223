@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>P3. Composición de vectores de características &#8212; Minería de Textos</title>
+    <title>15. P3. Composición de vectores de características &#8212; Minería de Textos</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Ev. Evaluación de prácticas del Bloque 2" href="bloque3_ev.html" />
+    <link rel="prev" title="14. P2. Reajustar modelos Transformers" href="bloque3_p3_SA-Transformers-Training-FineTuning.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -163,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
   Bloque 2
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bloque3.html">
    8. Aplicaciones de la minería de textos
@@ -199,9 +201,14 @@ const thebe_selector_output = ".output, .cell_output"
    14. P2. Reajustar modelos Transformers
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   15. P3. Composición de vectores de características
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bloque3_ev.html">
-   15. Ev. Evaluación de prácticas del Bloque 2
+   16. Ev. Evaluación de prácticas del Bloque 2
   </a>
  </li>
 </ul>
@@ -213,17 +220,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="content.html">
-   16. Content in Jupyter Book
+   17. Content in Jupyter Book
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
-   17. Markdown Files
+   18. Markdown Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
-   18. Content with notebooks
+   19. Content with notebooks
   </a>
  </li>
 </ul>
@@ -360,6 +367,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clase-practica">
+   15.1.
    <strong>
     Clase práctica.
    </strong>
@@ -367,44 +375,44 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#composicion-de-vectores-de-caracteristicas-caso-de-estudio-de-analisis-de-sentimientos">
-     Composición de vectores de características: Caso de estudio de Análisis de Sentimientos
+     15.1.1. Composición de vectores de características: Caso de estudio de Análisis de Sentimientos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#descripcion">
-     Descripción
+     15.1.2. Descripción
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-demostrativo">
-     Ejemplo demostrativo
+     15.1.3. Ejemplo demostrativo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicios">
-     Ejercicios
+     15.1.4. Ejercicios
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-1">
-       Ejercicio 1
+       15.1.4.1. Ejercicio 1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-2">
-       Ejercicio 2
+       15.1.4.2. Ejercicio 2
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicios-adicionales">
-       Ejercicios adicionales
+       15.1.4.3. Ejercicios adicionales
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#criterios-a-tener-en-cuenta-para-la-practica">
-     Criterios a tener en cuenta para la práctica:
+     15.1.5. Criterios a tener en cuenta para la práctica:
     </a>
    </li>
   </ul>
@@ -430,6 +438,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clase-practica">
+   15.1.
    <strong>
     Clase práctica.
    </strong>
@@ -437,44 +446,44 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#composicion-de-vectores-de-caracteristicas-caso-de-estudio-de-analisis-de-sentimientos">
-     Composición de vectores de características: Caso de estudio de Análisis de Sentimientos
+     15.1.1. Composición de vectores de características: Caso de estudio de Análisis de Sentimientos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#descripcion">
-     Descripción
+     15.1.2. Descripción
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-demostrativo">
-     Ejemplo demostrativo
+     15.1.3. Ejemplo demostrativo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicios">
-     Ejercicios
+     15.1.4. Ejercicios
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-1">
-       Ejercicio 1
+       15.1.4.1. Ejercicio 1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-2">
-       Ejercicio 2
+       15.1.4.2. Ejercicio 2
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicios-adicionales">
-       Ejercicios adicionales
+       15.1.4.3. Ejercicios adicionales
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#criterios-a-tener-en-cuenta-para-la-practica">
-     Criterios a tener en cuenta para la práctica:
+     15.1.5. Criterios a tener en cuenta para la práctica:
     </a>
    </li>
   </ul>
@@ -490,38 +499,38 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="p3-composicion-de-vectores-de-caracteristicas">
-<h1>P3. Composición de vectores de características<a class="headerlink" href="#p3-composicion-de-vectores-de-caracteristicas" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">15. </span>P3. Composición de vectores de características<a class="headerlink" href="#p3-composicion-de-vectores-de-caracteristicas" title="Permalink to this headline">#</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Lee con atención la práctica 3 del bloque 2. Realiza los ejercicios y una entrega unificada (práctica 2, 3 y 4), la cual se anunciará en la introducción de la asignatura y a través del uaCloud.</p>
 <p>Tiempo de dedicación: 3 horas (asíncrona) + 3 horas trabajo independiente</p>
 </div>
 <section id="clase-practica">
-<h2><strong>Clase práctica.</strong><a class="headerlink" href="#clase-practica" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">15.1. </span><strong>Clase práctica.</strong><a class="headerlink" href="#clase-practica" title="Permalink to this headline">#</a></h2>
 <section id="composicion-de-vectores-de-caracteristicas-caso-de-estudio-de-analisis-de-sentimientos">
-<h3>Composición de vectores de características: Caso de estudio de Análisis de Sentimientos<a class="headerlink" href="#composicion-de-vectores-de-caracteristicas-caso-de-estudio-de-analisis-de-sentimientos" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">15.1.1. </span>Composición de vectores de características: Caso de estudio de Análisis de Sentimientos<a class="headerlink" href="#composicion-de-vectores-de-caracteristicas-caso-de-estudio-de-analisis-de-sentimientos" title="Permalink to this headline">#</a></h3>
 <!-- **Autores:**
 
 - [Yoan Gutiérrez Vázquez][yoan]
 - [José Ignacio Abreu Salas][abreu] -->
 </section>
 <section id="descripcion">
-<h3>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">15.1.2. </span>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">#</a></h3>
 <p>En esta clase práctica estudiaremos cómo extraer vectores de  características de distintos modos y finalmente componerlo como un único vector de características. Usaremos la librería Transformers como uno de los mecanismos de obtención de vectores de características.
 Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y diseñar la composición de vectores de  características para alimentar sistemas de análisis de sentimientos.</p>
 <p>Las entregas de ejercicios se han de hacer a través del UAcloud&gt;Evaluación&gt;[Nombre de la práctica].</p>
 </section>
 <section id="ejemplo-demostrativo">
-<h3>Ejemplo demostrativo<a class="headerlink" href="#ejemplo-demostrativo" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">15.1.3. </span>Ejemplo demostrativo<a class="headerlink" href="#ejemplo-demostrativo" title="Permalink to this headline">#</a></h3>
 <p>Transformers Training Custom:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/TeachingTextMining/TextClassification/tree/main/04-SA-Transformers-Training-Custom">04-SA-Transformers-Training-Custom</a></p></li>
 </ul>
 </section>
 <section id="ejercicios">
-<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">15.1.4. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">#</a></h3>
 <section id="ejercicio-1">
-<h4>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">15.1.4.1. </span>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">#</a></h4>
 <p>Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.</p>
 <ul class="simple">
 <li><p>sample_data/ejercicio_tripadvisor.csv</p></li>
@@ -529,7 +538,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y
 </ul>
 </section>
 <section id="ejercicio-2">
-<h4>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">15.1.4.2. </span>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permalink to this headline">#</a></h4>
 <p>Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.</p>
 <ul class="simple">
 <li><p>sample_data/ejercicio_bbc_train.csv</p></li>
@@ -537,7 +546,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y
 </ul>
 </section>
 <section id="ejercicios-adicionales">
-<h4>Ejercicios adicionales<a class="headerlink" href="#ejercicios-adicionales" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">15.1.4.3. </span>Ejercicios adicionales<a class="headerlink" href="#ejercicios-adicionales" title="Permalink to this headline">#</a></h4>
 <p>Elige alguno de los siguientes datasets y conforma tu propio sistema de sentiment analysis.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.kaggle.com/search?q=sentiment+analysis+in%3Adatasets">SA Kaggle todos</a></p></li>
@@ -547,7 +556,7 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y
 </section>
 </section>
 <section id="criterios-a-tener-en-cuenta-para-la-practica">
-<h3>Criterios a tener en cuenta para la práctica:<a class="headerlink" href="#criterios-a-tener-en-cuenta-para-la-practica" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">15.1.5. </span>Criterios a tener en cuenta para la práctica:<a class="headerlink" href="#criterios-a-tener-en-cuenta-para-la-practica" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>El cuaderno a entregar no debe tener errores de ejecución.</p></li>
 <li><p>Cada modificación de autor incorporada en cuaderno debe ser señalada con comentario. Por ejemplo ####Codigo NOMBRE_DEL_AUTOR ….#####.</p></li>
@@ -586,6 +595,20 @@ Se orientarán ejercicios a resolver en los que el estudiante deberá proponer y
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bloque3_p3_SA-Transformers-Training-FineTuning.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">14. </span>P2. Reajustar modelos Transformers</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque3_ev.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Ev. Evaluación de prácticas del Bloque 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
