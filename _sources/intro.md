@@ -34,7 +34,7 @@ Actividades previas
 -------------------
 %- Antes de la clase del 22/03/2023: lee el Tema 5; a continuación, contesta el siguiente test: [test][test08]  (**plazo límite: 23:59 del 21/03/2023**)
 
-%- Antes de la clase del 015/03/2023: lee el Tema 4; a continuación, contesta el siguiente test: [test][test07]  (**plazo límite: 23:59 del 14/03/2023**)
+- Antes de la clase del 015/03/2023: lee el Tema 4; a continuación, contesta el siguiente test: [test][test07]  (**plazo límite: 23:59 del 14/03/2023**)
 
  - Antes de la clase del 08/03/2023: lee el Tema 3; a continuación, contesta el siguiente test: [test][test06]  (**plazo límite: 23:59 del 07/03/2023**)
 

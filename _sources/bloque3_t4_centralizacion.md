@@ -14,7 +14,7 @@ Contenidos:
 - [Huggingface: Introducción](#introduccion)
 - [Huggingface: Repositorio de Datasets](#repositorio-de-datasets)
 - [Huggingface: Repositorio de Modelos pre-entrenados](#repositorio-de-modelos-pre-entrenados)
-- [OpenAI: Tecnologías de Generación (GPT, Copilot, ChatGPT)](#Tecnologías-de-generación)
+- [OpenAI: Tecnologías de Generación (GPT, Copilot, ChatGPT)](#Tecnologías-de-generacion)
 
 ## Introducción
 
