@@ -457,7 +457,7 @@ En la web oficial de OpenAI podemos ver un amplio listado de ejemplos de aplicac
 - Conversación abierta con un asistente de IA.
 
 
-A continuación se muestra la evaluación de modelos hasta lo que hoy conocemos como ChatGPT:
+A continuación se muestra la evolución de modelos hasta lo que hoy conocemos como ChatGPT:
 
 ```{image} /images/bloque3/t4/GPT-1-2-3_datasources.png
 :alt: comic xkcd 2421
