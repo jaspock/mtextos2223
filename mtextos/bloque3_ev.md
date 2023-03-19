@@ -24,6 +24,7 @@ Para la evaluación de este bloque el estudiante deberá realizar **DOS entregas
 
 - El **cuaderno de trabajo** debe estar **bien documentado** en cada una de las etapas, procedimientos, variables, bloques de código, etc.  
 - Los **datos** que se procesarán y el **cuaderno de trabajo** deben estar **incluidos** en un  **paquete de trabajo**.
+- **En el caso de tratar con datos desbalanceados se recomienda utilizar [estrategias de balanceo de datos][p6]**
 - El cuaderno **no debe tener errores de ejecución**
 - Cada **modificación/aporte de autor debe ser señalada con comentario**. Por ejemplo ####Codigo de Alumno1 ....#####
 - Se deben **comentar y describir los aportes** realizados por el autor, y **explicar los motivos**
@@ -34,8 +35,10 @@ Para la evaluación de este bloque el estudiante deberá realizar **DOS entregas
 Se entragará la tarea (paquete de trabajo) mediante una **entrega en UAcloud** que se habilitará para ello. El paquete deberá comprimirse en un ``.zip`` y tener la siguiente estructura: ``[nombreEstudiante]-mtextos-bloque2-22-23.zip``. Además entregar el enlace de Colab donde se encuentra el cuaderno.
 
 
+
 [p1]: https://jaspock.github.io/mtextos2223/bloque3_p1_SA-Pipeline-Reviews.html
 [p2]: https://jaspock.github.io/mtextos2223/bloque3_p2_SA-Transformers-Basic.html
 [p3]: https://jaspock.github.io/mtextos2223/bloque3_p3_SA-Transformers-Training-FineTuning.html
 [p4]: https://jaspock.github.io/mtextos2223/bloque3_p4_SA-Transformers-Training-Custom.html
 [p5]: https://jaspock.github.io/mtextos2223/bloque3_p5-SA-Ensemble.html
+[p6]: https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/
