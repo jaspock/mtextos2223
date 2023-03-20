@@ -41,6 +41,9 @@ parts:
 #  - file: bloque2_pretrained
 #  - file: bloque2_otros
 #  - file: bloque2_practica
+- caption: Bloque 3
+  chapters:
+  - file: bloque222
 - caption: Extras
   chapters:
   - file: content
