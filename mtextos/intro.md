@@ -36,7 +36,7 @@ Actividades previas
 
 - P.Ev2. [Evaluación 2 (común)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva). Apertura el 22/02/2023 - **Cierre 23:59 del 29/03/2023** - Fuera de plazo hasta 05/04/23.
 
-- Antes de la clase del 015/03/2023: lee el Tema 4; a continuación, contesta el siguiente test: [test][test07]  (**plazo límite: 23:59 del 14/03/2023**)
+- Antes de la clase del 15/03/2023: lee el Tema 4; a continuación, contesta el siguiente test: [test][test07]  (**plazo límite: 23:59 del 14/03/2023**)
 
  - Antes de la clase del 08/03/2023: lee el Tema 3; a continuación, contesta el siguiente test: [test][test06]  (**plazo límite: 23:59 del 07/03/2023**)
 
