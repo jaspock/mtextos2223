@@ -11,7 +11,7 @@ Los materiales de clase complementan la lectura de algunos capítulos de un libr
 
 Las actividades a realizar antes de esta clase son:
 
-- Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/regresor) sobre regresión logística. Puedes saltar el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/regresor#regresores-implementados-en-pytorch), ya que será el eje central de la próxima clase presencial. Como verás, la página te indica qué contenidos has de leer del libro. Tras una primera lectura, lee las anotaciones del profesor, cuyo objetivo es ayudarte a entender los conceptos clave del capítulo. Después, realizar una segunda lectura del capítulo. En total, esta parte debería llevarte unas 3 horas 🕒️ de trabajo.
+- Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/regresor) sobre regresión logística. Puedes saltar el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/regresor#regresores-implementados-en-pytorch), ya que será el eje central de la próxima clase presencial. Como verás, la página te indica qué contenidos has de leer del libro. Tras una primera lectura, lee las anotaciones del profesor, cuyo objetivo es ayudarte a entender los conceptos clave del capítulo. Después, realiza una segunda lectura del capítulo. En total, esta parte debería llevarte unas 3 horas 🕒️ de trabajo.
 - Visionado y estudio de los tutoriales en vídeo de esta [playlist oficial de PyTorch](https://www.youtube.com/playlist?list=PL_lsbAsL_o2CTlGHgMxNrKhzP97BaG9ZN).  Mírate al menos los 4 primeros vídeos (“Introduction to PyTorch”, “Introduction to PyTorch Tensors”, “The Fundamentals of Autograd” y “Building Models with PyTorch”). En total, esta parte debería llevarte unas 2 horas 🕒️ de trabajo.
 - Realización del [test de evaluación](https://forms.gle/E1xzZHw6hzMWJaNr7) de estos contenidos. Son pocas preguntas y te llevará unos minutos.
 
@@ -23,7 +23,16 @@ La idea es que vayas creando una serie de notebooks en Google Colab en los que i
 
 ## Contenidos a preparar antes de la sesión del 26 de abril de 2023
 
+Entre la sesión anterior y la del 26 de abril transcurren varias semanas de trabajo, por lo que la carga de trabajo es mayor que en la sesión anterior.
 
+Las actividades a realizar antes de esta clase son:
+
+- Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/embeddings) sobre la obtención de embeddings incontextuales. Puedes saltar de nuevo el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/embeddings#implementación-en-pytorch), ya que se estudiará en la próxima clase presencial. Como verás, la página te indica qué contenidos has de leer del libro. Tras una primera lectura, lee las anotaciones del profesor, cuyo objetivo es ayudarte a entender los conceptos clave del capítulo. Después, realiza una segunda lectura del capítulo. En total, esta parte debería llevarte unas 4 horas 🕒️ de trabajo.
+- Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/ffw) sobre la obtención de embeddings incontextuales. Puedes saltar de nuevo el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch), ya que se estudiará también en la próxima clase presencial. En total, esta parte debería llevarte unas 3 horas 🕒️ de trabajo.
+- Primeros pasos en el estudio del modelo transformer. Volveremos a dedicar más horas a esta arquitectura para la próxima sesión para abordarla en dos fases. Ahora, lee con detenimiento la introducción a mecanismos de atención de ["Visualizing A Neural Machine Translation Model"](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/), así como la introducción visual a los transformers de ["The Illustrated Transformer"](http://jalammar.github.io/illustrated-transformer/). A continuación, realiza una lectura no muy pausada del apartado 9.7 (solo este apartado) del capítulo ["Deep learning architectures for sequence processing"](https://web.archive.org/web/20221216193204/https://web.stanford.edu/~jurafsky/slp3/9.pdf). En total, esta parte debería llevarte unas 4 horas 🕒️ de trabajo. Volveremos a este capítulo para la próxima sesión. 
+- Realización del [test de evaluación]() de estos contenidos. Son pocas preguntas y te llevará unos minutos.
+
+### Contenidos para la sesión presencial del 26 de abril de 2023
 
 ## Contenidos a preparar antes de la sesión del 10 de mayo
 
