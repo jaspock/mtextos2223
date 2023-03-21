@@ -43,7 +43,7 @@ parts:
 #  - file: bloque2_practica
 - caption: Bloque 3
   chapters:
-  - file: bloque222
+  - file: bloque2
 - caption: Extras
   chapters:
   - file: content
