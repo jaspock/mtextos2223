@@ -7,7 +7,6 @@ En este bloque se aborda el estudio de algunos modelos neuronales utilizados par
 
 Los materiales de clase complementan la lectura de algunos capítulos de un libro de texto ("Speech and Language Processing" de Dan Jurafsky y James H. Martin, borrador de la tercera edición, disponible online) con anotaciones realizadas por el profesor.
 
-(tecnicas-s1)=
 ## Primera sesión (29 de marzo de 2023)
 
 #### Contenidos a preparar antes de la sesión del 29/03/2023
@@ -24,7 +23,6 @@ En la clase presencial, repasaremos los contenidos de la semana anterior y verem
 
 La idea es que vayas creando una serie de notebooks en Google Colab en los que incluyas y comentes cada uno de los programas que vamos a ir viendo. En la última clase se presentará una práctica más avanzada que implicará modificar el código del transformer.
 
-(tecnicas-s2)=
 ## Segunda sesión (26 de abril de 2023)
 
 Entre la sesión anterior y la del 26 de abril transcurren varias semanas de trabajo, por lo que la carga de trabajo es mayor que en la sesión anterior.
@@ -42,7 +40,7 @@ Las actividades a realizar antes de esta clase son:
 
 #### Contenidos para la sesión presencial del 26/04/2023
 
-(tecnicas-s3)=
+
 ## Tercera sesión (10 de mayo de 2023)
 
 #### Contenidos a preparar antes de la sesión del 10 de mayo
