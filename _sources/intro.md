@@ -32,6 +32,9 @@ Novedades
 (label_actividades_previas)=
 Actividades previas
 -------------------
+
+- Antes de la clase del 29/03/2023: lee los contenidos y visualiza los vídeos que se detallan en el apartado correspondiente a esta clase de la [página de técnicas](./bloque2.html#tecnicas-s1) de procesamiento del lenguaje natural; a continuación, realiza este [test][test10]  (**plazo límite: 23:59 del 28/03/2023**).
+
 - Antes de la clase del 22/03/2023: lee el Tema 5 y 5.1; a continuación, contesta el siguiente test: [test][test08]  (**plazo límite: 23:59 del 21/03/2023**)
 
 - P.Ev2. [Evaluación 2 (común)](https://jaspock.github.io/mtextos2223/bloque3_ev.html#entrega-2-selectiva). Apertura el 22/02/2023 - **Cierre 23:59 del 29/03/2023** - Fuera de plazo hasta 05/04/23.
@@ -50,6 +53,8 @@ Actividades previas
 
 - Antes de la clase del 08/02/2023: lee los [apartados 1, 2 y 3 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1.html); a continuación, contesta este [test][test01] (plazo límite: 23:59 horas del 07/02/2023).
 
+[test10]: https://forms.gle/E1xzZHw6hzMWJaNr7
+
 [test08]: https://docs.google.com/forms/d/e/1FAIpQLSehp7JODgvCf0kOrAyQvF9eYhjc6SQboEc7-wPfCPB12ufdzQ/viewform
 [test07]: https://docs.google.com/forms/d/e/1FAIpQLScsfrSzeMWqsAwFrYpl5zEgLOlDt9OZ0D5p8A2fN6Pyh1V3WA/viewform
 [test06]: https://docs.google.com/forms/d/e/1FAIpQLScD2m7ZzwwJvkIDOVICuSy8mfE1wsvSeKaFQ3B23cftJyjYcQ/viewform
@@ -59,6 +64,7 @@ Actividades previas
 
 [test02]: https://docs.google.com/forms/d/e/1FAIpQLSec_eQ4ZecmSKNrPhNbuMkfhLko149ckC2qQzFxdmOapHvp8A/viewform?usp=sf_link
 [test01]: https://forms.gle/ncbWkFGCjSqXSTiX9
+
 
 
 Guía docente y normas del curso
