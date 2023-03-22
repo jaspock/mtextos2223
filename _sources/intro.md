@@ -54,7 +54,7 @@ Actividades previas
 - Antes de la clase del 08/02/2023: lee los [apartados 1, 2 y 3 del bloque 1](https://jaspock.github.io/mtextos2223/bloque1.html); a continuación, contesta este [test][test01] (plazo límite: 23:59 horas del 07/02/2023).
 
 [test10]: https://forms.gle/E1xzZHw6hzMWJaNr7
-[tecnicas]: ./bloque2.html
+[tecnicas]: https://jaspock.github.io/mtextos2223/bloque2.html
 
 [test08]: https://docs.google.com/forms/d/e/1FAIpQLSehp7JODgvCf0kOrAyQvF9eYhjc6SQboEc7-wPfCPB12ufdzQ/viewform
 [test07]: https://docs.google.com/forms/d/e/1FAIpQLScsfrSzeMWqsAwFrYpl5zEgLOlDt9OZ0D5p8A2fN6Pyh1V3WA/viewform
