@@ -33,7 +33,7 @@ Novedades
 Actividades previas
 -------------------
 
-% - Antes de la clase del 29/03/2023: lee los contenidos y visualiza los vídeos que se detallan en el apartado correspondiente a esta clase de la [página de técnicas](./bloque2.html) de procesamiento del lenguaje natural; a continuación, realiza este [test][test10]  (**plazo límite: 23:59 del 28/03/2023**). Nota: esta clase y las siguientes serán impartidas por un profesor diferente a los de las sesiones anteriores, pero hay que realizar actividades previas como cualquier otra semana.
+- Antes de la clase del 29/03/2023: lee los contenidos y visualiza los vídeos que se detallan en el apartado correspondiente a esta clase de la [página de técnicas](./bloque2.html) de procesamiento del lenguaje natural; a continuación, realiza este [test][test10]  (**plazo límite: 23:59 del 28/03/2023**). Nota: esta clase y las siguientes serán impartidas por un profesor diferente a los de las sesiones anteriores, pero hay que realizar actividades previas como cualquier otra semana.
 
 - Antes de la clase del 22/03/2023: lee el Tema 5 y 5.1; a continuación, contesta el siguiente test: [test][test08]  (**plazo límite: 23:59 del 21/03/2023**)
 
