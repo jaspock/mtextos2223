@@ -31,7 +31,7 @@ La idea es que vayas creando una serie de notebooks en Google Colab en los que i
 
 Entre la sesión anterior y la del 26 de abril transcurren varias semanas, por lo que la carga de trabajo es mayor que en la sesión anterior.
 
-**Contenidos a preparar antes de la sesión del 26/04/2023**
+**<span style="text-size: 1.1em">Contenidos a preparar antes de la sesión del 26/04/2023</span>**
 
 Las actividades a realizar antes de esta clase son:
 
