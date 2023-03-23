@@ -44,7 +44,6 @@ parts:
 - caption: Bloque 3
   chapters:
   - file: bloque2
-  - numbered: false
 - caption: Extras
   chapters:
   - file: content

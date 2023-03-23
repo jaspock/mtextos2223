@@ -7,6 +7,10 @@ En este bloque se aborda el estudio de algunos modelos neuronales utilizados par
 
 Los materiales de clase complementan la lectura de algunos capítulos de un libro de texto ("Speech and Language Processing" de Dan Jurafsky y James H. Martin, borrador de la tercera edición, disponible online) con anotaciones realizadas por el profesor.
 
+## Práctica a entregar para este bloque
+
+Durante las sesiones de este bloque estudiaremos diferentes implementaciones en PyTorch de modelos neuronales para procesar textos. Para cada ejemplo de código excepto el último, 
+
 ## Primera sesión (29 de marzo de 2023)
 
 #### Contenidos a preparar antes de la sesión del 29/03/2023
