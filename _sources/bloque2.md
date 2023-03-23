@@ -13,7 +13,7 @@ Durante las sesiones de este bloque, estudiaremos diferentes implementaciones en
 
 ## Primera sesión (29 de marzo de 2023)
 
-**Contenidos a preparar antes de la sesión del 29/03/2023**
+**<span style="font-size: 1.15em">Contenidos a preparar antes de la sesión del 29/03/2023</span>**
 
 Las actividades a realizar antes de esta clase son:
 
@@ -21,7 +21,7 @@ Las actividades a realizar antes de esta clase son:
 - Visionado y estudio de los tutoriales en vídeo de esta [playlist oficial de PyTorch](https://www.youtube.com/playlist?list=PL_lsbAsL_o2CTlGHgMxNrKhzP97BaG9ZN).  Estudia al menos los 4 primeros vídeos (“Introduction to PyTorch”, “Introduction to PyTorch Tensors”, “The Fundamentals of Autograd” y “Building Models with PyTorch”). En total, esta parte debería llevarte unas 2 horas 🕒️ de trabajo.
 - Tras acabar con las dos partes anteriores, realiza este [test de evaluación](https://forms.gle/E1xzZHw6hzMWJaNr7) de estos contenidos. Son pocas preguntas y te llevará unos minutos.
 
-**Contenidos para la sesión presencial del 29/03/2023**
+**<span style="font-size: 1.15em">Contenidos para la sesión presencial del 29/03/2023</span>**
 
 En la clase presencial, repasaremos los contenidos de la semana anterior y veremos cómo se implementa el regresor logístico en PyTorch siguiendo la implementación de un regresor logístico binario y de uno multinomial que se comentan en [este apartado](https://jaspock.github.io/me/materials/transformers/regresor#regresores-implementados-en-pytorch).
 
@@ -31,7 +31,7 @@ La idea es que vayas creando una serie de notebooks en Google Colab en los que i
 
 Entre la sesión anterior y la del 26 de abril transcurren varias semanas, por lo que la carga de trabajo es mayor que en la sesión anterior.
 
-**<span style="font-size: 1.1em">Contenidos a preparar antes de la sesión del 26/04/2023</span>**
+**<span style="font-size: 1.15em">Contenidos a preparar antes de la sesión del 26/04/2023</span>**
 
 Las actividades a realizar antes de esta clase son:
 
@@ -40,12 +40,12 @@ Las actividades a realizar antes de esta clase son:
 - Primeros pasos en el estudio del modelo transformer. Volveremos a dedicar más horas a esta arquitectura para la próxima sesión de forma que la abordaremos en dos fases. Por ahora, lee con detenimiento la introducción a mecanismos de atención de ["Visualizing A Neural Machine Translation Model"](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/), así como la introducción visual a los transformers de ["The Illustrated Transformer"](http://jalammar.github.io/illustrated-transformer/). A continuación, lee el apartado 9.7 (solo este apartado) del capítulo ["Deep learning architectures for sequence processing"](https://web.archive.org/web/20221216193204/https://web.stanford.edu/~jurafsky/slp3/9.pdf); el objetivo es que entiendas conceptualmente el mecanismo de atención de los transformers, pero no es necesario que en este momento comprendas todos los detalles técnicos (especialmente las ecuaciones del modelo), ya que volverás a dedicarle tiempo a este capítulo más adelante. En total, esta parte debería llevarte ahora unas 4 horas 🕒️ de trabajo.
 - Realización del [test de evaluación](https://forms.gle/Eb3ZwwGxbQp88t4FA) de estos contenidos. Son pocas preguntas y te llevará unos minutos.
 
-**Contenidos para la sesión presencial del 26/04/2023**
+**<span style="font-size: 1.15em">Contenidos para la sesión presencial del 26/04/2023</span>**
 
 En la clase presencial, repasaremos los contenidos de la semana anterior y veremos sendas implementaciones en PyTorch del algoritmo [skip-grams](https://jaspock.github.io/me/materials/transformers/embeddings#implementación-en-pytorch) y de un modelo de lengua basado en [redes feedforward](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch).
 
 ## Tercera sesión (10 de mayo de 2023)
 
-**Contenidos a preparar antes de la sesión del 10/05/2023**
+**<span style="font-size: 1.15em">Contenidos a preparar antes de la sesión del 10/05/2023</span>**
 
-**Contenidos para la sesión del 10/05/2023**
+**<span style="font-size: 1.15em">Contenidos para la sesión del 10/05/2023</span>**
