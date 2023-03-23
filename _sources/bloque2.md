@@ -7,6 +7,10 @@ En este bloque se aborda el estudio de algunos modelos neuronales utilizados par
 
 Los materiales de clase complementan la lectura de algunos capítulos de un libro de texto ("Speech and Language Processing" de Dan Jurafsky y James H. Martin, borrador de la tercera edición, disponible online) con anotaciones realizadas por el profesor.
 
+## Práctica a entregar para este bloque
+
+Durante las sesiones de este bloque estudiaremos diferentes implementaciones en PyTorch de modelos neuronales para procesar textos. Para cada ejemplo de código excepto el último, 
+
 ## Primera sesión (29 de marzo de 2023)
 
 #### Contenidos a preparar antes de la sesión del 29/03/2023
@@ -25,21 +29,20 @@ La idea es que vayas creando una serie de notebooks en Google Colab en los que i
 
 ## Segunda sesión (26 de abril de 2023)
 
-Entre la sesión anterior y la del 26 de abril transcurren varias semanas de trabajo, por lo que la carga de trabajo es mayor que en la sesión anterior.
-
-Nota: los contenidos de este apartado son provisionales.
+Entre la sesión anterior y la del 26 de abril transcurren varias semanas, por lo que la carga de trabajo es mayor que en la sesión anterior.
 
 #### Contenidos a preparar antes de la sesión del 26/04/2023
 
 Las actividades a realizar antes de esta clase son:
 
 - Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/embeddings) sobre la obtención de embeddings incontextuales. Puedes saltar de nuevo el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/embeddings#implementación-en-pytorch), ya que se estudiará en la próxima clase presencial. Como verás, la página te indica qué contenidos has de leer del libro. Tras una primera lectura, lee las anotaciones del profesor, cuyo objetivo es ayudarte a entender los conceptos clave del capítulo. Después, realiza una segunda lectura del capítulo. En total, esta parte debería llevarte unas 4 horas 🕒️ de trabajo.
-- Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/ffw) sobre la obtención de embeddings incontextuales. Puedes saltar de nuevo el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch), ya que se estudiará también en la próxima clase presencial. En total, esta parte debería llevarte unas 3 horas 🕒️ de trabajo.
-- Primeros pasos en el estudio del modelo transformer. Volveremos a dedicar más horas a esta arquitectura para la próxima sesión para abordarla en dos fases. Ahora, lee con detenimiento la introducción a mecanismos de atención de ["Visualizing A Neural Machine Translation Model"](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/), así como la introducción visual a los transformers de ["The Illustrated Transformer"](http://jalammar.github.io/illustrated-transformer/). A continuación, realiza una lectura no muy pausada del apartado 9.7 (solo este apartado) del capítulo ["Deep learning architectures for sequence processing"](https://web.archive.org/web/20221216193204/https://web.stanford.edu/~jurafsky/slp3/9.pdf). En total, esta parte debería llevarte unas 4 horas 🕒️ de trabajo. Volveremos a este capítulo para la próxima sesión. 
-- Realización del [test de evaluación]() de estos contenidos. Son pocas preguntas y te llevará unos minutos.
+- Lectura y estudio de [esta página](https://jaspock.github.io/me/materials/transformers/ffw) sobre las redes neuronales hacia delante. Puedes saltar de nuevo el apartado de [implementación en PyTorch](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch), ya que se estudiará también en la próxima clase presencial. En total, esta parte debería llevarte unas 3 horas 🕒️ de trabajo.
+- Primeros pasos en el estudio del modelo transformer. Volveremos a dedicar más horas a esta arquitectura para la próxima sesión de forma que la abordaremos en dos fases. Por ahora, lee con detenimiento la introducción a mecanismos de atención de ["Visualizing A Neural Machine Translation Model"](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/), así como la introducción visual a los transformers de ["The Illustrated Transformer"](http://jalammar.github.io/illustrated-transformer/). A continuación, lee el apartado 9.7 (solo este apartado) del capítulo ["Deep learning architectures for sequence processing"](https://web.archive.org/web/20221216193204/https://web.stanford.edu/~jurafsky/slp3/9.pdf); el objetivo es que entiendas conceptualmente el mecanismo de atención de los transformers, pero no es necesario que en este momento comprendas todos los detalles técnicos (especialmente las ecuaciones del modelo), ya que volverás a dedicarle tiempo a este capítulo más adelante. En total, esta parte debería llevarte ahora unas 4 horas 🕒️ de trabajo.
+- Realización del [test de evaluación](https://forms.gle/Eb3ZwwGxbQp88t4FA) de estos contenidos. Son pocas preguntas y te llevará unos minutos.
 
 #### Contenidos para la sesión presencial del 26/04/2023
 
+En la clase presencial, repasaremos los contenidos de la semana anterior y veremos sendas implementaciones en PyTorch del algoritmo [skip-grams](https://jaspock.github.io/me/materials/transformers/embeddings#implementación-en-pytorch) y de un modelo de lengua basado en [redes feedforward](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch).
 
 ## Tercera sesión (10 de mayo de 2023)
 
