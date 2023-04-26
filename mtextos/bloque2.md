@@ -3,13 +3,13 @@
 Técnicas para la minería de textos
 ==================================
 
-En este bloque se aborda el estudio de algunos modelos neuronales utilizados para procesar textos. El profesor de este bloque es Juan Antonio Pérez Ortiz. El bloque comienza con un repaso del funcionamiento del regresor logístico, que nos servirá para asentar los conocimientos necesarios para entender posteriores modelos. A continuación se estudia con cierto nivel de detalle *skip-grams*, uno de los algoritmos para la obtención de *embeddings* incontextuales de palabras. Después se repasa el funcionamiento de las arquitecturas neuronales *feedforward* y se estudia su aplicación a modelos de lengua. El objetivo último es abordar el estudio de la arquitectura más importante de los sistemas actuales de procesamiento de textos: el transformer. Una vez estudiadas estas arquitecturas, finalizaremos con un análisis del funcionamiento de los modelos preentrenados.
+En este bloque se aborda el estudio de algunos modelos neuronales utilizados para procesar textos. El profesor de este bloque es Juan Antonio Pérez Ortiz. El bloque comienza con un repaso del funcionamiento del regresor logístico, que nos servirá para asentar los conocimientos necesarios para entender posteriores modelos. A continuación se estudia con cierto nivel de detalle *skip-grams*, uno de los algoritmos para la obtención de *embeddings* incontextuales de palabras. Después se repasa el funcionamiento de las arquitecturas neuronales *feedforward* y se estudia su aplicación a modelos de lengua. El objetivo último es abordar el estudio de la arquitectura más importante de los sistemas actuales de procesamiento de textos: el transformer. Una vez estudiadas estas arquitecturas, finalizaremos con un análisis del funcionamiento de los modelos preentrenados (modelos fundacionales), en general, y de los modelos de lengua, en particular.
 
 Los materiales de clase complementan la lectura de algunos capítulos de un libro de texto ("Speech and Language Processing" de Dan Jurafsky y James H. Martin, borrador de la tercera edición, disponible online) con anotaciones realizadas por el profesor.
 
 ## Prácticas a entregar para este bloque
 
-Durante las sesiones de este bloque, estudiaremos diferentes implementaciones en PyTorch de modelos neuronales para procesar textos. Para cada ejemplo de código, excepto el último, has de entregar un notebook con el código original y bloques de texto con tus comentarios explicando el código en base a lo que has aprendido sobre el tema y sobre PyTorch. Entrega todos los notebooks en forma de enlaces de Google Colab a través de una tutoría de UACloud. Crea los cuadernos de Google Colab con tu cuenta de `gcloud.ua.es` y compártelos con la cuenta del profesor que te indicará en clase. Para el último bloque de código (implementación del transformer), tendrás que complementar el cuaderno con código propio para realizar una tarea adicional y un informe. El plazo de entrega acaba el 31 de mayo de 2023 a las 23.59 horas. Las prácticas se pueden hacer en parejas. Recordad que hay un examen final de la asignatura, por lo que es muy recomendable que ambos miembros del equipo se impliquen de igual manera.
+Durante las sesiones de este bloque, estudiaremos diferentes implementaciones en PyTorch de modelos neuronales para procesar textos. Para cada ejemplo de código, excepto el último, has de entregar un notebook con el código original y pequeños bloques de texto con tus comentarios explicando el código en base a lo que has aprendido sobre el tema y sobre PyTorch. Entrega todos los notebooks en forma de enlaces de Google Colab a través de una tutoría de UACloud. Crea los cuadernos de Google Colab con tu cuenta de `gcloud.ua.es` y compártelos con la cuenta del profesor que te indicará en clase. Para el último bloque de código (implementación del transformer), tendrás que complementar el cuaderno con código propio para realizar una tarea adicional y ajuntar un informe detallado dentro del cuaderno. El **plazo de entrega acaba el 31 de mayo de 2023** a las 23.59 horas. Las prácticas se pueden hacer en parejas. Recuerda que hay un examen final de la asignatura, por lo que es muy recomendable que ambos miembros del equipo se impliquen de igual manera.
 
 ## Primera sesión (29 de marzo de 2023)
 
@@ -23,9 +23,13 @@ Las actividades a realizar antes de esta clase son:
 
 **<span style="font-size: 1.15em">Contenidos para la sesión presencial del 29/03/2023</span>**
 
-En la clase presencial (3 horas 🕒️), repasaremos los contenidos de la semana anterior y veremos cómo se implementa el regresor logístico en PyTorch siguiendo la implementación de un regresor logístico binario y de uno multinomial que se comentan en [este apartado](https://jaspock.github.io/me/materials/transformers/regresor#regresores-implementados-en-pytorch).
+En la clase presencial (3 horas 🕒️ de duración), repasaremos los contenidos de la semana anterior y veremos cómo se implementa un regresor logístico en PyTorch siguiendo la implementación de un regresor logístico binario y de uno multinomial que se comentan en [este apartado](https://jaspock.github.io/me/materials/transformers/regresor#regresores-implementados-en-pytorch).
 
 La idea es que vayas creando una serie de notebooks en Google Colab en los que incluyas y comentes cada uno de los programas que vamos a ir viendo. En la última clase se presentará una práctica más avanzada que implicará modificar el código del transformer.
+
+*Nota:* por si te es de utilidad, tienes una copia del código que veremos en este bloque en [esta carpeta de Google Drive][drivecolab] (accede con tu cuenta de `gcloud.ua.es`).
+
+[drivecolab]: https://drive.google.com/drive/folders/1W47uSa0ddxalj9OWQIKk1mRYJ7xq6ftv?usp=sharing
 
 ## Segunda sesión (26 de abril de 2023)
 
@@ -42,7 +46,7 @@ Las actividades a realizar antes de esta clase son:
 
 **<span style="font-size: 1.15em">Contenidos para la sesión presencial del 26/04/2023</span>**
 
-En la clase presencial (3 horas 🕒️), repasaremos los contenidos de la semana anterior y veremos sendas implementaciones en PyTorch del algoritmo [skip-grams](https://jaspock.github.io/me/materials/transformers/embeddings#implementación-en-pytorch) y de un modelo de lengua basado en [redes feedforward](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch).
+En la clase presencial (3 horas 🕒️ de duración), repasaremos los contenidos de la semana anterior y veremos sendas implementaciones en PyTorch del algoritmo [skip-grams](https://jaspock.github.io/me/materials/transformers/embeddings#implementación-en-pytorch) y de un modelo de lengua basado en [redes feedforward](https://jaspock.github.io/me/materials/transformers/ffw#implementación-en-pytorch).
 
 ## Tercera sesión (10 de mayo de 2023)
 
@@ -50,7 +54,7 @@ En la clase presencial (3 horas 🕒️), repasaremos los contenidos de la seman
 
 Las actividades a realizar antes de esta clase son:
 
-- Afianzar el estudio de [esta página](https://jaspock.github.io/me/materials/transformers/transformer) sobre el modelo transformer y el capítulo correspondiente del libro. En realidad, ya estudiaste para la sesión anterior todos estos conceptos, pero se te pidió que no te detuvieras en exceso en los detalles técnicos del libro. Ahora, es el momento de que vuelvas a leerlo con más calma y consultes también las anotaciones del profesor que hay en la página web. Puedes saltar de nuevo el apartado de [implementación en PyTorch][guiamingpt], ya que se estudiará en la próxima clase presencial. En total, esta parte debería llevarte unas 4 horas 🕒️ de trabajo.
+- Afianzar el estudio de [esta página](https://jaspock.github.io/me/materials/transformers/attention) sobre el modelo transformer y el capítulo correspondiente del libro. En realidad, ya estudiaste para la sesión anterior todos estos conceptos, pero se te pidió que no te detuvieras en exceso en los detalles técnicos del libro. Ahora, es el momento de que vuelvas a leerlo con más calma y consultes también las anotaciones del profesor que hay en la página web. Puedes saltar de nuevo el apartado de [implementación en PyTorch][guiamingpt], ya que se estudiará en la próxima clase presencial. En total, esta parte debería llevarte unas 4 horas 🕒️ de trabajo.
 - Visualizar el [vídeo][vidkarpathy] que introduce las ideas principales de la implementación del transformer que estudiaremos en la clase presencial. Pausa el vídeo y vuelve atrás cuando sea necesario para entender los conceptos clave. En total, esta parte debería llevarte unas 2 horas 🕒️ de trabajo.
 
 [vidkarpathy]: https://youtu.be/kCc8FmEb1nY
@@ -58,7 +62,9 @@ Las actividades a realizar antes de esta clase son:
 
 **<span style="font-size: 1.15em">Contenidos para la sesión del 10/05/2023</span>**
 
-En la clase presencial (3 horas 🕒️), repasaremos los contenidos de la semana anterior y veremos cómo se [implementa el modelo transformer en PyTorch](https://jaspock.github.io/me/materials/transformers/transformer#implementación-en-pytorch). En esta clase, además, se presentará la parte final de la práctica a realizar en base al código del transformer.
+En la clase presencial (3 horas 🕒️ de duración), repasaremos los contenidos de la semana anterior y veremos cómo se [implementa el modelo transformer en PyTorch](https://jaspock.github.io/me/materials/transformers/attention#implementación-en-pytorch). En esta clase, además, se presentará la parte final de la práctica a realizar en base al código del transformer.
+
+Del código del transformer solo has de comentar en un cuaderno las clases `CausalSelfAttention` y `Block`, así como los métodos `forward`, `generate`, `__init__`, `_init_weights` y `get_default_config` de la clase `GPT`. Puedes añadir un pequeño código que use las clases del modelo. Haz la práctica final que se menciona a continuación en un cuaderno diferente.
 
 **<span style="font-size: 1.15em">Contenidos prácticos a trabajar tras la sesión</span>**
 
@@ -72,7 +78,7 @@ La *interpretabilidad mecanicista* en el contexto de la inteligencia artificial 
 
 El parcheado de activaciones *interviene* en una activación específica de un modelo mediante la sustitución de una activación *corrompida* con una activación *limpia*. Se mide entonces cómo afecta el cambio a la salida del modelo. Esto nos permite identificar qué activaciones son importantes para el resultado del modelo y localizar posibles causas de errores en la predicción. 
 
-En nuestro caso en particular, vas a escribir código que ejecute la versión más pequeña de GPT2 (`gpt2`) con dos entradas diferentes: dos textos que solo se diferencien en un único token. La idea es que al proporcionar al modelo la entrada corrompida, intervendremos en el embedding tras una cierta capa (uno solo cada vez) y lo parchearemos con el embedding correspondiente de la ejecución limpia. Luego mediremos cuánto cambia la predicción del siguiente token respecto a la ejecución limpia. Si el cambio es significativo, entonces podemos estar seguros de que la activación que hemos alterado es importante para la predicción. Este proceso lo realizaremos para cada capa del modelo y para cada token de la entrada. Con toda esta información, obtendremos una gráfica y sacaremos conclusiones. Por motivos que entenderás en un momento, los dos textos han de tener el mismo número de tokens.
+En nuestro caso particular, vas a escribir código que ejecute la versión más pequeña de GPT2 (usa la cadena `gpt2` en el código) con dos entradas diferentes: dos textos que solo se diferencien en un único token. La idea es que al proporcionar al modelo la entrada corrompida, intervendremos en el embedding tras una cierta capa (uno solo cada vez) y lo parchearemos con el embedding correspondiente de la ejecución limpia. Luego mediremos cuánto cambia la predicción del siguiente token respecto a la ejecución limpia. Si el cambio es significativo, entonces podemos estar seguros de que la activación que hemos alterado es importante para la predicción. Este proceso de parcheado lo realizaremos para cada capa del modelo y para cada token de la entrada. Con toda esta información, obtendremos una gráfica y sacaremos conclusiones. Por motivos que entenderás en un momento, los dos textos han de tener el mismo número de tokens.
 
 **<span style="font-size: 1.15em">Ejemplo de análisis</span>**
 
@@ -168,7 +174,7 @@ Daremos un ejemplo para que se entienda mejor. Considera el siguiente texto de e
 
 ```
 
-Como era de esperar, el token "Jones" tiene una probabilidad notablemente elevada. Ahora, considera la entrada corrompida "Michelle Smith was a top-notch student. Michelle". Si le damos esta entrada a GPT2, esperamos que la probabilidad de "Jones" sea mucho menor que antes y que la de "Smith" sea mucho mayor, lo que (puedes comprobarlo) efectivamente ocurre. Pero queremos ir más allá y saber qué embeddings son los que más influyen en esta diferencia. Dado que ambas entradas tienen 11 tokens (más adelante explicaremos cómo averiguarlo) y que el transformer del modelo GPT2 pequeño tiene 12 capas, si nos centramos en los embeddings que se obtienen a la salida de cada capa, podemos parchear 11×12 = 132 embeddings diferentes. Calcularemos, por tanto, 132 veces la diferencia entre el logit de "Smith" y el logit de "Jones" en la salida del último token de la entrada ("Michelle") en el modelo corrompido. Observa que también podríamos calcular las diferencias tras aplicar la función softmax, pero en este caso no lo haremos.
+Como era de esperar, el token "Jones" tiene una probabilidad notablemente elevada. Ahora, considera la entrada corrompida "Michelle Smith was a top-notch student. Michelle". Si le damos esta entrada a GPT2, esperamos que la probabilidad de "Jones" a como continuación del texto sea mucho menor que antes y que la de "Smith" sea mucho mayor, lo que (puedes comprobarlo) efectivamente ocurre. Pero queremos ir más allá y saber qué embeddings son los que más influyen en esta diferencia. Dado que ambas entradas tienen 11 tokens (más adelante explicaremos cómo averiguarlo) y que el transformer del modelo GPT2 pequeño tiene 12 capas, si nos centramos en los embeddings que se obtienen a la salida de cada capa, podemos parchear 11×12 = 132 embeddings diferentes. Calcularemos, por tanto, 132 veces la diferencia entre el logit de "Smith" y el logit de "Jones" en la salida del último token de la entrada ("Michelle") en el modelo corrompido. Observa que también podríamos calcular las diferencias tras aplicar la función softmax, pero en este caso no lo haremos.
 
 Una representación en forma de mapa de calor del resultado es la siguiente:
 
@@ -183,7 +189,7 @@ Recuerda que en un gráfico como el anterior, debido a la máscara de atención 
 
 Algunos textos corrompidos adicionales que puede ser interesante explorar son, por ejemplo, "Jessica Jones was a top-notch student. Michelle" o "Michelle Smith was a top-notch student. Jessica".
 
-En esta práctica se trata de que programes el código que te permite obtener gráficas y probabilidades como las anteriores, propongas tus propios textos limpios y corrompidos (intenta tirar de creatividad y no estudiar textos o fenómenos muy similares), realices un análisis parecido al anterior y escribas un informe de unas 7-15 páginas en el que presentes y comentes el código que has implementado, además de presentar tu enfoque, los resultados y las conclusiones pertinentes. Serán bienvenidas las ideas originales y los experimentos adicionales que se os ocurran.
+En esta práctica se trata de que programes el código que te permite obtener gráficas y probabilidades como las anteriores, propongas tus propios textos limpios y corrompidos (intenta tirar de creatividad y no estudiar textos o fenómenos muy similares), realices un análisis parecido al anterior y escribas un informe dentro de un cuaderno de Python de unas 1500-2000 palabras en el que presentes y comentes el código que has implementado, además de presentar tu enfoque, los resultados y las conclusiones pertinentes. Serán bienvenidas las ideas originales y los experimentos adicionales que se te ocurran.
 
 **<span style="font-size: 1.15em">Tokenization</span>**
 
@@ -195,7 +201,8 @@ from mingpt.bpe import BPETokenizer
 input = "Michelle Jones was a top-notch student. Michelle"
 print("Input:", input)
 bpe = BPETokenizer()
-# bpe() gets a string and returns a 2D batch tensor of indices with shape (1, input_length)
+# bpe() gets a string and returns a 2D batch tensor 
+# of indices with shape (1, input_length)
 tokens = bpe(input)[0]
 print("Tokenized input:", tokens)
 input_length = tokens.shape[-1]
