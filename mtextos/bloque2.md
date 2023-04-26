@@ -68,7 +68,7 @@ Del código del transformer solo has de comentar en un cuaderno las clases `Caus
 
 **<span style="font-size: 1.15em">Contenidos prácticos a trabajar tras la sesión</span>**
 
-Tras la sesión, ya puedes ponerte a trabajar en la práctica de desarrollo a realizar para este bloque y de la cual saldrá la mayor parte de la nota del bloque. Se espera que dediques a ella unas 11 horas 🕒️ de trabajo. La práctica se basa en modificar ligeramente el código de [minGPT][guiamingpt] para poder realizar experimentos de interpretabilidad mecanicista. El enunciado completo está en el siguiente apartado.
+Tras la sesión, ya puedes ponerte a trabajar en la práctica de desarrollo a realizar para este bloque y de la cual saldrá la mayor parte de la nota del bloque (un 90% aproximadamente). Se espera que dediques a ella unas 11 horas 🕒️ de trabajo. La práctica se basa en modificar ligeramente el código de [minGPT][guiamingpt] para poder realizar experimentos de interpretabilidad mecanicista. El enunciado completo está en el siguiente apartado.
 
 ## Práctica sobre interpretabilidad mecanicista de transformers
 
@@ -219,7 +219,7 @@ Lo siguiente son algunos detalles de implementación que te pueden ser útiles, 
 
 Para conseguir un código que te permita realizar el parcheado de activaciones te tendrás que centrar en los ficheros `mingpt/model.py` y `generate.ipynb`. Si trabajas en local sin usar un *notebook* (recomendado) copia el código de `generate.ipynb` en un fichero `generate.py` que puedas ejecutar desde la línea de órdenes.
 
-Puedes trabajar directamente en una sesión de Google Colab. Aquí tienes un [proyecto][proyectocolab] (accede con tu cuenta de `gcloud.ua.es`) con instrucciones sobre cómo usarlo para desarrollar. Sin embargo, es mucho más cómodo desarrollar en local (entre otras cosas, puedes trabajar con un mejor editor de texto que el de Colab y también depurar). Incluso si no tienes una GPU, el código funciona sin problemas sobre CPU y solo tarda unos segundos más que sobre GPU al solo trabajar con un texto y con un modelo no excesivamente grande.
+Puedes trabajar directamente en una sesión de Google Colab. Aquí tienes un [proyecto][proyectocolab] (accede con tu cuenta de `gcloud.ua.es`) con instrucciones sobre cómo usarlo para desarrollar. Sin embargo, es mucho más cómodo desarrollar en local (entre otras cosas, puedes trabajar con un mejor editor de texto que el de Colab y también depurar). Incluso si no tienes una GPU, el código funciona sin problemas sobre CPU y solo tarda unos segundos más que sobre GPU al solo trabajar con un texto y con un modelo no excesivamente grande. Cuando tengas el código final, puedes subirlo a un notebook para su entrega.
 
 Añade a la función `forward` del transformer, código que permita salvar (según el valor de cierto *flag* booleano recibido como parámetro) en una variable de instancia las activaciones de cada capa y cada posición. Recuerda hacer una copia profunda de los embeddings y no guardar únicamente una referencia que puede ser sobreescrita posteriormente; para ello, consulta la secuencia de llamadas `.detach().clone()` de PyTorch. Añade también código que permita (de nuevo en base a un parámetro booleano) parchear el embedding de una capa y posición concretas. 
 
